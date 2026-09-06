@@ -1,0 +1,27 @@
+[
+  { "id": "es_phrase_como_estas", "phrase": "¿Cómo estás?", "meaning": "How are you?", "languageId": "es", "category": "greetings" },
+  { "id": "es_phrase_mucho_gusto", "phrase": "Mucho gusto", "meaning": "Nice to meet you", "languageId": "es", "category": "greetings" },
+  { "id": "es_phrase_como_te_llamas", "phrase": "¿Cómo te llamas?", "meaning": "What is your name?", "languageId": "es", "category": "greetings" },
+  { "id": "es_phrase_hasta_luego", "phrase": "Hasta luego", "meaning": "See you later", "languageId": "es", "category": "greetings" },
+  { "id": "es_phrase_nos_vemos_manana", "phrase": "Nos vemos mañana", "meaning": "See you tomorrow", "languageId": "es", "category": "greetings" },
+  { "id": "es_phrase_feliz_cumpleanos", "phrase": "¡Feliz cumpleaños!", "meaning": "Happy birthday!", "languageId": "es", "category": "greetings" },
+
+  { "id": "es_phrase_donde_esta_el_bano", "phrase": "¿Dónde está el baño?", "meaning": "Where is the bathroom?", "languageId": "es", "category": "questions" },
+  { "id": "es_phrase_que_hora_es", "phrase": "¿Qué hora es?", "meaning": "What time is it?", "languageId": "es", "category": "questions" },
+  { "id": "es_phrase_puede_ayudarme", "phrase": "¿Puede ayudarme?", "meaning": "Can you help me?", "languageId": "es", "category": "questions" },
+  { "id": "es_phrase_hablas_ingles", "phrase": "¿Hablas inglés?", "meaning": "Do you speak English?", "languageId": "es", "category": "questions" },
+  { "id": "es_phrase_no_entiendo", "phrase": "No entiendo", "meaning": "I don't understand", "languageId": "es", "category": "questions" },
+  { "id": "es_phrase_necesito_ayuda", "phrase": "Necesito ayuda", "meaning": "I need help", "languageId": "es", "category": "questions" },
+
+  { "id": "es_phrase_donde_esta_la_estacion", "phrase": "¿Dónde está la estación?", "meaning": "Where is the station?", "languageId": "es", "category": "travel" },
+  { "id": "es_phrase_cuanto_cuesta_esto", "phrase": "¿Cuánto cuesta esto?", "meaning": "How much does this cost?", "languageId": "es", "category": "travel" },
+  { "id": "es_phrase_tengo_una_reserva", "phrase": "Tengo una reserva", "meaning": "I have a reservation", "languageId": "es", "category": "travel" },
+  { "id": "es_phrase_buen_viaje", "phrase": "Buen viaje", "meaning": "Have a good trip", "languageId": "es", "category": "travel" },
+
+  { "id": "es_phrase_me_gustaria_un_cafe", "phrase": "Me gustaría un café", "meaning": "I would like a coffee", "languageId": "es", "category": "dining" },
+  { "id": "es_phrase_buen_provecho", "phrase": "Buen provecho", "meaning": "Enjoy your meal", "languageId": "es", "category": "dining" },
+  { "id": "es_phrase_la_cuenta_por_favor", "phrase": "La cuenta, por favor", "meaning": "The bill, please", "languageId": "es", "category": "dining" },
+
+  { "id": "es_phrase_lo_siento_mucho", "phrase": "Lo siento mucho", "meaning": "I am very sorry", "languageId": "es", "category": "greetings" },
+  { "id": "es_phrase_de_donde_eres", "phrase": "¿De dónde eres?", "meaning": "Where are you from?", "languageId": "es", "category": "questions" }
+]

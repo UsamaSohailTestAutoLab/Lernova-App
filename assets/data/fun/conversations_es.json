@@ -1,0 +1,130 @@
+[
+  {
+    "id": "es_conv_cafe",
+    "title": "At the Café",
+    "scenario": "You're ordering a coffee at a café.",
+    "languageId": "es",
+    "turns": [
+      {
+        "id": "es_conv_cafe_t1",
+        "line": "¡Hola! ¿Qué quieres tomar?",
+        "lineEnglish": "Hello! What would you like to drink?",
+        "options": ["Quiero un café, por favor", "Hola, adiós", "Tengo un perro"],
+        "optionsEnglish": ["I want a coffee, please", "Hello, goodbye", "I have a dog"],
+        "correctIndex": 0
+      },
+      {
+        "id": "es_conv_cafe_t2",
+        "line": "¿Algo más?",
+        "lineEnglish": "Anything else?",
+        "options": ["No, gracias", "Sí, quiero un gato", "Buenas noches"],
+        "optionsEnglish": ["No, thank you", "Yes, I want a cat", "Good night"],
+        "correctIndex": 0
+      },
+      {
+        "id": "es_conv_cafe_t3",
+        "line": "Son tres euros.",
+        "lineEnglish": "That's three euros.",
+        "options": ["Aquí tiene", "Lo siento", "¿Cómo te llamas?"],
+        "optionsEnglish": ["Here you go", "I'm sorry", "What's your name?"],
+        "correctIndex": 0
+      }
+    ]
+  },
+  {
+    "id": "es_conv_directions",
+    "title": "Asking Directions",
+    "scenario": "You're a tourist asking a local for directions to the station.",
+    "languageId": "es",
+    "turns": [
+      {
+        "id": "es_conv_directions_t1",
+        "line": "¿En qué puedo ayudarte?",
+        "lineEnglish": "How can I help you?",
+        "options": ["¿Dónde está la estación, por favor?", "Me gusta el café", "Tengo hambre"],
+        "optionsEnglish": ["Where is the station, please?", "I like coffee", "I'm hungry"],
+        "correctIndex": 0
+      },
+      {
+        "id": "es_conv_directions_t2",
+        "line": "Está a la izquierda.",
+        "lineEnglish": "It's on the left.",
+        "options": ["Muchas gracias", "Buenas noches", "Lo siento"],
+        "optionsEnglish": ["Thank you very much", "Good night", "I'm sorry"],
+        "correctIndex": 0
+      },
+      {
+        "id": "es_conv_directions_t3",
+        "line": "De nada, ¡buen viaje!",
+        "lineEnglish": "You're welcome, have a good trip!",
+        "options": ["Adiós, gracias", "¿Cómo estás?", "Quiero agua"],
+        "optionsEnglish": ["Goodbye, thank you", "How are you?", "I want water"],
+        "correctIndex": 0
+      }
+    ]
+  },
+  {
+    "id": "es_conv_meeting",
+    "title": "Meeting Someone New",
+    "scenario": "You're introducing yourself to someone new.",
+    "languageId": "es",
+    "turns": [
+      {
+        "id": "es_conv_meeting_t1",
+        "line": "¡Hola! Me llamo Ana. ¿Cómo te llamas?",
+        "lineEnglish": "Hello! My name is Ana. What's your name?",
+        "options": ["Me llamo Carlos", "Tengo diez años", "Es delicioso"],
+        "optionsEnglish": ["My name is Carlos", "I'm ten years old", "It's delicious"],
+        "correctIndex": 0
+      },
+      {
+        "id": "es_conv_meeting_t2",
+        "line": "Mucho gusto, Carlos. ¿Cómo estás?",
+        "lineEnglish": "Nice to meet you, Carlos. How are you?",
+        "options": ["Estoy bien, gracias", "Es mi hermano", "Quiero un boleto"],
+        "optionsEnglish": ["I'm good, thank you", "He's my brother", "I want a ticket"],
+        "correctIndex": 0
+      },
+      {
+        "id": "es_conv_meeting_t3",
+        "line": "¡Qué bien! Nos vemos mañana.",
+        "lineEnglish": "Great! See you tomorrow.",
+        "options": ["Hasta luego", "Buenos días", "Perdón"],
+        "optionsEnglish": ["See you later", "Good morning", "Sorry"],
+        "correctIndex": 0
+      }
+    ]
+  },
+  {
+    "id": "es_conv_hotel",
+    "title": "Hotel Check-in",
+    "scenario": "You're checking in at a hotel front desk.",
+    "languageId": "es",
+    "turns": [
+      {
+        "id": "es_conv_hotel_t1",
+        "line": "Buenas tardes. ¿Tiene una reserva?",
+        "lineEnglish": "Good afternoon. Do you have a reservation?",
+        "options": ["Sí, tengo una reserva", "No, quiero agua", "Es mi maleta"],
+        "optionsEnglish": ["Yes, I have a reservation", "No, I want water", "It's my suitcase"],
+        "correctIndex": 0
+      },
+      {
+        "id": "es_conv_hotel_t2",
+        "line": "¿Cuál es su nombre?",
+        "lineEnglish": "What is your name?",
+        "options": ["Me llamo Carlos", "Tengo hambre", "Está bien"],
+        "optionsEnglish": ["My name is Carlos", "I'm hungry", "That's fine"],
+        "correctIndex": 0
+      },
+      {
+        "id": "es_conv_hotel_t3",
+        "line": "Perfecto. Aquí está su llave.",
+        "lineEnglish": "Perfect. Here is your key.",
+        "options": ["Muchas gracias", "Lo siento", "¿Dónde está?"],
+        "optionsEnglish": ["Thank you very much", "I'm sorry", "Where is it?"],
+        "correctIndex": 0
+      }
+    ]
+  }
+]

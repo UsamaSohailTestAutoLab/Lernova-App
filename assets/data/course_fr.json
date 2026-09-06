@@ -1,0 +1,51 @@
+{
+  "id": "course_fr",
+  "languageId": "fr",
+  "title": "French",
+  "description": "Get started with essential French words and phrases.",
+  "placementQuestions": [
+    { "id": "fp1", "prompt": "What does 'Bonjour' mean?", "options": ["Goodbye", "Hello", "Thanks", "Please"], "correctIndex": 1, "unlocksUnitIndex": 0 },
+    { "id": "fp2", "prompt": "What does 'Chien' mean?", "options": ["Cat", "Dog", "House", "Water"], "correctIndex": 1, "unlocksUnitIndex": 0 }
+  ],
+  "units": [
+    {
+      "id": "fr_u1",
+      "title": "First Words",
+      "description": "Your first French vocabulary",
+      "icon": "greeting",
+      "accent": "green",
+      "lessons": [
+        {
+          "id": "fr_u1_l1",
+          "title": "Bonjour!",
+          "subtitle": "Basic French greetings",
+          "icon": "greeting",
+          "exercises": [
+            { "id": "fr_u1_l1_e1", "type": "multipleChoice", "vocabId": "fr_bonjour", "payload": { "prompt": "Which word means 'Hello'?", "options": ["Bonjour", "Au revoir", "Merci", "Non"], "correctIndex": 0 } },
+            { "id": "fr_u1_l1_e2", "type": "translation", "vocabId": "fr_merci", "payload": { "prompt": "Type the English meaning", "sourceText": "Merci beaucoup", "acceptableAnswers": ["thank you very much", "Thank you very much"] } },
+            { "id": "fr_u1_l1_e3", "type": "listening", "vocabId": "fr_au_revoir", "payload": { "prompt": "Listen and select what you hear", "audioText": "Au revoir", "ttsLocale": "fr-FR", "options": ["Bonjour", "Au revoir", "Merci", "Oui"], "correctIndex": 1 } },
+            { "id": "fr_u1_l1_e4", "type": "speaking", "vocabId": "fr_sil_vous_plait", "payload": { "prompt": "Say this phrase out loud", "targetPhrase": "S'il vous plaît", "translation": "Please" } },
+            { "id": "fr_u1_l1_e5", "type": "wordMatching", "vocabId": "fr_greetings_set1", "payload": { "prompt": "Match each word to its meaning", "pairs": [ { "left": "Bonjour", "right": "Hello" }, { "left": "Merci", "right": "Thank you" }, { "left": "Oui", "right": "Yes" }, { "left": "Non", "right": "No" } ] } },
+            { "id": "fr_u1_l1_e6", "type": "sentenceArrangement", "vocabId": "fr_merci", "payload": { "prompt": "Build the sentence", "shuffledChips": ["beaucoup", "Merci"], "correctSentence": ["Merci", "beaucoup"] } },
+            { "id": "fr_u1_l1_e7", "type": "fillInTheBlank", "vocabId": "fr_bonjour", "payload": { "sentenceTemplate": "___, madame.", "options": ["Bonjour", "Non", "Merci", "Oui"], "correctAnswer": "Bonjour" } }
+          ]
+        },
+        {
+          "id": "fr_u1_l2",
+          "title": "Everyday Words",
+          "subtitle": "Common French essentials",
+          "icon": "essentials",
+          "exercises": [
+            { "id": "fr_u1_l2_e1", "type": "multipleChoice", "vocabId": "fr_eau", "payload": { "prompt": "Which word means 'Water'?", "options": ["Eau", "Pain", "Chat", "Chien"], "correctIndex": 0 } },
+            { "id": "fr_u1_l2_e2", "type": "translation", "vocabId": "fr_ami", "payload": { "prompt": "Type the English meaning", "sourceText": "Mon ami", "acceptableAnswers": ["my friend", "My friend"] } },
+            { "id": "fr_u1_l2_e3", "type": "listening", "vocabId": "fr_maison", "payload": { "prompt": "Listen and select what you hear", "audioText": "Maison", "ttsLocale": "fr-FR", "options": ["Chien", "Maison", "Chat", "Pain"], "correctIndex": 1 } },
+            { "id": "fr_u1_l2_e4", "type": "speaking", "vocabId": "fr_chat", "payload": { "prompt": "Say this phrase out loud", "targetPhrase": "J'aime mon chat", "translation": "I love my cat" } },
+            { "id": "fr_u1_l2_e5", "type": "wordMatching", "vocabId": "fr_words_set1", "payload": { "prompt": "Match each word to its meaning", "pairs": [ { "left": "Eau", "right": "Water" }, { "left": "Pain", "right": "Bread" }, { "left": "Chat", "right": "Cat" }, { "left": "Chien", "right": "Dog" } ] } },
+            { "id": "fr_u1_l2_e6", "type": "sentenceArrangement", "vocabId": "fr_chien", "payload": { "prompt": "Build the sentence", "shuffledChips": ["chien", "mon", "J'aime"], "correctSentence": ["J'aime", "mon", "chien"] } },
+            { "id": "fr_u1_l2_e7", "type": "fillInTheBlank", "vocabId": "fr_maison", "payload": { "sentenceTemplate": "J'habite dans une ___.", "options": ["maison", "eau", "pain", "ami"], "correctAnswer": "maison" } }
+          ]
+        }
+      ]
+    }
+  ]
+}

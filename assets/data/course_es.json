@@ -1,0 +1,180 @@
+{
+  "id": "course_es",
+  "languageId": "es",
+  "title": "Spanish",
+  "description": "Learn conversational Spanish through short, focused lessons.",
+  "placementQuestions": [
+    { "id": "p1", "prompt": "What does 'Hola' mean?", "options": ["Hello", "Goodbye", "Please", "Thanks"], "correctIndex": 0, "unlocksUnitIndex": 0 },
+    { "id": "p2", "prompt": "What does 'Gracias' mean?", "options": ["Sorry", "Thank you", "Yes", "Water"], "correctIndex": 1, "unlocksUnitIndex": 0 },
+    { "id": "p3", "prompt": "What does 'Por favor' mean?", "options": ["Please", "Sorry", "Goodbye", "Yes"], "correctIndex": 0, "unlocksUnitIndex": 0 },
+    { "id": "p4", "prompt": "What does 'Madre' mean?", "options": ["Father", "Sister", "Mother", "Brother"], "correctIndex": 2, "unlocksUnitIndex": 1 },
+    { "id": "p5", "prompt": "What does 'Agua' mean?", "options": ["Bread", "Water", "Milk", "Rice"], "correctIndex": 1, "unlocksUnitIndex": 1 },
+    { "id": "p6", "prompt": "What does 'Cinco' mean?", "options": ["Four", "Five", "Six", "Ten"], "correctIndex": 1, "unlocksUnitIndex": 2 },
+    { "id": "p7", "prompt": "What does '¿Dónde está?' mean?", "options": ["How much?", "Where is?", "What is?", "Who is?"], "correctIndex": 1, "unlocksUnitIndex": 2 },
+    { "id": "p8", "prompt": "What does 'Necesito ayuda' mean?", "options": ["I need help", "I want food", "I am lost", "I have a ticket"], "correctIndex": 0, "unlocksUnitIndex": 2 }
+  ],
+  "units": [
+    {
+      "id": "es_u1",
+      "title": "Greetings & Basics",
+      "description": "Say hello and be polite",
+      "icon": "greeting",
+      "accent": "green",
+      "lessons": [
+        {
+          "id": "es_u1_l1",
+          "title": "Say Hello",
+          "subtitle": "Hola, Gracias, Por favor, Buenos días, Adiós",
+          "icon": "greeting",
+          "exercises": [
+            { "id": "es_u1_l1_e1", "type": "imageRecognition", "vocabId": "es_hola", "payload": { "prompt": "What does this word mean?", "emoji": "👋", "targetWord": "Hola", "meaning": "Hello", "distractorMeanings": ["Goodbye", "Thank you", "Please"], "distractorWords": ["Gracias", "Adiós", "Por favor"] } },
+            { "id": "es_u1_l1_e2", "type": "multipleChoice", "vocabId": "es_gracias", "payload": { "prompt": "Which word means 'Thank you'?", "options": ["Gracias", "Hola", "Adiós", "Por favor"], "correctIndex": 0 } },
+            { "id": "es_u1_l1_e3", "type": "listening", "vocabId": "es_por_favor", "payload": { "prompt": "Listen and select what you hear", "audioText": "Por favor", "ttsLocale": "es-ES", "options": ["Hola", "Gracias", "Por favor", "Adiós"], "correctIndex": 2 } },
+            { "id": "es_u1_l1_e4", "type": "translation", "vocabId": "es_buenos_dias", "payload": { "prompt": "Type the English meaning of this phrase", "sourceText": "Buenos días", "acceptableAnswers": ["good morning", "Good morning"] } },
+            { "id": "es_u1_l1_e5", "type": "wordMatching", "vocabId": "es_greetings_set1", "payload": { "prompt": "Match each word to its meaning", "pairs": [ { "left": "Hola", "right": "Hello" }, { "left": "Gracias", "right": "Thank you" }, { "left": "Por favor", "right": "Please" }, { "left": "Adiós", "right": "Goodbye" } ] } },
+            { "id": "es_u1_l1_e6", "type": "sentenceArrangement", "vocabId": "es_gracias", "payload": { "prompt": "Put the words in the right order", "shuffledChips": ["gracias", "Muchas"], "correctSentence": ["Muchas", "gracias"] } },
+            { "id": "es_u1_l1_e7", "type": "speaking", "vocabId": "es_buenos_dias", "payload": { "prompt": "Say this phrase out loud", "targetPhrase": "Buenos días", "translation": "Good morning" } }
+          ]
+        },
+        {
+          "id": "es_u1_l2",
+          "title": "Yes, No, Sorry",
+          "subtitle": "Sí, No, Lo siento, De nada",
+          "icon": "agreement",
+          "exercises": [
+            { "id": "es_u1_l2_e1", "type": "imageRecognition", "vocabId": "es_si", "payload": { "prompt": "What does this word mean?", "emoji": "✅", "targetWord": "Sí", "meaning": "Yes", "distractorMeanings": ["No", "Sorry", "You're welcome"], "distractorWords": ["No", "Lo siento", "De nada"] } },
+            { "id": "es_u1_l2_e2", "type": "multipleChoice", "vocabId": "es_no", "payload": { "prompt": "Which word means 'No'?", "options": ["No", "Sí", "Gracias", "Hola"], "correctIndex": 0 } },
+            { "id": "es_u1_l2_e3", "type": "listening", "vocabId": "es_lo_siento", "payload": { "prompt": "Listen and select what you hear", "audioText": "Lo siento", "ttsLocale": "es-ES", "options": ["Por favor", "Lo siento", "De nada", "Gracias"], "correctIndex": 1 } },
+            { "id": "es_u1_l2_e4", "type": "translation", "vocabId": "es_de_nada", "payload": { "prompt": "Type the English meaning", "sourceText": "De nada", "acceptableAnswers": ["you're welcome", "You're welcome", "youre welcome"] } },
+            { "id": "es_u1_l2_e5", "type": "wordMatching", "vocabId": "es_yesno_set1", "payload": { "prompt": "Match each word to its meaning", "pairs": [ { "left": "Sí", "right": "Yes" }, { "left": "No", "right": "No" }, { "left": "Lo siento", "right": "Sorry" }, { "left": "De nada", "right": "You're welcome" } ] } },
+            { "id": "es_u1_l2_e6", "type": "sentenceArrangement", "vocabId": "es_si", "payload": { "prompt": "Build the sentence", "shuffledChips": ["favor", "por", "Sí"], "correctSentence": ["Sí", "por", "favor"] } },
+            { "id": "es_u1_l2_e7", "type": "speaking", "vocabId": "es_no", "payload": { "prompt": "Say this phrase out loud", "targetPhrase": "No, gracias", "translation": "No, thank you" } }
+          ]
+        },
+        {
+          "id": "es_u1_l3",
+          "title": "Polite Basics",
+          "subtitle": "Everyday courtesy words, all together",
+          "icon": "manners",
+          "exercises": [
+            { "id": "es_u1_l3_e1", "type": "imageRecognition", "vocabId": "es_gracias", "payload": { "prompt": "What does this word mean?", "emoji": "🙏", "targetWord": "Gracias", "meaning": "Thank you", "distractorMeanings": ["Hello", "Goodbye", "Yes"], "distractorWords": ["Hola", "Adiós", "Sí"] } },
+            { "id": "es_u1_l3_e2", "type": "multipleChoice", "vocabId": "es_adios", "payload": { "prompt": "Which word means 'Goodbye'?", "options": ["Adiós", "Hola", "Gracias", "No"], "correctIndex": 0 } },
+            { "id": "es_u1_l3_e3", "type": "listening", "vocabId": "es_si", "payload": { "prompt": "Listen and select what you hear", "audioText": "Sí", "ttsLocale": "es-ES", "options": ["Sí", "No", "Hola", "Adiós"], "correctIndex": 0 } },
+            { "id": "es_u1_l3_e4", "type": "translation", "vocabId": "es_lo_siento", "payload": { "prompt": "Type the English meaning", "sourceText": "Lo siento", "acceptableAnswers": ["sorry", "Sorry", "i'm sorry", "I'm sorry"] } },
+            { "id": "es_u1_l3_e5", "type": "wordMatching", "vocabId": "es_polite_set1", "payload": { "prompt": "Match each word to its meaning", "pairs": [ { "left": "Hola", "right": "Hello" }, { "left": "Adiós", "right": "Goodbye" }, { "left": "Sí", "right": "Yes" }, { "left": "No", "right": "No" } ] } },
+            { "id": "es_u1_l3_e6", "type": "sentenceArrangement", "vocabId": "es_no", "payload": { "prompt": "Build the sentence", "shuffledChips": ["gracias", "No"], "correctSentence": ["No", "gracias"] } },
+            { "id": "es_u1_l3_e7", "type": "speaking", "vocabId": "es_si", "payload": { "prompt": "Say this phrase out loud", "targetPhrase": "Sí, gracias", "translation": "Yes, thank you" } }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "es_u2",
+      "title": "Food & Family",
+      "description": "Talk about the people and meals you love",
+      "icon": "food",
+      "accent": "amber",
+      "lessons": [
+        {
+          "id": "es_u2_l1",
+          "title": "Family Members",
+          "subtitle": "Talk about your family",
+          "icon": "family",
+          "exercises": [
+            { "id": "es_u2_l1_e1", "type": "multipleChoice", "vocabId": "es_madre", "payload": { "prompt": "Which word means 'Mother'?", "options": ["Madre", "Padre", "Hermana", "Abuela"], "correctIndex": 0 } },
+            { "id": "es_u2_l1_e2", "type": "translation", "vocabId": "es_hermano", "payload": { "prompt": "Type the English meaning", "sourceText": "Mi hermano", "acceptableAnswers": ["my brother", "My brother"] } },
+            { "id": "es_u2_l1_e3", "type": "listening", "vocabId": "es_abuelo", "payload": { "prompt": "Listen and select what you hear", "audioText": "Abuelo", "ttsLocale": "es-ES", "options": ["Abuela", "Abuelo", "Padre", "Hermano"], "correctIndex": 1 } },
+            { "id": "es_u2_l1_e4", "type": "speaking", "vocabId": "es_hermana", "payload": { "prompt": "Say this phrase out loud", "targetPhrase": "Mi hermana es alta", "translation": "My sister is tall" } },
+            { "id": "es_u2_l1_e5", "type": "wordMatching", "vocabId": "es_family_set1", "payload": { "prompt": "Match each word to its meaning", "pairs": [ { "left": "Madre", "right": "Mother" }, { "left": "Padre", "right": "Father" }, { "left": "Hermano", "right": "Brother" }, { "left": "Hermana", "right": "Sister" } ] } },
+            { "id": "es_u2_l1_e6", "type": "sentenceArrangement", "vocabId": "es_madre", "payload": { "prompt": "Build the sentence", "shuffledChips": ["mi", "es", "Ana", "madre"], "correctSentence": ["Ana", "es", "mi", "madre"] } },
+            { "id": "es_u2_l1_e7", "type": "fillInTheBlank", "vocabId": "es_abuela", "payload": { "sentenceTemplate": "Mi ___ se llama Rosa.", "options": ["abuela", "padre", "hermano", "abuelo"], "correctAnswer": "abuela" } }
+          ]
+        },
+        {
+          "id": "es_u2_l2",
+          "title": "Food Basics",
+          "subtitle": "Name common foods and drinks",
+          "icon": "food",
+          "exercises": [
+            { "id": "es_u2_l2_e1", "type": "multipleChoice", "vocabId": "es_agua", "payload": { "prompt": "Which word means 'Water'?", "options": ["Agua", "Pan", "Leche", "Café"], "correctIndex": 0 } },
+            { "id": "es_u2_l2_e2", "type": "translation", "vocabId": "es_manzana", "payload": { "prompt": "Type the English meaning", "sourceText": "Una manzana", "acceptableAnswers": ["an apple", "one apple", "An apple"] } },
+            { "id": "es_u2_l2_e3", "type": "listening", "vocabId": "es_pan", "payload": { "prompt": "Listen and select what you hear", "audioText": "Pan", "ttsLocale": "es-ES", "options": ["Agua", "Pan", "Arroz", "Café"], "correctIndex": 1 } },
+            { "id": "es_u2_l2_e4", "type": "speaking", "vocabId": "es_cafe", "payload": { "prompt": "Say this phrase out loud", "targetPhrase": "Quiero café, por favor", "translation": "I want coffee, please" } },
+            { "id": "es_u2_l2_e5", "type": "wordMatching", "vocabId": "es_food_set1", "payload": { "prompt": "Match each word to its meaning", "pairs": [ { "left": "Pan", "right": "Bread" }, { "left": "Agua", "right": "Water" }, { "left": "Leche", "right": "Milk" }, { "left": "Arroz", "right": "Rice" } ] } },
+            { "id": "es_u2_l2_e6", "type": "sentenceArrangement", "vocabId": "es_agua", "payload": { "prompt": "Build the sentence", "shuffledChips": ["quiero", "agua", "Yo"], "correctSentence": ["Yo", "quiero", "agua"] } },
+            { "id": "es_u2_l2_e7", "type": "fillInTheBlank", "vocabId": "es_cafe", "payload": { "sentenceTemplate": "Me gusta el ___ con leche.", "options": ["café", "agua", "arroz", "pan"], "correctAnswer": "café" } }
+          ]
+        },
+        {
+          "id": "es_u2_l3",
+          "title": "At the Table",
+          "subtitle": "Talk about eating together",
+          "icon": "table",
+          "exercises": [
+            { "id": "es_u2_l3_e1", "type": "multipleChoice", "vocabId": "es_tengo_hambre", "payload": { "prompt": "Which phrase means 'I'm hungry'?", "options": ["Tengo hambre", "Quiero más", "Es delicioso", "Por favor"], "correctIndex": 0 } },
+            { "id": "es_u2_l3_e2", "type": "translation", "vocabId": "es_delicioso", "payload": { "prompt": "Type the English meaning", "sourceText": "Es delicioso", "acceptableAnswers": ["it's delicious", "It's delicious", "its delicious"] } },
+            { "id": "es_u2_l3_e3", "type": "listening", "vocabId": "es_mas", "payload": { "prompt": "Listen and select what you hear", "audioText": "Más, por favor", "ttsLocale": "es-ES", "options": ["Más, por favor", "Tengo hambre", "Es delicioso", "Quiero agua"], "correctIndex": 0 } },
+            { "id": "es_u2_l3_e4", "type": "speaking", "vocabId": "es_delicioso", "payload": { "prompt": "Say this phrase out loud", "targetPhrase": "Esta comida es deliciosa", "translation": "This food is delicious" } },
+            { "id": "es_u2_l3_e5", "type": "wordMatching", "vocabId": "es_table_set1", "payload": { "prompt": "Match each phrase to its meaning", "pairs": [ { "left": "Quiero", "right": "I want" }, { "left": "Más", "right": "More" }, { "left": "Delicioso", "right": "Delicious" }, { "left": "Tengo hambre", "right": "I'm hungry" } ] } },
+            { "id": "es_u2_l3_e6", "type": "sentenceArrangement", "vocabId": "es_tengo_hambre", "payload": { "prompt": "Build the sentence", "shuffledChips": ["hambre", "Tengo", "mucha"], "correctSentence": ["Tengo", "mucha", "hambre"] } },
+            { "id": "es_u2_l3_e7", "type": "fillInTheBlank", "vocabId": "es_mas", "payload": { "sentenceTemplate": "¿Quieres ___ arroz?", "options": ["más", "poco", "nada", "bien"], "correctAnswer": "más" } }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "es_u3",
+      "title": "Numbers & Travel",
+      "description": "Count, navigate, and travel with confidence",
+      "icon": "travel",
+      "accent": "teal",
+      "lessons": [
+        {
+          "id": "es_u3_l1",
+          "title": "Numbers 1-10",
+          "subtitle": "Count from one to ten",
+          "icon": "numbers",
+          "exercises": [
+            { "id": "es_u3_l1_e1", "type": "multipleChoice", "vocabId": "es_cinco", "payload": { "prompt": "Which word means 'Five'?", "options": ["Cinco", "Cuatro", "Seis", "Tres"], "correctIndex": 0 } },
+            { "id": "es_u3_l1_e2", "type": "translation", "vocabId": "es_siete", "payload": { "prompt": "Type the English meaning", "sourceText": "Siete", "acceptableAnswers": ["seven", "Seven"] } },
+            { "id": "es_u3_l1_e3", "type": "listening", "vocabId": "es_nueve", "payload": { "prompt": "Listen and select what you hear", "audioText": "Nueve", "ttsLocale": "es-ES", "options": ["Ocho", "Nueve", "Diez", "Siete"], "correctIndex": 1 } },
+            { "id": "es_u3_l1_e4", "type": "speaking", "vocabId": "es_diez", "payload": { "prompt": "Say this phrase out loud", "targetPhrase": "Tengo diez dedos", "translation": "I have ten fingers" } },
+            { "id": "es_u3_l1_e5", "type": "wordMatching", "vocabId": "es_numbers_set1", "payload": { "prompt": "Match each number to its meaning", "pairs": [ { "left": "Uno", "right": "One" }, { "left": "Dos", "right": "Two" }, { "left": "Tres", "right": "Three" }, { "left": "Cuatro", "right": "Four" } ] } },
+            { "id": "es_u3_l1_e6", "type": "sentenceArrangement", "vocabId": "es_dos", "payload": { "prompt": "Build the sentence", "shuffledChips": ["tengo", "Yo", "dos", "hermanos"], "correctSentence": ["Yo", "tengo", "dos", "hermanos"] } },
+            { "id": "es_u3_l1_e7", "type": "fillInTheBlank", "vocabId": "es_siete", "payload": { "sentenceTemplate": "El número después de seis es ___.", "options": ["siete", "cinco", "ocho", "nueve"], "correctAnswer": "siete" } }
+          ]
+        },
+        {
+          "id": "es_u3_l2",
+          "title": "Getting Around",
+          "subtitle": "Ask for directions",
+          "icon": "directions",
+          "exercises": [
+            { "id": "es_u3_l2_e1", "type": "multipleChoice", "vocabId": "es_donde_esta", "payload": { "prompt": "Which phrase means 'Where is...?'?", "options": ["¿Dónde está?", "¿Cuánto cuesta?", "¿Cómo estás?", "Me llamo"], "correctIndex": 0 } },
+            { "id": "es_u3_l2_e2", "type": "translation", "vocabId": "es_aeropuerto", "payload": { "prompt": "Type the English meaning", "sourceText": "el aeropuerto", "acceptableAnswers": ["the airport", "The airport"] } },
+            { "id": "es_u3_l2_e3", "type": "listening", "vocabId": "es_izquierda", "payload": { "prompt": "Listen and select what you hear", "audioText": "Izquierda", "ttsLocale": "es-ES", "options": ["Derecha", "Izquierda", "Estación", "Autobús"], "correctIndex": 1 } },
+            { "id": "es_u3_l2_e4", "type": "speaking", "vocabId": "es_estacion", "payload": { "prompt": "Say this phrase out loud", "targetPhrase": "¿Dónde está la estación?", "translation": "Where is the station?" } },
+            { "id": "es_u3_l2_e5", "type": "wordMatching", "vocabId": "es_directions_set1", "payload": { "prompt": "Match each word to its meaning", "pairs": [ { "left": "Izquierda", "right": "Left" }, { "left": "Derecha", "right": "Right" }, { "left": "Estación", "right": "Station" }, { "left": "Autobús", "right": "Bus" } ] } },
+            { "id": "es_u3_l2_e6", "type": "sentenceArrangement", "vocabId": "es_aeropuerto", "payload": { "prompt": "Build the sentence", "shuffledChips": ["aeropuerto", "está", "El", "cerca"], "correctSentence": ["El", "aeropuerto", "está", "cerca"] } },
+            { "id": "es_u3_l2_e7", "type": "fillInTheBlank", "vocabId": "es_izquierda", "payload": { "sentenceTemplate": "Gira a la ___ en la esquina.", "options": ["izquierda", "estación", "boleto", "maleta"], "correctAnswer": "izquierda" } }
+          ]
+        },
+        {
+          "id": "es_u3_l3",
+          "title": "Travel Phrases",
+          "subtitle": "Handle a trip with confidence",
+          "icon": "travel",
+          "exercises": [
+            { "id": "es_u3_l3_e1", "type": "multipleChoice", "vocabId": "es_cuanto_cuesta", "payload": { "prompt": "Which phrase means 'How much does it cost?'?", "options": ["¿Cuánto cuesta?", "¿Dónde está?", "Necesito ayuda", "Buenas noches"], "correctIndex": 0 } },
+            { "id": "es_u3_l3_e2", "type": "translation", "vocabId": "es_ayuda", "payload": { "prompt": "Type the English meaning", "sourceText": "Necesito ayuda", "acceptableAnswers": ["i need help", "I need help"] } },
+            { "id": "es_u3_l3_e3", "type": "listening", "vocabId": "es_pasaporte", "payload": { "prompt": "Listen and select what you hear", "audioText": "Pasaporte", "ttsLocale": "es-ES", "options": ["Boleto", "Maleta", "Pasaporte", "Hotel"], "correctIndex": 2 } },
+            { "id": "es_u3_l3_e4", "type": "speaking", "vocabId": "es_maleta", "payload": { "prompt": "Say this phrase out loud", "targetPhrase": "¿Dónde está mi maleta?", "translation": "Where is my suitcase?" } },
+            { "id": "es_u3_l3_e5", "type": "wordMatching", "vocabId": "es_travel_set1", "payload": { "prompt": "Match each word to its meaning", "pairs": [ { "left": "Hotel", "right": "Hotel" }, { "left": "Boleto", "right": "Ticket" }, { "left": "Maleta", "right": "Suitcase" }, { "left": "Pasaporte", "right": "Passport" } ] } },
+            { "id": "es_u3_l3_e6", "type": "sentenceArrangement", "vocabId": "es_boleto", "payload": { "prompt": "Build the sentence", "shuffledChips": ["boleto", "Necesito", "un"], "correctSentence": ["Necesito", "un", "boleto"] } },
+            { "id": "es_u3_l3_e7", "type": "fillInTheBlank", "vocabId": "es_cuanto_cuesta", "payload": { "sentenceTemplate": "¿Cuánto ___ el boleto?", "options": ["cuesta", "está", "ayuda", "tengo"], "correctAnswer": "cuesta" } }
+          ]
+        }
+      ]
+    }
+  ]
+}

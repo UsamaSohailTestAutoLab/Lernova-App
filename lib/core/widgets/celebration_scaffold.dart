@@ -7,11 +7,13 @@ import 'app_background.dart';
 import 'app_buttons.dart';
 import 'app_metric.dart';
 import 'gamification_indicators.dart';
-import 'spark_mascot.dart';
+import 'lernova_parrot.dart';
 
 /// - [ring] — a [ProgressRing] with a center label (level-up, daily goal).
 /// - [badge] — a large icon in a soft radial glow (achievement unlock).
-/// - [mascot] — [SparkMascot] (lesson/round complete).
+/// - [mascot] — [LernovaParrot] (lesson/round complete) — the same
+///   character shown on the level's own start screen, so finishing a
+///   level and starting one read as the same app.
 /// - [count] — a counting-up number (XP reward).
 enum CelebrationHero { ring, badge, mascot, count }
 
@@ -38,7 +40,13 @@ class CelebrationScaffold extends StatefulWidget {
   final double? ringProgress;
   final String? ringCenterLabel;
   final IconData? badgeIcon;
-  final SparkMood mascotMood;
+  final LernovaParrotMood mascotMood;
+
+  /// An optional way back out of the screen, drawn as an arrow in the
+  /// top-left. Celebrations do not want one — there is nothing to go
+  /// back to, and the primary button is the way forward — but a screen
+  /// that reports a *failed* attempt is a dead end without it.
+  final VoidCallback? onBack;
 
   const CelebrationScaffold({
     super.key,
@@ -57,7 +65,8 @@ class CelebrationScaffold extends StatefulWidget {
     this.ringProgress,
     this.ringCenterLabel,
     this.badgeIcon,
-    this.mascotMood = SparkMood.celebrate,
+    this.mascotMood = LernovaParrotMood.celebrate,
+    this.onBack,
   });
 
   @override
@@ -99,12 +108,7 @@ class _CelebrationScaffoldState extends State<CelebrationScaffold> {
     final theme = Theme.of(context);
     switch (widget.hero) {
       case CelebrationHero.mascot:
-        return SparkMascot(
-          size: 130,
-          mood: widget.mascotMood,
-          gradient: true,
-          groundShadow: true,
-        );
+        return LernovaParrot(size: 130, mood: widget.mascotMood);
       case CelebrationHero.badge:
         return Container(
           width: 96,
@@ -204,6 +208,18 @@ class _CelebrationScaffoldState extends State<CelebrationScaffold> {
                 ),
               ),
             ),
+            if (widget.onBack != null)
+              Positioned(
+                left: AppSpacing.sm,
+                top: 0,
+                child: SafeArea(
+                  child: IconButton(
+                    icon: const Icon(Icons.arrow_back_rounded),
+                    tooltip: 'Back',
+                    onPressed: widget.onBack,
+                  ),
+                ),
+              ),
             if (confetti != null)
               ConfettiWidget(
                 confettiController: confetti,

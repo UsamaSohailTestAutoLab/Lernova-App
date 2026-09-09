@@ -1,0 +1,738 @@
+[
+  {
+    "id": "nl_hallo",
+    "word": "Hallo",
+    "translation": "Hello",
+    "languageId": "nl",
+    "category": "greetings",
+    "emoji": "👋"
+  },
+  {
+    "id": "nl_dank_je",
+    "word": "Dank je",
+    "translation": "Thank you",
+    "languageId": "nl",
+    "category": "greetings",
+    "emoji": "🙏"
+  },
+  {
+    "id": "nl_alsjeblieft",
+    "word": "Alsjeblieft",
+    "translation": "Please",
+    "languageId": "nl",
+    "category": "greetings",
+    "emoji": "🙇"
+  },
+  {
+    "id": "nl_doei",
+    "word": "Doei",
+    "translation": "Goodbye",
+    "languageId": "nl",
+    "category": "greetings",
+    "emoji": "🙋"
+  },
+  {
+    "id": "nl_goedenavond",
+    "word": "Goedenavond",
+    "translation": "Good evening",
+    "languageId": "nl",
+    "category": "greetings",
+    "emoji": "🌙"
+  },
+  {
+    "id": "nl_ik_heet",
+    "word": "Ik heet",
+    "translation": "My name is",
+    "languageId": "nl",
+    "category": "greetings",
+    "emoji": "🪪"
+  },
+  {
+    "id": "nl_en",
+    "word": "En",
+    "translation": "And",
+    "languageId": "nl",
+    "category": "descriptions",
+    "emoji": "➕"
+  },
+  {
+    "id": "nl_ja",
+    "word": "Ja",
+    "translation": "Yes",
+    "languageId": "nl",
+    "category": "greetings",
+    "emoji": "✅"
+  },
+  {
+    "id": "nl_nee",
+    "word": "Nee",
+    "translation": "No",
+    "languageId": "nl",
+    "category": "greetings",
+    "emoji": "❌"
+  },
+  {
+    "id": "nl_sorry",
+    "word": "Sorry",
+    "translation": "Excuse me",
+    "languageId": "nl",
+    "category": "greetings",
+    "emoji": "🙋"
+  },
+  {
+    "id": "nl_graag_gedaan",
+    "word": "Graag gedaan",
+    "translation": "You're welcome",
+    "languageId": "nl",
+    "category": "greetings",
+    "emoji": "🤝"
+  },
+  {
+    "id": "nl_oke",
+    "word": "Oké",
+    "translation": "Okay",
+    "languageId": "nl",
+    "category": "greetings",
+    "emoji": "👍"
+  },
+  {
+    "id": "nl_ik_ben",
+    "word": "Ik ben",
+    "translation": "I am",
+    "languageId": "nl",
+    "category": "descriptions",
+    "emoji": "🙋"
+  },
+  {
+    "id": "nl_moe",
+    "word": "Moe",
+    "translation": "Tired",
+    "languageId": "nl",
+    "category": "descriptions",
+    "emoji": "😴"
+  },
+  {
+    "id": "nl_pardon",
+    "word": "Pardon",
+    "translation": "Excuse me please",
+    "languageId": "nl",
+    "category": "greetings",
+    "emoji": "🙇"
+  },
+  {
+    "id": "nl_goedenacht",
+    "word": "Goedenacht",
+    "translation": "Good night",
+    "languageId": "nl",
+    "category": "greetings",
+    "emoji": "😴"
+  },
+  {
+    "id": "nl_proost",
+    "word": "Proost",
+    "translation": "Cheers",
+    "languageId": "nl",
+    "category": "greetings",
+    "emoji": "🥂"
+  },
+  {
+    "id": "nl_welkom",
+    "word": "Welkom",
+    "translation": "Welcome",
+    "languageId": "nl",
+    "category": "greetings",
+    "emoji": "🎉"
+  },
+  {
+    "id": "nl_tot_ziens",
+    "word": "Tot ziens",
+    "translation": "See you soon",
+    "languageId": "nl",
+    "category": "greetings",
+    "emoji": "👋"
+  },
+  {
+    "id": "nl_hoe_gaat_het",
+    "word": "Hoe gaat het",
+    "translation": "How are you",
+    "languageId": "nl",
+    "category": "greetings",
+    "emoji": "❓"
+  },
+  {
+    "id": "nl_heel",
+    "word": "Heel",
+    "translation": "Very",
+    "languageId": "nl",
+    "category": "descriptions",
+    "emoji": "⭐"
+  },
+  {
+    "id": "nl_moeder",
+    "word": "Moeder",
+    "translation": "Mother",
+    "languageId": "nl",
+    "category": "family",
+    "emoji": "👩"
+  },
+  {
+    "id": "nl_vader",
+    "word": "Vader",
+    "translation": "Father",
+    "languageId": "nl",
+    "category": "family",
+    "emoji": "👨"
+  },
+  {
+    "id": "nl_broer",
+    "word": "Broer",
+    "translation": "Brother",
+    "languageId": "nl",
+    "category": "family",
+    "emoji": "👦"
+  },
+  {
+    "id": "nl_zus",
+    "word": "Zus",
+    "translation": "Sister",
+    "languageId": "nl",
+    "category": "family",
+    "emoji": "👧"
+  },
+  {
+    "id": "nl_oma",
+    "word": "Oma",
+    "translation": "Grandmother",
+    "languageId": "nl",
+    "category": "family",
+    "emoji": "👵"
+  },
+  {
+    "id": "nl_mijn",
+    "word": "Mijn",
+    "translation": "My",
+    "languageId": "nl",
+    "category": "descriptions",
+    "emoji": "🫱"
+  },
+  {
+    "id": "nl_is",
+    "word": "Is",
+    "translation": "Is",
+    "languageId": "nl",
+    "category": "descriptions",
+    "emoji": "🟰"
+  },
+  {
+    "id": "nl_brood",
+    "word": "Brood",
+    "translation": "Bread",
+    "languageId": "nl",
+    "category": "food",
+    "emoji": "🍞"
+  },
+  {
+    "id": "nl_water",
+    "word": "Water",
+    "translation": "Water",
+    "languageId": "nl",
+    "category": "food",
+    "emoji": "💧"
+  },
+  {
+    "id": "nl_appel",
+    "word": "Appel",
+    "translation": "Apple",
+    "languageId": "nl",
+    "category": "food",
+    "emoji": "🍎"
+  },
+  {
+    "id": "nl_kaas",
+    "word": "Kaas",
+    "translation": "Cheese",
+    "languageId": "nl",
+    "category": "food",
+    "emoji": "🧀"
+  },
+  {
+    "id": "nl_melk",
+    "word": "Melk",
+    "translation": "Milk",
+    "languageId": "nl",
+    "category": "food",
+    "emoji": "🥛"
+  },
+  {
+    "id": "nl_ik_wil",
+    "word": "Ik wil",
+    "translation": "I want",
+    "languageId": "nl",
+    "category": "food",
+    "emoji": "🙋"
+  },
+  {
+    "id": "nl_ook",
+    "word": "Ook",
+    "translation": "Also",
+    "languageId": "nl",
+    "category": "descriptions",
+    "emoji": "➕"
+  },
+  {
+    "id": "nl_tafel",
+    "word": "Tafel",
+    "translation": "Table",
+    "languageId": "nl",
+    "category": "home",
+    "emoji": "🍽️"
+  },
+  {
+    "id": "nl_bord",
+    "word": "Bord",
+    "translation": "Plate",
+    "languageId": "nl",
+    "category": "home",
+    "emoji": "🍽️"
+  },
+  {
+    "id": "nl_glas",
+    "word": "Glas",
+    "translation": "Glass",
+    "languageId": "nl",
+    "category": "home",
+    "emoji": "🥛"
+  },
+  {
+    "id": "nl_vork",
+    "word": "Vork",
+    "translation": "Fork",
+    "languageId": "nl",
+    "category": "home",
+    "emoji": "🍴"
+  },
+  {
+    "id": "nl_mes",
+    "word": "Mes",
+    "translation": "Knife",
+    "languageId": "nl",
+    "category": "home",
+    "emoji": "🔪"
+  },
+  {
+    "id": "nl_op",
+    "word": "Op",
+    "translation": "On",
+    "languageId": "nl",
+    "category": "descriptions",
+    "emoji": "📍"
+  },
+  {
+    "id": "nl_de",
+    "word": "De",
+    "translation": "The",
+    "languageId": "nl",
+    "category": "descriptions",
+    "emoji": "📌"
+  },
+  {
+    "id": "nl_het",
+    "word": "Het",
+    "translation": "The one",
+    "languageId": "nl",
+    "category": "descriptions",
+    "emoji": "📌"
+  },
+  {
+    "id": "nl_een",
+    "word": "Een",
+    "translation": "One",
+    "languageId": "nl",
+    "category": "numbers",
+    "emoji": "1️⃣"
+  },
+  {
+    "id": "nl_twee",
+    "word": "Twee",
+    "translation": "Two",
+    "languageId": "nl",
+    "category": "numbers",
+    "emoji": "2️⃣"
+  },
+  {
+    "id": "nl_drie",
+    "word": "Drie",
+    "translation": "Three",
+    "languageId": "nl",
+    "category": "numbers",
+    "emoji": "3️⃣"
+  },
+  {
+    "id": "nl_vier",
+    "word": "Vier",
+    "translation": "Four",
+    "languageId": "nl",
+    "category": "numbers",
+    "emoji": "4️⃣"
+  },
+  {
+    "id": "nl_vijf",
+    "word": "Vijf",
+    "translation": "Five",
+    "languageId": "nl",
+    "category": "numbers",
+    "emoji": "5️⃣"
+  },
+  {
+    "id": "nl_jaar_oud",
+    "word": "Jaar oud",
+    "translation": "Years old",
+    "languageId": "nl",
+    "category": "numbers",
+    "emoji": "🎂"
+  },
+  {
+    "id": "nl_ik_heb",
+    "word": "Ik heb",
+    "translation": "I have",
+    "languageId": "nl",
+    "category": "descriptions",
+    "emoji": "🙋"
+  },
+  {
+    "id": "nl_links",
+    "word": "Links",
+    "translation": "Left",
+    "languageId": "nl",
+    "category": "travel",
+    "emoji": "⬅️"
+  },
+  {
+    "id": "nl_rechts",
+    "word": "Rechts",
+    "translation": "Right",
+    "languageId": "nl",
+    "category": "travel",
+    "emoji": "➡️"
+  },
+  {
+    "id": "nl_rechtdoor",
+    "word": "Rechtdoor",
+    "translation": "Straight ahead",
+    "languageId": "nl",
+    "category": "travel",
+    "emoji": "⬆️"
+  },
+  {
+    "id": "nl_straat",
+    "word": "Straat",
+    "translation": "Street",
+    "languageId": "nl",
+    "category": "travel",
+    "emoji": "🛣️"
+  },
+  {
+    "id": "nl_station",
+    "word": "Station",
+    "translation": "Station",
+    "languageId": "nl",
+    "category": "travel",
+    "emoji": "🚉"
+  },
+  {
+    "id": "nl_waar_is",
+    "word": "Waar is",
+    "translation": "Where is",
+    "languageId": "nl",
+    "category": "travel",
+    "emoji": "❓"
+  },
+  {
+    "id": "nl_vliegveld",
+    "word": "Vliegveld",
+    "translation": "Airport",
+    "languageId": "nl",
+    "category": "travel",
+    "emoji": "✈️"
+  },
+  {
+    "id": "nl_hotel",
+    "word": "Hotel",
+    "translation": "Hotel",
+    "languageId": "nl",
+    "category": "travel",
+    "emoji": "🏨"
+  },
+  {
+    "id": "nl_kaartje",
+    "word": "Kaartje",
+    "translation": "Ticket",
+    "languageId": "nl",
+    "category": "travel",
+    "emoji": "🎫"
+  },
+  {
+    "id": "nl_trein",
+    "word": "Trein",
+    "translation": "Train",
+    "languageId": "nl",
+    "category": "travel",
+    "emoji": "🚆"
+  },
+  {
+    "id": "nl_koffer",
+    "word": "Koffer",
+    "translation": "Suitcase",
+    "languageId": "nl",
+    "category": "travel",
+    "emoji": "🧳"
+  },
+  {
+    "id": "nl_dichtbij",
+    "word": "Dichtbij",
+    "translation": "Nearby",
+    "languageId": "nl",
+    "category": "travel",
+    "emoji": "📍"
+  },
+  {
+    "id": "nl_rood",
+    "word": "Rood",
+    "translation": "Red",
+    "languageId": "nl",
+    "category": "colors",
+    "emoji": "🔴"
+  },
+  {
+    "id": "nl_blauw",
+    "word": "Blauw",
+    "translation": "Blue",
+    "languageId": "nl",
+    "category": "colors",
+    "emoji": "🔵"
+  },
+  {
+    "id": "nl_groen",
+    "word": "Groen",
+    "translation": "Green",
+    "languageId": "nl",
+    "category": "colors",
+    "emoji": "🟢"
+  },
+  {
+    "id": "nl_geel",
+    "word": "Geel",
+    "translation": "Yellow",
+    "languageId": "nl",
+    "category": "colors",
+    "emoji": "🟡"
+  },
+  {
+    "id": "nl_zwart",
+    "word": "Zwart",
+    "translation": "Black",
+    "languageId": "nl",
+    "category": "colors",
+    "emoji": "⚫"
+  },
+  {
+    "id": "nl_wit",
+    "word": "Wit",
+    "translation": "White",
+    "languageId": "nl",
+    "category": "colors",
+    "emoji": "⚪"
+  },
+  {
+    "id": "nl_hond",
+    "word": "Hond",
+    "translation": "Dog",
+    "languageId": "nl",
+    "category": "animals",
+    "emoji": "🐕"
+  },
+  {
+    "id": "nl_kat",
+    "word": "Kat",
+    "translation": "Cat",
+    "languageId": "nl",
+    "category": "animals",
+    "emoji": "🐈"
+  },
+  {
+    "id": "nl_vogel",
+    "word": "Vogel",
+    "translation": "Bird",
+    "languageId": "nl",
+    "category": "animals",
+    "emoji": "🐦"
+  },
+  {
+    "id": "nl_vis",
+    "word": "Vis",
+    "translation": "Fish",
+    "languageId": "nl",
+    "category": "animals",
+    "emoji": "🐟"
+  },
+  {
+    "id": "nl_paard",
+    "word": "Paard",
+    "translation": "Horse",
+    "languageId": "nl",
+    "category": "animals",
+    "emoji": "🐴"
+  },
+  {
+    "id": "nl_koe",
+    "word": "Koe",
+    "translation": "Cow",
+    "languageId": "nl",
+    "category": "animals",
+    "emoji": "🐄"
+  },
+  {
+    "id": "nl_zes",
+    "word": "Zes",
+    "translation": "Six",
+    "languageId": "nl",
+    "category": "numbers",
+    "emoji": "6️⃣"
+  },
+  {
+    "id": "nl_zeven",
+    "word": "Zeven",
+    "translation": "Seven",
+    "languageId": "nl",
+    "category": "numbers",
+    "emoji": "7️⃣"
+  },
+  {
+    "id": "nl_acht",
+    "word": "Acht",
+    "translation": "Eight",
+    "languageId": "nl",
+    "category": "numbers",
+    "emoji": "8️⃣"
+  },
+  {
+    "id": "nl_negen",
+    "word": "Negen",
+    "translation": "Nine",
+    "languageId": "nl",
+    "category": "numbers",
+    "emoji": "9️⃣"
+  },
+  {
+    "id": "nl_tien",
+    "word": "Tien",
+    "translation": "Ten",
+    "languageId": "nl",
+    "category": "numbers",
+    "emoji": "🔟"
+  },
+  {
+    "id": "nl_huis",
+    "word": "Huis",
+    "translation": "House",
+    "languageId": "nl",
+    "category": "home",
+    "emoji": "🏠"
+  },
+  {
+    "id": "nl_deur",
+    "word": "Deur",
+    "translation": "Door",
+    "languageId": "nl",
+    "category": "home",
+    "emoji": "🚪"
+  },
+  {
+    "id": "nl_raam",
+    "word": "Raam",
+    "translation": "Window",
+    "languageId": "nl",
+    "category": "home",
+    "emoji": "🪟"
+  },
+  {
+    "id": "nl_stoel",
+    "word": "Stoel",
+    "translation": "Chair",
+    "languageId": "nl",
+    "category": "home",
+    "emoji": "🪑"
+  },
+  {
+    "id": "nl_bed",
+    "word": "Bed",
+    "translation": "Bed",
+    "languageId": "nl",
+    "category": "home",
+    "emoji": "🛏️"
+  },
+  {
+    "id": "nl_koffie",
+    "word": "Koffie",
+    "translation": "Coffee",
+    "languageId": "nl",
+    "category": "food",
+    "emoji": "☕"
+  },
+  {
+    "id": "nl_thee",
+    "word": "Thee",
+    "translation": "Tea",
+    "languageId": "nl",
+    "category": "food",
+    "emoji": "🍵"
+  },
+  {
+    "id": "nl_kip",
+    "word": "Kip",
+    "translation": "Chicken",
+    "languageId": "nl",
+    "category": "food",
+    "emoji": "🍗"
+  },
+  {
+    "id": "nl_groot",
+    "word": "Groot",
+    "translation": "Big",
+    "languageId": "nl",
+    "category": "descriptions",
+    "emoji": "🐘"
+  },
+  {
+    "id": "nl_klein",
+    "word": "Klein",
+    "translation": "Small",
+    "languageId": "nl",
+    "category": "descriptions",
+    "emoji": "🐁"
+  },
+  {
+    "id": "nl_warm",
+    "word": "Warm",
+    "translation": "Hot",
+    "languageId": "nl",
+    "category": "descriptions",
+    "emoji": "🔥"
+  },
+  {
+    "id": "nl_koud",
+    "word": "Koud",
+    "translation": "Cold",
+    "languageId": "nl",
+    "category": "descriptions",
+    "emoji": "❄️"
+  },
+  {
+    "id": "nl_goed",
+    "word": "Goed",
+    "translation": "Good",
+    "languageId": "nl",
+    "category": "descriptions",
+    "emoji": "👍"
+  }
+]

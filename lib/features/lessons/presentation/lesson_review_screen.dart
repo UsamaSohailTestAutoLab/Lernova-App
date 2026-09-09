@@ -165,6 +165,16 @@ class _ReviewRow extends ConsumerWidget {
               color: AppColors.success,
             ),
           ],
+          // Shown whether or not they got it right — the meaning is worth
+          // re-reading on a row you answered correctly by sound alone.
+          if (attempt.correctMeaning != null) ...[
+            const SizedBox(height: AppSpacing.xs),
+            _AnswerLine(
+              label: attempt.correctMeaning!.label,
+              value: attempt.correctMeaning!.text,
+              color: theme.colorScheme.onSurfaceVariant,
+            ),
+          ],
         ],
       ),
     );

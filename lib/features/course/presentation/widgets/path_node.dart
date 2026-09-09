@@ -119,39 +119,63 @@ class _PathNodeState extends State<PathNode> with SingleTickerProviderStateMixin
       LessonNodeState.perfect => 'completed perfectly',
     };
 
+    const contentWidth = 112.0;
+
     return SizedBox(
       height: PathLayout.nodeRowHeight,
-      child: Stack(
-        children: [
-          Positioned.fill(
-            child: IgnorePointer(
-              child: RepaintBoundary(
-                child: CustomPaint(
-                  painter: PathTrailPainter(
-                    fromDx: widget.incomingDx,
-                    toDx: widget.dx,
-                    nodeCenterY: _nodeCenterY,
-                    track: decor.trailTrack,
-                    filled: decor.trailFilled,
-                    isFilled: trailFilled,
-                    isDashed: isLocked,
+      // LayoutBuilder wraps the whole Stack (rather than sitting between
+      // the Stack and a Positioned child) — Positioned only attaches its
+      // parent data to the nearest *Stack* ancestor, and an intervening
+      // RenderObject (LayoutBuilder's own) would break that.
+      child: LayoutBuilder(
+        builder: (context, constraints) {
+          // A real layout position rather than Align + Transform.translate
+          // for the horizontal offset.
+          //
+          // The previous version centered the content with Align, then
+          // shifted paint *and* hit-testing together via
+          // Transform.translate(dx) — which is supposed to keep the two in
+          // lock-step, and did on the software test renderer, but on a
+          // real device the offset node's actual tappable region ended up
+          // a fraction of its visible circle: a real repro (tapping a live
+          // build over adb) showed only a thin sliver of "Yes, No, Sorry"
+          // — the one lesson in every unit sitting away from center —
+          // actually responding, while the dead-center lessons either side
+          // of it worked anywhere on their circle. Computing the offset as
+          // a real `left` position sidesteps the transform machinery
+          // entirely, so paint and hit-test can't disagree.
+          final left = (constraints.maxWidth - contentWidth) / 2 + widget.dx;
+
+          return Stack(
+            children: [
+              Positioned.fill(
+                child: IgnorePointer(
+                  child: RepaintBoundary(
+                    child: CustomPaint(
+                      painter: PathTrailPainter(
+                        fromDx: widget.incomingDx,
+                        toDx: widget.dx,
+                        nodeCenterY: _nodeCenterY,
+                        track: decor.trailTrack,
+                        filled: decor.trailFilled,
+                        isFilled: trailFilled,
+                        isDashed: isLocked,
+                      ),
+                    ),
                   ),
                 ),
               ),
-            ),
-          ),
-          Align(
-            alignment: Alignment.topCenter,
-            child: Padding(
-              padding: EdgeInsets.only(top: _nodeCenterY - size / 2),
-              child: Transform.translate(
-                offset: Offset(widget.dx, 0),
+              Positioned(
+                top: _nodeCenterY - size / 2,
+                left: left,
+                width: contentWidth,
                 child: AnimatedBuilder(
                   animation: _shake,
                   builder: (context, child) {
+                    // Zero at rest — only the 320ms shake itself moves this.
                     final t = _shake.value;
-                    final wiggle = (t == 0) ? 0.0 : (t < 0.5 ? t : 1 - t);
-                    return Transform.translate(offset: Offset(wiggle * 12 - 3, 0), child: child);
+                    final wiggle = t < 0.5 ? t : 1 - t;
+                    return Transform.translate(offset: Offset(wiggle * 12, 0), child: child);
                   },
                   child: Semantics(
                     button: true,
@@ -164,7 +188,7 @@ class _PathNodeState extends State<PathNode> with SingleTickerProviderStateMixin
                           _circle(color, icon, size, isCurrent, isLocked, surfaceColors),
                           const SizedBox(height: 6),
                           SizedBox(
-                            width: 112,
+                            width: contentWidth,
                             child: Text(
                               widget.lesson.title,
                               textAlign: TextAlign.center,
@@ -181,9 +205,9 @@ class _PathNodeState extends State<PathNode> with SingleTickerProviderStateMixin
                   ),
                 ),
               ),
-            ),
-          ),
-        ],
+            ],
+          );
+        },
       ),
     );
   }

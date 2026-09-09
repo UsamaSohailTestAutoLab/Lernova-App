@@ -11,12 +11,12 @@ import '../../../core/routing/app_routes.dart';
 import '../../../core/services/service_providers.dart';
 import '../../../core/theme/app_colors.dart';
 import '../../../core/theme/app_spacing.dart';
-import '../../../core/widgets/app_dialogs.dart';
 import '../../../data/models/fun/fun_question.dart';
 import '../../settings/application/settings_controller.dart';
 import '../application/falling_word_session_controller.dart';
 import 'widgets/bubble_field.dart';
 import '../../../core/widgets/cartoon_character.dart';
+import '../../languages/presentation/leave_session_sheet.dart';
 import 'widgets/combo_hud.dart';
 import 'widgets/lives_indicator.dart';
 import 'widgets/miss_banner.dart';
@@ -160,17 +160,23 @@ class _FallingWordGameScreenState extends ConsumerState<FallingWordGameScreen>
     if (!correct) _armMissDismiss();
   }
 
+  /// Leaving mid-round, either for good or to change language. The
+  /// round is torn down first either way, so a Spanish round can never
+  /// be left running against another language's vocabulary.
   Future<void> _confirmExit() async {
-    final confirmed = await showConfirmDialog(
+    final router = GoRouter.of(context);
+    final choice = await showLeaveSessionSheet(
       context,
       title: 'Quit this round?',
       message: 'Your progress in this round will be lost.',
-      confirmLabel: 'Quit',
-      isDestructive: true,
+      exitLabel: 'Quit round',
     );
-    if (confirmed && mounted) {
-      ref.read(fallingWordSessionProvider.notifier).reset();
-      context.pop();
+    if (choice == null || !mounted) return;
+
+    ref.read(fallingWordSessionProvider.notifier).reset();
+    router.pop();
+    if (choice == LeaveSessionChoice.switchLanguage) {
+      router.push(AppRoutes.languages);
     }
   }
 
@@ -228,11 +234,13 @@ class _FallingWordGameScreenState extends ConsumerState<FallingWordGameScreen>
 
     // Every question type now answers with words, never bare emoji —
     // the emoji rides along with the prompt instead.
-    // Level 1 of Falling Words gets the themed "rising water" survival
-    // presentation; every other level/mode keeps the original falling
-    // bubbles untouched.
-    final isWaterSurvivalLevel =
-        session.mode == FunGameMode.fallingWords && session.levelConfig.level == 1;
+    //
+    // The rising-water presentation belongs to Word Survival, at every
+    // one of its levels. It used to be bolted onto Word Bubble's level
+    // 1, which made the very first round a player ever saw a different
+    // game from the nine after it — and left the survival idea with
+    // nowhere to grow.
+    final isWaterSurvivalLevel = session.mode == FunGameMode.wordSurvival;
 
     return PopScope(
       canPop: false,

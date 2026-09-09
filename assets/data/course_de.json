@@ -1,0 +1,1672 @@
+{
+  "id": "course_de",
+  "languageId": "de",
+  "title": "German",
+  "description": "Learn conversational German through short, focused lessons.",
+  "units": [
+    {
+      "id": "de_u1",
+      "title": "Greetings & Basics",
+      "description": "Say hello and be polite",
+      "icon": "greeting",
+      "accent": "green",
+      "lessons": [
+        {
+          "id": "de_u1_l1",
+          "title": "Say Hello",
+          "subtitle": "Hallo, Danke, Bitte, Tschüss, Guten Abend",
+          "icon": "greeting",
+          "reviewVocabIds": [
+            "de_ich_heisse",
+            "de_und",
+            "de_guten_abend"
+          ],
+          "exercises": [
+            {
+              "id": "de_u1_l1_e1",
+              "type": "imageRecognition",
+              "vocabId": "de_hallo",
+              "payload": {
+                "prompt": "What does this word mean?",
+                "emoji": "👋",
+                "targetWord": "Hallo",
+                "meaning": "Hello",
+                "distractorMeanings": [
+                  "Thank you",
+                  "Please",
+                  "Goodbye"
+                ],
+                "distractorWords": [
+                  "Danke",
+                  "Bitte",
+                  "Tschüss"
+                ]
+              }
+            },
+            {
+              "id": "de_u1_l1_e2",
+              "type": "multipleChoice",
+              "vocabId": "de_danke",
+              "payload": {
+                "prompt": "Which word means 'Thank you'?",
+                "options": [
+                  "Hallo",
+                  "Tschüss",
+                  "Danke",
+                  "Bitte"
+                ],
+                "correctIndex": 2
+              }
+            },
+            {
+              "id": "de_u1_l1_e3",
+              "type": "listening",
+              "vocabId": "de_bitte",
+              "payload": {
+                "prompt": "Listen and select what you hear",
+                "audioText": "Bitte",
+                "ttsLocale": "de-DE",
+                "options": [
+                  "Hallo",
+                  "Bitte",
+                  "Tschüss",
+                  "Danke"
+                ],
+                "correctIndex": 1,
+                "translation": "Please"
+              }
+            },
+            {
+              "id": "de_u1_l1_e4",
+              "type": "multipleChoice",
+              "vocabId": "de_ich_heisse",
+              "payload": {
+                "prompt": "Which word means 'My name is'?",
+                "options": [
+                  "Hallo",
+                  "Danke",
+                  "Bitte",
+                  "Ich heiße"
+                ],
+                "correctIndex": 3
+              }
+            },
+            {
+              "id": "de_u1_l1_e5",
+              "type": "translation",
+              "vocabId": "de_tschuess",
+              "payload": {
+                "prompt": "Type the English meaning",
+                "sourceText": "Tschüss",
+                "acceptableAnswers": [
+                  "goodbye",
+                  "Goodbye"
+                ]
+              }
+            },
+            {
+              "id": "de_u1_l1_e6",
+              "type": "speaking",
+              "vocabId": "de_hallo",
+              "payload": {
+                "prompt": "Say this phrase out loud",
+                "targetPhrase": "Hallo, ich heiße Anna",
+                "translation": "Hello, my name is Anna",
+                "ttsLocale": "de-DE"
+              }
+            },
+            {
+              "id": "de_u1_l1_e7",
+              "type": "wordMatching",
+              "vocabId": "de_u1_l1_set",
+              "payload": {
+                "prompt": "Match each word to its meaning",
+                "pairs": [
+                  {
+                    "left": "Hallo",
+                    "right": "Hello"
+                  },
+                  {
+                    "left": "Danke",
+                    "right": "Thank you"
+                  },
+                  {
+                    "left": "Bitte",
+                    "right": "Please"
+                  },
+                  {
+                    "left": "Tschüss",
+                    "right": "Goodbye"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "de_u1_l1_e8",
+              "type": "sentenceArrangement",
+              "vocabId": "de_hallo",
+              "payload": {
+                "prompt": "Build the sentence",
+                "shuffledChips": [
+                  "Ich",
+                  "heiße",
+                  "Anna"
+                ],
+                "correctSentence": [
+                  "Ich",
+                  "heiße",
+                  "Anna"
+                ],
+                "translation": "My name is Anna"
+              }
+            },
+            {
+              "id": "de_u1_l1_e9",
+              "type": "fillInTheBlank",
+              "vocabId": "de_tschuess",
+              "payload": {
+                "prompt": "Complete the sentence",
+                "sentenceTemplate": "Danke und ___.",
+                "options": [
+                  "hallo",
+                  "guten Abend",
+                  "tschüss",
+                  "bitte"
+                ],
+                "correctAnswer": "tschüss",
+                "translation": "Thank you and goodbye"
+              }
+            }
+          ]
+        },
+        {
+          "id": "de_u1_l2",
+          "title": "Yes, No, Sorry",
+          "subtitle": "Ja, Nein, Entschuldigung, Gern geschehen, Okay",
+          "icon": "agreement",
+          "reviewVocabIds": [
+            "de_ich_bin",
+            "de_muede",
+            "de_danke",
+            "de_okay"
+          ],
+          "exercises": [
+            {
+              "id": "de_u1_l2_e1",
+              "type": "imageRecognition",
+              "vocabId": "de_ja",
+              "payload": {
+                "prompt": "What does this word mean?",
+                "emoji": "✅",
+                "targetWord": "Ja",
+                "meaning": "Yes",
+                "distractorMeanings": [
+                  "No",
+                  "Excuse me",
+                  "You're welcome"
+                ],
+                "distractorWords": [
+                  "Nein",
+                  "Entschuldigung",
+                  "Gern geschehen"
+                ]
+              }
+            },
+            {
+              "id": "de_u1_l2_e2",
+              "type": "multipleChoice",
+              "vocabId": "de_nein",
+              "payload": {
+                "prompt": "Which word means 'No'?",
+                "options": [
+                  "Nein",
+                  "Entschuldigung",
+                  "Ja",
+                  "Gern geschehen"
+                ],
+                "correctIndex": 0
+              }
+            },
+            {
+              "id": "de_u1_l2_e3",
+              "type": "listening",
+              "vocabId": "de_entschuldigung",
+              "payload": {
+                "prompt": "Listen and select what you hear",
+                "audioText": "Entschuldigung",
+                "ttsLocale": "de-DE",
+                "options": [
+                  "Nein",
+                  "Ja",
+                  "Entschuldigung",
+                  "Gern geschehen"
+                ],
+                "correctIndex": 2,
+                "translation": "Excuse me"
+              }
+            },
+            {
+              "id": "de_u1_l2_e4",
+              "type": "multipleChoice",
+              "vocabId": "de_ich_bin",
+              "payload": {
+                "prompt": "Which word means 'I am'?",
+                "options": [
+                  "Ich bin",
+                  "Nein",
+                  "Entschuldigung",
+                  "Ja"
+                ],
+                "correctIndex": 0
+              }
+            },
+            {
+              "id": "de_u1_l2_e5",
+              "type": "translation",
+              "vocabId": "de_gern_geschehen",
+              "payload": {
+                "prompt": "Type the English meaning",
+                "sourceText": "Gern geschehen",
+                "acceptableAnswers": [
+                  "you're welcome",
+                  "You're welcome"
+                ]
+              }
+            },
+            {
+              "id": "de_u1_l2_e6",
+              "type": "speaking",
+              "vocabId": "de_ja",
+              "payload": {
+                "prompt": "Say this phrase out loud",
+                "targetPhrase": "Entschuldigung, ich bin müde",
+                "translation": "Excuse me, I am tired",
+                "ttsLocale": "de-DE"
+              }
+            },
+            {
+              "id": "de_u1_l2_e7",
+              "type": "wordMatching",
+              "vocabId": "de_u1_l2_set",
+              "payload": {
+                "prompt": "Match each word to its meaning",
+                "pairs": [
+                  {
+                    "left": "Ja",
+                    "right": "Yes"
+                  },
+                  {
+                    "left": "Nein",
+                    "right": "No"
+                  },
+                  {
+                    "left": "Entschuldigung",
+                    "right": "Excuse me"
+                  },
+                  {
+                    "left": "Gern geschehen",
+                    "right": "You're welcome"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "de_u1_l2_e8",
+              "type": "sentenceArrangement",
+              "vocabId": "de_ja",
+              "payload": {
+                "prompt": "Build the sentence",
+                "shuffledChips": [
+                  "bin",
+                  "okay",
+                  "Ja,",
+                  "ich"
+                ],
+                "correctSentence": [
+                  "Ja,",
+                  "ich",
+                  "bin",
+                  "okay"
+                ],
+                "translation": "Yes, I am okay"
+              }
+            },
+            {
+              "id": "de_u1_l2_e9",
+              "type": "fillInTheBlank",
+              "vocabId": "de_entschuldigung",
+              "payload": {
+                "prompt": "Complete the sentence",
+                "sentenceTemplate": "Nein, ___.",
+                "options": [
+                  "Entschuldigung",
+                  "okay",
+                  "ja",
+                  "gern geschehen"
+                ],
+                "correctAnswer": "Entschuldigung",
+                "translation": "No, excuse me"
+              }
+            }
+          ]
+        },
+        {
+          "id": "de_u1_l3",
+          "title": "Polite Basics",
+          "subtitle": "Entschuldigen Sie, Gute Nacht, Prost, Willkommen, Bis bald",
+          "icon": "manners",
+          "reviewVocabIds": [
+            "de_wie_geht_es_ihnen",
+            "de_sehr",
+            "de_und",
+            "de_danke"
+          ],
+          "exercises": [
+            {
+              "id": "de_u1_l3_e1",
+              "type": "imageRecognition",
+              "vocabId": "de_entschuldigen_sie",
+              "payload": {
+                "prompt": "What does this word mean?",
+                "emoji": "🙇",
+                "targetWord": "Entschuldigen Sie",
+                "meaning": "Excuse me please",
+                "distractorMeanings": [
+                  "Good night",
+                  "Cheers",
+                  "Welcome"
+                ],
+                "distractorWords": [
+                  "Gute Nacht",
+                  "Prost",
+                  "Willkommen"
+                ]
+              }
+            },
+            {
+              "id": "de_u1_l3_e2",
+              "type": "multipleChoice",
+              "vocabId": "de_gute_nacht",
+              "payload": {
+                "prompt": "Which word means 'Good night'?",
+                "options": [
+                  "Entschuldigen Sie",
+                  "Willkommen",
+                  "Prost",
+                  "Gute Nacht"
+                ],
+                "correctIndex": 3
+              }
+            },
+            {
+              "id": "de_u1_l3_e3",
+              "type": "listening",
+              "vocabId": "de_prost",
+              "payload": {
+                "prompt": "Listen and select what you hear",
+                "audioText": "Prost",
+                "ttsLocale": "de-DE",
+                "options": [
+                  "Gute Nacht",
+                  "Willkommen",
+                  "Entschuldigen Sie",
+                  "Prost"
+                ],
+                "correctIndex": 3,
+                "translation": "Cheers"
+              }
+            },
+            {
+              "id": "de_u1_l3_e4",
+              "type": "multipleChoice",
+              "vocabId": "de_wie_geht_es_ihnen",
+              "payload": {
+                "prompt": "Which word means 'How are you'?",
+                "options": [
+                  "Entschuldigen Sie",
+                  "Wie geht es Ihnen",
+                  "Prost",
+                  "Gute Nacht"
+                ],
+                "correctIndex": 1
+              }
+            },
+            {
+              "id": "de_u1_l3_e5",
+              "type": "translation",
+              "vocabId": "de_willkommen",
+              "payload": {
+                "prompt": "Type the English meaning",
+                "sourceText": "Willkommen",
+                "acceptableAnswers": [
+                  "welcome",
+                  "Welcome"
+                ]
+              }
+            },
+            {
+              "id": "de_u1_l3_e6",
+              "type": "speaking",
+              "vocabId": "de_entschuldigen_sie",
+              "payload": {
+                "prompt": "Say this phrase out loud",
+                "targetPhrase": "Entschuldigen Sie, wie geht es Ihnen?",
+                "translation": "Excuse me, how are you?",
+                "ttsLocale": "de-DE"
+              }
+            },
+            {
+              "id": "de_u1_l3_e7",
+              "type": "wordMatching",
+              "vocabId": "de_u1_l3_set",
+              "payload": {
+                "prompt": "Match each word to its meaning",
+                "pairs": [
+                  {
+                    "left": "Entschuldigen Sie",
+                    "right": "Excuse me please"
+                  },
+                  {
+                    "left": "Gute Nacht",
+                    "right": "Good night"
+                  },
+                  {
+                    "left": "Prost",
+                    "right": "Cheers"
+                  },
+                  {
+                    "left": "Willkommen",
+                    "right": "Welcome"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "de_u1_l3_e8",
+              "type": "sentenceArrangement",
+              "vocabId": "de_entschuldigen_sie",
+              "payload": {
+                "prompt": "Build the sentence",
+                "shuffledChips": [
+                  "Nacht",
+                  "Willkommen",
+                  "und",
+                  "gute"
+                ],
+                "correctSentence": [
+                  "Willkommen",
+                  "und",
+                  "gute",
+                  "Nacht"
+                ],
+                "translation": "Welcome and good night"
+              }
+            },
+            {
+              "id": "de_u1_l3_e9",
+              "type": "fillInTheBlank",
+              "vocabId": "de_bis_bald",
+              "payload": {
+                "prompt": "Complete the sentence",
+                "sentenceTemplate": "Danke, ___!",
+                "options": [
+                  "prost",
+                  "sehr",
+                  "willkommen",
+                  "bis bald"
+                ],
+                "correctAnswer": "bis bald",
+                "translation": "Thank you, see you soon"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "de_u2",
+      "title": "Food & Family",
+      "description": "Talk about the people and meals you love",
+      "icon": "food",
+      "accent": "amber",
+      "lessons": [
+        {
+          "id": "de_u2_l1",
+          "title": "Family Members",
+          "subtitle": "Mutter, Vater, Bruder, Schwester, Großmutter",
+          "icon": "family",
+          "reviewVocabIds": [
+            "de_meine",
+            "de_ist"
+          ],
+          "exercises": [
+            {
+              "id": "de_u2_l1_e1",
+              "type": "imageRecognition",
+              "vocabId": "de_mutter",
+              "payload": {
+                "prompt": "What does this word mean?",
+                "emoji": "👩",
+                "targetWord": "Mutter",
+                "meaning": "Mother",
+                "distractorMeanings": [
+                  "Father",
+                  "Brother",
+                  "Sister"
+                ],
+                "distractorWords": [
+                  "Vater",
+                  "Bruder",
+                  "Schwester"
+                ]
+              }
+            },
+            {
+              "id": "de_u2_l1_e2",
+              "type": "multipleChoice",
+              "vocabId": "de_vater",
+              "payload": {
+                "prompt": "Which word means 'Father'?",
+                "options": [
+                  "Bruder",
+                  "Schwester",
+                  "Vater",
+                  "Mutter"
+                ],
+                "correctIndex": 2
+              }
+            },
+            {
+              "id": "de_u2_l1_e3",
+              "type": "listening",
+              "vocabId": "de_bruder",
+              "payload": {
+                "prompt": "Listen and select what you hear",
+                "audioText": "Bruder",
+                "ttsLocale": "de-DE",
+                "options": [
+                  "Bruder",
+                  "Schwester",
+                  "Vater",
+                  "Mutter"
+                ],
+                "correctIndex": 0,
+                "translation": "Brother"
+              }
+            },
+            {
+              "id": "de_u2_l1_e4",
+              "type": "multipleChoice",
+              "vocabId": "de_meine",
+              "payload": {
+                "prompt": "Which word means 'My'?",
+                "options": [
+                  "Vater",
+                  "Mutter",
+                  "Meine",
+                  "Bruder"
+                ],
+                "correctIndex": 2
+              }
+            },
+            {
+              "id": "de_u2_l1_e5",
+              "type": "translation",
+              "vocabId": "de_schwester",
+              "payload": {
+                "prompt": "Type the English meaning",
+                "sourceText": "Schwester",
+                "acceptableAnswers": [
+                  "sister",
+                  "Sister"
+                ]
+              }
+            },
+            {
+              "id": "de_u2_l1_e6",
+              "type": "speaking",
+              "vocabId": "de_mutter",
+              "payload": {
+                "prompt": "Say this phrase out loud",
+                "targetPhrase": "Meine Schwester ist Anna",
+                "translation": "My sister is Anna",
+                "ttsLocale": "de-DE"
+              }
+            },
+            {
+              "id": "de_u2_l1_e7",
+              "type": "wordMatching",
+              "vocabId": "de_u2_l1_set",
+              "payload": {
+                "prompt": "Match each word to its meaning",
+                "pairs": [
+                  {
+                    "left": "Mutter",
+                    "right": "Mother"
+                  },
+                  {
+                    "left": "Vater",
+                    "right": "Father"
+                  },
+                  {
+                    "left": "Bruder",
+                    "right": "Brother"
+                  },
+                  {
+                    "left": "Schwester",
+                    "right": "Sister"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "de_u2_l1_e8",
+              "type": "sentenceArrangement",
+              "vocabId": "de_mutter",
+              "payload": {
+                "prompt": "Build the sentence",
+                "shuffledChips": [
+                  "Anna",
+                  "ist",
+                  "meine",
+                  "Mutter"
+                ],
+                "correctSentence": [
+                  "Anna",
+                  "ist",
+                  "meine",
+                  "Mutter"
+                ],
+                "translation": "Anna is my mother"
+              }
+            },
+            {
+              "id": "de_u2_l1_e9",
+              "type": "fillInTheBlank",
+              "vocabId": "de_grossmutter",
+              "payload": {
+                "prompt": "Complete the sentence",
+                "sentenceTemplate": "Meine ___ ist Rosa.",
+                "options": [
+                  "Schwester",
+                  "Bruder",
+                  "Großmutter",
+                  "Mutter"
+                ],
+                "correctAnswer": "Großmutter",
+                "translation": "My grandmother is Rosa"
+              }
+            }
+          ]
+        },
+        {
+          "id": "de_u2_l2",
+          "title": "Food Basics",
+          "subtitle": "Brot, Wasser, Apfel, Käse, Milch",
+          "icon": "food",
+          "reviewVocabIds": [
+            "de_ich_moechte",
+            "de_auch",
+            "de_bitte"
+          ],
+          "exercises": [
+            {
+              "id": "de_u2_l2_e1",
+              "type": "imageRecognition",
+              "vocabId": "de_brot",
+              "payload": {
+                "prompt": "What does this word mean?",
+                "emoji": "🍞",
+                "targetWord": "Brot",
+                "meaning": "Bread",
+                "distractorMeanings": [
+                  "Water",
+                  "Apple",
+                  "Cheese"
+                ],
+                "distractorWords": [
+                  "Wasser",
+                  "Apfel",
+                  "Käse"
+                ]
+              }
+            },
+            {
+              "id": "de_u2_l2_e2",
+              "type": "multipleChoice",
+              "vocabId": "de_wasser",
+              "payload": {
+                "prompt": "Which word means 'Water'?",
+                "options": [
+                  "Käse",
+                  "Wasser",
+                  "Brot",
+                  "Apfel"
+                ],
+                "correctIndex": 1
+              }
+            },
+            {
+              "id": "de_u2_l2_e3",
+              "type": "listening",
+              "vocabId": "de_apfel",
+              "payload": {
+                "prompt": "Listen and select what you hear",
+                "audioText": "Apfel",
+                "ttsLocale": "de-DE",
+                "options": [
+                  "Brot",
+                  "Käse",
+                  "Apfel",
+                  "Wasser"
+                ],
+                "correctIndex": 2,
+                "translation": "Apple"
+              }
+            },
+            {
+              "id": "de_u2_l2_e4",
+              "type": "multipleChoice",
+              "vocabId": "de_ich_moechte",
+              "payload": {
+                "prompt": "Which word means 'I want'?",
+                "options": [
+                  "Wasser",
+                  "Apfel",
+                  "Brot",
+                  "Ich möchte"
+                ],
+                "correctIndex": 3
+              }
+            },
+            {
+              "id": "de_u2_l2_e5",
+              "type": "translation",
+              "vocabId": "de_kaese",
+              "payload": {
+                "prompt": "Type the English meaning",
+                "sourceText": "Käse",
+                "acceptableAnswers": [
+                  "cheese",
+                  "Cheese"
+                ]
+              }
+            },
+            {
+              "id": "de_u2_l2_e6",
+              "type": "speaking",
+              "vocabId": "de_brot",
+              "payload": {
+                "prompt": "Say this phrase out loud",
+                "targetPhrase": "Ich möchte auch Brot, bitte",
+                "translation": "I also want bread, please",
+                "ttsLocale": "de-DE"
+              }
+            },
+            {
+              "id": "de_u2_l2_e7",
+              "type": "wordMatching",
+              "vocabId": "de_u2_l2_set",
+              "payload": {
+                "prompt": "Match each word to its meaning",
+                "pairs": [
+                  {
+                    "left": "Brot",
+                    "right": "Bread"
+                  },
+                  {
+                    "left": "Wasser",
+                    "right": "Water"
+                  },
+                  {
+                    "left": "Apfel",
+                    "right": "Apple"
+                  },
+                  {
+                    "left": "Käse",
+                    "right": "Cheese"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "de_u2_l2_e8",
+              "type": "sentenceArrangement",
+              "vocabId": "de_brot",
+              "payload": {
+                "prompt": "Build the sentence",
+                "shuffledChips": [
+                  "Ich",
+                  "Käse",
+                  "möchte"
+                ],
+                "correctSentence": [
+                  "Ich",
+                  "möchte",
+                  "Käse"
+                ],
+                "translation": "I want cheese"
+              }
+            },
+            {
+              "id": "de_u2_l2_e9",
+              "type": "fillInTheBlank",
+              "vocabId": "de_milch",
+              "payload": {
+                "prompt": "Complete the sentence",
+                "sentenceTemplate": "Ich möchte ___.",
+                "options": [
+                  "Wasser",
+                  "Milch",
+                  "Brot",
+                  "Käse"
+                ],
+                "correctAnswer": "Milch",
+                "translation": "I want milk"
+              }
+            }
+          ]
+        },
+        {
+          "id": "de_u2_l3",
+          "title": "At the Table",
+          "subtitle": "Tisch, Teller, Glas, Gabel, Messer",
+          "icon": "table",
+          "reviewVocabIds": [
+            "de_auf",
+            "de_dem",
+            "de_das",
+            "de_ist"
+          ],
+          "exercises": [
+            {
+              "id": "de_u2_l3_e1",
+              "type": "imageRecognition",
+              "vocabId": "de_tisch",
+              "payload": {
+                "prompt": "What does this word mean?",
+                "emoji": "🍽️",
+                "targetWord": "Tisch",
+                "meaning": "Table",
+                "distractorMeanings": [
+                  "Plate",
+                  "Glass",
+                  "Fork"
+                ],
+                "distractorWords": [
+                  "Teller",
+                  "Glas",
+                  "Gabel"
+                ]
+              }
+            },
+            {
+              "id": "de_u2_l3_e2",
+              "type": "multipleChoice",
+              "vocabId": "de_teller",
+              "payload": {
+                "prompt": "Which word means 'Plate'?",
+                "options": [
+                  "Teller",
+                  "Tisch",
+                  "Glas",
+                  "Gabel"
+                ],
+                "correctIndex": 0
+              }
+            },
+            {
+              "id": "de_u2_l3_e3",
+              "type": "listening",
+              "vocabId": "de_glas",
+              "payload": {
+                "prompt": "Listen and select what you hear",
+                "audioText": "Glas",
+                "ttsLocale": "de-DE",
+                "options": [
+                  "Glas",
+                  "Teller",
+                  "Tisch",
+                  "Gabel"
+                ],
+                "correctIndex": 0,
+                "translation": "Glass"
+              }
+            },
+            {
+              "id": "de_u2_l3_e4",
+              "type": "multipleChoice",
+              "vocabId": "de_auf",
+              "payload": {
+                "prompt": "Which word means 'On'?",
+                "options": [
+                  "Auf",
+                  "Teller",
+                  "Glas",
+                  "Tisch"
+                ],
+                "correctIndex": 0
+              }
+            },
+            {
+              "id": "de_u2_l3_e5",
+              "type": "translation",
+              "vocabId": "de_gabel",
+              "payload": {
+                "prompt": "Type the English meaning",
+                "sourceText": "Gabel",
+                "acceptableAnswers": [
+                  "fork",
+                  "Fork"
+                ]
+              }
+            },
+            {
+              "id": "de_u2_l3_e6",
+              "type": "speaking",
+              "vocabId": "de_tisch",
+              "payload": {
+                "prompt": "Say this phrase out loud",
+                "targetPhrase": "Das Messer ist auf dem Tisch",
+                "translation": "The knife is on the table",
+                "ttsLocale": "de-DE"
+              }
+            },
+            {
+              "id": "de_u2_l3_e7",
+              "type": "wordMatching",
+              "vocabId": "de_u2_l3_set",
+              "payload": {
+                "prompt": "Match each word to its meaning",
+                "pairs": [
+                  {
+                    "left": "Tisch",
+                    "right": "Table"
+                  },
+                  {
+                    "left": "Teller",
+                    "right": "Plate"
+                  },
+                  {
+                    "left": "Glas",
+                    "right": "Glass"
+                  },
+                  {
+                    "left": "Gabel",
+                    "right": "Fork"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "de_u2_l3_e8",
+              "type": "sentenceArrangement",
+              "vocabId": "de_tisch",
+              "payload": {
+                "prompt": "Build the sentence",
+                "shuffledChips": [
+                  "Das",
+                  "Glas",
+                  "dem",
+                  "Tisch",
+                  "ist",
+                  "auf"
+                ],
+                "correctSentence": [
+                  "Das",
+                  "Glas",
+                  "ist",
+                  "auf",
+                  "dem",
+                  "Tisch"
+                ],
+                "translation": "The glass is on the table"
+              }
+            },
+            {
+              "id": "de_u2_l3_e9",
+              "type": "fillInTheBlank",
+              "vocabId": "de_messer",
+              "payload": {
+                "prompt": "Complete the sentence",
+                "sentenceTemplate": "Das ___ ist auf dem Tisch.",
+                "options": [
+                  "Messer",
+                  "Glas",
+                  "Teller",
+                  "Brot"
+                ],
+                "correctAnswer": "Messer",
+                "translation": "The knife is on the table"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "de_u3",
+      "title": "Numbers & Travel",
+      "description": "Count, navigate, and travel with confidence",
+      "icon": "travel",
+      "accent": "teal",
+      "lessons": [
+        {
+          "id": "de_u3_l1",
+          "title": "Numbers 1-10",
+          "subtitle": "Eins, Zwei, Drei, Vier, Fünf",
+          "icon": "numbers",
+          "reviewVocabIds": [
+            "de_jahre_alt",
+            "de_ich_habe",
+            "de_ich_bin",
+            "de_fuenf"
+          ],
+          "exercises": [
+            {
+              "id": "de_u3_l1_e1",
+              "type": "imageRecognition",
+              "vocabId": "de_eins",
+              "payload": {
+                "prompt": "What does this word mean?",
+                "emoji": "1️⃣",
+                "targetWord": "Eins",
+                "meaning": "One",
+                "distractorMeanings": [
+                  "Two",
+                  "Three",
+                  "Four"
+                ],
+                "distractorWords": [
+                  "Zwei",
+                  "Drei",
+                  "Vier"
+                ]
+              }
+            },
+            {
+              "id": "de_u3_l1_e2",
+              "type": "multipleChoice",
+              "vocabId": "de_zwei",
+              "payload": {
+                "prompt": "Which word means 'Two'?",
+                "options": [
+                  "Eins",
+                  "Drei",
+                  "Vier",
+                  "Zwei"
+                ],
+                "correctIndex": 3
+              }
+            },
+            {
+              "id": "de_u3_l1_e3",
+              "type": "listening",
+              "vocabId": "de_drei",
+              "payload": {
+                "prompt": "Listen and select what you hear",
+                "audioText": "Drei",
+                "ttsLocale": "de-DE",
+                "options": [
+                  "Eins",
+                  "Vier",
+                  "Zwei",
+                  "Drei"
+                ],
+                "correctIndex": 3,
+                "translation": "Three"
+              }
+            },
+            {
+              "id": "de_u3_l1_e4",
+              "type": "multipleChoice",
+              "vocabId": "de_jahre_alt",
+              "payload": {
+                "prompt": "Which word means 'Years old'?",
+                "options": [
+                  "Eins",
+                  "Jahre alt",
+                  "Drei",
+                  "Zwei"
+                ],
+                "correctIndex": 1
+              }
+            },
+            {
+              "id": "de_u3_l1_e5",
+              "type": "translation",
+              "vocabId": "de_vier",
+              "payload": {
+                "prompt": "Type the English meaning",
+                "sourceText": "Vier",
+                "acceptableAnswers": [
+                  "four",
+                  "Four"
+                ]
+              }
+            },
+            {
+              "id": "de_u3_l1_e6",
+              "type": "speaking",
+              "vocabId": "de_eins",
+              "payload": {
+                "prompt": "Say this phrase out loud",
+                "targetPhrase": "Ich bin fünf Jahre alt",
+                "translation": "I am five years old",
+                "ttsLocale": "de-DE"
+              }
+            },
+            {
+              "id": "de_u3_l1_e7",
+              "type": "wordMatching",
+              "vocabId": "de_u3_l1_set",
+              "payload": {
+                "prompt": "Match each word to its meaning",
+                "pairs": [
+                  {
+                    "left": "Eins",
+                    "right": "One"
+                  },
+                  {
+                    "left": "Zwei",
+                    "right": "Two"
+                  },
+                  {
+                    "left": "Drei",
+                    "right": "Three"
+                  },
+                  {
+                    "left": "Vier",
+                    "right": "Four"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "de_u3_l1_e8",
+              "type": "sentenceArrangement",
+              "vocabId": "de_eins",
+              "payload": {
+                "prompt": "Build the sentence",
+                "shuffledChips": [
+                  "vier",
+                  "alt",
+                  "Ich",
+                  "bin",
+                  "Jahre"
+                ],
+                "correctSentence": [
+                  "Ich",
+                  "bin",
+                  "vier",
+                  "Jahre",
+                  "alt"
+                ],
+                "translation": "I am four years old"
+              }
+            },
+            {
+              "id": "de_u3_l1_e9",
+              "type": "fillInTheBlank",
+              "vocabId": "de_drei",
+              "payload": {
+                "prompt": "Complete the sentence",
+                "sentenceTemplate": "Ich bin ___ Jahre alt.",
+                "options": [
+                  "eins",
+                  "zwei",
+                  "vier",
+                  "drei"
+                ],
+                "correctAnswer": "drei",
+                "translation": "I am three years old"
+              }
+            }
+          ]
+        },
+        {
+          "id": "de_u3_l2",
+          "title": "Getting Around",
+          "subtitle": "Links, Rechts, Geradeaus, Straße, Bahnhof",
+          "icon": "directions",
+          "reviewVocabIds": [
+            "de_wo_ist",
+            "de_der",
+            "de_die",
+            "de_bahnhof"
+          ],
+          "exercises": [
+            {
+              "id": "de_u3_l2_e1",
+              "type": "imageRecognition",
+              "vocabId": "de_links",
+              "payload": {
+                "prompt": "What does this word mean?",
+                "emoji": "⬅️",
+                "targetWord": "Links",
+                "meaning": "Left",
+                "distractorMeanings": [
+                  "Right",
+                  "Straight ahead",
+                  "Street"
+                ],
+                "distractorWords": [
+                  "Rechts",
+                  "Geradeaus",
+                  "Straße"
+                ]
+              }
+            },
+            {
+              "id": "de_u3_l2_e2",
+              "type": "multipleChoice",
+              "vocabId": "de_rechts",
+              "payload": {
+                "prompt": "Which word means 'Right'?",
+                "options": [
+                  "Rechts",
+                  "Geradeaus",
+                  "Straße",
+                  "Links"
+                ],
+                "correctIndex": 0
+              }
+            },
+            {
+              "id": "de_u3_l2_e3",
+              "type": "listening",
+              "vocabId": "de_geradeaus",
+              "payload": {
+                "prompt": "Listen and select what you hear",
+                "audioText": "Geradeaus",
+                "ttsLocale": "de-DE",
+                "options": [
+                  "Rechts",
+                  "Straße",
+                  "Geradeaus",
+                  "Links"
+                ],
+                "correctIndex": 2,
+                "translation": "Straight ahead"
+              }
+            },
+            {
+              "id": "de_u3_l2_e4",
+              "type": "multipleChoice",
+              "vocabId": "de_wo_ist",
+              "payload": {
+                "prompt": "Which word means 'Where is'?",
+                "options": [
+                  "Rechts",
+                  "Links",
+                  "Wo ist",
+                  "Geradeaus"
+                ],
+                "correctIndex": 2
+              }
+            },
+            {
+              "id": "de_u3_l2_e5",
+              "type": "translation",
+              "vocabId": "de_strasse",
+              "payload": {
+                "prompt": "Type the English meaning",
+                "sourceText": "Straße",
+                "acceptableAnswers": [
+                  "street",
+                  "Street"
+                ]
+              }
+            },
+            {
+              "id": "de_u3_l2_e6",
+              "type": "speaking",
+              "vocabId": "de_links",
+              "payload": {
+                "prompt": "Say this phrase out loud",
+                "targetPhrase": "Wo ist der Bahnhof?",
+                "translation": "Where is the station?",
+                "ttsLocale": "de-DE"
+              }
+            },
+            {
+              "id": "de_u3_l2_e7",
+              "type": "wordMatching",
+              "vocabId": "de_u3_l2_set",
+              "payload": {
+                "prompt": "Match each word to its meaning",
+                "pairs": [
+                  {
+                    "left": "Links",
+                    "right": "Left"
+                  },
+                  {
+                    "left": "Rechts",
+                    "right": "Right"
+                  },
+                  {
+                    "left": "Geradeaus",
+                    "right": "Straight ahead"
+                  },
+                  {
+                    "left": "Straße",
+                    "right": "Street"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "de_u3_l2_e8",
+              "type": "sentenceArrangement",
+              "vocabId": "de_links",
+              "payload": {
+                "prompt": "Build the sentence",
+                "shuffledChips": [
+                  "die",
+                  "ist",
+                  "Wo",
+                  "Straße"
+                ],
+                "correctSentence": [
+                  "Wo",
+                  "ist",
+                  "die",
+                  "Straße"
+                ],
+                "translation": "Where is the street?"
+              }
+            },
+            {
+              "id": "de_u3_l2_e9",
+              "type": "fillInTheBlank",
+              "vocabId": "de_links",
+              "payload": {
+                "prompt": "Complete the sentence",
+                "sentenceTemplate": "Der Bahnhof ist ___.",
+                "options": [
+                  "links",
+                  "geradeaus",
+                  "Straße",
+                  "rechts"
+                ],
+                "correctAnswer": "links",
+                "translation": "The station is on the left"
+              }
+            }
+          ]
+        },
+        {
+          "id": "de_u3_l3",
+          "title": "Travel Phrases",
+          "subtitle": "Flughafen, Hotel, Fahrkarte, Zug, Koffer",
+          "icon": "travel",
+          "reviewVocabIds": [
+            "de_in_der_naehe",
+            "de_der",
+            "de_das",
+            "de_ist",
+            "de_wo_ist",
+            "de_koffer"
+          ],
+          "exercises": [
+            {
+              "id": "de_u3_l3_e1",
+              "type": "imageRecognition",
+              "vocabId": "de_flughafen",
+              "payload": {
+                "prompt": "What does this word mean?",
+                "emoji": "✈️",
+                "targetWord": "Flughafen",
+                "meaning": "Airport",
+                "distractorMeanings": [
+                  "Hotel",
+                  "Ticket",
+                  "Train"
+                ],
+                "distractorWords": [
+                  "Hotel",
+                  "Fahrkarte",
+                  "Zug"
+                ]
+              }
+            },
+            {
+              "id": "de_u3_l3_e2",
+              "type": "multipleChoice",
+              "vocabId": "de_hotel",
+              "payload": {
+                "prompt": "Which word means 'Hotel'?",
+                "options": [
+                  "Zug",
+                  "Hotel",
+                  "Flughafen",
+                  "Fahrkarte"
+                ],
+                "correctIndex": 1
+              }
+            },
+            {
+              "id": "de_u3_l3_e3",
+              "type": "listening",
+              "vocabId": "de_fahrkarte",
+              "payload": {
+                "prompt": "Listen and select what you hear",
+                "audioText": "Fahrkarte",
+                "ttsLocale": "de-DE",
+                "options": [
+                  "Flughafen",
+                  "Zug",
+                  "Fahrkarte",
+                  "Hotel"
+                ],
+                "correctIndex": 2,
+                "translation": "Ticket"
+              }
+            },
+            {
+              "id": "de_u3_l3_e4",
+              "type": "multipleChoice",
+              "vocabId": "de_in_der_naehe",
+              "payload": {
+                "prompt": "Which word means 'Nearby'?",
+                "options": [
+                  "Hotel",
+                  "Fahrkarte",
+                  "Flughafen",
+                  "In der Nähe"
+                ],
+                "correctIndex": 3
+              }
+            },
+            {
+              "id": "de_u3_l3_e5",
+              "type": "translation",
+              "vocabId": "de_zug",
+              "payload": {
+                "prompt": "Type the English meaning",
+                "sourceText": "Zug",
+                "acceptableAnswers": [
+                  "train",
+                  "Train"
+                ]
+              }
+            },
+            {
+              "id": "de_u3_l3_e6",
+              "type": "speaking",
+              "vocabId": "de_flughafen",
+              "payload": {
+                "prompt": "Say this phrase out loud",
+                "targetPhrase": "Der Zug ist in der Nähe",
+                "translation": "The train is nearby",
+                "ttsLocale": "de-DE"
+              }
+            },
+            {
+              "id": "de_u3_l3_e7",
+              "type": "wordMatching",
+              "vocabId": "de_u3_l3_set",
+              "payload": {
+                "prompt": "Match each word to its meaning",
+                "pairs": [
+                  {
+                    "left": "Flughafen",
+                    "right": "Airport"
+                  },
+                  {
+                    "left": "Hotel",
+                    "right": "Hotel"
+                  },
+                  {
+                    "left": "Fahrkarte",
+                    "right": "Ticket"
+                  },
+                  {
+                    "left": "Zug",
+                    "right": "Train"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "de_u3_l3_e8",
+              "type": "sentenceArrangement",
+              "vocabId": "de_flughafen",
+              "payload": {
+                "prompt": "Build the sentence",
+                "shuffledChips": [
+                  "der",
+                  "Zug",
+                  "ist",
+                  "Wo"
+                ],
+                "correctSentence": [
+                  "Wo",
+                  "ist",
+                  "der",
+                  "Zug"
+                ],
+                "translation": "Where is the train?"
+              }
+            },
+            {
+              "id": "de_u3_l3_e9",
+              "type": "fillInTheBlank",
+              "vocabId": "de_hotel",
+              "payload": {
+                "prompt": "Complete the sentence",
+                "sentenceTemplate": "Das ___ ist in der Nähe.",
+                "options": [
+                  "Flughafen",
+                  "Hotel",
+                  "Fahrkarte",
+                  "Zug"
+                ],
+                "correctAnswer": "Hotel",
+                "translation": "The hotel is nearby"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "placementQuestions": [
+    {
+      "id": "p1",
+      "prompt": "What does 'Hallo' mean?",
+      "options": [
+        "Goodbye",
+        "Hello",
+        "Thank you",
+        "Please"
+      ],
+      "correctIndex": 1,
+      "unlocksUnitIndex": 0
+    },
+    {
+      "id": "p2",
+      "prompt": "What does 'Bitte' mean?",
+      "options": [
+        "Please",
+        "Good evening",
+        "Yes",
+        "No"
+      ],
+      "correctIndex": 0,
+      "unlocksUnitIndex": 0
+    },
+    {
+      "id": "p3",
+      "prompt": "What does 'Guten Abend' mean?",
+      "options": [
+        "Excuse me",
+        "You're welcome",
+        "Okay",
+        "Good evening"
+      ],
+      "correctIndex": 3,
+      "unlocksUnitIndex": 0
+    },
+    {
+      "id": "p4",
+      "prompt": "What does 'Mutter' mean?",
+      "options": [
+        "Brother",
+        "Father",
+        "Mother",
+        "Sister"
+      ],
+      "correctIndex": 2,
+      "unlocksUnitIndex": 1
+    },
+    {
+      "id": "p5",
+      "prompt": "What does 'Bruder' mean?",
+      "options": [
+        "Grandmother",
+        "Bread",
+        "Water",
+        "Brother"
+      ],
+      "correctIndex": 3,
+      "unlocksUnitIndex": 1
+    },
+    {
+      "id": "p6",
+      "prompt": "What does 'Großmutter' mean?",
+      "options": [
+        "Grandmother",
+        "Cheese",
+        "Milk",
+        "Apple"
+      ],
+      "correctIndex": 0,
+      "unlocksUnitIndex": 1
+    },
+    {
+      "id": "p7",
+      "prompt": "What does 'Eins' mean?",
+      "options": [
+        "Three",
+        "Four",
+        "Two",
+        "One"
+      ],
+      "correctIndex": 3,
+      "unlocksUnitIndex": 2
+    },
+    {
+      "id": "p8",
+      "prompt": "What does 'Drei' mean?",
+      "options": [
+        "Three",
+        "Right",
+        "Left",
+        "Five"
+      ],
+      "correctIndex": 0,
+      "unlocksUnitIndex": 2
+    }
+  ]
+}

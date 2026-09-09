@@ -152,6 +152,97 @@ void main() {
     });
   });
 
+  // Being told "Correct answer: El aeropuerto está cerca" teaches word
+  // order and nothing else if you don't already know the sentence — the
+  // exact complaint that added this.
+  group('correctAnswerMeaning', () {
+    test('a target-language answer is glossed in English', () {
+      expect(
+        correctAnswerMeaning(
+          _ex(
+            ExerciseType.sentenceArrangement,
+            const SentenceArrangementPayload(
+              prompt: 'Build the sentence',
+              shuffledChips: ['aeropuerto', 'está', 'El', 'cerca'],
+              correctSentence: ['El', 'aeropuerto', 'está', 'cerca'],
+              translation: 'The airport is nearby',
+            ),
+          ),
+        )?.text,
+        'The airport is nearby',
+      );
+      expect(
+        correctAnswerMeaning(
+          _ex(
+            ExerciseType.listening,
+            const ListeningPayload(
+              prompt: 'Listen and select what you hear',
+              audioText: 'Por favor',
+              ttsLocale: 'es-ES',
+              options: ['Hola', 'Por favor'],
+              correctIndex: 1,
+              translation: 'Please',
+            ),
+          ),
+        )?.text,
+        'Please',
+      );
+      // Speaking already carried a translation; it just wasn't surfaced.
+      expect(
+        correctAnswerMeaning(_ex(ExerciseType.speaking, _speaking))?.text,
+        'Good morning',
+      );
+    });
+
+    // "abuela" does not mean "My grandmother is called Rosa" — the gloss
+    // covers the sentence the answer slots into, so it says so.
+    test('a one-word answer glossed by its sentence is labelled as such', () {
+      final blank = correctAnswerMeaning(
+        _ex(
+          ExerciseType.fillInTheBlank,
+          const FillInTheBlankPayload(
+            sentenceTemplate: 'Mi ___ se llama Rosa.',
+            options: ['abuela', 'padre'],
+            correctAnswer: 'abuela',
+            translation: 'My grandmother is called Rosa',
+          ),
+        ),
+      );
+      expect(blank?.label, 'Full sentence');
+      expect(blank?.text, 'My grandmother is called Rosa');
+
+      // The arranged sentence *is* the answer, so plain "Means" fits.
+      final arranged = correctAnswerMeaning(
+        _ex(
+          ExerciseType.sentenceArrangement,
+          const SentenceArrangementPayload(
+            prompt: 'Build the sentence',
+            shuffledChips: ['gracias', 'Muchas'],
+            correctSentence: ['Muchas', 'gracias'],
+            translation: 'Thank you very much',
+          ),
+        ),
+      );
+      expect(arranged?.label, 'Means');
+    });
+
+    test('no gloss where the English is already on screen', () {
+      // The prompt *is* the English: "Which word means 'Hello'?"
+      expect(correctAnswerMeaning(_ex(ExerciseType.multipleChoice, _mc)), isNull);
+      // Answered in English.
+      expect(correctAnswerMeaning(_ex(ExerciseType.translation, _translation)), isNull);
+      expect(correctAnswerMeaning(_ex(ExerciseType.imageRecognition, _imageMeaning)), isNull);
+      // Every pair already shows both sides.
+      expect(correctAnswerMeaning(_ex(ExerciseType.wordMatching, _matching)), isNull);
+    });
+
+    test('unglossed content degrades to no second line rather than an empty one', () {
+      expect(correctAnswerMeaning(_ex(ExerciseType.sentenceArrangement, _arrangement)), isNull);
+      expect(correctAnswerMeaning(_ex(ExerciseType.fillInTheBlank, _blank)), isNull);
+      expect(correctAnswerMeaning(_ex(ExerciseType.listening, _listening)), isNull);
+    });
+  });
+
   group('promptLabel and spokenText', () {
     test('a prompt carries the word it was about', () {
       expect(

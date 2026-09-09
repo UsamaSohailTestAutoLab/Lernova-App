@@ -96,11 +96,39 @@ void main() {
     final after = container.read(funConversationSessionProvider)!;
     expect(after.currentConversationIndex, 1);
     expect(after.isComplete, isFalse);
-    // A fresh conversation loaded, not necessarily a different one from
-    // the tiny 2-item pool, but the turn index/correctness reset either way.
     expect(after.currentTurnIndex, 0);
     expect(after.turnCorrectness.every((c) => c == null), isTrue);
-    expect(firstConversationId, isNotEmpty); // sanity: pool selection ran
+    // The round set is drawn distinct up front, so the second
+    // conversation is a genuinely different scenario.
+    expect(after.currentConversation.id, isNot(firstConversationId));
+  });
+
+  // The intro's Review Words step lists every scenario the session will
+  // run; it used to show one card because only the first conversation
+  // had been picked by then.
+  group('round set', () {
+    test('holds one distinct conversation per round, ready before play', () {
+      final controller = container.read(funConversationSessionProvider.notifier);
+      controller.start(pool: _conversations(), totalConversations: 2, random: Random(6));
+      final s = container.read(funConversationSessionProvider)!;
+
+      expect(s.pool, hasLength(2));
+      expect(s.pool.map((c) => c.id).toSet(), hasLength(2));
+      expect(s.currentConversation, s.pool.first);
+    });
+
+    test('a short pool shortens the session instead of repeating a scenario', () {
+      final controller = container.read(funConversationSessionProvider.notifier);
+      controller.start(
+        pool: [_conversations().first],
+        totalConversations: 3,
+        random: Random(6),
+      );
+      final s = container.read(funConversationSessionProvider)!;
+
+      expect(s.totalConversations, 1);
+      expect(s.pool, hasLength(1));
+    });
   });
 
   test('session completes after the requested number of conversations', () {

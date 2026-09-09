@@ -246,7 +246,7 @@ class FunWordMatchSessionController extends Notifier<FunWordMatchState?> {
     final s = state;
     if (s == null || s.pendingRecall == null) return;
     final correct =
-        normalizeForMatch(typed) == normalizeForMatch(s.pendingRecall!.correctMeaning);
+        matchesTypedAnswer(typed, s.pendingRecall!.correctMeaning);
     if (correct) {
       _clearRecall();
     } else {

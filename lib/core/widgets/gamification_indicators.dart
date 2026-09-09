@@ -200,8 +200,9 @@ class LessonProgressBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return ClipRRect(
-      borderRadius: BorderRadius.circular(AppSpacing.xl),
+      borderRadius: BorderRadius.circular(AppRadius.pill),
       child: TweenAnimationBuilder<double>(
         tween: Tween(begin: 0, end: progress.clamp(0, 1)),
         duration: const Duration(milliseconds: 350),
@@ -209,6 +210,12 @@ class LessonProgressBar extends StatelessWidget {
         builder: (context, value, _) => LinearProgressIndicator(
           value: value,
           minHeight: 12,
+          // Explicit colours rather than the theme defaults, which pair
+          // a pale green fill with a pale green track — at the start of
+          // a lesson that read as an empty grey pill with nothing in it,
+          // as if the bar were broken.
+          color: AppColors.primaryVivid,
+          backgroundColor: theme.colorScheme.surfaceContainerHighest,
         ),
       ),
     );

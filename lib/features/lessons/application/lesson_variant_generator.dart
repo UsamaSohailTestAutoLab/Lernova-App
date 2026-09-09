@@ -92,10 +92,15 @@ class LessonVariantGenerator {
   }) {
     final missed = <Exercise>[];
     final teaching = <Exercise>[];
+    final building = <Exercise>[];
     final summary = <Exercise>[];
     for (final e in exercises) {
       if (e.type == ExerciseType.wordMatching) {
         summary.add(e);
+      } else if (_buildsSentences.contains(e.type)) {
+        // Held back regardless of the mistake bank: leading a round with
+        // one is the case this rule exists to prevent.
+        building.add(e);
       } else if (prioritizeIds.contains(e.id)) {
         missed.add(e);
       } else {
@@ -104,9 +109,22 @@ class LessonVariantGenerator {
     }
     missed.shuffle(random);
     teaching.shuffle(random);
+    building.shuffle(random);
     summary.shuffle(random);
-    return [...missed, ...teaching, ...summary];
+    return [...missed, ...teaching, ...building, ...summary];
   }
+
+  /// Exercises that ask the learner to assemble a whole sentence.
+  ///
+  /// These come *after* the single-word questions, never before. Putting
+  /// one first asks someone to order words they have not met yet — "Yo
+  /// tengo dos hermanos" is four opaque tokens until something has
+  /// taught *Yo* and *tengo*. The word-level questions earlier in the
+  /// round are that teaching.
+  static const _buildsSentences = {
+    ExerciseType.sentenceArrangement,
+    ExerciseType.fillInTheBlank,
+  };
 
   /// Re-asks a bounded random subset of [exercises] through a different
   /// exercise type. Order is preserved here; [shuffleOrder] handles that.
@@ -254,6 +272,9 @@ class LessonVariantGenerator {
             ttsLocale: ttsLocale,
             options: options,
             correctIndex: options.indexOf(word.word),
+            // A generated listening question is pure sound recognition,
+            // so it needs the gloss just as much as an authored one.
+            translation: word.translation,
           ),
         );
 

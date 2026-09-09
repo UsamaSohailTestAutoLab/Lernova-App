@@ -42,6 +42,14 @@ void main() {
       await tester.tap(find.text('Skip'));
       await tester.pumpAndSettle();
 
+      // The name comes first, so the app can greet the learner by it
+      // from the first screen after onboarding.
+      expect(find.text("What's your name?"), findsOneWidget);
+      await tester.enterText(find.byType(TextField), 'Ada Lovelace');
+      await tester.pump();
+      await tester.tap(find.text('Continue'));
+      await tester.pumpAndSettle();
+
       // Language selection, populated from the bundled course JSON assets.
       expect(find.text('What do you want to learn?'), findsOneWidget);
       expect(find.text('Spanish'), findsOneWidget);

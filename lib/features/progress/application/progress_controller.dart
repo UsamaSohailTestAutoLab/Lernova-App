@@ -5,6 +5,7 @@ import '../../../core/services/service_providers.dart';
 import '../../../core/utils/achievement_logic.dart';
 import '../../../core/utils/daily_goal_logic.dart';
 import '../../../core/utils/date_utils.dart';
+import '../../../data/models/pro_entitlement.dart';
 import '../../../core/utils/hearts_logic.dart';
 import '../../../core/utils/league_logic.dart';
 import '../../../core/utils/streak_logic.dart';
@@ -69,11 +70,44 @@ class ProgressController extends Notifier<UserProgress> {
   void initializeForOnboarding({
     required int dailyGoalXp,
     required int unlockedUnitIndex,
+    String? languageId,
   }) {
     final now = DateTime.now();
     final fresh = UserProgress.initial(weekId: AppDateUtils.isoWeekId(now))
-        .copyWith(dailyGoalXp: dailyGoalXp, unlockedUnitIndex: unlockedUnitIndex);
+        .copyWith(
+      dailyGoalXp: dailyGoalXp,
+      unlockedUnitIndex: unlockedUnitIndex,
+      activeLanguageId: languageId,
+    );
     _persist(fresh);
+  }
+
+  /// Names the language the inline progress belongs to, for an install
+  /// made before languages could be switched. Everything already
+  /// learned stays exactly where it is — this only labels it, so the
+  /// first switch has somewhere honest to file it.
+  ///
+  /// Does nothing once a language is on record: overwriting the label
+  /// would attribute one course's history to another.
+  void adoptActiveLanguage(String languageId) {
+    if (state.activeLanguageId != null) return;
+    _persist(state.copyWith(activeLanguageId: languageId));
+  }
+
+  /// Saves the current language's progress and loads the target's,
+  /// creating a blank one the first time a language is opened.
+  ///
+  /// Account-level state (XP, gems, hearts, streak, achievements,
+  /// league) is untouched — see [UserProgress.switchLanguage].
+  void switchLanguage({required String from, required String to}) {
+    if (from == to && state.activeLanguageId == to) return;
+    final now = DateTime.now();
+    // Reconciled on the way in, not just at startup: the language being
+    // restored may not have been opened for days, so its streak, daily
+    // goal and league week are all stale until rolled forward.
+    _persist(
+      _reconcile(state.switchLanguage(from: from, to: to, now: now), now),
+    );
   }
 
   /// Remembers what the learner just opened, so Home's "Continue
@@ -84,6 +118,18 @@ class ProgressController extends Notifier<UserProgress> {
   /// never be recorded at all.
   void noteActivityStarted(LastActivity activity) {
     _persist(state.copyWith(lastActivity: activity));
+  }
+
+  /// Records that a one-off explainer has been shown.
+  ///
+  /// Unlike [markLevelPreviewed], which makes a review step *skippable*,
+  /// this makes a tutorial screen never appear again — replaying a level
+  /// you already understand should drop you straight into it.
+  void markTutorialSeen(String tutorialId) {
+    if (state.seenTutorialIds.contains(tutorialId)) return;
+    _persist(
+      state.copyWith(seenTutorialIds: {...state.seenTutorialIds, tutorialId}),
+    );
   }
 
   /// Records that this level's Review Words step has been seen through
@@ -153,8 +199,28 @@ class ProgressController extends Notifier<UserProgress> {
 
   /// Premium controls which levels/content are unlocked. It is
   /// deliberately not wired to hearts.
+  ///
+  /// Prefer [applyEntitlement] for anything coming from the store —
+  /// this records only *that* Pro is on, not why, and a bare flag can't
+  /// be told apart from a developer override when it later looks wrong.
   void setPremium(bool value) {
-    _persist(state.copyWith(isPremium: value));
+    _persist(state.copyWith(
+      isPremium: value,
+      proEntitlement: value
+          ? ProEntitlement(isActive: true, purchasedAt: DateTime.now(), source: ProSource.debug)
+          : ProEntitlement.none,
+    ));
+  }
+
+  /// Records a store-granted entitlement, or clears it.
+  ///
+  /// The single place a real purchase becomes Pro access. [isPremium]
+  /// stays in sync so every existing read of it keeps working.
+  void applyEntitlement(ProEntitlement entitlement) {
+    _persist(state.copyWith(
+      isPremium: entitlement.isActive,
+      proEntitlement: entitlement,
+    ));
   }
 
   /// Testing aid only: pushes `unlockedUnitIndex` far past any real

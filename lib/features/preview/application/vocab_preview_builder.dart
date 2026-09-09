@@ -1,7 +1,6 @@
 import '../../../core/utils/string_normalize.dart';
 import '../../../core/utils/tts_locales.dart';
 import '../../../data/models/exercise.dart';
-import '../../../data/models/fun/conversation.dart';
 import '../../../data/models/fun/fun_question.dart';
 import '../../../data/models/fun/phrase.dart';
 import '../../../data/models/fun/vocab_word.dart';
@@ -141,16 +140,9 @@ class VocabPreviewBuilder {
     );
   }
 
-  /// Conversation Challenge isn't vocabulary-shaped — a single "what to
-  /// expect" card stands in for the usual word/meaning pairs. It carries
-  /// no learning-language text of its own, so it is marked unspeakable
-  /// rather than mispronouncing an English scenario blurb.
-  static VocabPreviewItem fromConversation(Conversation conversation) {
-    return VocabPreviewItem(
-      id: conversation.id,
-      word: conversation.title,
-      meaning: conversation.scenario,
-      canSpeak: false,
-    );
-  }
+  // Conversation Challenge deliberately has no builder here. It isn't
+  // vocabulary-shaped, and the "what to expect" card this used to make
+  // only repeated the scenario blurb that the dialogue's own
+  // three-step walkthrough shows on its first screen — a Review Words
+  // step that cost a tap and taught nothing.
 }

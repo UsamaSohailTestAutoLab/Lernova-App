@@ -17,6 +17,7 @@ import '../../features/fun/presentation/fun_sentence_builder_results_screen.dart
 import '../../features/fun/presentation/fun_sentence_builder_screen.dart';
 import '../../features/fun/presentation/fun_word_match_results_screen.dart';
 import '../../features/fun/presentation/fun_word_match_screen.dart';
+import '../../features/fun/presentation/water_survival_intro_screen.dart';
 import '../../features/home/presentation/home_screen.dart';
 import '../../features/lessons/presentation/achievement_unlock_screen.dart';
 import '../../features/lessons/presentation/daily_goal_result_screen.dart';
@@ -30,7 +31,9 @@ import '../../features/onboarding/presentation/daily_goal_selection_screen.dart'
 import '../../features/onboarding/presentation/goal_selection_screen.dart';
 import '../../features/onboarding/presentation/language_selection_screen.dart';
 import '../../features/onboarding/presentation/onboarding_explainer_screen.dart';
+import '../../features/languages/presentation/language_switch_screen.dart';
 import '../../features/onboarding/presentation/placement_test_screen.dart';
+import '../../features/onboarding/presentation/name_entry_screen.dart';
 import '../../features/onboarding/presentation/splash_screen.dart';
 import '../../features/onboarding/presentation/welcome_screen.dart';
 import '../../features/preview/presentation/vocab_preview_screen.dart';
@@ -52,6 +55,10 @@ final routerProvider = Provider<GoRouter>((ref) {
       GoRoute(
         path: AppRoutes.onboardingExplainer,
         builder: (context, state) => OnboardingExplainerScreen(isReplay: state.extra == true),
+      ),
+      GoRoute(
+        path: AppRoutes.nameEntry,
+        builder: (context, state) => NameEntryScreen(standalone: state.extra == true),
       ),
       GoRoute(
         path: AppRoutes.languageSelection,
@@ -107,6 +114,10 @@ final routerProvider = Provider<GoRouter>((ref) {
       GoRoute(path: AppRoutes.statistics, builder: (context, state) => const StatisticsScreen()),
       GoRoute(path: AppRoutes.shop, builder: (context, state) => const ShopScreen()),
       GoRoute(path: AppRoutes.premium, builder: (context, state) => const PremiumScreen()),
+      GoRoute(
+        path: AppRoutes.languages,
+        builder: (context, state) => const LanguageSwitchScreen(),
+      ),
       // Settings is a bottom-nav tab now — registered as a shell branch
       // below, not as a top-level route.
       GoRoute(
@@ -126,6 +137,10 @@ final routerProvider = Provider<GoRouter>((ref) {
         path: AppRoutes.funGameIntro,
         builder: (context, state) =>
             FunGameIntroScreen(args: state.extra as FunGameNavArgs),
+      ),
+      GoRoute(
+        path: AppRoutes.funSurvivalIntro,
+        builder: (context, state) => const WaterSurvivalIntroScreen(),
       ),
       GoRoute(
         path: AppRoutes.funGamePlay,

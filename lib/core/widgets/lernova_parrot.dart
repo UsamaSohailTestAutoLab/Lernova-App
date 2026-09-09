@@ -14,6 +14,9 @@ enum LernovaParrotMood {
 
   /// Head tilted, one eye slightly narrowed.
   curious,
+
+  /// Both eyes drooping, crest lowered — out of hearts, a miss.
+  sad,
 }
 
 /// Lernova's mascot: a round, friendly parrot, entirely custom-painted.
@@ -321,10 +324,11 @@ class _ParrotPainter extends CustomPainter {
   }
 
   /// Three amber crest feathers. The most distinctive part of the
-  /// silhouette, and raised higher when celebrating.
+  /// silhouette — raised higher when celebrating, drooped when sad.
   void _crest(Canvas canvas, double w, double h) {
     final raised = mood == LernovaParrotMood.celebrate;
-    final length = w * (raised ? 0.32 : 0.25);
+    final drooped = mood == LernovaParrotMood.sad;
+    final length = w * (raised ? 0.32 : (drooped ? 0.20 : 0.25));
     final origin = Offset(w * 0.50, h * 0.145);
 
     const angles = [-0.62, -0.03, 0.56];
@@ -411,10 +415,17 @@ class _ParrotPainter extends CustomPainter {
       case LernovaParrotMood.happy:
         _eye(canvas, leftEye, w, openness: 1);
         _eye(canvas, rightEye, w, openness: 1);
+      case LernovaParrotMood.sad:
+        _eye(canvas, leftEye, w, openness: 0.7);
+        _eye(canvas, rightEye, w, openness: 0.7);
     }
 
-    _blush(canvas, Offset(w * 0.255, h * 0.405), w);
-    _blush(canvas, Offset(w * 0.745, h * 0.405), w);
+    // Blush is skipped when sad — a flushed, cheerful cheek reads wrong
+    // next to a droop, and the mood needs to be unambiguous at a glance.
+    if (mood != LernovaParrotMood.sad) {
+      _blush(canvas, Offset(w * 0.255, h * 0.405), w);
+      _blush(canvas, Offset(w * 0.745, h * 0.405), w);
+    }
     _beak(canvas, w, h);
   }
 

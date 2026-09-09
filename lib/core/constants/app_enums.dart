@@ -92,6 +92,12 @@ enum FunGameMode {
   conversationChallenge,
   sentenceBuilder,
   meaningShooter,
+
+  /// The rising-water survival game. Last in the list on purpose:
+  /// it is the hardest framing of the same catch-the-meaning mechanic,
+  /// so it sits at the end of the ladder rather than being the first
+  /// thing a new player meets.
+  wordSurvival,
 }
 
 extension FunGameModeX on FunGameMode {
@@ -105,6 +111,7 @@ extension FunGameModeX on FunGameMode {
         FunGameMode.conversationChallenge => 'Conversation Challenge',
         FunGameMode.sentenceBuilder => 'Sentence Builder',
         FunGameMode.meaningShooter => 'Meaning Shooter',
+        FunGameMode.wordSurvival => 'Word Survival',
       };
 
   String get emoji => switch (this) {
@@ -117,6 +124,7 @@ extension FunGameModeX on FunGameMode {
         FunGameMode.conversationChallenge => '🗣️',
         FunGameMode.sentenceBuilder => '🔤',
         FunGameMode.meaningShooter => '🎯',
+        FunGameMode.wordSurvival => '🌊',
       };
 
   String get blurb => switch (this) {
@@ -129,6 +137,8 @@ extension FunGameModeX on FunGameMode {
         FunGameMode.conversationChallenge => 'Follow a real back-and-forth chat',
         FunGameMode.sentenceBuilder => 'Drag words into the right order',
         FunGameMode.meaningShooter => 'Pop the bubble with the right meaning',
+        FunGameMode.wordSurvival =>
+          'Answer fast — keep your friend above the rising water',
       };
 
   /// Fun-hub level (see [FunProgress.gameLevels]) at which this mode
@@ -143,6 +153,7 @@ extension FunGameModeX on FunGameMode {
         FunGameMode.listenAndCatch => 7,
         FunGameMode.meaningShooter => 8,
         FunGameMode.conversationChallenge => 9,
+        FunGameMode.wordSurvival => 10,
       };
 
   /// All 10 spec'd modes now have real gameplay behind them. Kept as an

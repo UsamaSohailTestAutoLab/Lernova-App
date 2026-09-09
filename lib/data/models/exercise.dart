@@ -84,12 +84,19 @@ class ListeningPayload extends ExercisePayload {
   final List<String> options;
   final int correctIndex;
 
+  /// What [audioText] means in English. The question only asks the
+  /// learner to *recognize* the sounds, so without this a miss teaches
+  /// them the spelling of a phrase they still can't understand.
+  /// Nullable so older content keeps parsing.
+  final String? translation;
+
   const ListeningPayload({
     required this.prompt,
     required this.audioText,
     required this.ttsLocale,
     required this.options,
     required this.correctIndex,
+    this.translation,
   });
 
   factory ListeningPayload.fromJson(Map<String, dynamic> json) {
@@ -99,6 +106,7 @@ class ListeningPayload extends ExercisePayload {
       ttsLocale: json['ttsLocale'] as String? ?? 'es-ES',
       options: (json['options'] as List).cast<String>(),
       correctIndex: json['correctIndex'] as int,
+      translation: json['translation'] as String?,
     );
   }
 }
@@ -157,10 +165,18 @@ class SentenceArrangementPayload extends ExercisePayload {
   final List<String> shuffledChips;
   final List<String> correctSentence;
 
+  /// What [correctSentence] means in English. Ordering chips is a
+  /// grammar exercise, not a meaning one — a learner can build (or fail
+  /// to build) the sentence without ever being told what it says, so the
+  /// feedback shows this alongside the answer. Nullable so older content
+  /// keeps parsing.
+  final String? translation;
+
   const SentenceArrangementPayload({
     required this.prompt,
     required this.shuffledChips,
     required this.correctSentence,
+    this.translation,
   });
 
   factory SentenceArrangementPayload.fromJson(Map<String, dynamic> json) {
@@ -168,6 +184,7 @@ class SentenceArrangementPayload extends ExercisePayload {
       prompt: json['prompt'] as String,
       shuffledChips: (json['shuffledChips'] as List).cast<String>(),
       correctSentence: (json['correctSentence'] as List).cast<String>(),
+      translation: json['translation'] as String?,
     );
   }
 }
@@ -177,10 +194,16 @@ class FillInTheBlankPayload extends ExercisePayload {
   final List<String> options;
   final String correctAnswer;
 
+  /// What the completed sentence means in English — the whole sentence,
+  /// not just the missing word, since that's the part the learner has no
+  /// other way to decode. Nullable so older content keeps parsing.
+  final String? translation;
+
   const FillInTheBlankPayload({
     required this.sentenceTemplate,
     required this.options,
     required this.correctAnswer,
+    this.translation,
   });
 
   factory FillInTheBlankPayload.fromJson(Map<String, dynamic> json) {
@@ -188,6 +211,7 @@ class FillInTheBlankPayload extends ExercisePayload {
       sentenceTemplate: json['sentenceTemplate'] as String,
       options: (json['options'] as List).cast<String>(),
       correctAnswer: json['correctAnswer'] as String,
+      translation: json['translation'] as String?,
     );
   }
 }

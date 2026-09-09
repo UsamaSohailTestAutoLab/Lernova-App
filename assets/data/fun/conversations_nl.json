@@ -1,0 +1,170 @@
+[
+  {
+    "id": "nl_conv_cafe",
+    "title": "At the Café",
+    "scenario": "You are ordering a coffee at a café.",
+    "languageId": "nl",
+    "turns": [
+      {
+        "id": "nl_conv_cafe_t1",
+        "line": "Hallo! Wat wil je?",
+        "lineEnglish": "Hello! What would you like?",
+        "options": [
+          "Ik wil koffie, alsjeblieft",
+          "Hallo, doei",
+          "Ik heb een hond"
+        ],
+        "optionsEnglish": [
+          "I want coffee, please",
+          "Hello, goodbye",
+          "I have a dog"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "nl_conv_cafe_t2",
+        "line": "Nog iets?",
+        "lineEnglish": "Anything else?",
+        "options": [
+          "Nee, dank je",
+          "Ja, ik wil een kat",
+          "Goedenacht"
+        ],
+        "optionsEnglish": [
+          "No, thank you",
+          "Yes, I want a cat",
+          "Good night"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "nl_conv_cafe_t3",
+        "line": "Hier is je koffie. Fijne dag!",
+        "lineEnglish": "Here is your coffee. Have a nice day!",
+        "options": [
+          "Dank je, doei",
+          "Waar is het station?",
+          "Ik ben vijf jaar oud"
+        ],
+        "optionsEnglish": [
+          "Thank you, goodbye",
+          "Where is the station?",
+          "I am five years old"
+        ],
+        "correctIndex": 0
+      }
+    ]
+  },
+  {
+    "id": "nl_conv_directions",
+    "title": "Asking Directions",
+    "scenario": "You are lost and need to find the station.",
+    "languageId": "nl",
+    "turns": [
+      {
+        "id": "nl_conv_directions_t1",
+        "line": "Hallo, kan ik je helpen?",
+        "lineEnglish": "Hello, can I help you?",
+        "options": [
+          "Waar is het station, alsjeblieft?",
+          "Ik wil kaas",
+          "Mijn moeder is Anna"
+        ],
+        "optionsEnglish": [
+          "Where is the station, please?",
+          "I want cheese",
+          "My mother is Anna"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "nl_conv_directions_t2",
+        "line": "Rechtdoor, dan links.",
+        "lineEnglish": "Straight ahead, then left.",
+        "options": [
+          "Heel erg bedankt",
+          "Nee, sorry",
+          "Ik ben vier jaar oud"
+        ],
+        "optionsEnglish": [
+          "Thank you very much",
+          "No, excuse me",
+          "I am four years old"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "nl_conv_directions_t3",
+        "line": "Het is heel dichtbij. Goede reis!",
+        "lineEnglish": "It is very close. Have a good trip!",
+        "options": [
+          "Dank je, tot ziens",
+          "Het mes is op de tafel",
+          "Welkom"
+        ],
+        "optionsEnglish": [
+          "Thank you, see you soon",
+          "The knife is on the table",
+          "Welcome"
+        ],
+        "correctIndex": 0
+      }
+    ]
+  },
+  {
+    "id": "nl_conv_hotel",
+    "title": "Hotel Check-in",
+    "scenario": "You are checking in at a hotel.",
+    "languageId": "nl",
+    "turns": [
+      {
+        "id": "nl_conv_hotel_t1",
+        "line": "Goedenavond, heeft u een reservering?",
+        "lineEnglish": "Good evening, do you have a reservation?",
+        "options": [
+          "Ja, ik heet Anna",
+          "Nee, ik heb een paard",
+          "Het glas is op de tafel"
+        ],
+        "optionsEnglish": [
+          "Yes, my name is Anna",
+          "No, I have a horse",
+          "The glass is on the table"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "nl_conv_hotel_t2",
+        "line": "Hier is uw sleutel. Kamer drie.",
+        "lineEnglish": "Here is your key. Room three.",
+        "options": [
+          "Dank je, oké",
+          "Waar is de appel?",
+          "Ik heb tien honden"
+        ],
+        "optionsEnglish": [
+          "Thank you, okay",
+          "Where is the apple?",
+          "I have ten dogs"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "nl_conv_hotel_t3",
+        "line": "Het ontbijt is om zeven uur.",
+        "lineEnglish": "Breakfast is at seven o'clock.",
+        "options": [
+          "Heel goed, goedenacht",
+          "Sorry, ik ben moe",
+          "Welkom en dank je"
+        ],
+        "optionsEnglish": [
+          "Very good, good night",
+          "Excuse me, I am tired",
+          "Welcome and thank you"
+        ],
+        "correctIndex": 0
+      }
+    ]
+  }
+]

@@ -1,0 +1,373 @@
+{
+  "id": "ar",
+  "name": "Arabic",
+  "description": "Learn conversational Arabic through short, focused lessons.",
+  "properNouns": ["آنا", "روزا"],
+  "units": [
+    {
+      "title": "Greetings & Basics",
+      "description": "Say hello and be polite",
+      "icon": "greeting",
+      "phraseCategory": "greetings",
+      "lessons": [
+        {
+          "title": "Say Hello",
+          "icon": "greeting",
+          "words": [
+            { "id": "marhaba", "w": "مرحبا", "en": "Hello", "emoji": "👋", "cat": "greetings" },
+            { "id": "shukran", "w": "شكرا", "en": "Thank you", "emoji": "🙏", "cat": "greetings" },
+            { "id": "min_fadlik", "w": "من فضلك", "en": "Please", "emoji": "🙇", "cat": "greetings" },
+            { "id": "maa_assalama", "w": "مع السلامة", "en": "Goodbye", "emoji": "🙋", "cat": "greetings" },
+            { "id": "masaa_alkhayr", "w": "مساء الخير", "en": "Good evening", "emoji": "🌙", "cat": "greetings" }
+          ],
+          "support": [
+            { "id": "ismi", "w": "اسمي", "en": "My name is", "emoji": "🪪", "cat": "greetings" },
+            { "id": "wa", "w": "و", "en": "And", "emoji": "➕", "cat": "descriptions" }
+          ],
+          "speak": { "phrase": "مرحبا، اسمي آنا", "en": "Hello, my name is Anna" },
+          "sentence": { "chips": ["مرحبا", "اسمي", "آنا"], "en": "Hello, my name is Anna" },
+          "fill": {
+            "template": "شكرا و ___.",
+            "answer": "مع السلامة",
+            "distractors": ["مرحبا", "من فضلك", "مساء الخير"],
+            "en": "Thank you and goodbye",
+            "vocab": "maa_assalama"
+          }
+        },
+        {
+          "title": "Yes, No, Sorry",
+          "icon": "agreement",
+          "words": [
+            { "id": "naam", "w": "نعم", "en": "Yes", "emoji": "✅", "cat": "greetings" },
+            { "id": "la", "w": "لا", "en": "No", "emoji": "❌", "cat": "greetings" },
+            { "id": "almadhira", "w": "المعذرة", "en": "Excuse me", "emoji": "🙋", "cat": "greetings" },
+            { "id": "afwan", "w": "عفوا", "en": "You're welcome", "emoji": "🤝", "cat": "greetings" },
+            { "id": "hasanan", "w": "حسنا", "en": "Okay", "emoji": "👍", "cat": "greetings" }
+          ],
+          "support": [
+            { "id": "ana", "w": "أنا", "en": "I am", "emoji": "🙋", "cat": "descriptions" },
+            { "id": "mutab", "w": "متعب", "en": "Tired", "emoji": "😴", "cat": "descriptions" }
+          ],
+          "review": ["shukran"],
+          "speak": { "phrase": "المعذرة، أنا متعب", "en": "Excuse me, I am tired" },
+          "sentence": { "chips": ["نعم", "أنا", "متعب"], "en": "Yes, I am tired" },
+          "fill": {
+            "template": "لا، ___.",
+            "answer": "المعذرة",
+            "distractors": ["نعم", "حسنا", "عفوا"],
+            "en": "No, excuse me",
+            "vocab": "almadhira"
+          }
+        },
+        {
+          "title": "Polite Basics",
+          "icon": "manners",
+          "words": [
+            { "id": "law_samaht", "w": "لو سمحت", "en": "Excuse me please", "emoji": "🙇", "cat": "greetings" },
+            { "id": "tusbih_ala_khayr", "w": "تصبح على خير", "en": "Good night", "emoji": "😴", "cat": "greetings" },
+            { "id": "fi_sihtak", "w": "في صحتك", "en": "Cheers", "emoji": "🥂", "cat": "greetings" },
+            { "id": "ahlan_wa_sahlan", "w": "أهلا وسهلا", "en": "Welcome", "emoji": "🎉", "cat": "greetings" },
+            { "id": "ila_alliqaa", "w": "إلى اللقاء", "en": "See you soon", "emoji": "👋", "cat": "greetings" }
+          ],
+          "support": [
+            { "id": "kayfa_haluk", "w": "كيف حالك", "en": "How are you", "emoji": "❓", "cat": "greetings" },
+            { "id": "jiddan", "w": "جدا", "en": "Very", "emoji": "⭐", "cat": "descriptions" }
+          ],
+          "review": ["wa", "shukran"],
+          "speak": { "phrase": "لو سمحت، كيف حالك؟", "en": "Excuse me, how are you?" },
+          "sentence": { "chips": ["أهلا", "وسهلا", "و", "تصبح", "على", "خير"], "en": "Welcome and good night" },
+          "fill": {
+            "template": "شكرا، ___!",
+            "answer": "إلى اللقاء",
+            "distractors": ["في صحتك", "أهلا وسهلا", "جدا"],
+            "en": "Thank you, see you soon",
+            "vocab": "ila_alliqaa"
+          }
+        }
+      ]
+    },
+    {
+      "title": "Food & Family",
+      "description": "Talk about the people and meals you love",
+      "icon": "food",
+      "phraseCategory": "dining",
+      "lessons": [
+        {
+          "title": "Family Members",
+          "icon": "family",
+          "words": [
+            { "id": "umm", "w": "أم", "en": "Mother", "emoji": "👩", "cat": "family" },
+            { "id": "ab", "w": "أب", "en": "Father", "emoji": "👨", "cat": "family" },
+            { "id": "akh", "w": "أخ", "en": "Brother", "emoji": "👦", "cat": "family" },
+            { "id": "ukht", "w": "أخت", "en": "Sister", "emoji": "👧", "cat": "family" },
+            { "id": "jadda", "w": "جدة", "en": "Grandmother", "emoji": "👵", "cat": "family" }
+          ],
+          "support": [
+            { "id": "ummi", "w": "أمي", "en": "My mother", "emoji": "👩", "cat": "family" },
+            { "id": "hiya", "w": "هي", "en": "She is", "emoji": "🟰", "cat": "descriptions" },
+            { "id": "jaddati", "w": "جدتي", "en": "My grandmother", "emoji": "👵", "cat": "family" }
+          ],
+          "speak": { "phrase": "أمي هي آنا", "en": "My mother is Anna" },
+          "sentence": { "chips": ["آنا", "هي", "أمي"], "en": "Anna is my mother" },
+          "fill": {
+            "template": "___ هي روزا.",
+            "answer": "جدتي",
+            "distractors": ["أمي", "أخت", "أب"],
+            "en": "My grandmother is Rosa",
+            "vocab": "jaddati"
+          }
+        },
+        {
+          "title": "Food Basics",
+          "icon": "food",
+          "words": [
+            { "id": "khubz", "w": "خبز", "en": "Bread", "emoji": "🍞", "cat": "food" },
+            { "id": "maa", "w": "ماء", "en": "Water", "emoji": "💧", "cat": "food" },
+            { "id": "tuffaha", "w": "تفاحة", "en": "Apple", "emoji": "🍎", "cat": "food" },
+            { "id": "jubn", "w": "جبن", "en": "Cheese", "emoji": "🧀", "cat": "food" },
+            { "id": "halib", "w": "حليب", "en": "Milk", "emoji": "🥛", "cat": "food" }
+          ],
+          "support": [
+            { "id": "urid", "w": "أريد", "en": "I want", "emoji": "🙋", "cat": "food" }
+          ],
+          "review": ["min_fadlik", "ana"],
+          "speak": { "phrase": "أريد خبز من فضلك", "en": "I want bread, please" },
+          "sentence": { "chips": ["أنا", "أريد", "حليب"], "en": "I want milk" },
+          "fill": {
+            "template": "أنا أريد ___.",
+            "answer": "تفاحة",
+            "distractors": ["خبز", "جبن", "ماء"],
+            "en": "I want an apple",
+            "vocab": "tuffaha"
+          }
+        },
+        {
+          "title": "At the Table",
+          "icon": "table",
+          "words": [
+            { "id": "attawila", "w": "الطاولة", "en": "The table", "emoji": "🍽️", "cat": "home" },
+            { "id": "attabaq", "w": "الطبق", "en": "The plate", "emoji": "🍽️", "cat": "home" },
+            { "id": "alkub", "w": "الكوب", "en": "The glass", "emoji": "🥛", "cat": "home" },
+            { "id": "ashshawka", "w": "الشوكة", "en": "The fork", "emoji": "🍴", "cat": "home" },
+            { "id": "assikkin", "w": "السكين", "en": "The knife", "emoji": "🔪", "cat": "home" }
+          ],
+          "support": [
+            { "id": "ala", "w": "على", "en": "On", "emoji": "📍", "cat": "descriptions" },
+            { "id": "hadha", "w": "هذا", "en": "This", "emoji": "👉", "cat": "descriptions" }
+          ],
+          "speak": { "phrase": "الكوب على الطاولة", "en": "The glass is on the table" },
+          "sentence": { "chips": ["الشوكة", "على", "الطاولة"], "en": "The fork is on the table" },
+          "fill": {
+            "template": "___ على الطاولة.",
+            "answer": "السكين",
+            "distractors": ["الكوب", "الطبق", "الشوكة"],
+            "en": "The knife is on the table",
+            "vocab": "assikkin"
+          }
+        }
+      ]
+    },
+    {
+      "title": "Numbers & Travel",
+      "description": "Count, navigate, and travel with confidence",
+      "icon": "travel",
+      "phraseCategory": "travel",
+      "lessons": [
+        {
+          "title": "Numbers 1-10",
+          "icon": "numbers",
+          "words": [
+            { "id": "wahid", "w": "واحد", "en": "One", "emoji": "1️⃣", "cat": "numbers" },
+            { "id": "ithnan", "w": "اثنان", "en": "Two", "emoji": "2️⃣", "cat": "numbers" },
+            { "id": "thalatha", "w": "ثلاثة", "en": "Three", "emoji": "3️⃣", "cat": "numbers" },
+            { "id": "arbaa", "w": "أربعة", "en": "Four", "emoji": "4️⃣", "cat": "numbers" },
+            { "id": "khamsa", "w": "خمسة", "en": "Five", "emoji": "5️⃣", "cat": "numbers" }
+          ],
+          "support": [
+            { "id": "ladayya", "w": "لدي", "en": "I have", "emoji": "🙋", "cat": "descriptions" },
+            { "id": "ikhwa", "w": "إخوة", "en": "Brothers", "emoji": "👬", "cat": "family" }
+          ],
+          "speak": { "phrase": "لدي ثلاثة إخوة", "en": "I have three brothers" },
+          "sentence": { "chips": ["لدي", "أربعة", "إخوة"], "en": "I have four brothers" },
+          "fill": {
+            "template": "لدي ___ إخوة.",
+            "answer": "خمسة",
+            "distractors": ["واحد", "اثنان", "ثلاثة"],
+            "en": "I have five brothers",
+            "vocab": "khamsa"
+          }
+        },
+        {
+          "title": "Getting Around",
+          "icon": "directions",
+          "words": [
+            { "id": "yasar", "w": "يسار", "en": "Left", "emoji": "⬅️", "cat": "travel" },
+            { "id": "yamin", "w": "يمين", "en": "Right", "emoji": "➡️", "cat": "travel" },
+            { "id": "mustaqim", "w": "مستقيم", "en": "Straight ahead", "emoji": "⬆️", "cat": "travel" },
+            { "id": "sharia", "w": "شارع", "en": "Street", "emoji": "🛣️", "cat": "travel" },
+            { "id": "mahatta", "w": "محطة", "en": "Station", "emoji": "🚉", "cat": "travel" }
+          ],
+          "support": [
+            { "id": "ayna", "w": "أين", "en": "Where", "emoji": "❓", "cat": "travel" },
+            { "id": "almahatta", "w": "المحطة", "en": "The station", "emoji": "🚉", "cat": "travel" },
+            { "id": "ashsharia", "w": "الشارع", "en": "The street", "emoji": "🛣️", "cat": "travel" }
+          ],
+          "review": ["min_fadlik"],
+          "speak": { "phrase": "أين المحطة من فضلك؟", "en": "Where is the station, please?" },
+          "sentence": { "chips": ["أين", "المحطة", "من", "فضلك"], "en": "Where is the station, please?" },
+          "fill": {
+            "template": "أين ___؟",
+            "answer": "الشارع",
+            "distractors": ["المحطة", "يسار", "يمين"],
+            "en": "Where is the street?",
+            "vocab": "ashsharia"
+          }
+        },
+        {
+          "title": "Travel Phrases",
+          "icon": "travel",
+          "words": [
+            { "id": "matar", "w": "مطار", "en": "Airport", "emoji": "✈️", "cat": "travel" },
+            { "id": "funduq", "w": "فندق", "en": "Hotel", "emoji": "🏨", "cat": "travel" },
+            { "id": "tadhkira", "w": "تذكرة", "en": "Ticket", "emoji": "🎫", "cat": "travel" },
+            { "id": "qitar", "w": "قطار", "en": "Train", "emoji": "🚆", "cat": "travel" },
+            { "id": "haqiba", "w": "حقيبة", "en": "Suitcase", "emoji": "🧳", "cat": "travel" }
+          ],
+          "support": [
+            { "id": "qarib", "w": "قريب", "en": "Near", "emoji": "📍", "cat": "travel" },
+            { "id": "alqitar", "w": "القطار", "en": "The train", "emoji": "🚆", "cat": "travel" },
+            { "id": "alfunduq", "w": "الفندق", "en": "The hotel", "emoji": "🏨", "cat": "travel" }
+          ],
+          "review": ["ayna", "almahatta", "min_fadlik"],
+          "speak": { "phrase": "القطار قريب", "en": "The train is near" },
+          "sentence": { "chips": ["أين", "القطار", "من", "فضلك"], "en": "Where is the train, please?" },
+          "fill": {
+            "template": "___ قريب.",
+            "answer": "الفندق",
+            "distractors": ["القطار", "تذكرة", "مطار"],
+            "en": "The hotel is near",
+            "vocab": "alfunduq"
+          }
+        }
+      ]
+    }
+  ],
+  "extraVocab": [
+    { "id": "ahmar", "w": "أحمر", "en": "Red", "emoji": "🔴", "cat": "colors" },
+    { "id": "azraq", "w": "أزرق", "en": "Blue", "emoji": "🔵", "cat": "colors" },
+    { "id": "akhdar", "w": "أخضر", "en": "Green", "emoji": "🟢", "cat": "colors" },
+    { "id": "asfar", "w": "أصفر", "en": "Yellow", "emoji": "🟡", "cat": "colors" },
+    { "id": "aswad", "w": "أسود", "en": "Black", "emoji": "⚫", "cat": "colors" },
+    { "id": "abyad", "w": "أبيض", "en": "White", "emoji": "⚪", "cat": "colors" },
+    { "id": "kalb", "w": "كلب", "en": "Dog", "emoji": "🐕", "cat": "animals" },
+    { "id": "qitta", "w": "قطة", "en": "Cat", "emoji": "🐈", "cat": "animals" },
+    { "id": "asfur", "w": "عصفور", "en": "Bird", "emoji": "🐦", "cat": "animals" },
+    { "id": "samaka", "w": "سمكة", "en": "Fish", "emoji": "🐟", "cat": "animals" },
+    { "id": "hisan", "w": "حصان", "en": "Horse", "emoji": "🐴", "cat": "animals" },
+    { "id": "baqara", "w": "بقرة", "en": "Cow", "emoji": "🐄", "cat": "animals" },
+    { "id": "sitta", "w": "ستة", "en": "Six", "emoji": "6️⃣", "cat": "numbers" },
+    { "id": "sabaa", "w": "سبعة", "en": "Seven", "emoji": "7️⃣", "cat": "numbers" },
+    { "id": "thamaniya", "w": "ثمانية", "en": "Eight", "emoji": "8️⃣", "cat": "numbers" },
+    { "id": "tisaa", "w": "تسعة", "en": "Nine", "emoji": "9️⃣", "cat": "numbers" },
+    { "id": "ashara", "w": "عشرة", "en": "Ten", "emoji": "🔟", "cat": "numbers" },
+    { "id": "bayt", "w": "بيت", "en": "House", "emoji": "🏠", "cat": "home" },
+    { "id": "bab", "w": "باب", "en": "Door", "emoji": "🚪", "cat": "home" },
+    { "id": "nafidha", "w": "نافذة", "en": "Window", "emoji": "🪟", "cat": "home" },
+    { "id": "kursi", "w": "كرسي", "en": "Chair", "emoji": "🪑", "cat": "home" },
+    { "id": "sarir", "w": "سرير", "en": "Bed", "emoji": "🛏️", "cat": "home" },
+    { "id": "qahwa", "w": "قهوة", "en": "Coffee", "emoji": "☕", "cat": "food" },
+    { "id": "shay", "w": "شاي", "en": "Tea", "emoji": "🍵", "cat": "food" },
+    { "id": "dajaj", "w": "دجاج", "en": "Chicken", "emoji": "🍗", "cat": "food" },
+    { "id": "kabir", "w": "كبير", "en": "Big", "emoji": "🐘", "cat": "descriptions" },
+    { "id": "saghir", "w": "صغير", "en": "Small", "emoji": "🐁", "cat": "descriptions" },
+    { "id": "har", "w": "حار", "en": "Hot", "emoji": "🔥", "cat": "descriptions" },
+    { "id": "barid", "w": "بارد", "en": "Cold", "emoji": "❄️", "cat": "descriptions" },
+    { "id": "jayyid", "w": "جيد", "en": "Good", "emoji": "👍", "cat": "descriptions" }
+  ],
+  "conversations": [
+    {
+      "id": "cafe",
+      "title": "At the Café",
+      "scenario": "You are ordering a coffee at a café.",
+      "turns": [
+        {
+          "line": "مرحبا! ماذا تريد؟",
+          "lineEn": "Hello! What would you like?",
+          "options": ["أريد قهوة من فضلك", "مرحبا، مع السلامة", "لدي كلب"],
+          "optionsEn": ["I want a coffee, please", "Hello, goodbye", "I have a dog"],
+          "correctIndex": 0
+        },
+        {
+          "line": "شيء آخر؟",
+          "lineEn": "Anything else?",
+          "options": ["لا، شكرا", "نعم، أريد قطة", "تصبح على خير"],
+          "optionsEn": ["No, thank you", "Yes, I want a cat", "Good night"],
+          "correctIndex": 0
+        },
+        {
+          "line": "تفضل قهوتك. يوم سعيد!",
+          "lineEn": "Here is your coffee. Have a nice day!",
+          "options": ["شكرا، مع السلامة", "أين المحطة؟", "لدي خمسة إخوة"],
+          "optionsEn": ["Thank you, goodbye", "Where is the station?", "I have five brothers"],
+          "correctIndex": 0
+        }
+      ]
+    },
+    {
+      "id": "directions",
+      "title": "Asking Directions",
+      "scenario": "You are lost and need to find the station.",
+      "turns": [
+        {
+          "line": "مرحبا، هل أساعدك؟",
+          "lineEn": "Hello, can I help you?",
+          "options": ["أين المحطة من فضلك؟", "أريد جبن", "أمي هي آنا"],
+          "optionsEn": ["Where is the station, please?", "I want cheese", "My mother is Anna"],
+          "correctIndex": 0
+        },
+        {
+          "line": "مستقيم، ثم يسار.",
+          "lineEn": "Straight ahead, then left.",
+          "options": ["شكرا جزيلا", "لا، المعذرة", "لدي أربعة إخوة"],
+          "optionsEn": ["Thank you very much", "No, excuse me", "I have four brothers"],
+          "correctIndex": 0
+        },
+        {
+          "line": "إنها قريبة جدا. رحلة سعيدة!",
+          "lineEn": "It is very near. Have a good trip!",
+          "options": ["شكرا، إلى اللقاء", "السكين على الطاولة", "أهلا وسهلا"],
+          "optionsEn": ["Thank you, see you soon", "The knife is on the table", "Welcome"],
+          "correctIndex": 0
+        }
+      ]
+    },
+    {
+      "id": "hotel",
+      "title": "Hotel Check-in",
+      "scenario": "You are checking in at a hotel.",
+      "turns": [
+        {
+          "line": "مساء الخير، هل لديك حجز؟",
+          "lineEn": "Good evening, do you have a reservation?",
+          "options": ["نعم، اسمي آنا", "لا، لدي حصان", "الكوب على الطاولة"],
+          "optionsEn": ["Yes, my name is Anna", "No, I have a horse", "The glass is on the table"],
+          "correctIndex": 0
+        },
+        {
+          "line": "تفضل المفتاح. غرفة ثلاثة.",
+          "lineEn": "Here is the key. Room three.",
+          "options": ["شكرا، حسنا", "أين التفاحة؟", "لدي عشرة كلاب"],
+          "optionsEn": ["Thank you, okay", "Where is the apple?", "I have ten dogs"],
+          "correctIndex": 0
+        },
+        {
+          "line": "الفطور في السابعة.",
+          "lineEn": "Breakfast is at seven.",
+          "options": ["جيد جدا، تصبح على خير", "المعذرة، أنا متعب", "أهلا وسهلا و شكرا"],
+          "optionsEn": ["Very good, good night", "Excuse me, I am tired", "Welcome and thank you"],
+          "correctIndex": 0
+        }
+      ]
+    }
+  ]
+}

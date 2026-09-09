@@ -1,0 +1,1671 @@
+{
+  "id": "course_pt",
+  "languageId": "pt",
+  "title": "Portuguese",
+  "description": "Learn conversational Portuguese through short, focused lessons.",
+  "units": [
+    {
+      "id": "pt_u1",
+      "title": "Greetings & Basics",
+      "description": "Say hello and be polite",
+      "icon": "greeting",
+      "accent": "green",
+      "lessons": [
+        {
+          "id": "pt_u1_l1",
+          "title": "Say Hello",
+          "subtitle": "Olá, Obrigado, Por favor, Adeus, Boa tarde",
+          "icon": "greeting",
+          "reviewVocabIds": [
+            "pt_meu_nome_e",
+            "pt_e_cong",
+            "pt_boa_tarde"
+          ],
+          "exercises": [
+            {
+              "id": "pt_u1_l1_e1",
+              "type": "imageRecognition",
+              "vocabId": "pt_ola",
+              "payload": {
+                "prompt": "What does this word mean?",
+                "emoji": "👋",
+                "targetWord": "Olá",
+                "meaning": "Hello",
+                "distractorMeanings": [
+                  "Thank you",
+                  "Please",
+                  "Goodbye"
+                ],
+                "distractorWords": [
+                  "Obrigado",
+                  "Por favor",
+                  "Adeus"
+                ]
+              }
+            },
+            {
+              "id": "pt_u1_l1_e2",
+              "type": "multipleChoice",
+              "vocabId": "pt_obrigado",
+              "payload": {
+                "prompt": "Which word means 'Thank you'?",
+                "options": [
+                  "Olá",
+                  "Adeus",
+                  "Obrigado",
+                  "Por favor"
+                ],
+                "correctIndex": 2
+              }
+            },
+            {
+              "id": "pt_u1_l1_e3",
+              "type": "listening",
+              "vocabId": "pt_por_favor",
+              "payload": {
+                "prompt": "Listen and select what you hear",
+                "audioText": "Por favor",
+                "ttsLocale": "pt-PT",
+                "options": [
+                  "Olá",
+                  "Por favor",
+                  "Adeus",
+                  "Obrigado"
+                ],
+                "correctIndex": 1,
+                "translation": "Please"
+              }
+            },
+            {
+              "id": "pt_u1_l1_e4",
+              "type": "multipleChoice",
+              "vocabId": "pt_meu_nome_e",
+              "payload": {
+                "prompt": "Which word means 'My name is'?",
+                "options": [
+                  "Olá",
+                  "Obrigado",
+                  "Por favor",
+                  "Meu nome é"
+                ],
+                "correctIndex": 3
+              }
+            },
+            {
+              "id": "pt_u1_l1_e5",
+              "type": "translation",
+              "vocabId": "pt_adeus",
+              "payload": {
+                "prompt": "Type the English meaning",
+                "sourceText": "Adeus",
+                "acceptableAnswers": [
+                  "goodbye",
+                  "Goodbye"
+                ]
+              }
+            },
+            {
+              "id": "pt_u1_l1_e6",
+              "type": "speaking",
+              "vocabId": "pt_ola",
+              "payload": {
+                "prompt": "Say this phrase out loud",
+                "targetPhrase": "Olá, meu nome é Anna",
+                "translation": "Hello, my name is Anna",
+                "ttsLocale": "pt-PT"
+              }
+            },
+            {
+              "id": "pt_u1_l1_e7",
+              "type": "wordMatching",
+              "vocabId": "pt_u1_l1_set",
+              "payload": {
+                "prompt": "Match each word to its meaning",
+                "pairs": [
+                  {
+                    "left": "Olá",
+                    "right": "Hello"
+                  },
+                  {
+                    "left": "Obrigado",
+                    "right": "Thank you"
+                  },
+                  {
+                    "left": "Por favor",
+                    "right": "Please"
+                  },
+                  {
+                    "left": "Adeus",
+                    "right": "Goodbye"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "pt_u1_l1_e8",
+              "type": "sentenceArrangement",
+              "vocabId": "pt_ola",
+              "payload": {
+                "prompt": "Build the sentence",
+                "shuffledChips": [
+                  "nome",
+                  "Anna",
+                  "é",
+                  "Meu"
+                ],
+                "correctSentence": [
+                  "Meu",
+                  "nome",
+                  "é",
+                  "Anna"
+                ],
+                "translation": "My name is Anna"
+              }
+            },
+            {
+              "id": "pt_u1_l1_e9",
+              "type": "fillInTheBlank",
+              "vocabId": "pt_adeus",
+              "payload": {
+                "prompt": "Complete the sentence",
+                "sentenceTemplate": "Obrigado e ___.",
+                "options": [
+                  "olá",
+                  "boa tarde",
+                  "adeus",
+                  "por favor"
+                ],
+                "correctAnswer": "adeus",
+                "translation": "Thank you and goodbye"
+              }
+            }
+          ]
+        },
+        {
+          "id": "pt_u1_l2",
+          "title": "Yes, No, Sorry",
+          "subtitle": "Sim, Não, Desculpe, De nada, Tudo bem",
+          "icon": "agreement",
+          "reviewVocabIds": [
+            "pt_eu_estou",
+            "pt_cansado",
+            "pt_obrigado",
+            "pt_tudo_bem"
+          ],
+          "exercises": [
+            {
+              "id": "pt_u1_l2_e1",
+              "type": "imageRecognition",
+              "vocabId": "pt_sim",
+              "payload": {
+                "prompt": "What does this word mean?",
+                "emoji": "✅",
+                "targetWord": "Sim",
+                "meaning": "Yes",
+                "distractorMeanings": [
+                  "No",
+                  "Excuse me",
+                  "You're welcome"
+                ],
+                "distractorWords": [
+                  "Não",
+                  "Desculpe",
+                  "De nada"
+                ]
+              }
+            },
+            {
+              "id": "pt_u1_l2_e2",
+              "type": "multipleChoice",
+              "vocabId": "pt_nao",
+              "payload": {
+                "prompt": "Which word means 'No'?",
+                "options": [
+                  "Não",
+                  "Desculpe",
+                  "Sim",
+                  "De nada"
+                ],
+                "correctIndex": 0
+              }
+            },
+            {
+              "id": "pt_u1_l2_e3",
+              "type": "listening",
+              "vocabId": "pt_desculpe",
+              "payload": {
+                "prompt": "Listen and select what you hear",
+                "audioText": "Desculpe",
+                "ttsLocale": "pt-PT",
+                "options": [
+                  "Não",
+                  "Sim",
+                  "Desculpe",
+                  "De nada"
+                ],
+                "correctIndex": 2,
+                "translation": "Excuse me"
+              }
+            },
+            {
+              "id": "pt_u1_l2_e4",
+              "type": "multipleChoice",
+              "vocabId": "pt_eu_estou",
+              "payload": {
+                "prompt": "Which word means 'I am'?",
+                "options": [
+                  "Eu estou",
+                  "Não",
+                  "Desculpe",
+                  "Sim"
+                ],
+                "correctIndex": 0
+              }
+            },
+            {
+              "id": "pt_u1_l2_e5",
+              "type": "translation",
+              "vocabId": "pt_de_nada",
+              "payload": {
+                "prompt": "Type the English meaning",
+                "sourceText": "De nada",
+                "acceptableAnswers": [
+                  "you're welcome",
+                  "You're welcome"
+                ]
+              }
+            },
+            {
+              "id": "pt_u1_l2_e6",
+              "type": "speaking",
+              "vocabId": "pt_sim",
+              "payload": {
+                "prompt": "Say this phrase out loud",
+                "targetPhrase": "Desculpe, eu estou cansado",
+                "translation": "Excuse me, I am tired",
+                "ttsLocale": "pt-PT"
+              }
+            },
+            {
+              "id": "pt_u1_l2_e7",
+              "type": "wordMatching",
+              "vocabId": "pt_u1_l2_set",
+              "payload": {
+                "prompt": "Match each word to its meaning",
+                "pairs": [
+                  {
+                    "left": "Sim",
+                    "right": "Yes"
+                  },
+                  {
+                    "left": "Não",
+                    "right": "No"
+                  },
+                  {
+                    "left": "Desculpe",
+                    "right": "Excuse me"
+                  },
+                  {
+                    "left": "De nada",
+                    "right": "You're welcome"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "pt_u1_l2_e8",
+              "type": "sentenceArrangement",
+              "vocabId": "pt_sim",
+              "payload": {
+                "prompt": "Build the sentence",
+                "shuffledChips": [
+                  "bem",
+                  "Sim,",
+                  "tudo"
+                ],
+                "correctSentence": [
+                  "Sim,",
+                  "tudo",
+                  "bem"
+                ],
+                "translation": "Yes, all good"
+              }
+            },
+            {
+              "id": "pt_u1_l2_e9",
+              "type": "fillInTheBlank",
+              "vocabId": "pt_desculpe",
+              "payload": {
+                "prompt": "Complete the sentence",
+                "sentenceTemplate": "Não, ___.",
+                "options": [
+                  "desculpe",
+                  "de nada",
+                  "sim",
+                  "tudo bem"
+                ],
+                "correctAnswer": "desculpe",
+                "translation": "No, excuse me"
+              }
+            }
+          ]
+        },
+        {
+          "id": "pt_u1_l3",
+          "title": "Polite Basics",
+          "subtitle": "Com licença, Boa noite, Saúde, Bem-vindo, Até logo",
+          "icon": "manners",
+          "reviewVocabIds": [
+            "pt_como_vai",
+            "pt_muito",
+            "pt_e_cong",
+            "pt_obrigado"
+          ],
+          "exercises": [
+            {
+              "id": "pt_u1_l3_e1",
+              "type": "imageRecognition",
+              "vocabId": "pt_com_licenca",
+              "payload": {
+                "prompt": "What does this word mean?",
+                "emoji": "🙇",
+                "targetWord": "Com licença",
+                "meaning": "Excuse me please",
+                "distractorMeanings": [
+                  "Good night",
+                  "Cheers",
+                  "Welcome"
+                ],
+                "distractorWords": [
+                  "Boa noite",
+                  "Saúde",
+                  "Bem-vindo"
+                ]
+              }
+            },
+            {
+              "id": "pt_u1_l3_e2",
+              "type": "multipleChoice",
+              "vocabId": "pt_boa_noite",
+              "payload": {
+                "prompt": "Which word means 'Good night'?",
+                "options": [
+                  "Com licença",
+                  "Bem-vindo",
+                  "Saúde",
+                  "Boa noite"
+                ],
+                "correctIndex": 3
+              }
+            },
+            {
+              "id": "pt_u1_l3_e3",
+              "type": "listening",
+              "vocabId": "pt_saude",
+              "payload": {
+                "prompt": "Listen and select what you hear",
+                "audioText": "Saúde",
+                "ttsLocale": "pt-PT",
+                "options": [
+                  "Boa noite",
+                  "Bem-vindo",
+                  "Com licença",
+                  "Saúde"
+                ],
+                "correctIndex": 3,
+                "translation": "Cheers"
+              }
+            },
+            {
+              "id": "pt_u1_l3_e4",
+              "type": "multipleChoice",
+              "vocabId": "pt_como_vai",
+              "payload": {
+                "prompt": "Which word means 'How are you'?",
+                "options": [
+                  "Com licença",
+                  "Como vai",
+                  "Saúde",
+                  "Boa noite"
+                ],
+                "correctIndex": 1
+              }
+            },
+            {
+              "id": "pt_u1_l3_e5",
+              "type": "translation",
+              "vocabId": "pt_bem_vindo",
+              "payload": {
+                "prompt": "Type the English meaning",
+                "sourceText": "Bem-vindo",
+                "acceptableAnswers": [
+                  "welcome",
+                  "Welcome"
+                ]
+              }
+            },
+            {
+              "id": "pt_u1_l3_e6",
+              "type": "speaking",
+              "vocabId": "pt_com_licenca",
+              "payload": {
+                "prompt": "Say this phrase out loud",
+                "targetPhrase": "Com licença, como vai?",
+                "translation": "Excuse me, how are you?",
+                "ttsLocale": "pt-PT"
+              }
+            },
+            {
+              "id": "pt_u1_l3_e7",
+              "type": "wordMatching",
+              "vocabId": "pt_u1_l3_set",
+              "payload": {
+                "prompt": "Match each word to its meaning",
+                "pairs": [
+                  {
+                    "left": "Com licença",
+                    "right": "Excuse me please"
+                  },
+                  {
+                    "left": "Boa noite",
+                    "right": "Good night"
+                  },
+                  {
+                    "left": "Saúde",
+                    "right": "Cheers"
+                  },
+                  {
+                    "left": "Bem-vindo",
+                    "right": "Welcome"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "pt_u1_l3_e8",
+              "type": "sentenceArrangement",
+              "vocabId": "pt_com_licenca",
+              "payload": {
+                "prompt": "Build the sentence",
+                "shuffledChips": [
+                  "noite",
+                  "Bem-vindo",
+                  "e",
+                  "boa"
+                ],
+                "correctSentence": [
+                  "Bem-vindo",
+                  "e",
+                  "boa",
+                  "noite"
+                ],
+                "translation": "Welcome and good night"
+              }
+            },
+            {
+              "id": "pt_u1_l3_e9",
+              "type": "fillInTheBlank",
+              "vocabId": "pt_ate_logo",
+              "payload": {
+                "prompt": "Complete the sentence",
+                "sentenceTemplate": "Obrigado, ___!",
+                "options": [
+                  "saúde",
+                  "muito",
+                  "bem-vindo",
+                  "até logo"
+                ],
+                "correctAnswer": "até logo",
+                "translation": "Thank you, see you soon"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pt_u2",
+      "title": "Food & Family",
+      "description": "Talk about the people and meals you love",
+      "icon": "food",
+      "accent": "amber",
+      "lessons": [
+        {
+          "id": "pt_u2_l1",
+          "title": "Family Members",
+          "subtitle": "Mãe, Pai, Irmão, Irmã, Avó",
+          "icon": "family",
+          "reviewVocabIds": [
+            "pt_minha",
+            "pt_e_ser"
+          ],
+          "exercises": [
+            {
+              "id": "pt_u2_l1_e1",
+              "type": "imageRecognition",
+              "vocabId": "pt_mae",
+              "payload": {
+                "prompt": "What does this word mean?",
+                "emoji": "👩",
+                "targetWord": "Mãe",
+                "meaning": "Mother",
+                "distractorMeanings": [
+                  "Father",
+                  "Brother",
+                  "Sister"
+                ],
+                "distractorWords": [
+                  "Pai",
+                  "Irmão",
+                  "Irmã"
+                ]
+              }
+            },
+            {
+              "id": "pt_u2_l1_e2",
+              "type": "multipleChoice",
+              "vocabId": "pt_pai",
+              "payload": {
+                "prompt": "Which word means 'Father'?",
+                "options": [
+                  "Irmão",
+                  "Irmã",
+                  "Pai",
+                  "Mãe"
+                ],
+                "correctIndex": 2
+              }
+            },
+            {
+              "id": "pt_u2_l1_e3",
+              "type": "listening",
+              "vocabId": "pt_irmao",
+              "payload": {
+                "prompt": "Listen and select what you hear",
+                "audioText": "Irmão",
+                "ttsLocale": "pt-PT",
+                "options": [
+                  "Irmão",
+                  "Irmã",
+                  "Pai",
+                  "Mãe"
+                ],
+                "correctIndex": 0,
+                "translation": "Brother"
+              }
+            },
+            {
+              "id": "pt_u2_l1_e4",
+              "type": "multipleChoice",
+              "vocabId": "pt_minha",
+              "payload": {
+                "prompt": "Which word means 'My'?",
+                "options": [
+                  "Pai",
+                  "Mãe",
+                  "Minha",
+                  "Irmão"
+                ],
+                "correctIndex": 2
+              }
+            },
+            {
+              "id": "pt_u2_l1_e5",
+              "type": "translation",
+              "vocabId": "pt_irma",
+              "payload": {
+                "prompt": "Type the English meaning",
+                "sourceText": "Irmã",
+                "acceptableAnswers": [
+                  "sister",
+                  "Sister"
+                ]
+              }
+            },
+            {
+              "id": "pt_u2_l1_e6",
+              "type": "speaking",
+              "vocabId": "pt_mae",
+              "payload": {
+                "prompt": "Say this phrase out loud",
+                "targetPhrase": "Minha irmã é Anna",
+                "translation": "My sister is Anna",
+                "ttsLocale": "pt-PT"
+              }
+            },
+            {
+              "id": "pt_u2_l1_e7",
+              "type": "wordMatching",
+              "vocabId": "pt_u2_l1_set",
+              "payload": {
+                "prompt": "Match each word to its meaning",
+                "pairs": [
+                  {
+                    "left": "Mãe",
+                    "right": "Mother"
+                  },
+                  {
+                    "left": "Pai",
+                    "right": "Father"
+                  },
+                  {
+                    "left": "Irmão",
+                    "right": "Brother"
+                  },
+                  {
+                    "left": "Irmã",
+                    "right": "Sister"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "pt_u2_l1_e8",
+              "type": "sentenceArrangement",
+              "vocabId": "pt_mae",
+              "payload": {
+                "prompt": "Build the sentence",
+                "shuffledChips": [
+                  "Anna",
+                  "é",
+                  "minha",
+                  "mãe"
+                ],
+                "correctSentence": [
+                  "Anna",
+                  "é",
+                  "minha",
+                  "mãe"
+                ],
+                "translation": "Anna is my mother"
+              }
+            },
+            {
+              "id": "pt_u2_l1_e9",
+              "type": "fillInTheBlank",
+              "vocabId": "pt_avo",
+              "payload": {
+                "prompt": "Complete the sentence",
+                "sentenceTemplate": "Minha ___ é Rosa.",
+                "options": [
+                  "irmã",
+                  "pai",
+                  "avó",
+                  "mãe"
+                ],
+                "correctAnswer": "avó",
+                "translation": "My grandmother is Rosa"
+              }
+            }
+          ]
+        },
+        {
+          "id": "pt_u2_l2",
+          "title": "Food Basics",
+          "subtitle": "Pão, Água, Maçã, Queijo, Leite",
+          "icon": "food",
+          "reviewVocabIds": [
+            "pt_eu_quero",
+            "pt_o_art",
+            "pt_por_favor"
+          ],
+          "exercises": [
+            {
+              "id": "pt_u2_l2_e1",
+              "type": "imageRecognition",
+              "vocabId": "pt_pao",
+              "payload": {
+                "prompt": "What does this word mean?",
+                "emoji": "🍞",
+                "targetWord": "Pão",
+                "meaning": "Bread",
+                "distractorMeanings": [
+                  "Water",
+                  "Apple",
+                  "Cheese"
+                ],
+                "distractorWords": [
+                  "Água",
+                  "Maçã",
+                  "Queijo"
+                ]
+              }
+            },
+            {
+              "id": "pt_u2_l2_e2",
+              "type": "multipleChoice",
+              "vocabId": "pt_agua",
+              "payload": {
+                "prompt": "Which word means 'Water'?",
+                "options": [
+                  "Queijo",
+                  "Água",
+                  "Pão",
+                  "Maçã"
+                ],
+                "correctIndex": 1
+              }
+            },
+            {
+              "id": "pt_u2_l2_e3",
+              "type": "listening",
+              "vocabId": "pt_maca",
+              "payload": {
+                "prompt": "Listen and select what you hear",
+                "audioText": "Maçã",
+                "ttsLocale": "pt-PT",
+                "options": [
+                  "Pão",
+                  "Queijo",
+                  "Maçã",
+                  "Água"
+                ],
+                "correctIndex": 2,
+                "translation": "Apple"
+              }
+            },
+            {
+              "id": "pt_u2_l2_e4",
+              "type": "multipleChoice",
+              "vocabId": "pt_eu_quero",
+              "payload": {
+                "prompt": "Which word means 'I want'?",
+                "options": [
+                  "Água",
+                  "Maçã",
+                  "Pão",
+                  "Eu quero"
+                ],
+                "correctIndex": 3
+              }
+            },
+            {
+              "id": "pt_u2_l2_e5",
+              "type": "translation",
+              "vocabId": "pt_queijo",
+              "payload": {
+                "prompt": "Type the English meaning",
+                "sourceText": "Queijo",
+                "acceptableAnswers": [
+                  "cheese",
+                  "Cheese"
+                ]
+              }
+            },
+            {
+              "id": "pt_u2_l2_e6",
+              "type": "speaking",
+              "vocabId": "pt_pao",
+              "payload": {
+                "prompt": "Say this phrase out loud",
+                "targetPhrase": "Eu quero pão, por favor",
+                "translation": "I want bread, please",
+                "ttsLocale": "pt-PT"
+              }
+            },
+            {
+              "id": "pt_u2_l2_e7",
+              "type": "wordMatching",
+              "vocabId": "pt_u2_l2_set",
+              "payload": {
+                "prompt": "Match each word to its meaning",
+                "pairs": [
+                  {
+                    "left": "Pão",
+                    "right": "Bread"
+                  },
+                  {
+                    "left": "Água",
+                    "right": "Water"
+                  },
+                  {
+                    "left": "Maçã",
+                    "right": "Apple"
+                  },
+                  {
+                    "left": "Queijo",
+                    "right": "Cheese"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "pt_u2_l2_e8",
+              "type": "sentenceArrangement",
+              "vocabId": "pt_pao",
+              "payload": {
+                "prompt": "Build the sentence",
+                "shuffledChips": [
+                  "quero",
+                  "o",
+                  "queijo",
+                  "Eu"
+                ],
+                "correctSentence": [
+                  "Eu",
+                  "quero",
+                  "o",
+                  "queijo"
+                ],
+                "translation": "I want the cheese"
+              }
+            },
+            {
+              "id": "pt_u2_l2_e9",
+              "type": "fillInTheBlank",
+              "vocabId": "pt_leite",
+              "payload": {
+                "prompt": "Complete the sentence",
+                "sentenceTemplate": "Eu quero o ___.",
+                "options": [
+                  "água",
+                  "leite",
+                  "pão",
+                  "queijo"
+                ],
+                "correctAnswer": "leite",
+                "translation": "I want the milk"
+              }
+            }
+          ]
+        },
+        {
+          "id": "pt_u2_l3",
+          "title": "At the Table",
+          "subtitle": "Mesa, Prato, Copo, Garfo, Faca",
+          "icon": "table",
+          "reviewVocabIds": [
+            "pt_na",
+            "pt_esta",
+            "pt_a_art",
+            "pt_o_art",
+            "pt_faca"
+          ],
+          "exercises": [
+            {
+              "id": "pt_u2_l3_e1",
+              "type": "imageRecognition",
+              "vocabId": "pt_mesa",
+              "payload": {
+                "prompt": "What does this word mean?",
+                "emoji": "🍽️",
+                "targetWord": "Mesa",
+                "meaning": "Table",
+                "distractorMeanings": [
+                  "Plate",
+                  "Glass",
+                  "Fork"
+                ],
+                "distractorWords": [
+                  "Prato",
+                  "Copo",
+                  "Garfo"
+                ]
+              }
+            },
+            {
+              "id": "pt_u2_l3_e2",
+              "type": "multipleChoice",
+              "vocabId": "pt_prato",
+              "payload": {
+                "prompt": "Which word means 'Plate'?",
+                "options": [
+                  "Prato",
+                  "Mesa",
+                  "Copo",
+                  "Garfo"
+                ],
+                "correctIndex": 0
+              }
+            },
+            {
+              "id": "pt_u2_l3_e3",
+              "type": "listening",
+              "vocabId": "pt_copo",
+              "payload": {
+                "prompt": "Listen and select what you hear",
+                "audioText": "Copo",
+                "ttsLocale": "pt-PT",
+                "options": [
+                  "Copo",
+                  "Prato",
+                  "Mesa",
+                  "Garfo"
+                ],
+                "correctIndex": 0,
+                "translation": "Glass"
+              }
+            },
+            {
+              "id": "pt_u2_l3_e4",
+              "type": "multipleChoice",
+              "vocabId": "pt_na",
+              "payload": {
+                "prompt": "Which word means 'On the'?",
+                "options": [
+                  "Na",
+                  "Prato",
+                  "Copo",
+                  "Mesa"
+                ],
+                "correctIndex": 0
+              }
+            },
+            {
+              "id": "pt_u2_l3_e5",
+              "type": "translation",
+              "vocabId": "pt_garfo",
+              "payload": {
+                "prompt": "Type the English meaning",
+                "sourceText": "Garfo",
+                "acceptableAnswers": [
+                  "fork",
+                  "Fork"
+                ]
+              }
+            },
+            {
+              "id": "pt_u2_l3_e6",
+              "type": "speaking",
+              "vocabId": "pt_mesa",
+              "payload": {
+                "prompt": "Say this phrase out loud",
+                "targetPhrase": "O copo está na mesa",
+                "translation": "The glass is on the table",
+                "ttsLocale": "pt-PT"
+              }
+            },
+            {
+              "id": "pt_u2_l3_e7",
+              "type": "wordMatching",
+              "vocabId": "pt_u2_l3_set",
+              "payload": {
+                "prompt": "Match each word to its meaning",
+                "pairs": [
+                  {
+                    "left": "Mesa",
+                    "right": "Table"
+                  },
+                  {
+                    "left": "Prato",
+                    "right": "Plate"
+                  },
+                  {
+                    "left": "Copo",
+                    "right": "Glass"
+                  },
+                  {
+                    "left": "Garfo",
+                    "right": "Fork"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "pt_u2_l3_e8",
+              "type": "sentenceArrangement",
+              "vocabId": "pt_mesa",
+              "payload": {
+                "prompt": "Build the sentence",
+                "shuffledChips": [
+                  "faca",
+                  "mesa",
+                  "está",
+                  "A",
+                  "na"
+                ],
+                "correctSentence": [
+                  "A",
+                  "faca",
+                  "está",
+                  "na",
+                  "mesa"
+                ],
+                "translation": "The knife is on the table"
+              }
+            },
+            {
+              "id": "pt_u2_l3_e9",
+              "type": "fillInTheBlank",
+              "vocabId": "pt_prato",
+              "payload": {
+                "prompt": "Complete the sentence",
+                "sentenceTemplate": "O ___ está na mesa.",
+                "options": [
+                  "prato",
+                  "copo",
+                  "garfo",
+                  "pão"
+                ],
+                "correctAnswer": "prato",
+                "translation": "The plate is on the table"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pt_u3",
+      "title": "Numbers & Travel",
+      "description": "Count, navigate, and travel with confidence",
+      "icon": "travel",
+      "accent": "teal",
+      "lessons": [
+        {
+          "id": "pt_u3_l1",
+          "title": "Numbers 1-10",
+          "subtitle": "Um, Dois, Três, Quatro, Cinco",
+          "icon": "numbers",
+          "reviewVocabIds": [
+            "pt_eu_tenho",
+            "pt_anos",
+            "pt_cinco"
+          ],
+          "exercises": [
+            {
+              "id": "pt_u3_l1_e1",
+              "type": "imageRecognition",
+              "vocabId": "pt_um",
+              "payload": {
+                "prompt": "What does this word mean?",
+                "emoji": "1️⃣",
+                "targetWord": "Um",
+                "meaning": "One",
+                "distractorMeanings": [
+                  "Two",
+                  "Three",
+                  "Four"
+                ],
+                "distractorWords": [
+                  "Dois",
+                  "Três",
+                  "Quatro"
+                ]
+              }
+            },
+            {
+              "id": "pt_u3_l1_e2",
+              "type": "multipleChoice",
+              "vocabId": "pt_dois",
+              "payload": {
+                "prompt": "Which word means 'Two'?",
+                "options": [
+                  "Um",
+                  "Três",
+                  "Quatro",
+                  "Dois"
+                ],
+                "correctIndex": 3
+              }
+            },
+            {
+              "id": "pt_u3_l1_e3",
+              "type": "listening",
+              "vocabId": "pt_tres",
+              "payload": {
+                "prompt": "Listen and select what you hear",
+                "audioText": "Três",
+                "ttsLocale": "pt-PT",
+                "options": [
+                  "Um",
+                  "Quatro",
+                  "Dois",
+                  "Três"
+                ],
+                "correctIndex": 3,
+                "translation": "Three"
+              }
+            },
+            {
+              "id": "pt_u3_l1_e4",
+              "type": "multipleChoice",
+              "vocabId": "pt_eu_tenho",
+              "payload": {
+                "prompt": "Which word means 'I have'?",
+                "options": [
+                  "Um",
+                  "Eu tenho",
+                  "Três",
+                  "Dois"
+                ],
+                "correctIndex": 1
+              }
+            },
+            {
+              "id": "pt_u3_l1_e5",
+              "type": "translation",
+              "vocabId": "pt_quatro",
+              "payload": {
+                "prompt": "Type the English meaning",
+                "sourceText": "Quatro",
+                "acceptableAnswers": [
+                  "four",
+                  "Four"
+                ]
+              }
+            },
+            {
+              "id": "pt_u3_l1_e6",
+              "type": "speaking",
+              "vocabId": "pt_um",
+              "payload": {
+                "prompt": "Say this phrase out loud",
+                "targetPhrase": "Eu tenho cinco anos",
+                "translation": "I am five years old",
+                "ttsLocale": "pt-PT"
+              }
+            },
+            {
+              "id": "pt_u3_l1_e7",
+              "type": "wordMatching",
+              "vocabId": "pt_u3_l1_set",
+              "payload": {
+                "prompt": "Match each word to its meaning",
+                "pairs": [
+                  {
+                    "left": "Um",
+                    "right": "One"
+                  },
+                  {
+                    "left": "Dois",
+                    "right": "Two"
+                  },
+                  {
+                    "left": "Três",
+                    "right": "Three"
+                  },
+                  {
+                    "left": "Quatro",
+                    "right": "Four"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "pt_u3_l1_e8",
+              "type": "sentenceArrangement",
+              "vocabId": "pt_um",
+              "payload": {
+                "prompt": "Build the sentence",
+                "shuffledChips": [
+                  "tenho",
+                  "Eu",
+                  "anos",
+                  "quatro"
+                ],
+                "correctSentence": [
+                  "Eu",
+                  "tenho",
+                  "quatro",
+                  "anos"
+                ],
+                "translation": "I am four years old"
+              }
+            },
+            {
+              "id": "pt_u3_l1_e9",
+              "type": "fillInTheBlank",
+              "vocabId": "pt_tres",
+              "payload": {
+                "prompt": "Complete the sentence",
+                "sentenceTemplate": "Eu tenho ___ anos.",
+                "options": [
+                  "um",
+                  "dois",
+                  "quatro",
+                  "três"
+                ],
+                "correctAnswer": "três",
+                "translation": "I am three years old"
+              }
+            }
+          ]
+        },
+        {
+          "id": "pt_u3_l2",
+          "title": "Getting Around",
+          "subtitle": "Esquerda, Direita, Em frente, Rua, Estação",
+          "icon": "directions",
+          "reviewVocabIds": [
+            "pt_onde_esta",
+            "pt_a_art",
+            "pt_na",
+            "pt_esta",
+            "pt_estacao"
+          ],
+          "exercises": [
+            {
+              "id": "pt_u3_l2_e1",
+              "type": "imageRecognition",
+              "vocabId": "pt_esquerda",
+              "payload": {
+                "prompt": "What does this word mean?",
+                "emoji": "⬅️",
+                "targetWord": "Esquerda",
+                "meaning": "Left",
+                "distractorMeanings": [
+                  "Right",
+                  "Straight ahead",
+                  "Street"
+                ],
+                "distractorWords": [
+                  "Direita",
+                  "Em frente",
+                  "Rua"
+                ]
+              }
+            },
+            {
+              "id": "pt_u3_l2_e2",
+              "type": "multipleChoice",
+              "vocabId": "pt_direita",
+              "payload": {
+                "prompt": "Which word means 'Right'?",
+                "options": [
+                  "Direita",
+                  "Em frente",
+                  "Rua",
+                  "Esquerda"
+                ],
+                "correctIndex": 0
+              }
+            },
+            {
+              "id": "pt_u3_l2_e3",
+              "type": "listening",
+              "vocabId": "pt_em_frente",
+              "payload": {
+                "prompt": "Listen and select what you hear",
+                "audioText": "Em frente",
+                "ttsLocale": "pt-PT",
+                "options": [
+                  "Direita",
+                  "Rua",
+                  "Em frente",
+                  "Esquerda"
+                ],
+                "correctIndex": 2,
+                "translation": "Straight ahead"
+              }
+            },
+            {
+              "id": "pt_u3_l2_e4",
+              "type": "multipleChoice",
+              "vocabId": "pt_onde_esta",
+              "payload": {
+                "prompt": "Which word means 'Where is'?",
+                "options": [
+                  "Direita",
+                  "Esquerda",
+                  "Onde está",
+                  "Em frente"
+                ],
+                "correctIndex": 2
+              }
+            },
+            {
+              "id": "pt_u3_l2_e5",
+              "type": "translation",
+              "vocabId": "pt_rua",
+              "payload": {
+                "prompt": "Type the English meaning",
+                "sourceText": "Rua",
+                "acceptableAnswers": [
+                  "street",
+                  "Street"
+                ]
+              }
+            },
+            {
+              "id": "pt_u3_l2_e6",
+              "type": "speaking",
+              "vocabId": "pt_esquerda",
+              "payload": {
+                "prompt": "Say this phrase out loud",
+                "targetPhrase": "Onde está a estação?",
+                "translation": "Where is the station?",
+                "ttsLocale": "pt-PT"
+              }
+            },
+            {
+              "id": "pt_u3_l2_e7",
+              "type": "wordMatching",
+              "vocabId": "pt_u3_l2_set",
+              "payload": {
+                "prompt": "Match each word to its meaning",
+                "pairs": [
+                  {
+                    "left": "Esquerda",
+                    "right": "Left"
+                  },
+                  {
+                    "left": "Direita",
+                    "right": "Right"
+                  },
+                  {
+                    "left": "Em frente",
+                    "right": "Straight ahead"
+                  },
+                  {
+                    "left": "Rua",
+                    "right": "Street"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "pt_u3_l2_e8",
+              "type": "sentenceArrangement",
+              "vocabId": "pt_esquerda",
+              "payload": {
+                "prompt": "Build the sentence",
+                "shuffledChips": [
+                  "a",
+                  "está",
+                  "Onde",
+                  "rua"
+                ],
+                "correctSentence": [
+                  "Onde",
+                  "está",
+                  "a",
+                  "rua"
+                ],
+                "translation": "Where is the street?"
+              }
+            },
+            {
+              "id": "pt_u3_l2_e9",
+              "type": "fillInTheBlank",
+              "vocabId": "pt_esquerda",
+              "payload": {
+                "prompt": "Complete the sentence",
+                "sentenceTemplate": "A estação está na ___.",
+                "options": [
+                  "esquerda",
+                  "em frente",
+                  "rua",
+                  "direita"
+                ],
+                "correctAnswer": "esquerda",
+                "translation": "The station is on the left"
+              }
+            }
+          ]
+        },
+        {
+          "id": "pt_u3_l3",
+          "title": "Travel Phrases",
+          "subtitle": "Aeroporto, Hotel, Bilhete, Comboio, Mala",
+          "icon": "travel",
+          "reviewVocabIds": [
+            "pt_perto",
+            "pt_o_art",
+            "pt_a_art",
+            "pt_esta",
+            "pt_onde_esta",
+            "pt_mala"
+          ],
+          "exercises": [
+            {
+              "id": "pt_u3_l3_e1",
+              "type": "imageRecognition",
+              "vocabId": "pt_aeroporto",
+              "payload": {
+                "prompt": "What does this word mean?",
+                "emoji": "✈️",
+                "targetWord": "Aeroporto",
+                "meaning": "Airport",
+                "distractorMeanings": [
+                  "Hotel",
+                  "Ticket",
+                  "Train"
+                ],
+                "distractorWords": [
+                  "Hotel",
+                  "Bilhete",
+                  "Comboio"
+                ]
+              }
+            },
+            {
+              "id": "pt_u3_l3_e2",
+              "type": "multipleChoice",
+              "vocabId": "pt_hotel",
+              "payload": {
+                "prompt": "Which word means 'Hotel'?",
+                "options": [
+                  "Comboio",
+                  "Hotel",
+                  "Aeroporto",
+                  "Bilhete"
+                ],
+                "correctIndex": 1
+              }
+            },
+            {
+              "id": "pt_u3_l3_e3",
+              "type": "listening",
+              "vocabId": "pt_bilhete",
+              "payload": {
+                "prompt": "Listen and select what you hear",
+                "audioText": "Bilhete",
+                "ttsLocale": "pt-PT",
+                "options": [
+                  "Aeroporto",
+                  "Comboio",
+                  "Bilhete",
+                  "Hotel"
+                ],
+                "correctIndex": 2,
+                "translation": "Ticket"
+              }
+            },
+            {
+              "id": "pt_u3_l3_e4",
+              "type": "multipleChoice",
+              "vocabId": "pt_perto",
+              "payload": {
+                "prompt": "Which word means 'Near'?",
+                "options": [
+                  "Hotel",
+                  "Bilhete",
+                  "Aeroporto",
+                  "Perto"
+                ],
+                "correctIndex": 3
+              }
+            },
+            {
+              "id": "pt_u3_l3_e5",
+              "type": "translation",
+              "vocabId": "pt_comboio",
+              "payload": {
+                "prompt": "Type the English meaning",
+                "sourceText": "Comboio",
+                "acceptableAnswers": [
+                  "train",
+                  "Train"
+                ]
+              }
+            },
+            {
+              "id": "pt_u3_l3_e6",
+              "type": "speaking",
+              "vocabId": "pt_aeroporto",
+              "payload": {
+                "prompt": "Say this phrase out loud",
+                "targetPhrase": "O comboio está perto",
+                "translation": "The train is near",
+                "ttsLocale": "pt-PT"
+              }
+            },
+            {
+              "id": "pt_u3_l3_e7",
+              "type": "wordMatching",
+              "vocabId": "pt_u3_l3_set",
+              "payload": {
+                "prompt": "Match each word to its meaning",
+                "pairs": [
+                  {
+                    "left": "Aeroporto",
+                    "right": "Airport"
+                  },
+                  {
+                    "left": "Hotel",
+                    "right": "Hotel"
+                  },
+                  {
+                    "left": "Bilhete",
+                    "right": "Ticket"
+                  },
+                  {
+                    "left": "Comboio",
+                    "right": "Train"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "pt_u3_l3_e8",
+              "type": "sentenceArrangement",
+              "vocabId": "pt_aeroporto",
+              "payload": {
+                "prompt": "Build the sentence",
+                "shuffledChips": [
+                  "o",
+                  "comboio",
+                  "está",
+                  "Onde"
+                ],
+                "correctSentence": [
+                  "Onde",
+                  "está",
+                  "o",
+                  "comboio"
+                ],
+                "translation": "Where is the train?"
+              }
+            },
+            {
+              "id": "pt_u3_l3_e9",
+              "type": "fillInTheBlank",
+              "vocabId": "pt_hotel",
+              "payload": {
+                "prompt": "Complete the sentence",
+                "sentenceTemplate": "O ___ está perto.",
+                "options": [
+                  "aeroporto",
+                  "hotel",
+                  "comboio",
+                  "bilhete"
+                ],
+                "correctAnswer": "hotel",
+                "translation": "The hotel is near"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "placementQuestions": [
+    {
+      "id": "p1",
+      "prompt": "What does 'Olá' mean?",
+      "options": [
+        "Goodbye",
+        "Hello",
+        "Thank you",
+        "Please"
+      ],
+      "correctIndex": 1,
+      "unlocksUnitIndex": 0
+    },
+    {
+      "id": "p2",
+      "prompt": "What does 'Por favor' mean?",
+      "options": [
+        "Please",
+        "Good afternoon",
+        "Yes",
+        "No"
+      ],
+      "correctIndex": 0,
+      "unlocksUnitIndex": 0
+    },
+    {
+      "id": "p3",
+      "prompt": "What does 'Boa tarde' mean?",
+      "options": [
+        "Excuse me",
+        "You're welcome",
+        "Okay",
+        "Good afternoon"
+      ],
+      "correctIndex": 3,
+      "unlocksUnitIndex": 0
+    },
+    {
+      "id": "p4",
+      "prompt": "What does 'Mãe' mean?",
+      "options": [
+        "Brother",
+        "Father",
+        "Mother",
+        "Sister"
+      ],
+      "correctIndex": 2,
+      "unlocksUnitIndex": 1
+    },
+    {
+      "id": "p5",
+      "prompt": "What does 'Irmão' mean?",
+      "options": [
+        "Grandmother",
+        "Bread",
+        "Water",
+        "Brother"
+      ],
+      "correctIndex": 3,
+      "unlocksUnitIndex": 1
+    },
+    {
+      "id": "p6",
+      "prompt": "What does 'Avó' mean?",
+      "options": [
+        "Grandmother",
+        "Cheese",
+        "Milk",
+        "Apple"
+      ],
+      "correctIndex": 0,
+      "unlocksUnitIndex": 1
+    },
+    {
+      "id": "p7",
+      "prompt": "What does 'Um' mean?",
+      "options": [
+        "Three",
+        "Four",
+        "Two",
+        "One"
+      ],
+      "correctIndex": 3,
+      "unlocksUnitIndex": 2
+    },
+    {
+      "id": "p8",
+      "prompt": "What does 'Três' mean?",
+      "options": [
+        "Three",
+        "Right",
+        "Left",
+        "Five"
+      ],
+      "correctIndex": 0,
+      "unlocksUnitIndex": 2
+    }
+  ]
+}

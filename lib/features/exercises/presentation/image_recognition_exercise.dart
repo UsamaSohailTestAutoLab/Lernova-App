@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../../../core/theme/app_colors.dart';
 import '../../../core/theme/app_spacing.dart';
+import 'widgets/answer_tile.dart';
+import 'widgets/exercise_feedback_panel.dart';
 import '../../../core/widgets/app_buttons.dart';
 import '../../../core/widgets/type_answer_field.dart';
 import '../../../data/models/exercise.dart';
@@ -122,46 +124,34 @@ class _ImageRecognitionExerciseState extends State<ImageRecognitionExercise> {
           const SizedBox(height: AppSpacing.md),
         ],
         for (var i = 0; i < _options.length; i++) ...[
-          _RecognizeTile(
+          AnswerTile(
             label: _options[i],
-            wrong: _wrongIndex == i,
-            onTap: () => _tapOption(i),
+            badge: String.fromCharCode(65 + i),
+            // After a miss the right answer turns green instead of
+            // staying anonymous. It used to be named only in the
+            // feedback text, leaving the learner to match a sentence
+            // back to a row before they could tap it.
+            state: _wrongIndex == i
+                ? AnswerTileState.incorrect
+                : (missed && _options[i] == _correctOption
+                    ? AnswerTileState.correct
+                    : AnswerTileState.idle),
+            onTap: _wrongIndex == i ? null : () => _tapOption(i),
           ),
           if (i != _options.length - 1) const SizedBox(height: AppSpacing.sm),
         ],
         if (missed) ...[
           const SizedBox(height: AppSpacing.lg),
-          Container(
-            width: double.infinity,
-            padding: const EdgeInsets.all(AppSpacing.lg),
-            decoration: BoxDecoration(
-              color: AppColors.errorLight,
-              borderRadius: BorderRadius.circular(16),
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
-                  children: [
-                    const Icon(Icons.cancel_rounded, color: AppColors.error, size: 20),
-                    const SizedBox(width: AppSpacing.sm),
-                    Text(
-                      'Not quite',
-                      style: theme.textTheme.titleMedium?.copyWith(color: AppColors.error),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: AppSpacing.xs),
-                Text(
-                  _asksMeaning
-                      ? '“${widget.payload.targetWord}” ${widget.payload.emoji} '
-                          'means “$_correctOption”. Tap it to carry on.'
-                      : '${widget.payload.emoji} is “${widget.payload.targetWord}”. '
-                          'Tap it to carry on.',
-                  style: theme.textTheme.bodyMedium?.copyWith(color: AppColors.error),
-                ),
-              ],
-            ),
+          ExerciseFeedbackPanel(
+            isCorrect: false,
+            title: 'Not quite',
+            message: _asksMeaning
+                ? '“${widget.payload.targetWord}” ${widget.payload.emoji} '
+                    'means “$_correctOption”.'
+                : '${widget.payload.emoji} is “${widget.payload.targetWord}”.',
+            // The green tile above is now the instruction, so the hint
+            // points at it rather than describing it again.
+            hint: 'Tap the green answer to carry on.',
           ),
         ],
       ],
@@ -172,27 +162,10 @@ class _ImageRecognitionExerciseState extends State<ImageRecognitionExercise> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Container(
-          width: double.infinity,
-          padding: const EdgeInsets.all(AppSpacing.lg),
-          decoration: BoxDecoration(
-            color: AppColors.successLight,
-            borderRadius: BorderRadius.circular(16),
-          ),
-          child: Row(
-            children: [
-              const Icon(Icons.check_circle_rounded, color: AppColors.success),
-              const SizedBox(width: AppSpacing.sm),
-              Expanded(
-                child: Text(
-                  _asksMeaning
-                      ? '“${widget.payload.targetWord}” it is — now write what it means.'
-                      : '“${widget.payload.targetWord}” it is — now try writing it.',
-                  style: theme.textTheme.bodyLarge?.copyWith(color: AppColors.success),
-                ),
-              ),
-            ],
-          ),
+        ExerciseSuccessBanner(
+          message: _asksMeaning
+              ? '“${widget.payload.targetWord}” it is — now write what it means.'
+              : '“${widget.payload.targetWord}” it is — now try writing it.',
         ),
         const SizedBox(height: AppSpacing.lg),
         PrimaryButton(
@@ -219,50 +192,17 @@ class _ImageRecognitionExerciseState extends State<ImageRecognitionExercise> {
               : 'Type the word for this',
           style: theme.textTheme.titleMedium,
         ),
-        const SizedBox(height: AppSpacing.md),
-        TypeAnswerField(
-          hintText: _asksMeaning ? 'Type the meaning in English' : 'Type the word',
-          feedback: switch (widget.feedback) {
-            ExerciseFeedback.none => TypeAnswerFeedback.none,
-            ExerciseFeedback.correct => TypeAnswerFeedback.correct,
-            ExerciseFeedback.incorrect => TypeAnswerFeedback.incorrect,
-          },
-          onSubmit: widget.onSubmit,
-        ),
-      ],
-    );
-  }
-}
-
-class _RecognizeTile extends StatelessWidget {
-  final String label;
-  final bool wrong;
-  final VoidCallback onTap;
-
-  const _RecognizeTile({required this.label, required this.wrong, required this.onTap});
-
-  @override
-  Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    return InkWell(
-      borderRadius: BorderRadius.circular(16),
-      onTap: wrong ? null : onTap,
-      child: Container(
-        width: double.infinity,
-        padding: const EdgeInsets.all(AppSpacing.lg),
-        decoration: BoxDecoration(
-          color: wrong ? AppColors.errorLight : null,
-          borderRadius: BorderRadius.circular(16),
-          border: Border.all(
-            color: wrong ? AppColors.error : theme.colorScheme.outlineVariant,
-            width: wrong ? 2 : 1,
+        // Gone once graded — see translation_exercise: an untypable box
+        // holding an answer the feedback bar is already stating.
+        if (widget.feedback == ExerciseFeedback.none) ...[
+          const SizedBox(height: AppSpacing.md),
+          TypeAnswerField(
+            hintText: _asksMeaning ? 'Type the meaning in English' : 'Type the word',
+            feedback: TypeAnswerFeedback.none,
+            onSubmit: widget.onSubmit,
           ),
-        ),
-        child: Text(
-          label,
-          style: theme.textTheme.titleMedium?.copyWith(color: wrong ? AppColors.error : null),
-        ),
-      ),
+        ],
+      ],
     );
   }
 }

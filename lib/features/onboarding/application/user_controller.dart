@@ -39,6 +39,20 @@ class UserController extends Notifier<AppUser> {
         (u) => u.copyWith(currentCourseId: courseId),
       );
 
+  /// Sets the learner's name and re-seeds the avatar from it, so the
+  /// generated avatar matches the person rather than the placeholder
+  /// "Learner" the default profile starts with.
+  Future<void> setFullName(String name) => _update(
+        (u) => u.copyWith(name: name.trim(), avatarSeed: name.trim()),
+      );
+
+  /// True once the learner has given a real name — the default profile
+  /// ships with the placeholder "Learner", which is not one.
+  static bool hasRealName(AppUser user) {
+    final name = user.name.trim();
+    return name.isNotEmpty && name != _defaultProfile().name;
+  }
+
   Future<void> updateProfile({String? name, String? email}) =>
       _update((u) => u.copyWith(name: name, email: email));
 

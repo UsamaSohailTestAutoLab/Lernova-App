@@ -85,5 +85,35 @@
   { "id": "es_veloz", "word": "Veloz", "translation": "Speedy", "languageId": "es", "category": "descriptions", "emoji": "⚡", "synonyms": ["es_rapido"] },
   { "id": "es_lento", "word": "Lento", "translation": "Slow", "languageId": "es", "category": "descriptions", "emoji": "🐢", "antonyms": ["es_rapido"] },
   { "id": "es_bueno", "word": "Bueno", "translation": "Good", "languageId": "es", "category": "descriptions", "emoji": "👍", "antonyms": ["es_malo"] },
-  { "id": "es_malo", "word": "Malo", "translation": "Bad", "languageId": "es", "category": "descriptions", "emoji": "👎", "antonyms": ["es_bueno"] }
+  { "id": "es_malo", "word": "Malo", "translation": "Bad", "languageId": "es", "category": "descriptions", "emoji": "👎", "antonyms": ["es_bueno"] },
+
+  { "id": "es_tengo_hambre", "word": "Tengo hambre", "translation": "I'm hungry", "languageId": "es", "category": "food", "emoji": "🍽️" },
+  { "id": "es_delicioso", "word": "Delicioso", "translation": "Delicious", "languageId": "es", "category": "food", "emoji": "😋" },
+  { "id": "es_mas", "word": "Más", "translation": "More", "languageId": "es", "category": "food", "emoji": "➕" },
+  { "id": "es_comida", "word": "Comida", "translation": "Food", "languageId": "es", "category": "food", "emoji": "🍲" },
+  { "id": "es_quiero", "word": "Quiero", "translation": "I want", "languageId": "es", "category": "food", "emoji": "🙋" },
+  { "id": "es_tengo", "word": "Tengo", "translation": "I have", "languageId": "es", "category": "descriptions", "emoji": "🙋" },
+
+  { "id": "es_yo", "word": "Yo", "translation": "I", "languageId": "es", "category": "descriptions", "emoji": "🙋" },
+  { "id": "es_es", "word": "Es", "translation": "Is", "languageId": "es", "category": "descriptions", "emoji": "🟰" },
+  { "id": "es_esta", "word": "Está", "translation": "Is (located)", "languageId": "es", "category": "descriptions", "emoji": "📍" },
+  { "id": "es_mi", "word": "Mi", "translation": "My", "languageId": "es", "category": "descriptions", "emoji": "👤" },
+  { "id": "es_muchas", "word": "Muchas", "translation": "Many", "languageId": "es", "category": "descriptions", "emoji": "➕" },
+  { "id": "es_me_gusta", "word": "Me gusta", "translation": "I like", "languageId": "es", "category": "food", "emoji": "❤️" },
+
+  { "id": "es_donde_esta", "word": "¿Dónde está?", "translation": "Where is it?", "languageId": "es", "category": "travel", "emoji": "❓" },
+  { "id": "es_cuanto_cuesta", "word": "¿Cuánto cuesta?", "translation": "How much does it cost?", "languageId": "es", "category": "travel", "emoji": "💰" },
+  { "id": "es_ayuda", "word": "Ayuda", "translation": "Help", "languageId": "es", "category": "travel", "emoji": "🆘" },
+  { "id": "es_necesito", "word": "Necesito", "translation": "I need", "languageId": "es", "category": "travel", "emoji": "🙏" },
+  { "id": "es_cerca", "word": "Cerca", "translation": "Nearby", "languageId": "es", "category": "travel", "emoji": "📍" },
+  { "id": "es_esquina", "word": "Esquina", "translation": "Corner", "languageId": "es", "category": "travel", "emoji": "🛣️" },
+  { "id": "es_gira", "word": "Gira", "translation": "Turn", "languageId": "es", "category": "travel", "emoji": "↩️" },
+  { "id": "es_autobus", "word": "Autobús", "translation": "Bus", "languageId": "es", "category": "travel", "emoji": "🚌" },
+
+  { "id": "es_numero", "word": "Número", "translation": "Number", "languageId": "es", "category": "numbers", "emoji": "🔢" },
+  { "id": "es_dedos", "word": "Dedos", "translation": "Fingers", "languageId": "es", "category": "numbers", "emoji": "🖐️" },
+  { "id": "es_despues", "word": "Después", "translation": "After", "languageId": "es", "category": "numbers", "emoji": "⏭️" },
+
+  { "id": "es_se_llama", "word": "Se llama", "translation": "Is called", "languageId": "es", "category": "family", "emoji": "🏷️" },
+  { "id": "es_alta", "word": "Alta", "translation": "Tall", "languageId": "es", "category": "descriptions", "emoji": "📏" }
 ]

@@ -1,0 +1,128 @@
+[
+  {
+    "id": "tr_phrase_u1_l1_a",
+    "phrase": "Merhaba, benim adım Anna",
+    "meaning": "Hello, my name is Anna",
+    "languageId": "tr",
+    "category": "greetings"
+  },
+  {
+    "id": "tr_phrase_u1_l1_b",
+    "phrase": "Benim adım Anna",
+    "meaning": "My name is Anna",
+    "languageId": "tr",
+    "category": "greetings"
+  },
+  {
+    "id": "tr_phrase_u1_l2_a",
+    "phrase": "Affedersiniz, ben yorgunum",
+    "meaning": "Excuse me, I am tired",
+    "languageId": "tr",
+    "category": "greetings"
+  },
+  {
+    "id": "tr_phrase_u1_l2_b",
+    "phrase": "Evet, ben yorgunum",
+    "meaning": "Yes, I am tired",
+    "languageId": "tr",
+    "category": "greetings"
+  },
+  {
+    "id": "tr_phrase_u1_l3_a",
+    "phrase": "Pardon, nasılsınız?",
+    "meaning": "Excuse me, how are you?",
+    "languageId": "tr",
+    "category": "greetings"
+  },
+  {
+    "id": "tr_phrase_u1_l3_b",
+    "phrase": "Hoş geldiniz ve İyi geceler",
+    "meaning": "Welcome and good night",
+    "languageId": "tr",
+    "category": "greetings"
+  },
+  {
+    "id": "tr_phrase_u2_l1_a",
+    "phrase": "Benim annem Anna",
+    "meaning": "My mother is Anna",
+    "languageId": "tr",
+    "category": "dining"
+  },
+  {
+    "id": "tr_phrase_u2_l1_b",
+    "phrase": "Anna benim annem",
+    "meaning": "Anna is my mother",
+    "languageId": "tr",
+    "category": "dining"
+  },
+  {
+    "id": "tr_phrase_u2_l2_a",
+    "phrase": "Bir ekmek istiyorum, lütfen",
+    "meaning": "I want a bread, please",
+    "languageId": "tr",
+    "category": "dining"
+  },
+  {
+    "id": "tr_phrase_u2_l2_b",
+    "phrase": "Ben süt istiyorum",
+    "meaning": "I want milk",
+    "languageId": "tr",
+    "category": "dining"
+  },
+  {
+    "id": "tr_phrase_u2_l3_a",
+    "phrase": "Masada bir bardak var",
+    "meaning": "There is a glass on the table",
+    "languageId": "tr",
+    "category": "dining"
+  },
+  {
+    "id": "tr_phrase_u2_l3_b",
+    "phrase": "Masada bir çatal var",
+    "meaning": "There is a fork on the table",
+    "languageId": "tr",
+    "category": "dining"
+  },
+  {
+    "id": "tr_phrase_u3_l1_a",
+    "phrase": "Beş yaşındayım",
+    "meaning": "I am five years old",
+    "languageId": "tr",
+    "category": "travel"
+  },
+  {
+    "id": "tr_phrase_u3_l1_b",
+    "phrase": "Ben dört yaşındayım",
+    "meaning": "I am four years old",
+    "languageId": "tr",
+    "category": "travel"
+  },
+  {
+    "id": "tr_phrase_u3_l2_a",
+    "phrase": "İstasyon nerede?",
+    "meaning": "Where is the station?",
+    "languageId": "tr",
+    "category": "travel"
+  },
+  {
+    "id": "tr_phrase_u3_l2_b",
+    "phrase": "Bu sokak nerede",
+    "meaning": "Where is this street?",
+    "languageId": "tr",
+    "category": "travel"
+  },
+  {
+    "id": "tr_phrase_u3_l3_a",
+    "phrase": "Tren yakın",
+    "meaning": "The train is near",
+    "languageId": "tr",
+    "category": "travel"
+  },
+  {
+    "id": "tr_phrase_u3_l3_b",
+    "phrase": "Bu tren nerede",
+    "meaning": "Where is this train?",
+    "languageId": "tr",
+    "category": "travel"
+  }
+]

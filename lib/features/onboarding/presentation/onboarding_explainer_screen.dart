@@ -22,8 +22,8 @@ class OnboardingExplainerScreen extends StatelessWidget {
     if (isReplay) {
       context.pop();
     } else {
-      // No sign-up step any more — straight into choosing a language.
-      context.push(AppRoutes.languageSelection);
+      // No sign-up step any more — just a name, then a language.
+      context.push(AppRoutes.nameEntry);
     }
   }
 

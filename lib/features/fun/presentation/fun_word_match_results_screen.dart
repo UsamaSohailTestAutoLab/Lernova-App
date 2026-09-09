@@ -9,6 +9,8 @@ import '../../../core/routing/app_routes.dart';
 import '../../../core/theme/app_colors.dart';
 import '../../../data/repositories/fun_content_providers.dart';
 import '../../onboarding/application/user_controller.dart';
+import '../../preview/application/retry_preview.dart';
+import '../../preview/application/vocab_preview_builder.dart';
 import '../../progress/application/progress_controller.dart';
 import '../application/fun_word_match_session_controller.dart';
 import 'widgets/fun_results_shell.dart';
@@ -50,7 +52,14 @@ class _FunWordMatchResultsScreenState extends ConsumerState<FunWordMatchResultsS
           pairsPerRound: session.pairsPerRound,
           random: Random(),
         );
-    if (mounted) context.pushReplacement(AppRoutes.funWordMatchPlay);
+    if (!mounted) return;
+    final roundWords = ref.read(funWordMatchSessionProvider)!.currentRoundWords;
+    pushRetryPreview(
+      context,
+      items: VocabPreviewBuilder.fromVocabWords(roundWords, languageId: languageId),
+      levelLabel: 'Word Match',
+      onStartRoute: AppRoutes.funWordMatchPlay,
+    );
   }
 
   void _done() {

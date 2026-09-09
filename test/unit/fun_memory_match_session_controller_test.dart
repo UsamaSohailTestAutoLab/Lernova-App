@@ -28,9 +28,66 @@ void main() {
     addTearDown(container.dispose);
   });
 
+  // A round now opens with the whole board face up so the player has
+  // something to remember. Starting face-down made the opening flips
+  // pure guesswork that cost lives and taught nothing.
+  group('memorise phase', () {
+    test('a round starts in the memorise phase', () {
+      final controller = container.read(funMemoryMatchSessionProvider.notifier);
+      controller.start(
+          words: _words(), vocabStrength: const {}, pairCount: 3, random: Random(1));
+
+      expect(
+        container.read(funMemoryMatchSessionProvider)!.phase,
+        MemoryMatchPhase.memorising,
+      );
+    });
+
+    test('taps are ignored until the board flips down', () {
+      final controller = container.read(funMemoryMatchSessionProvider.notifier);
+      controller.start(
+          words: _words(), vocabStrength: const {}, pairCount: 3, random: Random(1));
+
+      controller.flipCard(0);
+      controller.flipCard(1);
+      final s = container.read(funMemoryMatchSessionProvider)!;
+
+      expect(s.flippedIndices, isEmpty);
+      expect(s.lives, 5, reason: 'a tap while reading the board must not cost a life');
+      expect(s.mismatches, 0);
+    });
+
+    test('beginPlay opens play and is safe to call twice', () {
+      final controller = container.read(funMemoryMatchSessionProvider.notifier);
+      controller.start(
+          words: _words(), vocabStrength: const {}, pairCount: 3, random: Random(1));
+      controller.beginPlay();
+      controller.flipCard(0);
+      // A late timer firing after play began must not wipe the flip.
+      controller.beginPlay();
+
+      final s = container.read(funMemoryMatchSessionProvider)!;
+      expect(s.phase, MemoryMatchPhase.playing);
+      expect(s.flippedIndices, contains(0));
+    });
+
+    test('bigger boards get longer to memorise, within sane bounds', () {
+      Duration forPairs(int n) =>
+          FunMemoryMatchSessionController.memoriseDuration(n);
+
+      expect(forPairs(6) > forPairs(3), isTrue);
+      // Ten seconds is the floor: less than that and a full board is
+      // gone before you have finished reading it.
+      expect(forPairs(1).inSeconds, greaterThanOrEqualTo(10));
+      expect(forPairs(3).inSeconds, greaterThanOrEqualTo(10));
+      expect(forPairs(100).inSeconds, lessThanOrEqualTo(20));
+    });
+  });
+
   test('start deals exactly 2 cards per pair, shuffled', () {
     final controller = container.read(funMemoryMatchSessionProvider.notifier);
     controller.start(words: _words(), vocabStrength: const {}, pairCount: 3, random: Random(1));
+    controller.beginPlay();
     final s = container.read(funMemoryMatchSessionProvider)!;
     expect(s.cards.length, 6);
     expect(s.pairCount, 3);
@@ -45,6 +102,7 @@ void main() {
   test('flipping two cards from the same pair matches them and builds combo', () {
     final controller = container.read(funMemoryMatchSessionProvider.notifier);
     controller.start(words: _words(), vocabStrength: const {}, pairCount: 3, random: Random(1));
+    controller.beginPlay();
     final s = container.read(funMemoryMatchSessionProvider)!;
     final pairId = s.cards[0].pairId;
     final secondIndex = [
@@ -65,6 +123,7 @@ void main() {
   test('flipping two mismatched cards costs a life, resets combo, and stays flipped until resolveMismatch', () {
     final controller = container.read(funMemoryMatchSessionProvider.notifier);
     controller.start(words: _words(), vocabStrength: const {}, pairCount: 3, random: Random(1));
+    controller.beginPlay();
     final s = container.read(funMemoryMatchSessionProvider)!;
     // Find two indices with different pairIds.
     final a = 0;
@@ -79,22 +138,20 @@ void main() {
     expect(after.mismatches, 1);
     expect(after.flippedIndices, {a, b}); // still visible until resolved
 
+    // A miss is the two cards flashing red and turning back over — no
+    // typed recall step. You already learned the meanings in the
+    // memorise phase; what you got wrong was where they are, and
+    // stopping the round to type breaks the board you're holding in mind.
     controller.resolveMismatch();
     final resolved = container.read(funMemoryMatchSessionProvider)!;
     expect(resolved.flippedIndices, isEmpty);
-    // The correct pairing is now shown as a recall challenge rather than
-    // the round just continuing straight away.
-    expect(resolved.pendingRecall, isNotNull);
     expect(resolved.isComplete, isFalse);
-
-    controller.acknowledgeRecall();
-    final acknowledged = container.read(funMemoryMatchSessionProvider)!;
-    expect(acknowledged.pendingRecall, isNull);
   });
 
   test('running out of lives fails the session', () {
     final controller = container.read(funMemoryMatchSessionProvider.notifier);
     controller.start(words: _words(), vocabStrength: const {}, pairCount: 3, random: Random(1));
+    controller.beginPlay();
 
     for (var i = 0; i < 5; i++) {
       final s = container.read(funMemoryMatchSessionProvider)!;
@@ -104,9 +161,6 @@ void main() {
       controller.flipCard(a);
       controller.flipCard(b);
       controller.resolveMismatch();
-      if (container.read(funMemoryMatchSessionProvider)!.pendingRecall != null) {
-        controller.acknowledgeRecall();
-      }
     }
 
     final result = container.read(funMemoryMatchSessionProvider)!;
@@ -117,6 +171,7 @@ void main() {
   test('finishAndApply awards XP through the shared ProgressController exactly once', () {
     final controller = container.read(funMemoryMatchSessionProvider.notifier);
     controller.start(words: _words(), vocabStrength: const {}, pairCount: 3, random: Random(1));
+    controller.beginPlay();
     final s = container.read(funMemoryMatchSessionProvider)!;
     final pairId = s.cards[0].pairId;
     final secondIndex = [

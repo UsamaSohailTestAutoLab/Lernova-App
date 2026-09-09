@@ -23,6 +23,7 @@ import '../../../data/models/last_activity.dart';
 import '../../../data/models/user_progress.dart';
 import '../../../data/repositories/content_providers.dart';
 import '../../achievements/application/achievement_providers.dart';
+import '../../languages/application/language_switch_controller.dart';
 import '../../course/application/course_progress.dart';
 import '../../fun/application/fun_game_nav_args.dart';
 import '../../fun/application/fun_progress_controller.dart';
@@ -64,6 +65,10 @@ class HomeScreen extends ConsumerWidget {
           ],
         ),
         actions: [
+          // The flag doubles as the language switcher, the way it does
+          // in every app that teaches more than one language: it says
+          // what you are learning *and* is the way to change it.
+          _LanguageFlagButton(),
           Padding(
             padding: const EdgeInsets.only(right: AppSpacing.lg),
             child: _ProTag(isPremium: progress.isPremium),
@@ -339,6 +344,26 @@ class _GreetingHeaderState extends State<_GreetingHeader> {
 
 /// Top-right entry point to the subscription screen — or a quiet badge
 /// once the learner already has Pro.
+/// The flag of the language being learned, tapped to switch.
+///
+/// Falls back to a translate glyph before onboarding has chosen one, or
+/// while the language list is still loading — never to a wrong flag.
+class _LanguageFlagButton extends ConsumerWidget {
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final language = ref.watch(activeLanguageProvider);
+    return IconButton(
+      tooltip: language == null
+          ? 'Switch language'
+          : 'Learning ${language.name} — tap to switch',
+      onPressed: () => context.push(AppRoutes.languages),
+      icon: language == null
+          ? const Icon(Icons.translate_rounded)
+          : Text(language.flagEmoji, style: const TextStyle(fontSize: 22)),
+    );
+  }
+}
+
 class _ProTag extends StatelessWidget {
   final bool isPremium;
   const _ProTag({required this.isPremium});

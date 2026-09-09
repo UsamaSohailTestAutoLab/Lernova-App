@@ -7,10 +7,14 @@ import 'package:go_router/go_router.dart';
 
 import '../../../core/routing/app_routes.dart';
 import '../../../core/theme/app_colors.dart';
+import '../../../core/theme/app_decor.dart';
 import '../../../core/theme/app_spacing.dart';
 import '../../../core/widgets/app_buttons.dart';
-import '../../../core/widgets/spark_mascot.dart';
+import '../../../core/widgets/lernova_parrot.dart';
+import '../../../data/models/vocab_preview_item.dart';
 import '../../../data/repositories/fun_content_providers.dart';
+import '../../preview/application/retry_preview.dart';
+import '../../preview/application/vocab_preview_builder.dart';
 import '../../onboarding/application/user_controller.dart';
 import '../../progress/application/progress_controller.dart';
 import '../application/falling_word_session_controller.dart';
@@ -44,15 +48,30 @@ class _FunRoundResultsScreenState extends ConsumerState<FunRoundResultsScreen> {
     super.dispose();
   }
 
+  void _goToPreview({
+    required List<VocabPreviewItem> items,
+    required String levelLabel,
+  }) {
+    if (!mounted) return;
+    pushRetryPreview(
+      context,
+      items: items,
+      levelLabel: levelLabel,
+      onStartRoute: AppRoutes.funGamePlay,
+    );
+  }
+
   Future<void> _playAgain(FallingWordSessionState session) async {
     final languageId = ref.read(userProvider).selectedLanguageId;
     if (languageId == null) return;
     final level = ref.read(funProgressProvider).levelFor(session.mode.name);
     final levelConfig = FunLevelCatalog.configFor(level, mode: session.mode);
 
+    final words = await ref.read(funVocabWordsProvider(languageId).future);
+    final phrases = await ref.read(funPhrasesProvider(languageId).future);
     final questions = FunQuestionGenerator.generateRound(
-      words: await ref.read(funVocabWordsProvider(languageId).future),
-      phrases: await ref.read(funPhrasesProvider(languageId).future),
+      words: words,
+      phrases: phrases,
       level: levelConfig,
       vocabStrength: ref.read(progressProvider).vocabStrength,
       random: Random(),
@@ -63,7 +82,15 @@ class _FunRoundResultsScreenState extends ConsumerState<FunRoundResultsScreen> {
           questions: questions,
           levelConfig: levelConfig,
         );
-    if (mounted) context.pushReplacement(AppRoutes.funGamePlay);
+    _goToPreview(
+      items: VocabPreviewBuilder.fromFunQuestions(
+        questions,
+        wordPool: words,
+        phrasePool: phrases,
+        languageId: languageId,
+      ),
+      levelLabel: 'Level $level',
+    );
   }
 
   Future<void> _practiceMistakes(FallingWordSessionState session) async {
@@ -87,7 +114,16 @@ class _FunRoundResultsScreenState extends ConsumerState<FunRoundResultsScreen> {
           questions: questions,
           levelConfig: session.levelConfig,
         );
-    if (mounted) context.pushReplacement(AppRoutes.funGamePlay);
+    // Only the words that were actually missed — the whole point of
+    // this button is to narrow the round down to those.
+    _goToPreview(
+      items: VocabPreviewBuilder.fromVocabIds(
+        vocabIds: missedIds,
+        wordPool: words,
+        languageId: languageId,
+      ),
+      levelLabel: 'Your mistakes',
+    );
   }
 
   void _done() {
@@ -118,9 +154,11 @@ class _FunRoundResultsScreenState extends ConsumerState<FunRoundResultsScreen> {
               child: Column(
                 children: [
                   const Spacer(),
-                  SparkMascot(
-                    size: 120,
-                    mood: session.failed ? SparkMood.sad : SparkMood.celebrate,
+                  LernovaParrot(
+                    size: 130,
+                    mood: session.failed
+                        ? LernovaParrotMood.sad
+                        : LernovaParrotMood.celebrate,
                   ),
                   const SizedBox(height: AppSpacing.lg),
                   Text(
@@ -171,7 +209,8 @@ class _FunRoundResultsScreenState extends ConsumerState<FunRoundResultsScreen> {
                         vertical: AppSpacing.sm,
                       ),
                       decoration: BoxDecoration(
-                        color: AppColors.successLight,
+                        // tint(), not the raw literal — see fun_results_shell.
+                        color: context.decor.tint(AppColors.success),
                         borderRadius: BorderRadius.circular(AppSpacing.xl),
                       ),
                       child: Text(

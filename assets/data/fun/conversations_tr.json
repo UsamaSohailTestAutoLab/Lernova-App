@@ -1,0 +1,170 @@
+[
+  {
+    "id": "tr_conv_cafe",
+    "title": "At the Café",
+    "scenario": "You are ordering a coffee at a café.",
+    "languageId": "tr",
+    "turns": [
+      {
+        "id": "tr_conv_cafe_t1",
+        "line": "Merhaba! Ne istersiniz?",
+        "lineEnglish": "Hello! What would you like?",
+        "options": [
+          "Bir kahve istiyorum, lütfen",
+          "Merhaba, hoşça kal",
+          "Bir köpeğim var"
+        ],
+        "optionsEnglish": [
+          "I want a coffee, please",
+          "Hello, goodbye",
+          "I have a dog"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "tr_conv_cafe_t2",
+        "line": "Başka bir şey?",
+        "lineEnglish": "Anything else?",
+        "options": [
+          "Hayır, teşekkürler",
+          "Evet, bir kedi istiyorum",
+          "İyi geceler"
+        ],
+        "optionsEnglish": [
+          "No, thank you",
+          "Yes, I want a cat",
+          "Good night"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "tr_conv_cafe_t3",
+        "line": "Buyurun kahveniz. İyi günler!",
+        "lineEnglish": "Here is your coffee. Have a good day!",
+        "options": [
+          "Teşekkürler, hoşça kal",
+          "İstasyon nerede?",
+          "Beş yaşındayım"
+        ],
+        "optionsEnglish": [
+          "Thank you, goodbye",
+          "Where is the station?",
+          "I am five years old"
+        ],
+        "correctIndex": 0
+      }
+    ]
+  },
+  {
+    "id": "tr_conv_directions",
+    "title": "Asking Directions",
+    "scenario": "You are lost and need to find the station.",
+    "languageId": "tr",
+    "turns": [
+      {
+        "id": "tr_conv_directions_t1",
+        "line": "Merhaba, yardım edebilir miyim?",
+        "lineEnglish": "Hello, can I help you?",
+        "options": [
+          "İstasyon nerede, lütfen?",
+          "Peynir istiyorum",
+          "Benim annem Anna"
+        ],
+        "optionsEnglish": [
+          "Where is the station, please?",
+          "I want cheese",
+          "My mother is Anna"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "tr_conv_directions_t2",
+        "line": "Düz gidin, sonra sol.",
+        "lineEnglish": "Go straight ahead, then left.",
+        "options": [
+          "Çok teşekkürler",
+          "Hayır, affedersiniz",
+          "Ben dört yaşındayım"
+        ],
+        "optionsEnglish": [
+          "Thank you very much",
+          "No, excuse me",
+          "I am four years old"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "tr_conv_directions_t3",
+        "line": "Çok yakın. İyi yolculuklar!",
+        "lineEnglish": "It is very near. Have a good trip!",
+        "options": [
+          "Teşekkürler, görüşürüz",
+          "Masada bir bıçak var",
+          "Hoş geldiniz"
+        ],
+        "optionsEnglish": [
+          "Thank you, see you soon",
+          "There is a knife on the table",
+          "Welcome"
+        ],
+        "correctIndex": 0
+      }
+    ]
+  },
+  {
+    "id": "tr_conv_hotel",
+    "title": "Hotel Check-in",
+    "scenario": "You are checking in at a hotel.",
+    "languageId": "tr",
+    "turns": [
+      {
+        "id": "tr_conv_hotel_t1",
+        "line": "İyi akşamlar, rezervasyonunuz var mı?",
+        "lineEnglish": "Good evening, do you have a reservation?",
+        "options": [
+          "Evet, benim adım Anna",
+          "Hayır, bir atım var",
+          "Masada bir bardak var"
+        ],
+        "optionsEnglish": [
+          "Yes, my name is Anna",
+          "No, I have a horse",
+          "There is a glass on the table"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "tr_conv_hotel_t2",
+        "line": "Buyurun anahtarınız. Oda üç.",
+        "lineEnglish": "Here is your key. Room three.",
+        "options": [
+          "Teşekkürler, tamam",
+          "Elma nerede?",
+          "On köpeğim var"
+        ],
+        "optionsEnglish": [
+          "Thank you, okay",
+          "Where is the apple?",
+          "I have ten dogs"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "tr_conv_hotel_t3",
+        "line": "Kahvaltı yedide.",
+        "lineEnglish": "Breakfast is at seven.",
+        "options": [
+          "Çok iyi, iyi geceler",
+          "Affedersiniz, ben yorgunum",
+          "Hoş geldiniz ve teşekkürler"
+        ],
+        "optionsEnglish": [
+          "Very good, good night",
+          "Excuse me, I am tired",
+          "Welcome and thank you"
+        ],
+        "correctIndex": 0
+      }
+    ]
+  }
+]

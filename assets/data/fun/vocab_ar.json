@@ -1,0 +1,762 @@
+[
+  {
+    "id": "ar_marhaba",
+    "word": "مرحبا",
+    "translation": "Hello",
+    "languageId": "ar",
+    "category": "greetings",
+    "emoji": "👋"
+  },
+  {
+    "id": "ar_shukran",
+    "word": "شكرا",
+    "translation": "Thank you",
+    "languageId": "ar",
+    "category": "greetings",
+    "emoji": "🙏"
+  },
+  {
+    "id": "ar_min_fadlik",
+    "word": "من فضلك",
+    "translation": "Please",
+    "languageId": "ar",
+    "category": "greetings",
+    "emoji": "🙇"
+  },
+  {
+    "id": "ar_maa_assalama",
+    "word": "مع السلامة",
+    "translation": "Goodbye",
+    "languageId": "ar",
+    "category": "greetings",
+    "emoji": "🙋"
+  },
+  {
+    "id": "ar_masaa_alkhayr",
+    "word": "مساء الخير",
+    "translation": "Good evening",
+    "languageId": "ar",
+    "category": "greetings",
+    "emoji": "🌙"
+  },
+  {
+    "id": "ar_ismi",
+    "word": "اسمي",
+    "translation": "My name is",
+    "languageId": "ar",
+    "category": "greetings",
+    "emoji": "🪪"
+  },
+  {
+    "id": "ar_wa",
+    "word": "و",
+    "translation": "And",
+    "languageId": "ar",
+    "category": "descriptions",
+    "emoji": "➕"
+  },
+  {
+    "id": "ar_naam",
+    "word": "نعم",
+    "translation": "Yes",
+    "languageId": "ar",
+    "category": "greetings",
+    "emoji": "✅"
+  },
+  {
+    "id": "ar_la",
+    "word": "لا",
+    "translation": "No",
+    "languageId": "ar",
+    "category": "greetings",
+    "emoji": "❌"
+  },
+  {
+    "id": "ar_almadhira",
+    "word": "المعذرة",
+    "translation": "Excuse me",
+    "languageId": "ar",
+    "category": "greetings",
+    "emoji": "🙋"
+  },
+  {
+    "id": "ar_afwan",
+    "word": "عفوا",
+    "translation": "You're welcome",
+    "languageId": "ar",
+    "category": "greetings",
+    "emoji": "🤝"
+  },
+  {
+    "id": "ar_hasanan",
+    "word": "حسنا",
+    "translation": "Okay",
+    "languageId": "ar",
+    "category": "greetings",
+    "emoji": "👍"
+  },
+  {
+    "id": "ar_ana",
+    "word": "أنا",
+    "translation": "I am",
+    "languageId": "ar",
+    "category": "descriptions",
+    "emoji": "🙋"
+  },
+  {
+    "id": "ar_mutab",
+    "word": "متعب",
+    "translation": "Tired",
+    "languageId": "ar",
+    "category": "descriptions",
+    "emoji": "😴"
+  },
+  {
+    "id": "ar_law_samaht",
+    "word": "لو سمحت",
+    "translation": "Excuse me please",
+    "languageId": "ar",
+    "category": "greetings",
+    "emoji": "🙇"
+  },
+  {
+    "id": "ar_tusbih_ala_khayr",
+    "word": "تصبح على خير",
+    "translation": "Good night",
+    "languageId": "ar",
+    "category": "greetings",
+    "emoji": "😴"
+  },
+  {
+    "id": "ar_fi_sihtak",
+    "word": "في صحتك",
+    "translation": "Cheers",
+    "languageId": "ar",
+    "category": "greetings",
+    "emoji": "🥂"
+  },
+  {
+    "id": "ar_ahlan_wa_sahlan",
+    "word": "أهلا وسهلا",
+    "translation": "Welcome",
+    "languageId": "ar",
+    "category": "greetings",
+    "emoji": "🎉"
+  },
+  {
+    "id": "ar_ila_alliqaa",
+    "word": "إلى اللقاء",
+    "translation": "See you soon",
+    "languageId": "ar",
+    "category": "greetings",
+    "emoji": "👋"
+  },
+  {
+    "id": "ar_kayfa_haluk",
+    "word": "كيف حالك",
+    "translation": "How are you",
+    "languageId": "ar",
+    "category": "greetings",
+    "emoji": "❓"
+  },
+  {
+    "id": "ar_jiddan",
+    "word": "جدا",
+    "translation": "Very",
+    "languageId": "ar",
+    "category": "descriptions",
+    "emoji": "⭐"
+  },
+  {
+    "id": "ar_umm",
+    "word": "أم",
+    "translation": "Mother",
+    "languageId": "ar",
+    "category": "family",
+    "emoji": "👩"
+  },
+  {
+    "id": "ar_ab",
+    "word": "أب",
+    "translation": "Father",
+    "languageId": "ar",
+    "category": "family",
+    "emoji": "👨"
+  },
+  {
+    "id": "ar_akh",
+    "word": "أخ",
+    "translation": "Brother",
+    "languageId": "ar",
+    "category": "family",
+    "emoji": "👦"
+  },
+  {
+    "id": "ar_ukht",
+    "word": "أخت",
+    "translation": "Sister",
+    "languageId": "ar",
+    "category": "family",
+    "emoji": "👧"
+  },
+  {
+    "id": "ar_jadda",
+    "word": "جدة",
+    "translation": "Grandmother",
+    "languageId": "ar",
+    "category": "family",
+    "emoji": "👵"
+  },
+  {
+    "id": "ar_ummi",
+    "word": "أمي",
+    "translation": "My mother",
+    "languageId": "ar",
+    "category": "family",
+    "emoji": "👩"
+  },
+  {
+    "id": "ar_hiya",
+    "word": "هي",
+    "translation": "She is",
+    "languageId": "ar",
+    "category": "descriptions",
+    "emoji": "🟰"
+  },
+  {
+    "id": "ar_jaddati",
+    "word": "جدتي",
+    "translation": "My grandmother",
+    "languageId": "ar",
+    "category": "family",
+    "emoji": "👵"
+  },
+  {
+    "id": "ar_khubz",
+    "word": "خبز",
+    "translation": "Bread",
+    "languageId": "ar",
+    "category": "food",
+    "emoji": "🍞"
+  },
+  {
+    "id": "ar_maa",
+    "word": "ماء",
+    "translation": "Water",
+    "languageId": "ar",
+    "category": "food",
+    "emoji": "💧"
+  },
+  {
+    "id": "ar_tuffaha",
+    "word": "تفاحة",
+    "translation": "Apple",
+    "languageId": "ar",
+    "category": "food",
+    "emoji": "🍎"
+  },
+  {
+    "id": "ar_jubn",
+    "word": "جبن",
+    "translation": "Cheese",
+    "languageId": "ar",
+    "category": "food",
+    "emoji": "🧀"
+  },
+  {
+    "id": "ar_halib",
+    "word": "حليب",
+    "translation": "Milk",
+    "languageId": "ar",
+    "category": "food",
+    "emoji": "🥛"
+  },
+  {
+    "id": "ar_urid",
+    "word": "أريد",
+    "translation": "I want",
+    "languageId": "ar",
+    "category": "food",
+    "emoji": "🙋"
+  },
+  {
+    "id": "ar_attawila",
+    "word": "الطاولة",
+    "translation": "The table",
+    "languageId": "ar",
+    "category": "home",
+    "emoji": "🍽️"
+  },
+  {
+    "id": "ar_attabaq",
+    "word": "الطبق",
+    "translation": "The plate",
+    "languageId": "ar",
+    "category": "home",
+    "emoji": "🍽️"
+  },
+  {
+    "id": "ar_alkub",
+    "word": "الكوب",
+    "translation": "The glass",
+    "languageId": "ar",
+    "category": "home",
+    "emoji": "🥛"
+  },
+  {
+    "id": "ar_ashshawka",
+    "word": "الشوكة",
+    "translation": "The fork",
+    "languageId": "ar",
+    "category": "home",
+    "emoji": "🍴"
+  },
+  {
+    "id": "ar_assikkin",
+    "word": "السكين",
+    "translation": "The knife",
+    "languageId": "ar",
+    "category": "home",
+    "emoji": "🔪"
+  },
+  {
+    "id": "ar_ala",
+    "word": "على",
+    "translation": "On",
+    "languageId": "ar",
+    "category": "descriptions",
+    "emoji": "📍"
+  },
+  {
+    "id": "ar_hadha",
+    "word": "هذا",
+    "translation": "This",
+    "languageId": "ar",
+    "category": "descriptions",
+    "emoji": "👉"
+  },
+  {
+    "id": "ar_wahid",
+    "word": "واحد",
+    "translation": "One",
+    "languageId": "ar",
+    "category": "numbers",
+    "emoji": "1️⃣"
+  },
+  {
+    "id": "ar_ithnan",
+    "word": "اثنان",
+    "translation": "Two",
+    "languageId": "ar",
+    "category": "numbers",
+    "emoji": "2️⃣"
+  },
+  {
+    "id": "ar_thalatha",
+    "word": "ثلاثة",
+    "translation": "Three",
+    "languageId": "ar",
+    "category": "numbers",
+    "emoji": "3️⃣"
+  },
+  {
+    "id": "ar_arbaa",
+    "word": "أربعة",
+    "translation": "Four",
+    "languageId": "ar",
+    "category": "numbers",
+    "emoji": "4️⃣"
+  },
+  {
+    "id": "ar_khamsa",
+    "word": "خمسة",
+    "translation": "Five",
+    "languageId": "ar",
+    "category": "numbers",
+    "emoji": "5️⃣"
+  },
+  {
+    "id": "ar_ladayya",
+    "word": "لدي",
+    "translation": "I have",
+    "languageId": "ar",
+    "category": "descriptions",
+    "emoji": "🙋"
+  },
+  {
+    "id": "ar_ikhwa",
+    "word": "إخوة",
+    "translation": "Brothers",
+    "languageId": "ar",
+    "category": "family",
+    "emoji": "👬"
+  },
+  {
+    "id": "ar_yasar",
+    "word": "يسار",
+    "translation": "Left",
+    "languageId": "ar",
+    "category": "travel",
+    "emoji": "⬅️"
+  },
+  {
+    "id": "ar_yamin",
+    "word": "يمين",
+    "translation": "Right",
+    "languageId": "ar",
+    "category": "travel",
+    "emoji": "➡️"
+  },
+  {
+    "id": "ar_mustaqim",
+    "word": "مستقيم",
+    "translation": "Straight ahead",
+    "languageId": "ar",
+    "category": "travel",
+    "emoji": "⬆️"
+  },
+  {
+    "id": "ar_sharia",
+    "word": "شارع",
+    "translation": "Street",
+    "languageId": "ar",
+    "category": "travel",
+    "emoji": "🛣️"
+  },
+  {
+    "id": "ar_mahatta",
+    "word": "محطة",
+    "translation": "Station",
+    "languageId": "ar",
+    "category": "travel",
+    "emoji": "🚉"
+  },
+  {
+    "id": "ar_ayna",
+    "word": "أين",
+    "translation": "Where",
+    "languageId": "ar",
+    "category": "travel",
+    "emoji": "❓"
+  },
+  {
+    "id": "ar_almahatta",
+    "word": "المحطة",
+    "translation": "The station",
+    "languageId": "ar",
+    "category": "travel",
+    "emoji": "🚉"
+  },
+  {
+    "id": "ar_ashsharia",
+    "word": "الشارع",
+    "translation": "The street",
+    "languageId": "ar",
+    "category": "travel",
+    "emoji": "🛣️"
+  },
+  {
+    "id": "ar_matar",
+    "word": "مطار",
+    "translation": "Airport",
+    "languageId": "ar",
+    "category": "travel",
+    "emoji": "✈️"
+  },
+  {
+    "id": "ar_funduq",
+    "word": "فندق",
+    "translation": "Hotel",
+    "languageId": "ar",
+    "category": "travel",
+    "emoji": "🏨"
+  },
+  {
+    "id": "ar_tadhkira",
+    "word": "تذكرة",
+    "translation": "Ticket",
+    "languageId": "ar",
+    "category": "travel",
+    "emoji": "🎫"
+  },
+  {
+    "id": "ar_qitar",
+    "word": "قطار",
+    "translation": "Train",
+    "languageId": "ar",
+    "category": "travel",
+    "emoji": "🚆"
+  },
+  {
+    "id": "ar_haqiba",
+    "word": "حقيبة",
+    "translation": "Suitcase",
+    "languageId": "ar",
+    "category": "travel",
+    "emoji": "🧳"
+  },
+  {
+    "id": "ar_qarib",
+    "word": "قريب",
+    "translation": "Near",
+    "languageId": "ar",
+    "category": "travel",
+    "emoji": "📍"
+  },
+  {
+    "id": "ar_alqitar",
+    "word": "القطار",
+    "translation": "The train",
+    "languageId": "ar",
+    "category": "travel",
+    "emoji": "🚆"
+  },
+  {
+    "id": "ar_alfunduq",
+    "word": "الفندق",
+    "translation": "The hotel",
+    "languageId": "ar",
+    "category": "travel",
+    "emoji": "🏨"
+  },
+  {
+    "id": "ar_ahmar",
+    "word": "أحمر",
+    "translation": "Red",
+    "languageId": "ar",
+    "category": "colors",
+    "emoji": "🔴"
+  },
+  {
+    "id": "ar_azraq",
+    "word": "أزرق",
+    "translation": "Blue",
+    "languageId": "ar",
+    "category": "colors",
+    "emoji": "🔵"
+  },
+  {
+    "id": "ar_akhdar",
+    "word": "أخضر",
+    "translation": "Green",
+    "languageId": "ar",
+    "category": "colors",
+    "emoji": "🟢"
+  },
+  {
+    "id": "ar_asfar",
+    "word": "أصفر",
+    "translation": "Yellow",
+    "languageId": "ar",
+    "category": "colors",
+    "emoji": "🟡"
+  },
+  {
+    "id": "ar_aswad",
+    "word": "أسود",
+    "translation": "Black",
+    "languageId": "ar",
+    "category": "colors",
+    "emoji": "⚫"
+  },
+  {
+    "id": "ar_abyad",
+    "word": "أبيض",
+    "translation": "White",
+    "languageId": "ar",
+    "category": "colors",
+    "emoji": "⚪"
+  },
+  {
+    "id": "ar_kalb",
+    "word": "كلب",
+    "translation": "Dog",
+    "languageId": "ar",
+    "category": "animals",
+    "emoji": "🐕"
+  },
+  {
+    "id": "ar_qitta",
+    "word": "قطة",
+    "translation": "Cat",
+    "languageId": "ar",
+    "category": "animals",
+    "emoji": "🐈"
+  },
+  {
+    "id": "ar_asfur",
+    "word": "عصفور",
+    "translation": "Bird",
+    "languageId": "ar",
+    "category": "animals",
+    "emoji": "🐦"
+  },
+  {
+    "id": "ar_samaka",
+    "word": "سمكة",
+    "translation": "Fish",
+    "languageId": "ar",
+    "category": "animals",
+    "emoji": "🐟"
+  },
+  {
+    "id": "ar_hisan",
+    "word": "حصان",
+    "translation": "Horse",
+    "languageId": "ar",
+    "category": "animals",
+    "emoji": "🐴"
+  },
+  {
+    "id": "ar_baqara",
+    "word": "بقرة",
+    "translation": "Cow",
+    "languageId": "ar",
+    "category": "animals",
+    "emoji": "🐄"
+  },
+  {
+    "id": "ar_sitta",
+    "word": "ستة",
+    "translation": "Six",
+    "languageId": "ar",
+    "category": "numbers",
+    "emoji": "6️⃣"
+  },
+  {
+    "id": "ar_sabaa",
+    "word": "سبعة",
+    "translation": "Seven",
+    "languageId": "ar",
+    "category": "numbers",
+    "emoji": "7️⃣"
+  },
+  {
+    "id": "ar_thamaniya",
+    "word": "ثمانية",
+    "translation": "Eight",
+    "languageId": "ar",
+    "category": "numbers",
+    "emoji": "8️⃣"
+  },
+  {
+    "id": "ar_tisaa",
+    "word": "تسعة",
+    "translation": "Nine",
+    "languageId": "ar",
+    "category": "numbers",
+    "emoji": "9️⃣"
+  },
+  {
+    "id": "ar_ashara",
+    "word": "عشرة",
+    "translation": "Ten",
+    "languageId": "ar",
+    "category": "numbers",
+    "emoji": "🔟"
+  },
+  {
+    "id": "ar_bayt",
+    "word": "بيت",
+    "translation": "House",
+    "languageId": "ar",
+    "category": "home",
+    "emoji": "🏠"
+  },
+  {
+    "id": "ar_bab",
+    "word": "باب",
+    "translation": "Door",
+    "languageId": "ar",
+    "category": "home",
+    "emoji": "🚪"
+  },
+  {
+    "id": "ar_nafidha",
+    "word": "نافذة",
+    "translation": "Window",
+    "languageId": "ar",
+    "category": "home",
+    "emoji": "🪟"
+  },
+  {
+    "id": "ar_kursi",
+    "word": "كرسي",
+    "translation": "Chair",
+    "languageId": "ar",
+    "category": "home",
+    "emoji": "🪑"
+  },
+  {
+    "id": "ar_sarir",
+    "word": "سرير",
+    "translation": "Bed",
+    "languageId": "ar",
+    "category": "home",
+    "emoji": "🛏️"
+  },
+  {
+    "id": "ar_qahwa",
+    "word": "قهوة",
+    "translation": "Coffee",
+    "languageId": "ar",
+    "category": "food",
+    "emoji": "☕"
+  },
+  {
+    "id": "ar_shay",
+    "word": "شاي",
+    "translation": "Tea",
+    "languageId": "ar",
+    "category": "food",
+    "emoji": "🍵"
+  },
+  {
+    "id": "ar_dajaj",
+    "word": "دجاج",
+    "translation": "Chicken",
+    "languageId": "ar",
+    "category": "food",
+    "emoji": "🍗"
+  },
+  {
+    "id": "ar_kabir",
+    "word": "كبير",
+    "translation": "Big",
+    "languageId": "ar",
+    "category": "descriptions",
+    "emoji": "🐘"
+  },
+  {
+    "id": "ar_saghir",
+    "word": "صغير",
+    "translation": "Small",
+    "languageId": "ar",
+    "category": "descriptions",
+    "emoji": "🐁"
+  },
+  {
+    "id": "ar_har",
+    "word": "حار",
+    "translation": "Hot",
+    "languageId": "ar",
+    "category": "descriptions",
+    "emoji": "🔥"
+  },
+  {
+    "id": "ar_barid",
+    "word": "بارد",
+    "translation": "Cold",
+    "languageId": "ar",
+    "category": "descriptions",
+    "emoji": "❄️"
+  },
+  {
+    "id": "ar_jayyid",
+    "word": "جيد",
+    "translation": "Good",
+    "languageId": "ar",
+    "category": "descriptions",
+    "emoji": "👍"
+  }
+]

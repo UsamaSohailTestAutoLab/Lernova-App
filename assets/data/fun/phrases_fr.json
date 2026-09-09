@@ -1,0 +1,128 @@
+[
+  {
+    "id": "fr_phrase_u1_l1_a",
+    "phrase": "Bonjour, je m'appelle Anna",
+    "meaning": "Hello, my name is Anna",
+    "languageId": "fr",
+    "category": "greetings"
+  },
+  {
+    "id": "fr_phrase_u1_l1_b",
+    "phrase": "Je m'appelle Anna",
+    "meaning": "My name is Anna",
+    "languageId": "fr",
+    "category": "greetings"
+  },
+  {
+    "id": "fr_phrase_u1_l2_a",
+    "phrase": "Pardon, je suis désolé",
+    "meaning": "Excuse me, I am sorry",
+    "languageId": "fr",
+    "category": "greetings"
+  },
+  {
+    "id": "fr_phrase_u1_l2_b",
+    "phrase": "Oui, je suis d'accord",
+    "meaning": "Yes, I agree",
+    "languageId": "fr",
+    "category": "greetings"
+  },
+  {
+    "id": "fr_phrase_u1_l3_a",
+    "phrase": "Excusez-moi, comment allez-vous ?",
+    "meaning": "Excuse me, how are you?",
+    "languageId": "fr",
+    "category": "greetings"
+  },
+  {
+    "id": "fr_phrase_u1_l3_b",
+    "phrase": "Bienvenue et bonne nuit",
+    "meaning": "Welcome and good night",
+    "languageId": "fr",
+    "category": "greetings"
+  },
+  {
+    "id": "fr_phrase_u2_l1_a",
+    "phrase": "Ma sœur est Anna",
+    "meaning": "My sister is Anna",
+    "languageId": "fr",
+    "category": "dining"
+  },
+  {
+    "id": "fr_phrase_u2_l1_b",
+    "phrase": "Anna est ma mère",
+    "meaning": "Anna is my mother",
+    "languageId": "fr",
+    "category": "dining"
+  },
+  {
+    "id": "fr_phrase_u2_l2_a",
+    "phrase": "Je veux du pain, s'il vous plaît",
+    "meaning": "I want some bread, please",
+    "languageId": "fr",
+    "category": "dining"
+  },
+  {
+    "id": "fr_phrase_u2_l2_b",
+    "phrase": "Je veux du fromage",
+    "meaning": "I want some cheese",
+    "languageId": "fr",
+    "category": "dining"
+  },
+  {
+    "id": "fr_phrase_u2_l3_a",
+    "phrase": "Le verre est sur la table",
+    "meaning": "The glass is on the table",
+    "languageId": "fr",
+    "category": "dining"
+  },
+  {
+    "id": "fr_phrase_u2_l3_b",
+    "phrase": "La fourchette est sur la table",
+    "meaning": "The fork is on the table",
+    "languageId": "fr",
+    "category": "dining"
+  },
+  {
+    "id": "fr_phrase_u3_l1_a",
+    "phrase": "J'ai cinq ans",
+    "meaning": "I am five years old",
+    "languageId": "fr",
+    "category": "travel"
+  },
+  {
+    "id": "fr_phrase_u3_l1_b",
+    "phrase": "J'ai quatre ans",
+    "meaning": "I am four years old",
+    "languageId": "fr",
+    "category": "travel"
+  },
+  {
+    "id": "fr_phrase_u3_l2_a",
+    "phrase": "Où est la gare ?",
+    "meaning": "Where is the station?",
+    "languageId": "fr",
+    "category": "travel"
+  },
+  {
+    "id": "fr_phrase_u3_l2_b",
+    "phrase": "Où est la rue",
+    "meaning": "Where is the street?",
+    "languageId": "fr",
+    "category": "travel"
+  },
+  {
+    "id": "fr_phrase_u3_l3_a",
+    "phrase": "Le train est près de la gare",
+    "meaning": "The train is near the station",
+    "languageId": "fr",
+    "category": "travel"
+  },
+  {
+    "id": "fr_phrase_u3_l3_b",
+    "phrase": "Où est le train",
+    "meaning": "Where is the train?",
+    "languageId": "fr",
+    "category": "travel"
+  }
+]

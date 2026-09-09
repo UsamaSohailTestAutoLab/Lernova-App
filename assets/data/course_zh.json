@@ -1,0 +1,1651 @@
+{
+  "id": "course_zh",
+  "languageId": "zh",
+  "title": "Chinese",
+  "description": "Learn conversational Mandarin Chinese through short, focused lessons.",
+  "units": [
+    {
+      "id": "zh_u1",
+      "title": "Greetings & Basics",
+      "description": "Say hello and be polite",
+      "icon": "greeting",
+      "accent": "green",
+      "lessons": [
+        {
+          "id": "zh_u1_l1",
+          "title": "Say Hello",
+          "subtitle": "你好, 谢谢, 请, 再见, 晚上好",
+          "icon": "greeting",
+          "reviewVocabIds": [
+            "zh_wojiao",
+            "zh_he",
+            "zh_wanshanghao"
+          ],
+          "exercises": [
+            {
+              "id": "zh_u1_l1_e1",
+              "type": "imageRecognition",
+              "vocabId": "zh_nihao",
+              "payload": {
+                "prompt": "What does this word mean?",
+                "emoji": "👋",
+                "targetWord": "你好",
+                "meaning": "Hello",
+                "distractorMeanings": [
+                  "Thank you",
+                  "Please",
+                  "Goodbye"
+                ],
+                "distractorWords": [
+                  "谢谢",
+                  "请",
+                  "再见"
+                ]
+              }
+            },
+            {
+              "id": "zh_u1_l1_e2",
+              "type": "multipleChoice",
+              "vocabId": "zh_xiexie",
+              "payload": {
+                "prompt": "Which word means 'Thank you'?",
+                "options": [
+                  "你好",
+                  "再见",
+                  "谢谢",
+                  "请"
+                ],
+                "correctIndex": 2
+              }
+            },
+            {
+              "id": "zh_u1_l1_e3",
+              "type": "listening",
+              "vocabId": "zh_qing",
+              "payload": {
+                "prompt": "Listen and select what you hear",
+                "audioText": "请",
+                "ttsLocale": "zh-CN",
+                "options": [
+                  "你好",
+                  "请",
+                  "再见",
+                  "谢谢"
+                ],
+                "correctIndex": 1,
+                "translation": "Please"
+              }
+            },
+            {
+              "id": "zh_u1_l1_e4",
+              "type": "multipleChoice",
+              "vocabId": "zh_wojiao",
+              "payload": {
+                "prompt": "Which word means 'My name is'?",
+                "options": [
+                  "你好",
+                  "谢谢",
+                  "请",
+                  "我叫"
+                ],
+                "correctIndex": 3
+              }
+            },
+            {
+              "id": "zh_u1_l1_e5",
+              "type": "translation",
+              "vocabId": "zh_zaijian",
+              "payload": {
+                "prompt": "Type the English meaning",
+                "sourceText": "再见",
+                "acceptableAnswers": [
+                  "goodbye",
+                  "Goodbye"
+                ]
+              }
+            },
+            {
+              "id": "zh_u1_l1_e6",
+              "type": "speaking",
+              "vocabId": "zh_nihao",
+              "payload": {
+                "prompt": "Say this phrase out loud",
+                "targetPhrase": "你好 我叫 安娜",
+                "translation": "Hello, my name is Anna",
+                "ttsLocale": "zh-CN"
+              }
+            },
+            {
+              "id": "zh_u1_l1_e7",
+              "type": "wordMatching",
+              "vocabId": "zh_u1_l1_set",
+              "payload": {
+                "prompt": "Match each word to its meaning",
+                "pairs": [
+                  {
+                    "left": "你好",
+                    "right": "Hello"
+                  },
+                  {
+                    "left": "谢谢",
+                    "right": "Thank you"
+                  },
+                  {
+                    "left": "请",
+                    "right": "Please"
+                  },
+                  {
+                    "left": "再见",
+                    "right": "Goodbye"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "zh_u1_l1_e8",
+              "type": "sentenceArrangement",
+              "vocabId": "zh_nihao",
+              "payload": {
+                "prompt": "Build the sentence",
+                "shuffledChips": [
+                  "你好",
+                  "我叫",
+                  "安娜"
+                ],
+                "correctSentence": [
+                  "你好",
+                  "我叫",
+                  "安娜"
+                ],
+                "translation": "Hello, my name is Anna"
+              }
+            },
+            {
+              "id": "zh_u1_l1_e9",
+              "type": "fillInTheBlank",
+              "vocabId": "zh_zaijian",
+              "payload": {
+                "prompt": "Complete the sentence",
+                "sentenceTemplate": "谢谢 和 ___。",
+                "options": [
+                  "你好",
+                  "晚上好",
+                  "再见",
+                  "请"
+                ],
+                "correctAnswer": "再见",
+                "translation": "Thank you and goodbye"
+              }
+            }
+          ]
+        },
+        {
+          "id": "zh_u1_l2",
+          "title": "Yes, No, Sorry",
+          "subtitle": "是, 不是, 对不起, 不客气, 好的",
+          "icon": "agreement",
+          "reviewVocabIds": [
+            "zh_wo",
+            "zh_lei",
+            "zh_hen",
+            "zh_xiexie",
+            "zh_haode"
+          ],
+          "exercises": [
+            {
+              "id": "zh_u1_l2_e1",
+              "type": "imageRecognition",
+              "vocabId": "zh_shi",
+              "payload": {
+                "prompt": "What does this word mean?",
+                "emoji": "✅",
+                "targetWord": "是",
+                "meaning": "Yes",
+                "distractorMeanings": [
+                  "No",
+                  "Excuse me",
+                  "You're welcome"
+                ],
+                "distractorWords": [
+                  "不是",
+                  "对不起",
+                  "不客气"
+                ]
+              }
+            },
+            {
+              "id": "zh_u1_l2_e2",
+              "type": "multipleChoice",
+              "vocabId": "zh_bushi",
+              "payload": {
+                "prompt": "Which word means 'No'?",
+                "options": [
+                  "不是",
+                  "对不起",
+                  "是",
+                  "不客气"
+                ],
+                "correctIndex": 0
+              }
+            },
+            {
+              "id": "zh_u1_l2_e3",
+              "type": "listening",
+              "vocabId": "zh_duibuqi",
+              "payload": {
+                "prompt": "Listen and select what you hear",
+                "audioText": "对不起",
+                "ttsLocale": "zh-CN",
+                "options": [
+                  "不是",
+                  "是",
+                  "对不起",
+                  "不客气"
+                ],
+                "correctIndex": 2,
+                "translation": "Excuse me"
+              }
+            },
+            {
+              "id": "zh_u1_l2_e4",
+              "type": "multipleChoice",
+              "vocabId": "zh_wo",
+              "payload": {
+                "prompt": "Which word means 'I'?",
+                "options": [
+                  "我",
+                  "不是",
+                  "对不起",
+                  "是"
+                ],
+                "correctIndex": 0
+              }
+            },
+            {
+              "id": "zh_u1_l2_e5",
+              "type": "translation",
+              "vocabId": "zh_bukeqi",
+              "payload": {
+                "prompt": "Type the English meaning",
+                "sourceText": "不客气",
+                "acceptableAnswers": [
+                  "you're welcome",
+                  "You're welcome"
+                ]
+              }
+            },
+            {
+              "id": "zh_u1_l2_e6",
+              "type": "speaking",
+              "vocabId": "zh_shi",
+              "payload": {
+                "prompt": "Say this phrase out loud",
+                "targetPhrase": "对不起 我 很 累",
+                "translation": "Excuse me, I am very tired",
+                "ttsLocale": "zh-CN"
+              }
+            },
+            {
+              "id": "zh_u1_l2_e7",
+              "type": "wordMatching",
+              "vocabId": "zh_u1_l2_set",
+              "payload": {
+                "prompt": "Match each word to its meaning",
+                "pairs": [
+                  {
+                    "left": "是",
+                    "right": "Yes"
+                  },
+                  {
+                    "left": "不是",
+                    "right": "No"
+                  },
+                  {
+                    "left": "对不起",
+                    "right": "Excuse me"
+                  },
+                  {
+                    "left": "不客气",
+                    "right": "You're welcome"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "zh_u1_l2_e8",
+              "type": "sentenceArrangement",
+              "vocabId": "zh_shi",
+              "payload": {
+                "prompt": "Build the sentence",
+                "shuffledChips": [
+                  "累",
+                  "我",
+                  "不是"
+                ],
+                "correctSentence": [
+                  "我",
+                  "不是",
+                  "累"
+                ],
+                "translation": "I am not tired"
+              }
+            },
+            {
+              "id": "zh_u1_l2_e9",
+              "type": "fillInTheBlank",
+              "vocabId": "zh_duibuqi",
+              "payload": {
+                "prompt": "Complete the sentence",
+                "sentenceTemplate": "不是 ___。",
+                "options": [
+                  "对不起",
+                  "好的",
+                  "是",
+                  "不客气"
+                ],
+                "correctAnswer": "对不起",
+                "translation": "No, excuse me"
+              }
+            }
+          ]
+        },
+        {
+          "id": "zh_u1_l3",
+          "title": "Polite Basics",
+          "subtitle": "打扰一下, 晚安, 干杯, 欢迎, 回头见",
+          "icon": "manners",
+          "reviewVocabIds": [
+            "zh_nihaoma",
+            "zh_he",
+            "zh_xiexie"
+          ],
+          "exercises": [
+            {
+              "id": "zh_u1_l3_e1",
+              "type": "imageRecognition",
+              "vocabId": "zh_darao_yixia",
+              "payload": {
+                "prompt": "What does this word mean?",
+                "emoji": "🙇",
+                "targetWord": "打扰一下",
+                "meaning": "Excuse me please",
+                "distractorMeanings": [
+                  "Good night",
+                  "Cheers",
+                  "Welcome"
+                ],
+                "distractorWords": [
+                  "晚安",
+                  "干杯",
+                  "欢迎"
+                ]
+              }
+            },
+            {
+              "id": "zh_u1_l3_e2",
+              "type": "multipleChoice",
+              "vocabId": "zh_wanan",
+              "payload": {
+                "prompt": "Which word means 'Good night'?",
+                "options": [
+                  "打扰一下",
+                  "欢迎",
+                  "干杯",
+                  "晚安"
+                ],
+                "correctIndex": 3
+              }
+            },
+            {
+              "id": "zh_u1_l3_e3",
+              "type": "listening",
+              "vocabId": "zh_ganbei",
+              "payload": {
+                "prompt": "Listen and select what you hear",
+                "audioText": "干杯",
+                "ttsLocale": "zh-CN",
+                "options": [
+                  "晚安",
+                  "欢迎",
+                  "打扰一下",
+                  "干杯"
+                ],
+                "correctIndex": 3,
+                "translation": "Cheers"
+              }
+            },
+            {
+              "id": "zh_u1_l3_e4",
+              "type": "multipleChoice",
+              "vocabId": "zh_nihaoma",
+              "payload": {
+                "prompt": "Which word means 'How are you'?",
+                "options": [
+                  "打扰一下",
+                  "你好吗",
+                  "干杯",
+                  "晚安"
+                ],
+                "correctIndex": 1
+              }
+            },
+            {
+              "id": "zh_u1_l3_e5",
+              "type": "translation",
+              "vocabId": "zh_huanying",
+              "payload": {
+                "prompt": "Type the English meaning",
+                "sourceText": "欢迎",
+                "acceptableAnswers": [
+                  "welcome",
+                  "Welcome"
+                ]
+              }
+            },
+            {
+              "id": "zh_u1_l3_e6",
+              "type": "speaking",
+              "vocabId": "zh_darao_yixia",
+              "payload": {
+                "prompt": "Say this phrase out loud",
+                "targetPhrase": "打扰一下 你好吗",
+                "translation": "Excuse me, how are you?",
+                "ttsLocale": "zh-CN"
+              }
+            },
+            {
+              "id": "zh_u1_l3_e7",
+              "type": "wordMatching",
+              "vocabId": "zh_u1_l3_set",
+              "payload": {
+                "prompt": "Match each word to its meaning",
+                "pairs": [
+                  {
+                    "left": "打扰一下",
+                    "right": "Excuse me please"
+                  },
+                  {
+                    "left": "晚安",
+                    "right": "Good night"
+                  },
+                  {
+                    "left": "干杯",
+                    "right": "Cheers"
+                  },
+                  {
+                    "left": "欢迎",
+                    "right": "Welcome"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "zh_u1_l3_e8",
+              "type": "sentenceArrangement",
+              "vocabId": "zh_darao_yixia",
+              "payload": {
+                "prompt": "Build the sentence",
+                "shuffledChips": [
+                  "晚安",
+                  "和",
+                  "欢迎"
+                ],
+                "correctSentence": [
+                  "欢迎",
+                  "和",
+                  "晚安"
+                ],
+                "translation": "Welcome and good night"
+              }
+            },
+            {
+              "id": "zh_u1_l3_e9",
+              "type": "fillInTheBlank",
+              "vocabId": "zh_huitoujian",
+              "payload": {
+                "prompt": "Complete the sentence",
+                "sentenceTemplate": "谢谢 ___。",
+                "options": [
+                  "干杯",
+                  "晚安",
+                  "欢迎",
+                  "回头见"
+                ],
+                "correctAnswer": "回头见",
+                "translation": "Thank you, see you soon"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "zh_u2",
+      "title": "Food & Family",
+      "description": "Talk about the people and meals you love",
+      "icon": "food",
+      "accent": "amber",
+      "lessons": [
+        {
+          "id": "zh_u2_l1",
+          "title": "Family Members",
+          "subtitle": "妈妈, 爸爸, 哥哥, 姐姐, 奶奶",
+          "icon": "family",
+          "reviewVocabIds": [
+            "zh_wode",
+            "zh_shi"
+          ],
+          "exercises": [
+            {
+              "id": "zh_u2_l1_e1",
+              "type": "imageRecognition",
+              "vocabId": "zh_mama",
+              "payload": {
+                "prompt": "What does this word mean?",
+                "emoji": "👩",
+                "targetWord": "妈妈",
+                "meaning": "Mother",
+                "distractorMeanings": [
+                  "Father",
+                  "Brother",
+                  "Sister"
+                ],
+                "distractorWords": [
+                  "爸爸",
+                  "哥哥",
+                  "姐姐"
+                ]
+              }
+            },
+            {
+              "id": "zh_u2_l1_e2",
+              "type": "multipleChoice",
+              "vocabId": "zh_baba",
+              "payload": {
+                "prompt": "Which word means 'Father'?",
+                "options": [
+                  "哥哥",
+                  "姐姐",
+                  "爸爸",
+                  "妈妈"
+                ],
+                "correctIndex": 2
+              }
+            },
+            {
+              "id": "zh_u2_l1_e3",
+              "type": "listening",
+              "vocabId": "zh_gege",
+              "payload": {
+                "prompt": "Listen and select what you hear",
+                "audioText": "哥哥",
+                "ttsLocale": "zh-CN",
+                "options": [
+                  "哥哥",
+                  "姐姐",
+                  "爸爸",
+                  "妈妈"
+                ],
+                "correctIndex": 0,
+                "translation": "Brother"
+              }
+            },
+            {
+              "id": "zh_u2_l1_e4",
+              "type": "multipleChoice",
+              "vocabId": "zh_wode",
+              "payload": {
+                "prompt": "Which word means 'My'?",
+                "options": [
+                  "爸爸",
+                  "妈妈",
+                  "我的",
+                  "哥哥"
+                ],
+                "correctIndex": 2
+              }
+            },
+            {
+              "id": "zh_u2_l1_e5",
+              "type": "translation",
+              "vocabId": "zh_jiejie",
+              "payload": {
+                "prompt": "Type the English meaning",
+                "sourceText": "姐姐",
+                "acceptableAnswers": [
+                  "sister",
+                  "Sister"
+                ]
+              }
+            },
+            {
+              "id": "zh_u2_l1_e6",
+              "type": "speaking",
+              "vocabId": "zh_mama",
+              "payload": {
+                "prompt": "Say this phrase out loud",
+                "targetPhrase": "我的 姐姐 是 安娜",
+                "translation": "My sister is Anna",
+                "ttsLocale": "zh-CN"
+              }
+            },
+            {
+              "id": "zh_u2_l1_e7",
+              "type": "wordMatching",
+              "vocabId": "zh_u2_l1_set",
+              "payload": {
+                "prompt": "Match each word to its meaning",
+                "pairs": [
+                  {
+                    "left": "妈妈",
+                    "right": "Mother"
+                  },
+                  {
+                    "left": "爸爸",
+                    "right": "Father"
+                  },
+                  {
+                    "left": "哥哥",
+                    "right": "Brother"
+                  },
+                  {
+                    "left": "姐姐",
+                    "right": "Sister"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "zh_u2_l1_e8",
+              "type": "sentenceArrangement",
+              "vocabId": "zh_mama",
+              "payload": {
+                "prompt": "Build the sentence",
+                "shuffledChips": [
+                  "安娜",
+                  "是",
+                  "我的",
+                  "妈妈"
+                ],
+                "correctSentence": [
+                  "安娜",
+                  "是",
+                  "我的",
+                  "妈妈"
+                ],
+                "translation": "Anna is my mother"
+              }
+            },
+            {
+              "id": "zh_u2_l1_e9",
+              "type": "fillInTheBlank",
+              "vocabId": "zh_nainai",
+              "payload": {
+                "prompt": "Complete the sentence",
+                "sentenceTemplate": "我的 ___ 是 罗莎。",
+                "options": [
+                  "姐姐",
+                  "爸爸",
+                  "奶奶",
+                  "妈妈"
+                ],
+                "correctAnswer": "奶奶",
+                "translation": "My grandmother is Rosa"
+              }
+            }
+          ]
+        },
+        {
+          "id": "zh_u2_l2",
+          "title": "Food Basics",
+          "subtitle": "面包, 水, 苹果, 奶酪, 牛奶",
+          "icon": "food",
+          "reviewVocabIds": [
+            "zh_yao",
+            "zh_qing",
+            "zh_wo"
+          ],
+          "exercises": [
+            {
+              "id": "zh_u2_l2_e1",
+              "type": "imageRecognition",
+              "vocabId": "zh_mianbao",
+              "payload": {
+                "prompt": "What does this word mean?",
+                "emoji": "🍞",
+                "targetWord": "面包",
+                "meaning": "Bread",
+                "distractorMeanings": [
+                  "Water",
+                  "Apple",
+                  "Cheese"
+                ],
+                "distractorWords": [
+                  "水",
+                  "苹果",
+                  "奶酪"
+                ]
+              }
+            },
+            {
+              "id": "zh_u2_l2_e2",
+              "type": "multipleChoice",
+              "vocabId": "zh_shui",
+              "payload": {
+                "prompt": "Which word means 'Water'?",
+                "options": [
+                  "奶酪",
+                  "水",
+                  "面包",
+                  "苹果"
+                ],
+                "correctIndex": 1
+              }
+            },
+            {
+              "id": "zh_u2_l2_e3",
+              "type": "listening",
+              "vocabId": "zh_pingguo",
+              "payload": {
+                "prompt": "Listen and select what you hear",
+                "audioText": "苹果",
+                "ttsLocale": "zh-CN",
+                "options": [
+                  "面包",
+                  "奶酪",
+                  "苹果",
+                  "水"
+                ],
+                "correctIndex": 2,
+                "translation": "Apple"
+              }
+            },
+            {
+              "id": "zh_u2_l2_e4",
+              "type": "multipleChoice",
+              "vocabId": "zh_yao",
+              "payload": {
+                "prompt": "Which word means 'Want'?",
+                "options": [
+                  "水",
+                  "苹果",
+                  "面包",
+                  "要"
+                ],
+                "correctIndex": 3
+              }
+            },
+            {
+              "id": "zh_u2_l2_e5",
+              "type": "translation",
+              "vocabId": "zh_nailao",
+              "payload": {
+                "prompt": "Type the English meaning",
+                "sourceText": "奶酪",
+                "acceptableAnswers": [
+                  "cheese",
+                  "Cheese"
+                ]
+              }
+            },
+            {
+              "id": "zh_u2_l2_e6",
+              "type": "speaking",
+              "vocabId": "zh_mianbao",
+              "payload": {
+                "prompt": "Say this phrase out loud",
+                "targetPhrase": "我 要 面包 请",
+                "translation": "I want bread, please",
+                "ttsLocale": "zh-CN"
+              }
+            },
+            {
+              "id": "zh_u2_l2_e7",
+              "type": "wordMatching",
+              "vocabId": "zh_u2_l2_set",
+              "payload": {
+                "prompt": "Match each word to its meaning",
+                "pairs": [
+                  {
+                    "left": "面包",
+                    "right": "Bread"
+                  },
+                  {
+                    "left": "水",
+                    "right": "Water"
+                  },
+                  {
+                    "left": "苹果",
+                    "right": "Apple"
+                  },
+                  {
+                    "left": "奶酪",
+                    "right": "Cheese"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "zh_u2_l2_e8",
+              "type": "sentenceArrangement",
+              "vocabId": "zh_mianbao",
+              "payload": {
+                "prompt": "Build the sentence",
+                "shuffledChips": [
+                  "我",
+                  "奶酪",
+                  "要"
+                ],
+                "correctSentence": [
+                  "我",
+                  "要",
+                  "奶酪"
+                ],
+                "translation": "I want cheese"
+              }
+            },
+            {
+              "id": "zh_u2_l2_e9",
+              "type": "fillInTheBlank",
+              "vocabId": "zh_niunai",
+              "payload": {
+                "prompt": "Complete the sentence",
+                "sentenceTemplate": "我 要 ___。",
+                "options": [
+                  "水",
+                  "牛奶",
+                  "面包",
+                  "奶酪"
+                ],
+                "correctAnswer": "牛奶",
+                "translation": "I want milk"
+              }
+            }
+          ]
+        },
+        {
+          "id": "zh_u2_l3",
+          "title": "At the Table",
+          "subtitle": "桌子, 盘子, 杯子, 叉子, 刀",
+          "icon": "table",
+          "reviewVocabIds": [
+            "zh_zai",
+            "zh_shang"
+          ],
+          "exercises": [
+            {
+              "id": "zh_u2_l3_e1",
+              "type": "imageRecognition",
+              "vocabId": "zh_zhuozi",
+              "payload": {
+                "prompt": "What does this word mean?",
+                "emoji": "🍽️",
+                "targetWord": "桌子",
+                "meaning": "Table",
+                "distractorMeanings": [
+                  "Plate",
+                  "Glass",
+                  "Fork"
+                ],
+                "distractorWords": [
+                  "盘子",
+                  "杯子",
+                  "叉子"
+                ]
+              }
+            },
+            {
+              "id": "zh_u2_l3_e2",
+              "type": "multipleChoice",
+              "vocabId": "zh_panzi",
+              "payload": {
+                "prompt": "Which word means 'Plate'?",
+                "options": [
+                  "盘子",
+                  "桌子",
+                  "杯子",
+                  "叉子"
+                ],
+                "correctIndex": 0
+              }
+            },
+            {
+              "id": "zh_u2_l3_e3",
+              "type": "listening",
+              "vocabId": "zh_beizi",
+              "payload": {
+                "prompt": "Listen and select what you hear",
+                "audioText": "杯子",
+                "ttsLocale": "zh-CN",
+                "options": [
+                  "杯子",
+                  "盘子",
+                  "桌子",
+                  "叉子"
+                ],
+                "correctIndex": 0,
+                "translation": "Glass"
+              }
+            },
+            {
+              "id": "zh_u2_l3_e4",
+              "type": "multipleChoice",
+              "vocabId": "zh_zai",
+              "payload": {
+                "prompt": "Which word means 'At'?",
+                "options": [
+                  "在",
+                  "盘子",
+                  "杯子",
+                  "桌子"
+                ],
+                "correctIndex": 0
+              }
+            },
+            {
+              "id": "zh_u2_l3_e5",
+              "type": "translation",
+              "vocabId": "zh_chazi",
+              "payload": {
+                "prompt": "Type the English meaning",
+                "sourceText": "叉子",
+                "acceptableAnswers": [
+                  "fork",
+                  "Fork"
+                ]
+              }
+            },
+            {
+              "id": "zh_u2_l3_e6",
+              "type": "speaking",
+              "vocabId": "zh_zhuozi",
+              "payload": {
+                "prompt": "Say this phrase out loud",
+                "targetPhrase": "杯子 在 桌子 上",
+                "translation": "The glass is on the table",
+                "ttsLocale": "zh-CN"
+              }
+            },
+            {
+              "id": "zh_u2_l3_e7",
+              "type": "wordMatching",
+              "vocabId": "zh_u2_l3_set",
+              "payload": {
+                "prompt": "Match each word to its meaning",
+                "pairs": [
+                  {
+                    "left": "桌子",
+                    "right": "Table"
+                  },
+                  {
+                    "left": "盘子",
+                    "right": "Plate"
+                  },
+                  {
+                    "left": "杯子",
+                    "right": "Glass"
+                  },
+                  {
+                    "left": "叉子",
+                    "right": "Fork"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "zh_u2_l3_e8",
+              "type": "sentenceArrangement",
+              "vocabId": "zh_zhuozi",
+              "payload": {
+                "prompt": "Build the sentence",
+                "shuffledChips": [
+                  "叉子",
+                  "桌子",
+                  "上",
+                  "在"
+                ],
+                "correctSentence": [
+                  "叉子",
+                  "在",
+                  "桌子",
+                  "上"
+                ],
+                "translation": "The fork is on the table"
+              }
+            },
+            {
+              "id": "zh_u2_l3_e9",
+              "type": "fillInTheBlank",
+              "vocabId": "zh_dao",
+              "payload": {
+                "prompt": "Complete the sentence",
+                "sentenceTemplate": "___ 在 桌子 上。",
+                "options": [
+                  "刀",
+                  "杯子",
+                  "盘子",
+                  "叉子"
+                ],
+                "correctAnswer": "刀",
+                "translation": "The knife is on the table"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "zh_u3",
+      "title": "Numbers & Travel",
+      "description": "Count, navigate, and travel with confidence",
+      "icon": "travel",
+      "accent": "teal",
+      "lessons": [
+        {
+          "id": "zh_u3_l1",
+          "title": "Numbers 1-10",
+          "subtitle": "一, 二, 三, 四, 五",
+          "icon": "numbers",
+          "reviewVocabIds": [
+            "zh_sui",
+            "zh_wo",
+            "zh_wu"
+          ],
+          "exercises": [
+            {
+              "id": "zh_u3_l1_e1",
+              "type": "imageRecognition",
+              "vocabId": "zh_yi",
+              "payload": {
+                "prompt": "What does this word mean?",
+                "emoji": "1️⃣",
+                "targetWord": "一",
+                "meaning": "One",
+                "distractorMeanings": [
+                  "Two",
+                  "Three",
+                  "Four"
+                ],
+                "distractorWords": [
+                  "二",
+                  "三",
+                  "四"
+                ]
+              }
+            },
+            {
+              "id": "zh_u3_l1_e2",
+              "type": "multipleChoice",
+              "vocabId": "zh_er",
+              "payload": {
+                "prompt": "Which word means 'Two'?",
+                "options": [
+                  "一",
+                  "三",
+                  "四",
+                  "二"
+                ],
+                "correctIndex": 3
+              }
+            },
+            {
+              "id": "zh_u3_l1_e3",
+              "type": "listening",
+              "vocabId": "zh_san",
+              "payload": {
+                "prompt": "Listen and select what you hear",
+                "audioText": "三",
+                "ttsLocale": "zh-CN",
+                "options": [
+                  "一",
+                  "四",
+                  "二",
+                  "三"
+                ],
+                "correctIndex": 3,
+                "translation": "Three"
+              }
+            },
+            {
+              "id": "zh_u3_l1_e4",
+              "type": "multipleChoice",
+              "vocabId": "zh_sui",
+              "payload": {
+                "prompt": "Which word means 'Years old'?",
+                "options": [
+                  "一",
+                  "岁",
+                  "三",
+                  "二"
+                ],
+                "correctIndex": 1
+              }
+            },
+            {
+              "id": "zh_u3_l1_e5",
+              "type": "translation",
+              "vocabId": "zh_si",
+              "payload": {
+                "prompt": "Type the English meaning",
+                "sourceText": "四",
+                "acceptableAnswers": [
+                  "four",
+                  "Four"
+                ]
+              }
+            },
+            {
+              "id": "zh_u3_l1_e6",
+              "type": "speaking",
+              "vocabId": "zh_yi",
+              "payload": {
+                "prompt": "Say this phrase out loud",
+                "targetPhrase": "我 五 岁",
+                "translation": "I am five years old",
+                "ttsLocale": "zh-CN"
+              }
+            },
+            {
+              "id": "zh_u3_l1_e7",
+              "type": "wordMatching",
+              "vocabId": "zh_u3_l1_set",
+              "payload": {
+                "prompt": "Match each word to its meaning",
+                "pairs": [
+                  {
+                    "left": "一",
+                    "right": "One"
+                  },
+                  {
+                    "left": "二",
+                    "right": "Two"
+                  },
+                  {
+                    "left": "三",
+                    "right": "Three"
+                  },
+                  {
+                    "left": "四",
+                    "right": "Four"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "zh_u3_l1_e8",
+              "type": "sentenceArrangement",
+              "vocabId": "zh_yi",
+              "payload": {
+                "prompt": "Build the sentence",
+                "shuffledChips": [
+                  "我",
+                  "四",
+                  "岁"
+                ],
+                "correctSentence": [
+                  "我",
+                  "四",
+                  "岁"
+                ],
+                "translation": "I am four years old"
+              }
+            },
+            {
+              "id": "zh_u3_l1_e9",
+              "type": "fillInTheBlank",
+              "vocabId": "zh_san",
+              "payload": {
+                "prompt": "Complete the sentence",
+                "sentenceTemplate": "我 ___ 岁。",
+                "options": [
+                  "一",
+                  "二",
+                  "四",
+                  "三"
+                ],
+                "correctAnswer": "三",
+                "translation": "I am three years old"
+              }
+            }
+          ]
+        },
+        {
+          "id": "zh_u3_l2",
+          "title": "Getting Around",
+          "subtitle": "左, 右, 直走, 街, 车站",
+          "icon": "directions",
+          "reviewVocabIds": [
+            "zh_zai_nali",
+            "zh_zai",
+            "zh_qing",
+            "zh_chezhan"
+          ],
+          "exercises": [
+            {
+              "id": "zh_u3_l2_e1",
+              "type": "imageRecognition",
+              "vocabId": "zh_zuo",
+              "payload": {
+                "prompt": "What does this word mean?",
+                "emoji": "⬅️",
+                "targetWord": "左",
+                "meaning": "Left",
+                "distractorMeanings": [
+                  "Right",
+                  "Straight ahead",
+                  "Street"
+                ],
+                "distractorWords": [
+                  "右",
+                  "直走",
+                  "街"
+                ]
+              }
+            },
+            {
+              "id": "zh_u3_l2_e2",
+              "type": "multipleChoice",
+              "vocabId": "zh_you",
+              "payload": {
+                "prompt": "Which word means 'Right'?",
+                "options": [
+                  "右",
+                  "直走",
+                  "街",
+                  "左"
+                ],
+                "correctIndex": 0
+              }
+            },
+            {
+              "id": "zh_u3_l2_e3",
+              "type": "listening",
+              "vocabId": "zh_zhizou",
+              "payload": {
+                "prompt": "Listen and select what you hear",
+                "audioText": "直走",
+                "ttsLocale": "zh-CN",
+                "options": [
+                  "右",
+                  "街",
+                  "直走",
+                  "左"
+                ],
+                "correctIndex": 2,
+                "translation": "Straight ahead"
+              }
+            },
+            {
+              "id": "zh_u3_l2_e4",
+              "type": "multipleChoice",
+              "vocabId": "zh_zai_nali",
+              "payload": {
+                "prompt": "Which word means 'Where is it'?",
+                "options": [
+                  "右",
+                  "左",
+                  "在哪里",
+                  "直走"
+                ],
+                "correctIndex": 2
+              }
+            },
+            {
+              "id": "zh_u3_l2_e5",
+              "type": "translation",
+              "vocabId": "zh_jie",
+              "payload": {
+                "prompt": "Type the English meaning",
+                "sourceText": "街",
+                "acceptableAnswers": [
+                  "street",
+                  "Street"
+                ]
+              }
+            },
+            {
+              "id": "zh_u3_l2_e6",
+              "type": "speaking",
+              "vocabId": "zh_zuo",
+              "payload": {
+                "prompt": "Say this phrase out loud",
+                "targetPhrase": "车站 在哪里",
+                "translation": "Where is the station?",
+                "ttsLocale": "zh-CN"
+              }
+            },
+            {
+              "id": "zh_u3_l2_e7",
+              "type": "wordMatching",
+              "vocabId": "zh_u3_l2_set",
+              "payload": {
+                "prompt": "Match each word to its meaning",
+                "pairs": [
+                  {
+                    "left": "左",
+                    "right": "Left"
+                  },
+                  {
+                    "left": "右",
+                    "right": "Right"
+                  },
+                  {
+                    "left": "直走",
+                    "right": "Straight ahead"
+                  },
+                  {
+                    "left": "街",
+                    "right": "Street"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "zh_u3_l2_e8",
+              "type": "sentenceArrangement",
+              "vocabId": "zh_zuo",
+              "payload": {
+                "prompt": "Build the sentence",
+                "shuffledChips": [
+                  "请",
+                  "街",
+                  "在哪里"
+                ],
+                "correctSentence": [
+                  "街",
+                  "在哪里",
+                  "请"
+                ],
+                "translation": "Where is the street, please?"
+              }
+            },
+            {
+              "id": "zh_u3_l2_e9",
+              "type": "fillInTheBlank",
+              "vocabId": "zh_zuo",
+              "payload": {
+                "prompt": "Complete the sentence",
+                "sentenceTemplate": "车站 在 ___。",
+                "options": [
+                  "左",
+                  "直走",
+                  "街",
+                  "右"
+                ],
+                "correctAnswer": "左",
+                "translation": "The station is on the left"
+              }
+            }
+          ]
+        },
+        {
+          "id": "zh_u3_l3",
+          "title": "Travel Phrases",
+          "subtitle": "机场, 酒店, 车票, 火车, 行李箱",
+          "icon": "travel",
+          "reviewVocabIds": [
+            "zh_henjin",
+            "zh_zai_nali",
+            "zh_qing",
+            "zh_xinglixiang"
+          ],
+          "exercises": [
+            {
+              "id": "zh_u3_l3_e1",
+              "type": "imageRecognition",
+              "vocabId": "zh_jichang",
+              "payload": {
+                "prompt": "What does this word mean?",
+                "emoji": "✈️",
+                "targetWord": "机场",
+                "meaning": "Airport",
+                "distractorMeanings": [
+                  "Hotel",
+                  "Ticket",
+                  "Train"
+                ],
+                "distractorWords": [
+                  "酒店",
+                  "车票",
+                  "火车"
+                ]
+              }
+            },
+            {
+              "id": "zh_u3_l3_e2",
+              "type": "multipleChoice",
+              "vocabId": "zh_jiudian",
+              "payload": {
+                "prompt": "Which word means 'Hotel'?",
+                "options": [
+                  "火车",
+                  "酒店",
+                  "机场",
+                  "车票"
+                ],
+                "correctIndex": 1
+              }
+            },
+            {
+              "id": "zh_u3_l3_e3",
+              "type": "listening",
+              "vocabId": "zh_chepiao",
+              "payload": {
+                "prompt": "Listen and select what you hear",
+                "audioText": "车票",
+                "ttsLocale": "zh-CN",
+                "options": [
+                  "机场",
+                  "火车",
+                  "车票",
+                  "酒店"
+                ],
+                "correctIndex": 2,
+                "translation": "Ticket"
+              }
+            },
+            {
+              "id": "zh_u3_l3_e4",
+              "type": "multipleChoice",
+              "vocabId": "zh_henjin",
+              "payload": {
+                "prompt": "Which word means 'It is near'?",
+                "options": [
+                  "酒店",
+                  "车票",
+                  "机场",
+                  "很近"
+                ],
+                "correctIndex": 3
+              }
+            },
+            {
+              "id": "zh_u3_l3_e5",
+              "type": "translation",
+              "vocabId": "zh_huoche",
+              "payload": {
+                "prompt": "Type the English meaning",
+                "sourceText": "火车",
+                "acceptableAnswers": [
+                  "train",
+                  "Train"
+                ]
+              }
+            },
+            {
+              "id": "zh_u3_l3_e6",
+              "type": "speaking",
+              "vocabId": "zh_jichang",
+              "payload": {
+                "prompt": "Say this phrase out loud",
+                "targetPhrase": "火车 很近",
+                "translation": "The train is near",
+                "ttsLocale": "zh-CN"
+              }
+            },
+            {
+              "id": "zh_u3_l3_e7",
+              "type": "wordMatching",
+              "vocabId": "zh_u3_l3_set",
+              "payload": {
+                "prompt": "Match each word to its meaning",
+                "pairs": [
+                  {
+                    "left": "机场",
+                    "right": "Airport"
+                  },
+                  {
+                    "left": "酒店",
+                    "right": "Hotel"
+                  },
+                  {
+                    "left": "车票",
+                    "right": "Ticket"
+                  },
+                  {
+                    "left": "火车",
+                    "right": "Train"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "zh_u3_l3_e8",
+              "type": "sentenceArrangement",
+              "vocabId": "zh_jichang",
+              "payload": {
+                "prompt": "Build the sentence",
+                "shuffledChips": [
+                  "请",
+                  "在哪里",
+                  "火车"
+                ],
+                "correctSentence": [
+                  "火车",
+                  "在哪里",
+                  "请"
+                ],
+                "translation": "Where is the train, please?"
+              }
+            },
+            {
+              "id": "zh_u3_l3_e9",
+              "type": "fillInTheBlank",
+              "vocabId": "zh_jiudian",
+              "payload": {
+                "prompt": "Complete the sentence",
+                "sentenceTemplate": "___ 很近。",
+                "options": [
+                  "机场",
+                  "酒店",
+                  "火车",
+                  "车票"
+                ],
+                "correctAnswer": "酒店",
+                "translation": "The hotel is near"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "placementQuestions": [
+    {
+      "id": "p1",
+      "prompt": "What does '你好' mean?",
+      "options": [
+        "Goodbye",
+        "Hello",
+        "Thank you",
+        "Please"
+      ],
+      "correctIndex": 1,
+      "unlocksUnitIndex": 0
+    },
+    {
+      "id": "p2",
+      "prompt": "What does '请' mean?",
+      "options": [
+        "Please",
+        "Good evening",
+        "Yes",
+        "No"
+      ],
+      "correctIndex": 0,
+      "unlocksUnitIndex": 0
+    },
+    {
+      "id": "p3",
+      "prompt": "What does '晚上好' mean?",
+      "options": [
+        "Excuse me",
+        "You're welcome",
+        "Okay",
+        "Good evening"
+      ],
+      "correctIndex": 3,
+      "unlocksUnitIndex": 0
+    },
+    {
+      "id": "p4",
+      "prompt": "What does '妈妈' mean?",
+      "options": [
+        "Brother",
+        "Father",
+        "Mother",
+        "Sister"
+      ],
+      "correctIndex": 2,
+      "unlocksUnitIndex": 1
+    },
+    {
+      "id": "p5",
+      "prompt": "What does '哥哥' mean?",
+      "options": [
+        "Grandmother",
+        "Bread",
+        "Water",
+        "Brother"
+      ],
+      "correctIndex": 3,
+      "unlocksUnitIndex": 1
+    },
+    {
+      "id": "p6",
+      "prompt": "What does '奶奶' mean?",
+      "options": [
+        "Grandmother",
+        "Cheese",
+        "Milk",
+        "Apple"
+      ],
+      "correctIndex": 0,
+      "unlocksUnitIndex": 1
+    },
+    {
+      "id": "p7",
+      "prompt": "What does '一' mean?",
+      "options": [
+        "Three",
+        "Four",
+        "Two",
+        "One"
+      ],
+      "correctIndex": 3,
+      "unlocksUnitIndex": 2
+    },
+    {
+      "id": "p8",
+      "prompt": "What does '三' mean?",
+      "options": [
+        "Three",
+        "Right",
+        "Left",
+        "Five"
+      ],
+      "correctIndex": 0,
+      "unlocksUnitIndex": 2
+    }
+  ]
+}

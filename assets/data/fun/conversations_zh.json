@@ -1,0 +1,170 @@
+[
+  {
+    "id": "zh_conv_cafe",
+    "title": "At the Café",
+    "scenario": "You are ordering a coffee at a café.",
+    "languageId": "zh",
+    "turns": [
+      {
+        "id": "zh_conv_cafe_t1",
+        "line": "你好！你要什么？",
+        "lineEnglish": "Hello! What would you like?",
+        "options": [
+          "我 要 咖啡 请",
+          "你好 再见",
+          "我 有 一 只 狗"
+        ],
+        "optionsEnglish": [
+          "I want a coffee, please",
+          "Hello, goodbye",
+          "I have a dog"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "zh_conv_cafe_t2",
+        "line": "还要别的吗？",
+        "lineEnglish": "Anything else?",
+        "options": [
+          "不是 谢谢",
+          "是 我 要 一 只 猫",
+          "晚安"
+        ],
+        "optionsEnglish": [
+          "No, thank you",
+          "Yes, I want a cat",
+          "Good night"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "zh_conv_cafe_t3",
+        "line": "这是你的咖啡。祝你今天愉快！",
+        "lineEnglish": "Here is your coffee. Have a nice day!",
+        "options": [
+          "谢谢 再见",
+          "车站 在哪里",
+          "我 五 岁"
+        ],
+        "optionsEnglish": [
+          "Thank you, goodbye",
+          "Where is the station?",
+          "I am five years old"
+        ],
+        "correctIndex": 0
+      }
+    ]
+  },
+  {
+    "id": "zh_conv_directions",
+    "title": "Asking Directions",
+    "scenario": "You are lost and need to find the station.",
+    "languageId": "zh",
+    "turns": [
+      {
+        "id": "zh_conv_directions_t1",
+        "line": "你好，需要帮忙吗？",
+        "lineEnglish": "Hello, can I help you?",
+        "options": [
+          "车站 在哪里 请",
+          "我 要 奶酪",
+          "我的 妈妈 是 安娜"
+        ],
+        "optionsEnglish": [
+          "Where is the station, please?",
+          "I want cheese",
+          "My mother is Anna"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "zh_conv_directions_t2",
+        "line": "直走，然后左转。",
+        "lineEnglish": "Straight ahead, then turn left.",
+        "options": [
+          "很 谢谢",
+          "不是 对不起",
+          "我 四 岁"
+        ],
+        "optionsEnglish": [
+          "Thank you very much",
+          "No, excuse me",
+          "I am four years old"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "zh_conv_directions_t3",
+        "line": "非常近。旅途愉快！",
+        "lineEnglish": "It is very near. Have a good trip!",
+        "options": [
+          "谢谢 回头见",
+          "刀 在 桌子 上",
+          "欢迎"
+        ],
+        "optionsEnglish": [
+          "Thank you, see you soon",
+          "The knife is on the table",
+          "Welcome"
+        ],
+        "correctIndex": 0
+      }
+    ]
+  },
+  {
+    "id": "zh_conv_hotel",
+    "title": "Hotel Check-in",
+    "scenario": "You are checking in at a hotel.",
+    "languageId": "zh",
+    "turns": [
+      {
+        "id": "zh_conv_hotel_t1",
+        "line": "晚上好，你有预订吗？",
+        "lineEnglish": "Good evening, do you have a reservation?",
+        "options": [
+          "是 我叫 安娜",
+          "不是 我 有 马",
+          "杯子 在 桌子 上"
+        ],
+        "optionsEnglish": [
+          "Yes, my name is Anna",
+          "No, I have a horse",
+          "The glass is on the table"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "zh_conv_hotel_t2",
+        "line": "这是你的钥匙。三号房间。",
+        "lineEnglish": "Here is your key. Room three.",
+        "options": [
+          "谢谢 好的",
+          "苹果 在哪里",
+          "我 有 十 只 狗"
+        ],
+        "optionsEnglish": [
+          "Thank you, okay",
+          "Where is the apple?",
+          "I have ten dogs"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "zh_conv_hotel_t3",
+        "line": "早餐是七点。",
+        "lineEnglish": "Breakfast is at seven.",
+        "options": [
+          "很 好 晚安",
+          "对不起 我 很 累",
+          "欢迎 和 谢谢"
+        ],
+        "optionsEnglish": [
+          "Very good, good night",
+          "Excuse me, I am very tired",
+          "Welcome and thank you"
+        ],
+        "correctIndex": 0
+      }
+    ]
+  }
+]

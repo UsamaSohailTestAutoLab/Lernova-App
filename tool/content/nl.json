@@ -1,0 +1,372 @@
+{
+  "id": "nl",
+  "name": "Dutch",
+  "description": "Learn conversational Dutch through short, focused lessons.",
+  "properNouns": ["Anna", "Rosa"],
+  "units": [
+    {
+      "title": "Greetings & Basics",
+      "description": "Say hello and be polite",
+      "icon": "greeting",
+      "phraseCategory": "greetings",
+      "lessons": [
+        {
+          "title": "Say Hello",
+          "icon": "greeting",
+          "words": [
+            { "id": "hallo", "w": "Hallo", "en": "Hello", "emoji": "👋", "cat": "greetings" },
+            { "id": "dank_je", "w": "Dank je", "en": "Thank you", "emoji": "🙏", "cat": "greetings" },
+            { "id": "alsjeblieft", "w": "Alsjeblieft", "en": "Please", "emoji": "🙇", "cat": "greetings" },
+            { "id": "doei", "w": "Doei", "en": "Goodbye", "emoji": "🙋", "cat": "greetings" },
+            { "id": "goedenavond", "w": "Goedenavond", "en": "Good evening", "emoji": "🌙", "cat": "greetings" }
+          ],
+          "support": [
+            { "id": "ik_heet", "w": "Ik heet", "en": "My name is", "emoji": "🪪", "cat": "greetings" },
+            { "id": "en", "w": "En", "en": "And", "emoji": "➕", "cat": "descriptions" }
+          ],
+          "speak": { "phrase": "Hallo, ik heet Anna", "en": "Hello, my name is Anna" },
+          "sentence": { "chips": ["Ik", "heet", "Anna"], "en": "My name is Anna" },
+          "fill": {
+            "template": "Dank je en ___.",
+            "answer": "doei",
+            "distractors": ["hallo", "alsjeblieft", "goedenavond"],
+            "en": "Thank you and goodbye",
+            "vocab": "doei"
+          }
+        },
+        {
+          "title": "Yes, No, Sorry",
+          "icon": "agreement",
+          "words": [
+            { "id": "ja", "w": "Ja", "en": "Yes", "emoji": "✅", "cat": "greetings" },
+            { "id": "nee", "w": "Nee", "en": "No", "emoji": "❌", "cat": "greetings" },
+            { "id": "sorry", "w": "Sorry", "en": "Excuse me", "emoji": "🙋", "cat": "greetings" },
+            { "id": "graag_gedaan", "w": "Graag gedaan", "en": "You're welcome", "emoji": "🤝", "cat": "greetings" },
+            { "id": "oke", "w": "Oké", "en": "Okay", "emoji": "👍", "cat": "greetings" }
+          ],
+          "support": [
+            { "id": "ik_ben", "w": "Ik ben", "en": "I am", "emoji": "🙋", "cat": "descriptions" },
+            { "id": "moe", "w": "Moe", "en": "Tired", "emoji": "😴", "cat": "descriptions" }
+          ],
+          "review": ["dank_je"],
+          "speak": { "phrase": "Sorry, ik ben moe", "en": "Excuse me, I am tired" },
+          "sentence": { "chips": ["Ja,", "ik", "ben", "oké"], "en": "Yes, I am okay" },
+          "fill": {
+            "template": "Nee, ___.",
+            "answer": "sorry",
+            "distractors": ["ja", "oké", "graag gedaan"],
+            "en": "No, excuse me",
+            "vocab": "sorry"
+          }
+        },
+        {
+          "title": "Polite Basics",
+          "icon": "manners",
+          "words": [
+            { "id": "pardon", "w": "Pardon", "en": "Excuse me please", "emoji": "🙇", "cat": "greetings" },
+            { "id": "goedenacht", "w": "Goedenacht", "en": "Good night", "emoji": "😴", "cat": "greetings" },
+            { "id": "proost", "w": "Proost", "en": "Cheers", "emoji": "🥂", "cat": "greetings" },
+            { "id": "welkom", "w": "Welkom", "en": "Welcome", "emoji": "🎉", "cat": "greetings" },
+            { "id": "tot_ziens", "w": "Tot ziens", "en": "See you soon", "emoji": "👋", "cat": "greetings" }
+          ],
+          "support": [
+            { "id": "hoe_gaat_het", "w": "Hoe gaat het", "en": "How are you", "emoji": "❓", "cat": "greetings" },
+            { "id": "heel", "w": "Heel", "en": "Very", "emoji": "⭐", "cat": "descriptions" }
+          ],
+          "review": ["en", "dank_je"],
+          "speak": { "phrase": "Pardon, hoe gaat het?", "en": "Excuse me, how are you?" },
+          "sentence": { "chips": ["Welkom", "en", "goedenacht"], "en": "Welcome and good night" },
+          "fill": {
+            "template": "Dank je, ___!",
+            "answer": "tot ziens",
+            "distractors": ["proost", "welkom", "heel"],
+            "en": "Thank you, see you soon",
+            "vocab": "tot_ziens"
+          }
+        }
+      ]
+    },
+    {
+      "title": "Food & Family",
+      "description": "Talk about the people and meals you love",
+      "icon": "food",
+      "phraseCategory": "dining",
+      "lessons": [
+        {
+          "title": "Family Members",
+          "icon": "family",
+          "words": [
+            { "id": "moeder", "w": "Moeder", "en": "Mother", "emoji": "👩", "cat": "family" },
+            { "id": "vader", "w": "Vader", "en": "Father", "emoji": "👨", "cat": "family" },
+            { "id": "broer", "w": "Broer", "en": "Brother", "emoji": "👦", "cat": "family" },
+            { "id": "zus", "w": "Zus", "en": "Sister", "emoji": "👧", "cat": "family" },
+            { "id": "oma", "w": "Oma", "en": "Grandmother", "emoji": "👵", "cat": "family" }
+          ],
+          "support": [
+            { "id": "mijn", "w": "Mijn", "en": "My", "emoji": "🫱", "cat": "descriptions" },
+            { "id": "is", "w": "Is", "en": "Is", "emoji": "🟰", "cat": "descriptions" }
+          ],
+          "speak": { "phrase": "Mijn zus is Anna", "en": "My sister is Anna" },
+          "sentence": { "chips": ["Anna", "is", "mijn", "moeder"], "en": "Anna is my mother" },
+          "fill": {
+            "template": "Mijn ___ is Rosa.",
+            "answer": "oma",
+            "distractors": ["moeder", "zus", "vader"],
+            "en": "My grandmother is Rosa",
+            "vocab": "oma"
+          }
+        },
+        {
+          "title": "Food Basics",
+          "icon": "food",
+          "words": [
+            { "id": "brood", "w": "Brood", "en": "Bread", "emoji": "🍞", "cat": "food" },
+            { "id": "water", "w": "Water", "en": "Water", "emoji": "💧", "cat": "food" },
+            { "id": "appel", "w": "Appel", "en": "Apple", "emoji": "🍎", "cat": "food" },
+            { "id": "kaas", "w": "Kaas", "en": "Cheese", "emoji": "🧀", "cat": "food" },
+            { "id": "melk", "w": "Melk", "en": "Milk", "emoji": "🥛", "cat": "food" }
+          ],
+          "support": [
+            { "id": "ik_wil", "w": "Ik wil", "en": "I want", "emoji": "🙋", "cat": "food" },
+            { "id": "ook", "w": "Ook", "en": "Also", "emoji": "➕", "cat": "descriptions" }
+          ],
+          "review": ["alsjeblieft"],
+          "speak": { "phrase": "Ik wil ook brood, alsjeblieft", "en": "I also want bread, please" },
+          "sentence": { "chips": ["Ik", "wil", "kaas"], "en": "I want cheese" },
+          "fill": {
+            "template": "Ik wil ___.",
+            "answer": "melk",
+            "distractors": ["brood", "kaas", "water"],
+            "en": "I want milk",
+            "vocab": "melk"
+          }
+        },
+        {
+          "title": "At the Table",
+          "icon": "table",
+          "words": [
+            { "id": "tafel", "w": "Tafel", "en": "Table", "emoji": "🍽️", "cat": "home" },
+            { "id": "bord", "w": "Bord", "en": "Plate", "emoji": "🍽️", "cat": "home" },
+            { "id": "glas", "w": "Glas", "en": "Glass", "emoji": "🥛", "cat": "home" },
+            { "id": "vork", "w": "Vork", "en": "Fork", "emoji": "🍴", "cat": "home" },
+            { "id": "mes", "w": "Mes", "en": "Knife", "emoji": "🔪", "cat": "home" }
+          ],
+          "support": [
+            { "id": "op", "w": "Op", "en": "On", "emoji": "📍", "cat": "descriptions" },
+            { "id": "de", "w": "De", "en": "The", "emoji": "📌", "cat": "descriptions" },
+            { "id": "het", "w": "Het", "en": "The one", "emoji": "📌", "cat": "descriptions" }
+          ],
+          "review": ["is"],
+          "speak": { "phrase": "Het glas is op de tafel", "en": "The glass is on the table" },
+          "sentence": { "chips": ["De", "vork", "is", "op", "de", "tafel"], "en": "The fork is on the table" },
+          "fill": {
+            "template": "Het ___ is op de tafel.",
+            "answer": "mes",
+            "distractors": ["glas", "bord", "brood"],
+            "en": "The knife is on the table",
+            "vocab": "mes"
+          }
+        }
+      ]
+    },
+    {
+      "title": "Numbers & Travel",
+      "description": "Count, navigate, and travel with confidence",
+      "icon": "travel",
+      "phraseCategory": "travel",
+      "lessons": [
+        {
+          "title": "Numbers 1-10",
+          "icon": "numbers",
+          "words": [
+            { "id": "een", "w": "Een", "en": "One", "emoji": "1️⃣", "cat": "numbers" },
+            { "id": "twee", "w": "Twee", "en": "Two", "emoji": "2️⃣", "cat": "numbers" },
+            { "id": "drie", "w": "Drie", "en": "Three", "emoji": "3️⃣", "cat": "numbers" },
+            { "id": "vier", "w": "Vier", "en": "Four", "emoji": "4️⃣", "cat": "numbers" },
+            { "id": "vijf", "w": "Vijf", "en": "Five", "emoji": "5️⃣", "cat": "numbers" }
+          ],
+          "support": [
+            { "id": "jaar_oud", "w": "Jaar oud", "en": "Years old", "emoji": "🎂", "cat": "numbers" },
+            { "id": "ik_heb", "w": "Ik heb", "en": "I have", "emoji": "🙋", "cat": "descriptions" }
+          ],
+          "review": ["ik_ben"],
+          "speak": { "phrase": "Ik ben vijf jaar oud", "en": "I am five years old" },
+          "sentence": { "chips": ["Ik", "ben", "vier", "jaar", "oud"], "en": "I am four years old" },
+          "fill": {
+            "template": "Ik ben ___ jaar oud.",
+            "answer": "drie",
+            "distractors": ["een", "twee", "vier"],
+            "en": "I am three years old",
+            "vocab": "drie"
+          }
+        },
+        {
+          "title": "Getting Around",
+          "icon": "directions",
+          "words": [
+            { "id": "links", "w": "Links", "en": "Left", "emoji": "⬅️", "cat": "travel" },
+            { "id": "rechts", "w": "Rechts", "en": "Right", "emoji": "➡️", "cat": "travel" },
+            { "id": "rechtdoor", "w": "Rechtdoor", "en": "Straight ahead", "emoji": "⬆️", "cat": "travel" },
+            { "id": "straat", "w": "Straat", "en": "Street", "emoji": "🛣️", "cat": "travel" },
+            { "id": "station", "w": "Station", "en": "Station", "emoji": "🚉", "cat": "travel" }
+          ],
+          "support": [
+            { "id": "waar_is", "w": "Waar is", "en": "Where is", "emoji": "❓", "cat": "travel" }
+          ],
+          "review": ["de", "het", "is"],
+          "speak": { "phrase": "Waar is het station?", "en": "Where is the station?" },
+          "sentence": { "chips": ["Waar", "is", "de", "straat"], "en": "Where is the street?" },
+          "fill": {
+            "template": "Het station is ___.",
+            "answer": "links",
+            "distractors": ["rechts", "rechtdoor", "straat"],
+            "en": "The station is on the left",
+            "vocab": "links"
+          }
+        },
+        {
+          "title": "Travel Phrases",
+          "icon": "travel",
+          "words": [
+            { "id": "vliegveld", "w": "Vliegveld", "en": "Airport", "emoji": "✈️", "cat": "travel" },
+            { "id": "hotel", "w": "Hotel", "en": "Hotel", "emoji": "🏨", "cat": "travel" },
+            { "id": "kaartje", "w": "Kaartje", "en": "Ticket", "emoji": "🎫", "cat": "travel" },
+            { "id": "trein", "w": "Trein", "en": "Train", "emoji": "🚆", "cat": "travel" },
+            { "id": "koffer", "w": "Koffer", "en": "Suitcase", "emoji": "🧳", "cat": "travel" }
+          ],
+          "support": [
+            { "id": "dichtbij", "w": "Dichtbij", "en": "Nearby", "emoji": "📍", "cat": "travel" }
+          ],
+          "review": ["de", "het", "is", "waar_is"],
+          "speak": { "phrase": "De trein is dichtbij", "en": "The train is nearby" },
+          "sentence": { "chips": ["Waar", "is", "de", "trein"], "en": "Where is the train?" },
+          "fill": {
+            "template": "Het ___ is dichtbij.",
+            "answer": "hotel",
+            "distractors": ["kaartje", "trein", "vliegveld"],
+            "en": "The hotel is nearby",
+            "vocab": "hotel"
+          }
+        }
+      ]
+    }
+  ],
+  "extraVocab": [
+    { "id": "rood", "w": "Rood", "en": "Red", "emoji": "🔴", "cat": "colors" },
+    { "id": "blauw", "w": "Blauw", "en": "Blue", "emoji": "🔵", "cat": "colors" },
+    { "id": "groen", "w": "Groen", "en": "Green", "emoji": "🟢", "cat": "colors" },
+    { "id": "geel", "w": "Geel", "en": "Yellow", "emoji": "🟡", "cat": "colors" },
+    { "id": "zwart", "w": "Zwart", "en": "Black", "emoji": "⚫", "cat": "colors" },
+    { "id": "wit", "w": "Wit", "en": "White", "emoji": "⚪", "cat": "colors" },
+    { "id": "hond", "w": "Hond", "en": "Dog", "emoji": "🐕", "cat": "animals" },
+    { "id": "kat", "w": "Kat", "en": "Cat", "emoji": "🐈", "cat": "animals" },
+    { "id": "vogel", "w": "Vogel", "en": "Bird", "emoji": "🐦", "cat": "animals" },
+    { "id": "vis", "w": "Vis", "en": "Fish", "emoji": "🐟", "cat": "animals" },
+    { "id": "paard", "w": "Paard", "en": "Horse", "emoji": "🐴", "cat": "animals" },
+    { "id": "koe", "w": "Koe", "en": "Cow", "emoji": "🐄", "cat": "animals" },
+    { "id": "zes", "w": "Zes", "en": "Six", "emoji": "6️⃣", "cat": "numbers" },
+    { "id": "zeven", "w": "Zeven", "en": "Seven", "emoji": "7️⃣", "cat": "numbers" },
+    { "id": "acht", "w": "Acht", "en": "Eight", "emoji": "8️⃣", "cat": "numbers" },
+    { "id": "negen", "w": "Negen", "en": "Nine", "emoji": "9️⃣", "cat": "numbers" },
+    { "id": "tien", "w": "Tien", "en": "Ten", "emoji": "🔟", "cat": "numbers" },
+    { "id": "huis", "w": "Huis", "en": "House", "emoji": "🏠", "cat": "home" },
+    { "id": "deur", "w": "Deur", "en": "Door", "emoji": "🚪", "cat": "home" },
+    { "id": "raam", "w": "Raam", "en": "Window", "emoji": "🪟", "cat": "home" },
+    { "id": "stoel", "w": "Stoel", "en": "Chair", "emoji": "🪑", "cat": "home" },
+    { "id": "bed", "w": "Bed", "en": "Bed", "emoji": "🛏️", "cat": "home" },
+    { "id": "koffie", "w": "Koffie", "en": "Coffee", "emoji": "☕", "cat": "food" },
+    { "id": "thee", "w": "Thee", "en": "Tea", "emoji": "🍵", "cat": "food" },
+    { "id": "kip", "w": "Kip", "en": "Chicken", "emoji": "🍗", "cat": "food" },
+    { "id": "groot", "w": "Groot", "en": "Big", "emoji": "🐘", "cat": "descriptions" },
+    { "id": "klein", "w": "Klein", "en": "Small", "emoji": "🐁", "cat": "descriptions" },
+    { "id": "warm", "w": "Warm", "en": "Hot", "emoji": "🔥", "cat": "descriptions" },
+    { "id": "koud", "w": "Koud", "en": "Cold", "emoji": "❄️", "cat": "descriptions" },
+    { "id": "goed", "w": "Goed", "en": "Good", "emoji": "👍", "cat": "descriptions" }
+  ],
+  "conversations": [
+    {
+      "id": "cafe",
+      "title": "At the Café",
+      "scenario": "You are ordering a coffee at a café.",
+      "turns": [
+        {
+          "line": "Hallo! Wat wil je?",
+          "lineEn": "Hello! What would you like?",
+          "options": ["Ik wil koffie, alsjeblieft", "Hallo, doei", "Ik heb een hond"],
+          "optionsEn": ["I want coffee, please", "Hello, goodbye", "I have a dog"],
+          "correctIndex": 0
+        },
+        {
+          "line": "Nog iets?",
+          "lineEn": "Anything else?",
+          "options": ["Nee, dank je", "Ja, ik wil een kat", "Goedenacht"],
+          "optionsEn": ["No, thank you", "Yes, I want a cat", "Good night"],
+          "correctIndex": 0
+        },
+        {
+          "line": "Hier is je koffie. Fijne dag!",
+          "lineEn": "Here is your coffee. Have a nice day!",
+          "options": ["Dank je, doei", "Waar is het station?", "Ik ben vijf jaar oud"],
+          "optionsEn": ["Thank you, goodbye", "Where is the station?", "I am five years old"],
+          "correctIndex": 0
+        }
+      ]
+    },
+    {
+      "id": "directions",
+      "title": "Asking Directions",
+      "scenario": "You are lost and need to find the station.",
+      "turns": [
+        {
+          "line": "Hallo, kan ik je helpen?",
+          "lineEn": "Hello, can I help you?",
+          "options": ["Waar is het station, alsjeblieft?", "Ik wil kaas", "Mijn moeder is Anna"],
+          "optionsEn": ["Where is the station, please?", "I want cheese", "My mother is Anna"],
+          "correctIndex": 0
+        },
+        {
+          "line": "Rechtdoor, dan links.",
+          "lineEn": "Straight ahead, then left.",
+          "options": ["Heel erg bedankt", "Nee, sorry", "Ik ben vier jaar oud"],
+          "optionsEn": ["Thank you very much", "No, excuse me", "I am four years old"],
+          "correctIndex": 0
+        },
+        {
+          "line": "Het is heel dichtbij. Goede reis!",
+          "lineEn": "It is very close. Have a good trip!",
+          "options": ["Dank je, tot ziens", "Het mes is op de tafel", "Welkom"],
+          "optionsEn": ["Thank you, see you soon", "The knife is on the table", "Welcome"],
+          "correctIndex": 0
+        }
+      ]
+    },
+    {
+      "id": "hotel",
+      "title": "Hotel Check-in",
+      "scenario": "You are checking in at a hotel.",
+      "turns": [
+        {
+          "line": "Goedenavond, heeft u een reservering?",
+          "lineEn": "Good evening, do you have a reservation?",
+          "options": ["Ja, ik heet Anna", "Nee, ik heb een paard", "Het glas is op de tafel"],
+          "optionsEn": ["Yes, my name is Anna", "No, I have a horse", "The glass is on the table"],
+          "correctIndex": 0
+        },
+        {
+          "line": "Hier is uw sleutel. Kamer drie.",
+          "lineEn": "Here is your key. Room three.",
+          "options": ["Dank je, oké", "Waar is de appel?", "Ik heb tien honden"],
+          "optionsEn": ["Thank you, okay", "Where is the apple?", "I have ten dogs"],
+          "correctIndex": 0
+        },
+        {
+          "line": "Het ontbijt is om zeven uur.",
+          "lineEn": "Breakfast is at seven o'clock.",
+          "options": ["Heel goed, goedenacht", "Sorry, ik ben moe", "Welkom en dank je"],
+          "optionsEn": ["Very good, good night", "Excuse me, I am tired", "Welcome and thank you"],
+          "correctIndex": 0
+        }
+      ]
+    }
+  ]
+}

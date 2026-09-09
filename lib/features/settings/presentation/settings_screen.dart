@@ -10,6 +10,7 @@ import '../../../core/widgets/app_snackbar.dart';
 import '../../../core/widgets/lernova_parrot.dart';
 import '../../../data/models/app_settings.dart';
 import '../../fun/application/fun_progress_controller.dart';
+import '../../languages/application/language_switch_controller.dart';
 import '../../progress/application/progress_controller.dart';
 import '../application/settings_controller.dart';
 
@@ -51,6 +52,28 @@ class SettingsScreen extends ConsumerWidget {
               context,
               'Purchases are restored from your store account.',
             ),
+          ),
+          const _SectionHeader('Language'),
+          Consumer(
+            builder: (context, ref, _) {
+              final language = ref.watch(activeLanguageProvider);
+              return ListTile(
+                leading: language == null
+                    ? const Icon(Icons.translate_rounded)
+                    : Text(
+                        language.flagEmoji,
+                        style: const TextStyle(fontSize: 26),
+                      ),
+                title: const Text('Switch language'),
+                subtitle: Text(
+                  language == null
+                      ? 'Choose what to learn'
+                      : 'Learning ${language.name} · progress is kept per language',
+                ),
+                trailing: const Icon(Icons.chevron_right_rounded),
+                onTap: () => context.push(AppRoutes.languages),
+              );
+            },
           ),
           const _SectionHeader('Your learning'),
           ListTile(

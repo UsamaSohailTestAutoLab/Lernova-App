@@ -1,0 +1,706 @@
+[
+  {
+    "id": "zh_nihao",
+    "word": "你好",
+    "translation": "Hello",
+    "languageId": "zh",
+    "category": "greetings",
+    "emoji": "👋"
+  },
+  {
+    "id": "zh_xiexie",
+    "word": "谢谢",
+    "translation": "Thank you",
+    "languageId": "zh",
+    "category": "greetings",
+    "emoji": "🙏"
+  },
+  {
+    "id": "zh_qing",
+    "word": "请",
+    "translation": "Please",
+    "languageId": "zh",
+    "category": "greetings",
+    "emoji": "🙇"
+  },
+  {
+    "id": "zh_zaijian",
+    "word": "再见",
+    "translation": "Goodbye",
+    "languageId": "zh",
+    "category": "greetings",
+    "emoji": "🙋"
+  },
+  {
+    "id": "zh_wanshanghao",
+    "word": "晚上好",
+    "translation": "Good evening",
+    "languageId": "zh",
+    "category": "greetings",
+    "emoji": "🌙"
+  },
+  {
+    "id": "zh_wojiao",
+    "word": "我叫",
+    "translation": "My name is",
+    "languageId": "zh",
+    "category": "greetings",
+    "emoji": "🪪"
+  },
+  {
+    "id": "zh_he",
+    "word": "和",
+    "translation": "And",
+    "languageId": "zh",
+    "category": "descriptions",
+    "emoji": "➕"
+  },
+  {
+    "id": "zh_shi",
+    "word": "是",
+    "translation": "Yes",
+    "languageId": "zh",
+    "category": "greetings",
+    "emoji": "✅"
+  },
+  {
+    "id": "zh_bushi",
+    "word": "不是",
+    "translation": "No",
+    "languageId": "zh",
+    "category": "greetings",
+    "emoji": "❌"
+  },
+  {
+    "id": "zh_duibuqi",
+    "word": "对不起",
+    "translation": "Excuse me",
+    "languageId": "zh",
+    "category": "greetings",
+    "emoji": "🙋"
+  },
+  {
+    "id": "zh_bukeqi",
+    "word": "不客气",
+    "translation": "You're welcome",
+    "languageId": "zh",
+    "category": "greetings",
+    "emoji": "🤝"
+  },
+  {
+    "id": "zh_haode",
+    "word": "好的",
+    "translation": "Okay",
+    "languageId": "zh",
+    "category": "greetings",
+    "emoji": "👍"
+  },
+  {
+    "id": "zh_wo",
+    "word": "我",
+    "translation": "I",
+    "languageId": "zh",
+    "category": "descriptions",
+    "emoji": "🙋"
+  },
+  {
+    "id": "zh_lei",
+    "word": "累",
+    "translation": "Tired",
+    "languageId": "zh",
+    "category": "descriptions",
+    "emoji": "😴"
+  },
+  {
+    "id": "zh_hen",
+    "word": "很",
+    "translation": "Very",
+    "languageId": "zh",
+    "category": "descriptions",
+    "emoji": "⭐"
+  },
+  {
+    "id": "zh_darao_yixia",
+    "word": "打扰一下",
+    "translation": "Excuse me please",
+    "languageId": "zh",
+    "category": "greetings",
+    "emoji": "🙇"
+  },
+  {
+    "id": "zh_wanan",
+    "word": "晚安",
+    "translation": "Good night",
+    "languageId": "zh",
+    "category": "greetings",
+    "emoji": "😴"
+  },
+  {
+    "id": "zh_ganbei",
+    "word": "干杯",
+    "translation": "Cheers",
+    "languageId": "zh",
+    "category": "greetings",
+    "emoji": "🥂"
+  },
+  {
+    "id": "zh_huanying",
+    "word": "欢迎",
+    "translation": "Welcome",
+    "languageId": "zh",
+    "category": "greetings",
+    "emoji": "🎉"
+  },
+  {
+    "id": "zh_huitoujian",
+    "word": "回头见",
+    "translation": "See you soon",
+    "languageId": "zh",
+    "category": "greetings",
+    "emoji": "👋"
+  },
+  {
+    "id": "zh_nihaoma",
+    "word": "你好吗",
+    "translation": "How are you",
+    "languageId": "zh",
+    "category": "greetings",
+    "emoji": "❓"
+  },
+  {
+    "id": "zh_mama",
+    "word": "妈妈",
+    "translation": "Mother",
+    "languageId": "zh",
+    "category": "family",
+    "emoji": "👩"
+  },
+  {
+    "id": "zh_baba",
+    "word": "爸爸",
+    "translation": "Father",
+    "languageId": "zh",
+    "category": "family",
+    "emoji": "👨"
+  },
+  {
+    "id": "zh_gege",
+    "word": "哥哥",
+    "translation": "Brother",
+    "languageId": "zh",
+    "category": "family",
+    "emoji": "👦"
+  },
+  {
+    "id": "zh_jiejie",
+    "word": "姐姐",
+    "translation": "Sister",
+    "languageId": "zh",
+    "category": "family",
+    "emoji": "👧"
+  },
+  {
+    "id": "zh_nainai",
+    "word": "奶奶",
+    "translation": "Grandmother",
+    "languageId": "zh",
+    "category": "family",
+    "emoji": "👵"
+  },
+  {
+    "id": "zh_wode",
+    "word": "我的",
+    "translation": "My",
+    "languageId": "zh",
+    "category": "descriptions",
+    "emoji": "🫱"
+  },
+  {
+    "id": "zh_mianbao",
+    "word": "面包",
+    "translation": "Bread",
+    "languageId": "zh",
+    "category": "food",
+    "emoji": "🍞"
+  },
+  {
+    "id": "zh_shui",
+    "word": "水",
+    "translation": "Water",
+    "languageId": "zh",
+    "category": "food",
+    "emoji": "💧"
+  },
+  {
+    "id": "zh_pingguo",
+    "word": "苹果",
+    "translation": "Apple",
+    "languageId": "zh",
+    "category": "food",
+    "emoji": "🍎"
+  },
+  {
+    "id": "zh_nailao",
+    "word": "奶酪",
+    "translation": "Cheese",
+    "languageId": "zh",
+    "category": "food",
+    "emoji": "🧀"
+  },
+  {
+    "id": "zh_niunai",
+    "word": "牛奶",
+    "translation": "Milk",
+    "languageId": "zh",
+    "category": "food",
+    "emoji": "🥛"
+  },
+  {
+    "id": "zh_yao",
+    "word": "要",
+    "translation": "Want",
+    "languageId": "zh",
+    "category": "food",
+    "emoji": "🙋"
+  },
+  {
+    "id": "zh_zhuozi",
+    "word": "桌子",
+    "translation": "Table",
+    "languageId": "zh",
+    "category": "home",
+    "emoji": "🍽️"
+  },
+  {
+    "id": "zh_panzi",
+    "word": "盘子",
+    "translation": "Plate",
+    "languageId": "zh",
+    "category": "home",
+    "emoji": "🍽️"
+  },
+  {
+    "id": "zh_beizi",
+    "word": "杯子",
+    "translation": "Glass",
+    "languageId": "zh",
+    "category": "home",
+    "emoji": "🥛"
+  },
+  {
+    "id": "zh_chazi",
+    "word": "叉子",
+    "translation": "Fork",
+    "languageId": "zh",
+    "category": "home",
+    "emoji": "🍴"
+  },
+  {
+    "id": "zh_dao",
+    "word": "刀",
+    "translation": "Knife",
+    "languageId": "zh",
+    "category": "home",
+    "emoji": "🔪"
+  },
+  {
+    "id": "zh_zai",
+    "word": "在",
+    "translation": "At",
+    "languageId": "zh",
+    "category": "descriptions",
+    "emoji": "📍"
+  },
+  {
+    "id": "zh_shang",
+    "word": "上",
+    "translation": "On top",
+    "languageId": "zh",
+    "category": "descriptions",
+    "emoji": "⬆️"
+  },
+  {
+    "id": "zh_yi",
+    "word": "一",
+    "translation": "One",
+    "languageId": "zh",
+    "category": "numbers",
+    "emoji": "1️⃣"
+  },
+  {
+    "id": "zh_er",
+    "word": "二",
+    "translation": "Two",
+    "languageId": "zh",
+    "category": "numbers",
+    "emoji": "2️⃣"
+  },
+  {
+    "id": "zh_san",
+    "word": "三",
+    "translation": "Three",
+    "languageId": "zh",
+    "category": "numbers",
+    "emoji": "3️⃣"
+  },
+  {
+    "id": "zh_si",
+    "word": "四",
+    "translation": "Four",
+    "languageId": "zh",
+    "category": "numbers",
+    "emoji": "4️⃣"
+  },
+  {
+    "id": "zh_wu",
+    "word": "五",
+    "translation": "Five",
+    "languageId": "zh",
+    "category": "numbers",
+    "emoji": "5️⃣"
+  },
+  {
+    "id": "zh_sui",
+    "word": "岁",
+    "translation": "Years old",
+    "languageId": "zh",
+    "category": "numbers",
+    "emoji": "🎂"
+  },
+  {
+    "id": "zh_zuo",
+    "word": "左",
+    "translation": "Left",
+    "languageId": "zh",
+    "category": "travel",
+    "emoji": "⬅️"
+  },
+  {
+    "id": "zh_you",
+    "word": "右",
+    "translation": "Right",
+    "languageId": "zh",
+    "category": "travel",
+    "emoji": "➡️"
+  },
+  {
+    "id": "zh_zhizou",
+    "word": "直走",
+    "translation": "Straight ahead",
+    "languageId": "zh",
+    "category": "travel",
+    "emoji": "⬆️"
+  },
+  {
+    "id": "zh_jie",
+    "word": "街",
+    "translation": "Street",
+    "languageId": "zh",
+    "category": "travel",
+    "emoji": "🛣️"
+  },
+  {
+    "id": "zh_chezhan",
+    "word": "车站",
+    "translation": "Station",
+    "languageId": "zh",
+    "category": "travel",
+    "emoji": "🚉"
+  },
+  {
+    "id": "zh_zai_nali",
+    "word": "在哪里",
+    "translation": "Where is it",
+    "languageId": "zh",
+    "category": "travel",
+    "emoji": "❓"
+  },
+  {
+    "id": "zh_jichang",
+    "word": "机场",
+    "translation": "Airport",
+    "languageId": "zh",
+    "category": "travel",
+    "emoji": "✈️"
+  },
+  {
+    "id": "zh_jiudian",
+    "word": "酒店",
+    "translation": "Hotel",
+    "languageId": "zh",
+    "category": "travel",
+    "emoji": "🏨"
+  },
+  {
+    "id": "zh_chepiao",
+    "word": "车票",
+    "translation": "Ticket",
+    "languageId": "zh",
+    "category": "travel",
+    "emoji": "🎫"
+  },
+  {
+    "id": "zh_huoche",
+    "word": "火车",
+    "translation": "Train",
+    "languageId": "zh",
+    "category": "travel",
+    "emoji": "🚆"
+  },
+  {
+    "id": "zh_xinglixiang",
+    "word": "行李箱",
+    "translation": "Suitcase",
+    "languageId": "zh",
+    "category": "travel",
+    "emoji": "🧳"
+  },
+  {
+    "id": "zh_henjin",
+    "word": "很近",
+    "translation": "It is near",
+    "languageId": "zh",
+    "category": "travel",
+    "emoji": "📍"
+  },
+  {
+    "id": "zh_hongse",
+    "word": "红色",
+    "translation": "Red",
+    "languageId": "zh",
+    "category": "colors",
+    "emoji": "🔴"
+  },
+  {
+    "id": "zh_lanse",
+    "word": "蓝色",
+    "translation": "Blue",
+    "languageId": "zh",
+    "category": "colors",
+    "emoji": "🔵"
+  },
+  {
+    "id": "zh_luse",
+    "word": "绿色",
+    "translation": "Green",
+    "languageId": "zh",
+    "category": "colors",
+    "emoji": "🟢"
+  },
+  {
+    "id": "zh_huangse",
+    "word": "黄色",
+    "translation": "Yellow",
+    "languageId": "zh",
+    "category": "colors",
+    "emoji": "🟡"
+  },
+  {
+    "id": "zh_heise",
+    "word": "黑色",
+    "translation": "Black",
+    "languageId": "zh",
+    "category": "colors",
+    "emoji": "⚫"
+  },
+  {
+    "id": "zh_baise",
+    "word": "白色",
+    "translation": "White",
+    "languageId": "zh",
+    "category": "colors",
+    "emoji": "⚪"
+  },
+  {
+    "id": "zh_gou",
+    "word": "狗",
+    "translation": "Dog",
+    "languageId": "zh",
+    "category": "animals",
+    "emoji": "🐕"
+  },
+  {
+    "id": "zh_mao",
+    "word": "猫",
+    "translation": "Cat",
+    "languageId": "zh",
+    "category": "animals",
+    "emoji": "🐈"
+  },
+  {
+    "id": "zh_niao",
+    "word": "鸟",
+    "translation": "Bird",
+    "languageId": "zh",
+    "category": "animals",
+    "emoji": "🐦"
+  },
+  {
+    "id": "zh_yu",
+    "word": "鱼",
+    "translation": "Fish",
+    "languageId": "zh",
+    "category": "animals",
+    "emoji": "🐟"
+  },
+  {
+    "id": "zh_ma",
+    "word": "马",
+    "translation": "Horse",
+    "languageId": "zh",
+    "category": "animals",
+    "emoji": "🐴"
+  },
+  {
+    "id": "zh_niu",
+    "word": "牛",
+    "translation": "Cow",
+    "languageId": "zh",
+    "category": "animals",
+    "emoji": "🐄"
+  },
+  {
+    "id": "zh_liu",
+    "word": "六",
+    "translation": "Six",
+    "languageId": "zh",
+    "category": "numbers",
+    "emoji": "6️⃣"
+  },
+  {
+    "id": "zh_qi",
+    "word": "七",
+    "translation": "Seven",
+    "languageId": "zh",
+    "category": "numbers",
+    "emoji": "7️⃣"
+  },
+  {
+    "id": "zh_ba",
+    "word": "八",
+    "translation": "Eight",
+    "languageId": "zh",
+    "category": "numbers",
+    "emoji": "8️⃣"
+  },
+  {
+    "id": "zh_jiu",
+    "word": "九",
+    "translation": "Nine",
+    "languageId": "zh",
+    "category": "numbers",
+    "emoji": "9️⃣"
+  },
+  {
+    "id": "zh_shi_ten",
+    "word": "十",
+    "translation": "Ten",
+    "languageId": "zh",
+    "category": "numbers",
+    "emoji": "🔟"
+  },
+  {
+    "id": "zh_fangzi",
+    "word": "房子",
+    "translation": "House",
+    "languageId": "zh",
+    "category": "home",
+    "emoji": "🏠"
+  },
+  {
+    "id": "zh_men",
+    "word": "门",
+    "translation": "Door",
+    "languageId": "zh",
+    "category": "home",
+    "emoji": "🚪"
+  },
+  {
+    "id": "zh_chuanghu",
+    "word": "窗户",
+    "translation": "Window",
+    "languageId": "zh",
+    "category": "home",
+    "emoji": "🪟"
+  },
+  {
+    "id": "zh_yizi",
+    "word": "椅子",
+    "translation": "Chair",
+    "languageId": "zh",
+    "category": "home",
+    "emoji": "🪑"
+  },
+  {
+    "id": "zh_chuang",
+    "word": "床",
+    "translation": "Bed",
+    "languageId": "zh",
+    "category": "home",
+    "emoji": "🛏️"
+  },
+  {
+    "id": "zh_kafei",
+    "word": "咖啡",
+    "translation": "Coffee",
+    "languageId": "zh",
+    "category": "food",
+    "emoji": "☕"
+  },
+  {
+    "id": "zh_cha",
+    "word": "茶",
+    "translation": "Tea",
+    "languageId": "zh",
+    "category": "food",
+    "emoji": "🍵"
+  },
+  {
+    "id": "zh_jirou",
+    "word": "鸡肉",
+    "translation": "Chicken",
+    "languageId": "zh",
+    "category": "food",
+    "emoji": "🍗"
+  },
+  {
+    "id": "zh_da",
+    "word": "大",
+    "translation": "Big",
+    "languageId": "zh",
+    "category": "descriptions",
+    "emoji": "🐘"
+  },
+  {
+    "id": "zh_xiao",
+    "word": "小",
+    "translation": "Small",
+    "languageId": "zh",
+    "category": "descriptions",
+    "emoji": "🐁"
+  },
+  {
+    "id": "zh_re",
+    "word": "热",
+    "translation": "Hot",
+    "languageId": "zh",
+    "category": "descriptions",
+    "emoji": "🔥"
+  },
+  {
+    "id": "zh_leng",
+    "word": "冷",
+    "translation": "Cold",
+    "languageId": "zh",
+    "category": "descriptions",
+    "emoji": "❄️"
+  },
+  {
+    "id": "zh_hao",
+    "word": "好",
+    "translation": "Good",
+    "languageId": "zh",
+    "category": "descriptions",
+    "emoji": "👍"
+  }
+]

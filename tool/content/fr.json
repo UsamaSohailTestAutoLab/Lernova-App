@@ -1,0 +1,373 @@
+{
+  "id": "fr",
+  "name": "French",
+  "description": "Learn conversational French through short, focused lessons.",
+  "properNouns": ["Anna", "Rosa"],
+  "units": [
+    {
+      "title": "Greetings & Basics",
+      "description": "Say hello and be polite",
+      "icon": "greeting",
+      "phraseCategory": "greetings",
+      "lessons": [
+        {
+          "title": "Say Hello",
+          "icon": "greeting",
+          "words": [
+            { "id": "bonjour", "w": "Bonjour", "en": "Hello", "emoji": "👋", "cat": "greetings" },
+            { "id": "merci", "w": "Merci", "en": "Thank you", "emoji": "🙏", "cat": "greetings" },
+            { "id": "sil_vous_plait", "w": "S'il vous plaît", "en": "Please", "emoji": "🙇", "cat": "greetings" },
+            { "id": "au_revoir", "w": "Au revoir", "en": "Goodbye", "emoji": "🙋", "cat": "greetings" },
+            { "id": "bonsoir", "w": "Bonsoir", "en": "Good evening", "emoji": "🌙", "cat": "greetings" }
+          ],
+          "support": [
+            { "id": "je_mappelle", "w": "Je m'appelle", "en": "My name is", "emoji": "🪪", "cat": "greetings" },
+            { "id": "et", "w": "Et", "en": "And", "emoji": "➕", "cat": "descriptions" }
+          ],
+          "speak": { "phrase": "Bonjour, je m'appelle Anna", "en": "Hello, my name is Anna" },
+          "sentence": { "chips": ["Je", "m'appelle", "Anna"], "en": "My name is Anna" },
+          "fill": {
+            "template": "Merci et ___.",
+            "answer": "au revoir",
+            "distractors": ["bonjour", "bonsoir", "s'il vous plaît"],
+            "en": "Thank you and goodbye",
+            "vocab": "au_revoir"
+          }
+        },
+        {
+          "title": "Yes, No, Sorry",
+          "icon": "agreement",
+          "words": [
+            { "id": "oui", "w": "Oui", "en": "Yes", "emoji": "✅", "cat": "greetings" },
+            { "id": "non", "w": "Non", "en": "No", "emoji": "❌", "cat": "greetings" },
+            { "id": "pardon", "w": "Pardon", "en": "Excuse me", "emoji": "🙋", "cat": "greetings" },
+            { "id": "de_rien", "w": "De rien", "en": "You're welcome", "emoji": "🤝", "cat": "greetings" },
+            { "id": "daccord", "w": "D'accord", "en": "Okay", "emoji": "👍", "cat": "greetings" }
+          ],
+          "support": [
+            { "id": "je_suis", "w": "Je suis", "en": "I am", "emoji": "🙋", "cat": "descriptions" },
+            { "id": "desole", "w": "Désolé", "en": "Sorry", "emoji": "😔", "cat": "descriptions" }
+          ],
+          "review": ["merci"],
+          "speak": { "phrase": "Pardon, je suis désolé", "en": "Excuse me, I am sorry" },
+          "sentence": { "chips": ["Oui,", "je", "suis", "d'accord"], "en": "Yes, I agree" },
+          "fill": {
+            "template": "Non, ___.",
+            "answer": "pardon",
+            "distractors": ["oui", "de rien", "d'accord"],
+            "en": "No, sorry",
+            "vocab": "pardon"
+          }
+        },
+        {
+          "title": "Polite Basics",
+          "icon": "manners",
+          "words": [
+            { "id": "excusez_moi", "w": "Excusez-moi", "en": "Excuse me please", "emoji": "🙇", "cat": "greetings" },
+            { "id": "bonne_nuit", "w": "Bonne nuit", "en": "Good night", "emoji": "😴", "cat": "greetings" },
+            { "id": "sante", "w": "Santé", "en": "Cheers", "emoji": "🥂", "cat": "greetings" },
+            { "id": "bienvenue", "w": "Bienvenue", "en": "Welcome", "emoji": "🎉", "cat": "greetings" },
+            { "id": "a_bientot", "w": "À bientôt", "en": "See you soon", "emoji": "👋", "cat": "greetings" }
+          ],
+          "support": [
+            { "id": "comment_allez_vous", "w": "Comment allez-vous", "en": "How are you", "emoji": "❓", "cat": "greetings" },
+            { "id": "tres", "w": "Très", "en": "Very", "emoji": "⭐", "cat": "descriptions" }
+          ],
+          "review": ["et", "merci"],
+          "speak": { "phrase": "Excusez-moi, comment allez-vous ?", "en": "Excuse me, how are you?" },
+          "sentence": { "chips": ["Bienvenue", "et", "bonne", "nuit"], "en": "Welcome and good night" },
+          "fill": {
+            "template": "Merci, ___ !",
+            "answer": "à bientôt",
+            "distractors": ["santé", "bienvenue", "très"],
+            "en": "Thank you, see you soon",
+            "vocab": "a_bientot"
+          }
+        }
+      ]
+    },
+    {
+      "title": "Food & Family",
+      "description": "Talk about the people and meals you love",
+      "icon": "food",
+      "phraseCategory": "dining",
+      "lessons": [
+        {
+          "title": "Family Members",
+          "icon": "family",
+          "words": [
+            { "id": "mere", "w": "Mère", "en": "Mother", "emoji": "👩", "cat": "family" },
+            { "id": "pere", "w": "Père", "en": "Father", "emoji": "👨", "cat": "family" },
+            { "id": "frere", "w": "Frère", "en": "Brother", "emoji": "👦", "cat": "family" },
+            { "id": "soeur", "w": "Sœur", "en": "Sister", "emoji": "👧", "cat": "family" },
+            { "id": "grand_mere", "w": "Grand-mère", "en": "Grandmother", "emoji": "👵", "cat": "family" }
+          ],
+          "support": [
+            { "id": "ma", "w": "Ma", "en": "My", "emoji": "🫱", "cat": "descriptions" },
+            { "id": "est", "w": "Est", "en": "Is", "emoji": "🟰", "cat": "descriptions" }
+          ],
+          "speak": { "phrase": "Ma sœur est Anna", "en": "My sister is Anna" },
+          "sentence": { "chips": ["Anna", "est", "ma", "mère"], "en": "Anna is my mother" },
+          "fill": {
+            "template": "Ma ___ est Rosa.",
+            "answer": "grand-mère",
+            "distractors": ["père", "frère", "mère"],
+            "en": "My grandmother is Rosa",
+            "vocab": "grand_mere"
+          }
+        },
+        {
+          "title": "Food Basics",
+          "icon": "food",
+          "words": [
+            { "id": "pain", "w": "Pain", "en": "Bread", "emoji": "🍞", "cat": "food" },
+            { "id": "eau", "w": "Eau", "en": "Water", "emoji": "💧", "cat": "food" },
+            { "id": "pomme", "w": "Pomme", "en": "Apple", "emoji": "🍎", "cat": "food" },
+            { "id": "fromage", "w": "Fromage", "en": "Cheese", "emoji": "🧀", "cat": "food" },
+            { "id": "lait", "w": "Lait", "en": "Milk", "emoji": "🥛", "cat": "food" }
+          ],
+          "support": [
+            { "id": "je_veux", "w": "Je veux", "en": "I want", "emoji": "🙋", "cat": "food" },
+            { "id": "du", "w": "Du", "en": "Some", "emoji": "➕", "cat": "descriptions" }
+          ],
+          "review": ["sil_vous_plait"],
+          "speak": { "phrase": "Je veux du pain, s'il vous plaît", "en": "I want some bread, please" },
+          "sentence": { "chips": ["Je", "veux", "du", "fromage"], "en": "I want some cheese" },
+          "fill": {
+            "template": "Je veux du ___.",
+            "answer": "lait",
+            "distractors": ["pain", "fromage", "eau"],
+            "en": "I want some milk",
+            "vocab": "lait"
+          }
+        },
+        {
+          "title": "At the Table",
+          "icon": "table",
+          "words": [
+            { "id": "table", "w": "Table", "en": "Table", "emoji": "🍽️", "cat": "home" },
+            { "id": "assiette", "w": "Assiette", "en": "Plate", "emoji": "🍽️", "cat": "home" },
+            { "id": "verre", "w": "Verre", "en": "Glass", "emoji": "🥛", "cat": "home" },
+            { "id": "fourchette", "w": "Fourchette", "en": "Fork", "emoji": "🍴", "cat": "home" },
+            { "id": "couteau", "w": "Couteau", "en": "Knife", "emoji": "🔪", "cat": "home" }
+          ],
+          "support": [
+            { "id": "sur", "w": "Sur", "en": "On", "emoji": "📍", "cat": "descriptions" },
+            { "id": "le", "w": "Le", "en": "The", "emoji": "📌", "cat": "descriptions" },
+            { "id": "la", "w": "La", "en": "The one", "emoji": "📌", "cat": "descriptions" }
+          ],
+          "review": ["est", "ma"],
+          "speak": { "phrase": "Le verre est sur la table", "en": "The glass is on the table" },
+          "sentence": { "chips": ["La", "fourchette", "est", "sur", "la", "table"], "en": "The fork is on the table" },
+          "fill": {
+            "template": "Le ___ est sur la table.",
+            "answer": "couteau",
+            "distractors": ["verre", "assiette", "pain"],
+            "en": "The knife is on the table",
+            "vocab": "couteau"
+          }
+        }
+      ]
+    },
+    {
+      "title": "Numbers & Travel",
+      "description": "Count, navigate, and travel with confidence",
+      "icon": "travel",
+      "phraseCategory": "travel",
+      "lessons": [
+        {
+          "title": "Numbers 1-10",
+          "icon": "numbers",
+          "words": [
+            { "id": "un", "w": "Un", "en": "One", "emoji": "1️⃣", "cat": "numbers" },
+            { "id": "deux", "w": "Deux", "en": "Two", "emoji": "2️⃣", "cat": "numbers" },
+            { "id": "trois", "w": "Trois", "en": "Three", "emoji": "3️⃣", "cat": "numbers" },
+            { "id": "quatre", "w": "Quatre", "en": "Four", "emoji": "4️⃣", "cat": "numbers" },
+            { "id": "cinq", "w": "Cinq", "en": "Five", "emoji": "5️⃣", "cat": "numbers" }
+          ],
+          "support": [
+            { "id": "jai", "w": "J'ai", "en": "I have", "emoji": "🙋", "cat": "descriptions" },
+            { "id": "ans", "w": "Ans", "en": "Years old", "emoji": "🎂", "cat": "numbers" }
+          ],
+          "speak": { "phrase": "J'ai cinq ans", "en": "I am five years old" },
+          "sentence": { "chips": ["J'ai", "quatre", "ans"], "en": "I am four years old" },
+          "fill": {
+            "template": "J'ai ___ ans.",
+            "answer": "trois",
+            "distractors": ["un", "deux", "quatre"],
+            "en": "I am three years old",
+            "vocab": "trois"
+          }
+        },
+        {
+          "title": "Getting Around",
+          "icon": "directions",
+          "words": [
+            { "id": "gauche", "w": "Gauche", "en": "Left", "emoji": "⬅️", "cat": "travel" },
+            { "id": "droite", "w": "Droite", "en": "Right", "emoji": "➡️", "cat": "travel" },
+            { "id": "tout_droit", "w": "Tout droit", "en": "Straight ahead", "emoji": "⬆️", "cat": "travel" },
+            { "id": "rue", "w": "Rue", "en": "Street", "emoji": "🛣️", "cat": "travel" },
+            { "id": "gare", "w": "Gare", "en": "Station", "emoji": "🚉", "cat": "travel" }
+          ],
+          "support": [
+            { "id": "ou_est", "w": "Où est", "en": "Where is", "emoji": "❓", "cat": "travel" },
+            { "id": "a", "w": "À", "en": "To", "emoji": "🧭", "cat": "descriptions" }
+          ],
+          "review": ["la", "le"],
+          "speak": { "phrase": "Où est la gare ?", "en": "Where is the station?" },
+          "sentence": { "chips": ["Où", "est", "la", "rue"], "en": "Where is the street?" },
+          "fill": {
+            "template": "La gare est à ___.",
+            "answer": "gauche",
+            "distractors": ["droite", "tout droit", "rue"],
+            "en": "The station is on the left",
+            "vocab": "gauche"
+          }
+        },
+        {
+          "title": "Travel Phrases",
+          "icon": "travel",
+          "words": [
+            { "id": "aeroport", "w": "Aéroport", "en": "Airport", "emoji": "✈️", "cat": "travel" },
+            { "id": "hotel", "w": "Hôtel", "en": "Hotel", "emoji": "🏨", "cat": "travel" },
+            { "id": "billet", "w": "Billet", "en": "Ticket", "emoji": "🎫", "cat": "travel" },
+            { "id": "train", "w": "Train", "en": "Train", "emoji": "🚆", "cat": "travel" },
+            { "id": "valise", "w": "Valise", "en": "Suitcase", "emoji": "🧳", "cat": "travel" }
+          ],
+          "support": [
+            { "id": "pres", "w": "Près", "en": "Near", "emoji": "📍", "cat": "travel" },
+            { "id": "de", "w": "De", "en": "Of", "emoji": "🔗", "cat": "descriptions" }
+          ],
+          "review": ["le", "la", "est", "gare", "ou_est"],
+          "speak": { "phrase": "Le train est près de la gare", "en": "The train is near the station" },
+          "sentence": { "chips": ["Où", "est", "le", "train"], "en": "Where is the train?" },
+          "fill": {
+            "template": "Le ___ est près de la gare.",
+            "answer": "hôtel",
+            "distractors": ["train", "billet", "aéroport"],
+            "en": "The hotel is near the station",
+            "vocab": "hotel"
+          }
+        }
+      ]
+    }
+  ],
+  "extraVocab": [
+    { "id": "rouge", "w": "Rouge", "en": "Red", "emoji": "🔴", "cat": "colors" },
+    { "id": "bleu", "w": "Bleu", "en": "Blue", "emoji": "🔵", "cat": "colors" },
+    { "id": "vert", "w": "Vert", "en": "Green", "emoji": "🟢", "cat": "colors" },
+    { "id": "jaune", "w": "Jaune", "en": "Yellow", "emoji": "🟡", "cat": "colors" },
+    { "id": "noir", "w": "Noir", "en": "Black", "emoji": "⚫", "cat": "colors" },
+    { "id": "blanc", "w": "Blanc", "en": "White", "emoji": "⚪", "cat": "colors" },
+    { "id": "chien", "w": "Chien", "en": "Dog", "emoji": "🐕", "cat": "animals" },
+    { "id": "chat", "w": "Chat", "en": "Cat", "emoji": "🐈", "cat": "animals" },
+    { "id": "oiseau", "w": "Oiseau", "en": "Bird", "emoji": "🐦", "cat": "animals" },
+    { "id": "poisson", "w": "Poisson", "en": "Fish", "emoji": "🐟", "cat": "animals" },
+    { "id": "cheval", "w": "Cheval", "en": "Horse", "emoji": "🐴", "cat": "animals" },
+    { "id": "vache", "w": "Vache", "en": "Cow", "emoji": "🐄", "cat": "animals" },
+    { "id": "six", "w": "Six", "en": "Six", "emoji": "6️⃣", "cat": "numbers" },
+    { "id": "sept", "w": "Sept", "en": "Seven", "emoji": "7️⃣", "cat": "numbers" },
+    { "id": "huit", "w": "Huit", "en": "Eight", "emoji": "8️⃣", "cat": "numbers" },
+    { "id": "neuf", "w": "Neuf", "en": "Nine", "emoji": "9️⃣", "cat": "numbers" },
+    { "id": "dix", "w": "Dix", "en": "Ten", "emoji": "🔟", "cat": "numbers" },
+    { "id": "maison", "w": "Maison", "en": "House", "emoji": "🏠", "cat": "home" },
+    { "id": "porte", "w": "Porte", "en": "Door", "emoji": "🚪", "cat": "home" },
+    { "id": "fenetre", "w": "Fenêtre", "en": "Window", "emoji": "🪟", "cat": "home" },
+    { "id": "chaise", "w": "Chaise", "en": "Chair", "emoji": "🪑", "cat": "home" },
+    { "id": "lit", "w": "Lit", "en": "Bed", "emoji": "🛏️", "cat": "home" },
+    { "id": "cafe", "w": "Café", "en": "Coffee", "emoji": "☕", "cat": "food" },
+    { "id": "the", "w": "Thé", "en": "Tea", "emoji": "🍵", "cat": "food" },
+    { "id": "poulet", "w": "Poulet", "en": "Chicken", "emoji": "🍗", "cat": "food" },
+    { "id": "grand", "w": "Grand", "en": "Big", "emoji": "🐘", "cat": "descriptions" },
+    { "id": "petit", "w": "Petit", "en": "Small", "emoji": "🐁", "cat": "descriptions" },
+    { "id": "chaud", "w": "Chaud", "en": "Hot", "emoji": "🔥", "cat": "descriptions" },
+    { "id": "froid", "w": "Froid", "en": "Cold", "emoji": "❄️", "cat": "descriptions" },
+    { "id": "bon", "w": "Bon", "en": "Good", "emoji": "👍", "cat": "descriptions" }
+  ],
+  "conversations": [
+    {
+      "id": "cafe",
+      "title": "At the Café",
+      "scenario": "You are ordering a coffee at a café.",
+      "turns": [
+        {
+          "line": "Bonjour ! Qu'est-ce que vous voulez ?",
+          "lineEn": "Hello! What would you like?",
+          "options": ["Je veux un café, s'il vous plaît", "Bonjour, au revoir", "J'ai un chien"],
+          "optionsEn": ["I want a coffee, please", "Hello, goodbye", "I have a dog"],
+          "correctIndex": 0
+        },
+        {
+          "line": "Autre chose ?",
+          "lineEn": "Anything else?",
+          "options": ["Non, merci", "Oui, je veux un chat", "Bonne nuit"],
+          "optionsEn": ["No, thank you", "Yes, I want a cat", "Good night"],
+          "correctIndex": 0
+        },
+        {
+          "line": "Voilà votre café. Bonne journée !",
+          "lineEn": "Here is your coffee. Have a good day!",
+          "options": ["Merci, au revoir", "Où est la gare ?", "J'ai cinq ans"],
+          "optionsEn": ["Thank you, goodbye", "Where is the station?", "I am five years old"],
+          "correctIndex": 0
+        }
+      ]
+    },
+    {
+      "id": "directions",
+      "title": "Asking Directions",
+      "scenario": "You are lost and need to find the station.",
+      "turns": [
+        {
+          "line": "Bonjour, je peux vous aider ?",
+          "lineEn": "Hello, can I help you?",
+          "options": ["Où est la gare, s'il vous plaît ?", "Je veux du fromage", "Ma mère est Anna"],
+          "optionsEn": ["Where is the station, please?", "I want some cheese", "My mother is Anna"],
+          "correctIndex": 0
+        },
+        {
+          "line": "C'est tout droit, puis à gauche.",
+          "lineEn": "It is straight ahead, then on the left.",
+          "options": ["Merci beaucoup", "Non, pardon", "J'ai quatre ans"],
+          "optionsEn": ["Thank you very much", "No, sorry", "I am four years old"],
+          "correctIndex": 0
+        },
+        {
+          "line": "C'est près d'ici. Bon voyage !",
+          "lineEn": "It is near here. Have a good trip!",
+          "options": ["Merci, à bientôt", "Le couteau est sur la table", "Bienvenue"],
+          "optionsEn": ["Thank you, see you soon", "The knife is on the table", "Welcome"],
+          "correctIndex": 0
+        }
+      ]
+    },
+    {
+      "id": "hotel",
+      "title": "Hotel Check-in",
+      "scenario": "You are checking in at a hotel.",
+      "turns": [
+        {
+          "line": "Bonsoir, vous avez une réservation ?",
+          "lineEn": "Good evening, do you have a reservation?",
+          "options": ["Oui, je m'appelle Anna", "Non, j'ai un cheval", "Le verre est sur la table"],
+          "optionsEn": ["Yes, my name is Anna", "No, I have a horse", "The glass is on the table"],
+          "correctIndex": 0
+        },
+        {
+          "line": "Voici votre clé. Chambre trois.",
+          "lineEn": "Here is your key. Room three.",
+          "options": ["Merci, d'accord", "Où est la pomme ?", "J'ai dix chiens"],
+          "optionsEn": ["Thank you, okay", "Where is the apple?", "I have ten dogs"],
+          "correctIndex": 0
+        },
+        {
+          "line": "Le petit déjeuner est à sept heures.",
+          "lineEn": "Breakfast is at seven o'clock.",
+          "options": ["Très bien, bonne nuit", "Pardon, je suis désolé", "Bienvenue et merci"],
+          "optionsEn": ["Very good, good night", "Excuse me, I am sorry", "Welcome and thank you"],
+          "correctIndex": 0
+        }
+      ]
+    }
+  ]
+}

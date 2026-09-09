@@ -7,23 +7,26 @@ A casual-game hub layered on top of the same course content and the same gamific
 The original spec called for 10 game modes. Building all 10 to a genuine "polished mobile game" bar in one pass would have diluted quality across the board, so the shipped scope is:
 
 - The **full shared engine** — content models, all 9 question-combination types, adaptive difficulty, indefinitely-scaling levels, rewards, a daily challenge, and dedicated achievements.
-- **Two fully playable, polished games that share one core loop**: Falling Words and Word Rush.
-- A **Fun Hub** that shows all 10 modes from the original spec, with the other 8 rendered as real, level-gated "coming soon" cards (`GameModeCard`, `FunGameModeX.isImplemented`) rather than dead buttons — the roadmap is honest about what's built vs. not.
+- **A shared core loop** behind the catching games: Falling Words, Word Rush and Word Survival are one controller with different tuning and presentation.
+- A **Fun Hub** that shows every mode as a real, level-gated card (`GameModeCard`), in `FunGameMode.values` order.
 
 ## Game modes
 
-| Mode | Status | Notes |
+Every mode listed here is built. The order below is the order of
+`FunGameMode.values`, which is the order the hub's grid renders.
+
+| Mode | Unlocks at | Notes |
 |---|---|---|
-| Word Bubble (Falling Words) | ✅ implemented | The flagship — see below |
-| Word Rush | ✅ implemented | Same engine, faster/always-combo tuning |
-| Word Match | 🔒 planned, unlocks at level 3 | |
-| Memory Match | 🔒 planned, unlocks at level 4 | |
-| Sentence Builder | 🔒 planned, unlocks at level 5 | |
-| Phrase Builder | 🔒 planned, unlocks at level 6 | |
-| Listen & Catch | 🔒 planned, unlocks at level 7 | |
-| Meaning Shooter | 🔒 planned, unlocks at level 8 | |
-| Country Challenge | 🔒 planned, unlocks at level 9 | |
-| Conversation Challenge | 🔒 planned, unlocks at level 10 | |
+| Word Bubble (Falling Words) | 1 | The flagship — rising bubble field |
+| Word Rush | 1 | Same engine, faster/always-combo tuning |
+| Word Match | 3 | |
+| Memory Match | 4 | |
+| Phrase Builder | 6 | Phrase-only question types |
+| Listen & Catch | 7 | Audio-only question types |
+| Conversation Challenge | 9 | |
+| Sentence Builder | 5 | |
+| Meaning Shooter | 8 | |
+| Word Survival | 10 | The rising-water game — see below |
 
 Unlock levels are the *overall* Fun level (the max across implemented modes), defined per mode in `FunGameModeX.unlockLevel` (`lib/core/constants/app_enums.dart`).
 
@@ -62,14 +65,18 @@ Unlock levels are the *overall* Fun level (the max across implemented modes), de
 
 "Learn 10 words today" — `FunDailyChallengeLogic` tracks a `Set<String>` of distinct vocab ids answered correctly that day, reconciled (reset) on a date rollover the same way the core daily-XP-goal is. Crossing the 10-word threshold pays +50 XP / +20 gems once and flips `dailyChallengeCompletedToday`; the Fun Hub shows live progress via `DailyChallengeCard`.
 
-## Level 1: the "water survival" rework
+## Word Survival
 
-Level 1 of Falling Words specifically (not Word Rush, not any other level) has a themed presentation swapped in on top of the *identical* underlying session logic — same lives, same XP, same win/fail rules. Only how the question and its answers are drawn changes:
+Its own mode, last in the list and last to unlock. It was originally bolted onto Word Bubble as *level 1 only*, which made the very first round anyone played a different game from the nine that followed it, and left the survival idea with nowhere to grow — it could never be harder than level 1, because it *was* level 1.
+
+Every Word Survival level is a themed presentation over the *identical* underlying session logic — same lives, same XP, same win/fail rules, same difficulty curve from `FunLevelCatalog`. Only how the question and its answers are drawn changes:
 
 - An original, custom-painted **cartoon human character** (`CartoonCharacter`, `lib/features/fun/presentation/widgets/cartoon_character.dart`) stands at a fixed spot near the bottom of the screen — a distinct character from the app's abstract "Spark" mascot used everywhere else, drawn entirely with `CustomPainter` (no image assets).
 - An animated **rising water** (`RealisticWater`, two phase-shifted sine-wave layers over a gradient) sits *in front of* the character in paint order, so as it rises it visually covers more of the character rather than the character floating on top of it.
 - **Drowning is proportional to hearts lost**: water height is interpolated from a shallow "ankle-deep" level at full health up to a height guaranteed to fully cover the character once every life is gone — `lostFraction = (maxLives - lives) / maxLives` drives the interpolation directly, so losing hearts gradually and visibly submerges the character instead of jumping straight to fully drowned.
 - The character's **mood** reflects both its persistent state (happy at full health → worried on the last life → "drowning" expression once the round has failed) and a brief transient reaction on each answer (a celebrate flash on correct, a worried flash on wrong), implemented in `_FallingWordGameScreenState._baseMoodForLives`/`_flashMood`.
-- Answer options render as **larger, static, glossier bubbles** in a `Wrap` instead of the rising `BubbleField` every other level/mode uses — reusing `WaterBubble` with bigger size overrides rather than a second widget.
+- Answer options render as **larger, static, glossier bubbles** in a `Wrap` instead of the rising `BubbleField` every other mode uses — reusing `WaterBubble` with bigger size overrides rather than a second widget.
 
-The branch point is one boolean in `FallingWordGameScreen`: `isWaterSurvivalLevel = session.mode == FunGameMode.fallingWords && session.levelConfig.level == 1`. Every other level and Word Rush render through the original falling-bubbles path, completely untouched.
+The branch point is one boolean in `FallingWordGameScreen`: `isWaterSurvivalLevel = session.mode == FunGameMode.wordSurvival`. Every other mode renders through the original falling-bubbles path, completely untouched.
+
+The stake is explained once before the first round (`WaterSurvivalIntroScreen`, gated on `waterSurvivalTutorialId` in `UserProgress.seenTutorialIds`) — meeting it cold means finding out what the water does by drowning in it.

@@ -1,0 +1,1657 @@
+{
+  "id": "course_tr",
+  "languageId": "tr",
+  "title": "Turkish",
+  "description": "Learn conversational Turkish through short, focused lessons.",
+  "units": [
+    {
+      "id": "tr_u1",
+      "title": "Greetings & Basics",
+      "description": "Say hello and be polite",
+      "icon": "greeting",
+      "accent": "green",
+      "lessons": [
+        {
+          "id": "tr_u1_l1",
+          "title": "Say Hello",
+          "subtitle": "Merhaba, Teşekkürler, Lütfen, Hoşça kal, İyi akşamlar",
+          "icon": "greeting",
+          "reviewVocabIds": [
+            "tr_benim_adim",
+            "tr_ve",
+            "tr_iyi_aksamlar"
+          ],
+          "exercises": [
+            {
+              "id": "tr_u1_l1_e1",
+              "type": "imageRecognition",
+              "vocabId": "tr_merhaba",
+              "payload": {
+                "prompt": "What does this word mean?",
+                "emoji": "👋",
+                "targetWord": "Merhaba",
+                "meaning": "Hello",
+                "distractorMeanings": [
+                  "Thank you",
+                  "Please",
+                  "Goodbye"
+                ],
+                "distractorWords": [
+                  "Teşekkürler",
+                  "Lütfen",
+                  "Hoşça kal"
+                ]
+              }
+            },
+            {
+              "id": "tr_u1_l1_e2",
+              "type": "multipleChoice",
+              "vocabId": "tr_tesekkurler",
+              "payload": {
+                "prompt": "Which word means 'Thank you'?",
+                "options": [
+                  "Merhaba",
+                  "Hoşça kal",
+                  "Teşekkürler",
+                  "Lütfen"
+                ],
+                "correctIndex": 2
+              }
+            },
+            {
+              "id": "tr_u1_l1_e3",
+              "type": "listening",
+              "vocabId": "tr_lutfen",
+              "payload": {
+                "prompt": "Listen and select what you hear",
+                "audioText": "Lütfen",
+                "ttsLocale": "tr-TR",
+                "options": [
+                  "Merhaba",
+                  "Lütfen",
+                  "Hoşça kal",
+                  "Teşekkürler"
+                ],
+                "correctIndex": 1,
+                "translation": "Please"
+              }
+            },
+            {
+              "id": "tr_u1_l1_e4",
+              "type": "multipleChoice",
+              "vocabId": "tr_benim_adim",
+              "payload": {
+                "prompt": "Which word means 'My name is'?",
+                "options": [
+                  "Merhaba",
+                  "Teşekkürler",
+                  "Lütfen",
+                  "Benim adım"
+                ],
+                "correctIndex": 3
+              }
+            },
+            {
+              "id": "tr_u1_l1_e5",
+              "type": "translation",
+              "vocabId": "tr_hosca_kal",
+              "payload": {
+                "prompt": "Type the English meaning",
+                "sourceText": "Hoşça kal",
+                "acceptableAnswers": [
+                  "goodbye",
+                  "Goodbye"
+                ]
+              }
+            },
+            {
+              "id": "tr_u1_l1_e6",
+              "type": "speaking",
+              "vocabId": "tr_merhaba",
+              "payload": {
+                "prompt": "Say this phrase out loud",
+                "targetPhrase": "Merhaba, benim adım Anna",
+                "translation": "Hello, my name is Anna",
+                "ttsLocale": "tr-TR"
+              }
+            },
+            {
+              "id": "tr_u1_l1_e7",
+              "type": "wordMatching",
+              "vocabId": "tr_u1_l1_set",
+              "payload": {
+                "prompt": "Match each word to its meaning",
+                "pairs": [
+                  {
+                    "left": "Merhaba",
+                    "right": "Hello"
+                  },
+                  {
+                    "left": "Teşekkürler",
+                    "right": "Thank you"
+                  },
+                  {
+                    "left": "Lütfen",
+                    "right": "Please"
+                  },
+                  {
+                    "left": "Hoşça kal",
+                    "right": "Goodbye"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "tr_u1_l1_e8",
+              "type": "sentenceArrangement",
+              "vocabId": "tr_merhaba",
+              "payload": {
+                "prompt": "Build the sentence",
+                "shuffledChips": [
+                  "Benim",
+                  "adım",
+                  "Anna"
+                ],
+                "correctSentence": [
+                  "Benim",
+                  "adım",
+                  "Anna"
+                ],
+                "translation": "My name is Anna"
+              }
+            },
+            {
+              "id": "tr_u1_l1_e9",
+              "type": "fillInTheBlank",
+              "vocabId": "tr_hosca_kal",
+              "payload": {
+                "prompt": "Complete the sentence",
+                "sentenceTemplate": "Teşekkürler ve ___.",
+                "options": [
+                  "merhaba",
+                  "İyi akşamlar",
+                  "hoşça kal",
+                  "lütfen"
+                ],
+                "correctAnswer": "hoşça kal",
+                "translation": "Thank you and goodbye"
+              }
+            }
+          ]
+        },
+        {
+          "id": "tr_u1_l2",
+          "title": "Yes, No, Sorry",
+          "subtitle": "Evet, Hayır, Affedersiniz, Rica ederim, Tamam",
+          "icon": "agreement",
+          "reviewVocabIds": [
+            "tr_ben",
+            "tr_yorgunum",
+            "tr_tesekkurler",
+            "tr_tamam"
+          ],
+          "exercises": [
+            {
+              "id": "tr_u1_l2_e1",
+              "type": "imageRecognition",
+              "vocabId": "tr_evet",
+              "payload": {
+                "prompt": "What does this word mean?",
+                "emoji": "✅",
+                "targetWord": "Evet",
+                "meaning": "Yes",
+                "distractorMeanings": [
+                  "No",
+                  "Excuse me",
+                  "You're welcome"
+                ],
+                "distractorWords": [
+                  "Hayır",
+                  "Affedersiniz",
+                  "Rica ederim"
+                ]
+              }
+            },
+            {
+              "id": "tr_u1_l2_e2",
+              "type": "multipleChoice",
+              "vocabId": "tr_hayir",
+              "payload": {
+                "prompt": "Which word means 'No'?",
+                "options": [
+                  "Hayır",
+                  "Affedersiniz",
+                  "Evet",
+                  "Rica ederim"
+                ],
+                "correctIndex": 0
+              }
+            },
+            {
+              "id": "tr_u1_l2_e3",
+              "type": "listening",
+              "vocabId": "tr_affedersiniz",
+              "payload": {
+                "prompt": "Listen and select what you hear",
+                "audioText": "Affedersiniz",
+                "ttsLocale": "tr-TR",
+                "options": [
+                  "Hayır",
+                  "Evet",
+                  "Affedersiniz",
+                  "Rica ederim"
+                ],
+                "correctIndex": 2,
+                "translation": "Excuse me"
+              }
+            },
+            {
+              "id": "tr_u1_l2_e4",
+              "type": "multipleChoice",
+              "vocabId": "tr_ben",
+              "payload": {
+                "prompt": "Which word means 'I'?",
+                "options": [
+                  "Ben",
+                  "Hayır",
+                  "Affedersiniz",
+                  "Evet"
+                ],
+                "correctIndex": 0
+              }
+            },
+            {
+              "id": "tr_u1_l2_e5",
+              "type": "translation",
+              "vocabId": "tr_rica_ederim",
+              "payload": {
+                "prompt": "Type the English meaning",
+                "sourceText": "Rica ederim",
+                "acceptableAnswers": [
+                  "you're welcome",
+                  "You're welcome"
+                ]
+              }
+            },
+            {
+              "id": "tr_u1_l2_e6",
+              "type": "speaking",
+              "vocabId": "tr_evet",
+              "payload": {
+                "prompt": "Say this phrase out loud",
+                "targetPhrase": "Affedersiniz, ben yorgunum",
+                "translation": "Excuse me, I am tired",
+                "ttsLocale": "tr-TR"
+              }
+            },
+            {
+              "id": "tr_u1_l2_e7",
+              "type": "wordMatching",
+              "vocabId": "tr_u1_l2_set",
+              "payload": {
+                "prompt": "Match each word to its meaning",
+                "pairs": [
+                  {
+                    "left": "Evet",
+                    "right": "Yes"
+                  },
+                  {
+                    "left": "Hayır",
+                    "right": "No"
+                  },
+                  {
+                    "left": "Affedersiniz",
+                    "right": "Excuse me"
+                  },
+                  {
+                    "left": "Rica ederim",
+                    "right": "You're welcome"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "tr_u1_l2_e8",
+              "type": "sentenceArrangement",
+              "vocabId": "tr_evet",
+              "payload": {
+                "prompt": "Build the sentence",
+                "shuffledChips": [
+                  "yorgunum",
+                  "Evet,",
+                  "ben"
+                ],
+                "correctSentence": [
+                  "Evet,",
+                  "ben",
+                  "yorgunum"
+                ],
+                "translation": "Yes, I am tired"
+              }
+            },
+            {
+              "id": "tr_u1_l2_e9",
+              "type": "fillInTheBlank",
+              "vocabId": "tr_affedersiniz",
+              "payload": {
+                "prompt": "Complete the sentence",
+                "sentenceTemplate": "Hayır, ___.",
+                "options": [
+                  "affedersiniz",
+                  "tamam",
+                  "evet",
+                  "rica ederim"
+                ],
+                "correctAnswer": "affedersiniz",
+                "translation": "No, excuse me"
+              }
+            }
+          ]
+        },
+        {
+          "id": "tr_u1_l3",
+          "title": "Polite Basics",
+          "subtitle": "Pardon, İyi geceler, Şerefe, Hoş geldiniz, Görüşürüz",
+          "icon": "manners",
+          "reviewVocabIds": [
+            "tr_nasilsiniz",
+            "tr_cok",
+            "tr_ve",
+            "tr_tesekkurler"
+          ],
+          "exercises": [
+            {
+              "id": "tr_u1_l3_e1",
+              "type": "imageRecognition",
+              "vocabId": "tr_pardon",
+              "payload": {
+                "prompt": "What does this word mean?",
+                "emoji": "🙇",
+                "targetWord": "Pardon",
+                "meaning": "Excuse me please",
+                "distractorMeanings": [
+                  "Good night",
+                  "Cheers",
+                  "Welcome"
+                ],
+                "distractorWords": [
+                  "İyi geceler",
+                  "Şerefe",
+                  "Hoş geldiniz"
+                ]
+              }
+            },
+            {
+              "id": "tr_u1_l3_e2",
+              "type": "multipleChoice",
+              "vocabId": "tr_iyi_geceler",
+              "payload": {
+                "prompt": "Which word means 'Good night'?",
+                "options": [
+                  "Pardon",
+                  "Hoş geldiniz",
+                  "Şerefe",
+                  "İyi geceler"
+                ],
+                "correctIndex": 3
+              }
+            },
+            {
+              "id": "tr_u1_l3_e3",
+              "type": "listening",
+              "vocabId": "tr_serefe",
+              "payload": {
+                "prompt": "Listen and select what you hear",
+                "audioText": "Şerefe",
+                "ttsLocale": "tr-TR",
+                "options": [
+                  "İyi geceler",
+                  "Hoş geldiniz",
+                  "Pardon",
+                  "Şerefe"
+                ],
+                "correctIndex": 3,
+                "translation": "Cheers"
+              }
+            },
+            {
+              "id": "tr_u1_l3_e4",
+              "type": "multipleChoice",
+              "vocabId": "tr_nasilsiniz",
+              "payload": {
+                "prompt": "Which word means 'How are you'?",
+                "options": [
+                  "Pardon",
+                  "Nasılsınız",
+                  "Şerefe",
+                  "İyi geceler"
+                ],
+                "correctIndex": 1
+              }
+            },
+            {
+              "id": "tr_u1_l3_e5",
+              "type": "translation",
+              "vocabId": "tr_hos_geldiniz",
+              "payload": {
+                "prompt": "Type the English meaning",
+                "sourceText": "Hoş geldiniz",
+                "acceptableAnswers": [
+                  "welcome",
+                  "Welcome"
+                ]
+              }
+            },
+            {
+              "id": "tr_u1_l3_e6",
+              "type": "speaking",
+              "vocabId": "tr_pardon",
+              "payload": {
+                "prompt": "Say this phrase out loud",
+                "targetPhrase": "Pardon, nasılsınız?",
+                "translation": "Excuse me, how are you?",
+                "ttsLocale": "tr-TR"
+              }
+            },
+            {
+              "id": "tr_u1_l3_e7",
+              "type": "wordMatching",
+              "vocabId": "tr_u1_l3_set",
+              "payload": {
+                "prompt": "Match each word to its meaning",
+                "pairs": [
+                  {
+                    "left": "Pardon",
+                    "right": "Excuse me please"
+                  },
+                  {
+                    "left": "İyi geceler",
+                    "right": "Good night"
+                  },
+                  {
+                    "left": "Şerefe",
+                    "right": "Cheers"
+                  },
+                  {
+                    "left": "Hoş geldiniz",
+                    "right": "Welcome"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "tr_u1_l3_e8",
+              "type": "sentenceArrangement",
+              "vocabId": "tr_pardon",
+              "payload": {
+                "prompt": "Build the sentence",
+                "shuffledChips": [
+                  "Hoş",
+                  "ve",
+                  "geceler",
+                  "geldiniz",
+                  "İyi"
+                ],
+                "correctSentence": [
+                  "Hoş",
+                  "geldiniz",
+                  "ve",
+                  "İyi",
+                  "geceler"
+                ],
+                "translation": "Welcome and good night"
+              }
+            },
+            {
+              "id": "tr_u1_l3_e9",
+              "type": "fillInTheBlank",
+              "vocabId": "tr_gorusuruz",
+              "payload": {
+                "prompt": "Complete the sentence",
+                "sentenceTemplate": "Teşekkürler, ___!",
+                "options": [
+                  "şerefe",
+                  "çok",
+                  "Hoş geldiniz",
+                  "görüşürüz"
+                ],
+                "correctAnswer": "görüşürüz",
+                "translation": "Thank you, see you soon"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tr_u2",
+      "title": "Food & Family",
+      "description": "Talk about the people and meals you love",
+      "icon": "food",
+      "accent": "amber",
+      "lessons": [
+        {
+          "id": "tr_u2_l1",
+          "title": "Family Members",
+          "subtitle": "Anne, Baba, Erkek kardeş, Kız kardeş, Büyükanne",
+          "icon": "family",
+          "reviewVocabIds": [
+            "tr_benim",
+            "tr_annem",
+            "tr_buyukannem",
+            "tr_buyukanne"
+          ],
+          "exercises": [
+            {
+              "id": "tr_u2_l1_e1",
+              "type": "imageRecognition",
+              "vocabId": "tr_anne",
+              "payload": {
+                "prompt": "What does this word mean?",
+                "emoji": "👩",
+                "targetWord": "Anne",
+                "meaning": "Mother",
+                "distractorMeanings": [
+                  "Father",
+                  "Brother",
+                  "Sister"
+                ],
+                "distractorWords": [
+                  "Baba",
+                  "Erkek kardeş",
+                  "Kız kardeş"
+                ]
+              }
+            },
+            {
+              "id": "tr_u2_l1_e2",
+              "type": "multipleChoice",
+              "vocabId": "tr_baba",
+              "payload": {
+                "prompt": "Which word means 'Father'?",
+                "options": [
+                  "Erkek kardeş",
+                  "Kız kardeş",
+                  "Baba",
+                  "Anne"
+                ],
+                "correctIndex": 2
+              }
+            },
+            {
+              "id": "tr_u2_l1_e3",
+              "type": "listening",
+              "vocabId": "tr_erkek_kardes",
+              "payload": {
+                "prompt": "Listen and select what you hear",
+                "audioText": "Erkek kardeş",
+                "ttsLocale": "tr-TR",
+                "options": [
+                  "Erkek kardeş",
+                  "Kız kardeş",
+                  "Baba",
+                  "Anne"
+                ],
+                "correctIndex": 0,
+                "translation": "Brother"
+              }
+            },
+            {
+              "id": "tr_u2_l1_e4",
+              "type": "multipleChoice",
+              "vocabId": "tr_benim",
+              "payload": {
+                "prompt": "Which word means 'My'?",
+                "options": [
+                  "Baba",
+                  "Anne",
+                  "Benim",
+                  "Erkek kardeş"
+                ],
+                "correctIndex": 2
+              }
+            },
+            {
+              "id": "tr_u2_l1_e5",
+              "type": "translation",
+              "vocabId": "tr_kiz_kardes",
+              "payload": {
+                "prompt": "Type the English meaning",
+                "sourceText": "Kız kardeş",
+                "acceptableAnswers": [
+                  "sister",
+                  "Sister"
+                ]
+              }
+            },
+            {
+              "id": "tr_u2_l1_e6",
+              "type": "speaking",
+              "vocabId": "tr_anne",
+              "payload": {
+                "prompt": "Say this phrase out loud",
+                "targetPhrase": "Benim annem Anna",
+                "translation": "My mother is Anna",
+                "ttsLocale": "tr-TR"
+              }
+            },
+            {
+              "id": "tr_u2_l1_e7",
+              "type": "wordMatching",
+              "vocabId": "tr_u2_l1_set",
+              "payload": {
+                "prompt": "Match each word to its meaning",
+                "pairs": [
+                  {
+                    "left": "Anne",
+                    "right": "Mother"
+                  },
+                  {
+                    "left": "Baba",
+                    "right": "Father"
+                  },
+                  {
+                    "left": "Erkek kardeş",
+                    "right": "Brother"
+                  },
+                  {
+                    "left": "Kız kardeş",
+                    "right": "Sister"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "tr_u2_l1_e8",
+              "type": "sentenceArrangement",
+              "vocabId": "tr_anne",
+              "payload": {
+                "prompt": "Build the sentence",
+                "shuffledChips": [
+                  "benim",
+                  "Anna",
+                  "annem"
+                ],
+                "correctSentence": [
+                  "Anna",
+                  "benim",
+                  "annem"
+                ],
+                "translation": "Anna is my mother"
+              }
+            },
+            {
+              "id": "tr_u2_l1_e9",
+              "type": "fillInTheBlank",
+              "vocabId": "tr_buyukannem",
+              "payload": {
+                "prompt": "Complete the sentence",
+                "sentenceTemplate": "Benim ___ Rosa.",
+                "options": [
+                  "anne",
+                  "baba",
+                  "büyükannem",
+                  "annem"
+                ],
+                "correctAnswer": "büyükannem",
+                "translation": "My grandmother is Rosa"
+              }
+            }
+          ]
+        },
+        {
+          "id": "tr_u2_l2",
+          "title": "Food Basics",
+          "subtitle": "Ekmek, Su, Elma, Peynir, Süt",
+          "icon": "food",
+          "reviewVocabIds": [
+            "tr_istiyorum",
+            "tr_bir_a",
+            "tr_lutfen",
+            "tr_ben",
+            "tr_sut"
+          ],
+          "exercises": [
+            {
+              "id": "tr_u2_l2_e1",
+              "type": "imageRecognition",
+              "vocabId": "tr_ekmek",
+              "payload": {
+                "prompt": "What does this word mean?",
+                "emoji": "🍞",
+                "targetWord": "Ekmek",
+                "meaning": "Bread",
+                "distractorMeanings": [
+                  "Water",
+                  "Apple",
+                  "Cheese"
+                ],
+                "distractorWords": [
+                  "Su",
+                  "Elma",
+                  "Peynir"
+                ]
+              }
+            },
+            {
+              "id": "tr_u2_l2_e2",
+              "type": "multipleChoice",
+              "vocabId": "tr_su",
+              "payload": {
+                "prompt": "Which word means 'Water'?",
+                "options": [
+                  "Peynir",
+                  "Su",
+                  "Ekmek",
+                  "Elma"
+                ],
+                "correctIndex": 1
+              }
+            },
+            {
+              "id": "tr_u2_l2_e3",
+              "type": "listening",
+              "vocabId": "tr_elma",
+              "payload": {
+                "prompt": "Listen and select what you hear",
+                "audioText": "Elma",
+                "ttsLocale": "tr-TR",
+                "options": [
+                  "Ekmek",
+                  "Peynir",
+                  "Elma",
+                  "Su"
+                ],
+                "correctIndex": 2,
+                "translation": "Apple"
+              }
+            },
+            {
+              "id": "tr_u2_l2_e4",
+              "type": "multipleChoice",
+              "vocabId": "tr_istiyorum",
+              "payload": {
+                "prompt": "Which word means 'I want'?",
+                "options": [
+                  "Su",
+                  "Elma",
+                  "Ekmek",
+                  "istiyorum"
+                ],
+                "correctIndex": 3
+              }
+            },
+            {
+              "id": "tr_u2_l2_e5",
+              "type": "translation",
+              "vocabId": "tr_peynir",
+              "payload": {
+                "prompt": "Type the English meaning",
+                "sourceText": "Peynir",
+                "acceptableAnswers": [
+                  "cheese",
+                  "Cheese"
+                ]
+              }
+            },
+            {
+              "id": "tr_u2_l2_e6",
+              "type": "speaking",
+              "vocabId": "tr_ekmek",
+              "payload": {
+                "prompt": "Say this phrase out loud",
+                "targetPhrase": "Bir ekmek istiyorum, lütfen",
+                "translation": "I want a bread, please",
+                "ttsLocale": "tr-TR"
+              }
+            },
+            {
+              "id": "tr_u2_l2_e7",
+              "type": "wordMatching",
+              "vocabId": "tr_u2_l2_set",
+              "payload": {
+                "prompt": "Match each word to its meaning",
+                "pairs": [
+                  {
+                    "left": "Ekmek",
+                    "right": "Bread"
+                  },
+                  {
+                    "left": "Su",
+                    "right": "Water"
+                  },
+                  {
+                    "left": "Elma",
+                    "right": "Apple"
+                  },
+                  {
+                    "left": "Peynir",
+                    "right": "Cheese"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "tr_u2_l2_e8",
+              "type": "sentenceArrangement",
+              "vocabId": "tr_ekmek",
+              "payload": {
+                "prompt": "Build the sentence",
+                "shuffledChips": [
+                  "Ben",
+                  "istiyorum",
+                  "süt"
+                ],
+                "correctSentence": [
+                  "Ben",
+                  "süt",
+                  "istiyorum"
+                ],
+                "translation": "I want milk"
+              }
+            },
+            {
+              "id": "tr_u2_l2_e9",
+              "type": "fillInTheBlank",
+              "vocabId": "tr_elma",
+              "payload": {
+                "prompt": "Complete the sentence",
+                "sentenceTemplate": "Ben ___ istiyorum.",
+                "options": [
+                  "su",
+                  "elma",
+                  "ekmek",
+                  "peynir"
+                ],
+                "correctAnswer": "elma",
+                "translation": "I want an apple"
+              }
+            }
+          ]
+        },
+        {
+          "id": "tr_u2_l3",
+          "title": "At the Table",
+          "subtitle": "Masa, Tabak, Bardak, Çatal, Bıçak",
+          "icon": "table",
+          "reviewVocabIds": [
+            "tr_masada",
+            "tr_var",
+            "tr_bir_a"
+          ],
+          "exercises": [
+            {
+              "id": "tr_u2_l3_e1",
+              "type": "imageRecognition",
+              "vocabId": "tr_masa",
+              "payload": {
+                "prompt": "What does this word mean?",
+                "emoji": "🍽️",
+                "targetWord": "Masa",
+                "meaning": "Table",
+                "distractorMeanings": [
+                  "Plate",
+                  "Glass",
+                  "Fork"
+                ],
+                "distractorWords": [
+                  "Tabak",
+                  "Bardak",
+                  "Çatal"
+                ]
+              }
+            },
+            {
+              "id": "tr_u2_l3_e2",
+              "type": "multipleChoice",
+              "vocabId": "tr_tabak",
+              "payload": {
+                "prompt": "Which word means 'Plate'?",
+                "options": [
+                  "Tabak",
+                  "Masa",
+                  "Bardak",
+                  "Çatal"
+                ],
+                "correctIndex": 0
+              }
+            },
+            {
+              "id": "tr_u2_l3_e3",
+              "type": "listening",
+              "vocabId": "tr_bardak",
+              "payload": {
+                "prompt": "Listen and select what you hear",
+                "audioText": "Bardak",
+                "ttsLocale": "tr-TR",
+                "options": [
+                  "Bardak",
+                  "Tabak",
+                  "Masa",
+                  "Çatal"
+                ],
+                "correctIndex": 0,
+                "translation": "Glass"
+              }
+            },
+            {
+              "id": "tr_u2_l3_e4",
+              "type": "multipleChoice",
+              "vocabId": "tr_masada",
+              "payload": {
+                "prompt": "Which word means 'On the table'?",
+                "options": [
+                  "Masada",
+                  "Tabak",
+                  "Bardak",
+                  "Masa"
+                ],
+                "correctIndex": 0
+              }
+            },
+            {
+              "id": "tr_u2_l3_e5",
+              "type": "translation",
+              "vocabId": "tr_catal",
+              "payload": {
+                "prompt": "Type the English meaning",
+                "sourceText": "Çatal",
+                "acceptableAnswers": [
+                  "fork",
+                  "Fork"
+                ]
+              }
+            },
+            {
+              "id": "tr_u2_l3_e6",
+              "type": "speaking",
+              "vocabId": "tr_masa",
+              "payload": {
+                "prompt": "Say this phrase out loud",
+                "targetPhrase": "Masada bir bardak var",
+                "translation": "There is a glass on the table",
+                "ttsLocale": "tr-TR"
+              }
+            },
+            {
+              "id": "tr_u2_l3_e7",
+              "type": "wordMatching",
+              "vocabId": "tr_u2_l3_set",
+              "payload": {
+                "prompt": "Match each word to its meaning",
+                "pairs": [
+                  {
+                    "left": "Masa",
+                    "right": "Table"
+                  },
+                  {
+                    "left": "Tabak",
+                    "right": "Plate"
+                  },
+                  {
+                    "left": "Bardak",
+                    "right": "Glass"
+                  },
+                  {
+                    "left": "Çatal",
+                    "right": "Fork"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "tr_u2_l3_e8",
+              "type": "sentenceArrangement",
+              "vocabId": "tr_masa",
+              "payload": {
+                "prompt": "Build the sentence",
+                "shuffledChips": [
+                  "Masada",
+                  "çatal",
+                  "var",
+                  "bir"
+                ],
+                "correctSentence": [
+                  "Masada",
+                  "bir",
+                  "çatal",
+                  "var"
+                ],
+                "translation": "There is a fork on the table"
+              }
+            },
+            {
+              "id": "tr_u2_l3_e9",
+              "type": "fillInTheBlank",
+              "vocabId": "tr_bicak",
+              "payload": {
+                "prompt": "Complete the sentence",
+                "sentenceTemplate": "Masada bir ___ var.",
+                "options": [
+                  "bıçak",
+                  "bardak",
+                  "tabak",
+                  "masa"
+                ],
+                "correctAnswer": "bıçak",
+                "translation": "There is a knife on the table"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tr_u3",
+      "title": "Numbers & Travel",
+      "description": "Count, navigate, and travel with confidence",
+      "icon": "travel",
+      "accent": "teal",
+      "lessons": [
+        {
+          "id": "tr_u3_l1",
+          "title": "Numbers 1-10",
+          "subtitle": "Bir, İki, Üç, Dört, Beş",
+          "icon": "numbers",
+          "reviewVocabIds": [
+            "tr_yasindayim",
+            "tr_ben",
+            "tr_var",
+            "tr_bes"
+          ],
+          "exercises": [
+            {
+              "id": "tr_u3_l1_e1",
+              "type": "imageRecognition",
+              "vocabId": "tr_bir",
+              "payload": {
+                "prompt": "What does this word mean?",
+                "emoji": "1️⃣",
+                "targetWord": "Bir",
+                "meaning": "One",
+                "distractorMeanings": [
+                  "Two",
+                  "Three",
+                  "Four"
+                ],
+                "distractorWords": [
+                  "İki",
+                  "Üç",
+                  "Dört"
+                ]
+              }
+            },
+            {
+              "id": "tr_u3_l1_e2",
+              "type": "multipleChoice",
+              "vocabId": "tr_iki",
+              "payload": {
+                "prompt": "Which word means 'Two'?",
+                "options": [
+                  "Bir",
+                  "Üç",
+                  "Dört",
+                  "İki"
+                ],
+                "correctIndex": 3
+              }
+            },
+            {
+              "id": "tr_u3_l1_e3",
+              "type": "listening",
+              "vocabId": "tr_uc",
+              "payload": {
+                "prompt": "Listen and select what you hear",
+                "audioText": "Üç",
+                "ttsLocale": "tr-TR",
+                "options": [
+                  "Bir",
+                  "Dört",
+                  "İki",
+                  "Üç"
+                ],
+                "correctIndex": 3,
+                "translation": "Three"
+              }
+            },
+            {
+              "id": "tr_u3_l1_e4",
+              "type": "multipleChoice",
+              "vocabId": "tr_yasindayim",
+              "payload": {
+                "prompt": "Which word means 'Years old I am'?",
+                "options": [
+                  "Bir",
+                  "Yaşındayım",
+                  "Üç",
+                  "İki"
+                ],
+                "correctIndex": 1
+              }
+            },
+            {
+              "id": "tr_u3_l1_e5",
+              "type": "translation",
+              "vocabId": "tr_dort",
+              "payload": {
+                "prompt": "Type the English meaning",
+                "sourceText": "Dört",
+                "acceptableAnswers": [
+                  "four",
+                  "Four"
+                ]
+              }
+            },
+            {
+              "id": "tr_u3_l1_e6",
+              "type": "speaking",
+              "vocabId": "tr_bir",
+              "payload": {
+                "prompt": "Say this phrase out loud",
+                "targetPhrase": "Beş yaşındayım",
+                "translation": "I am five years old",
+                "ttsLocale": "tr-TR"
+              }
+            },
+            {
+              "id": "tr_u3_l1_e7",
+              "type": "wordMatching",
+              "vocabId": "tr_u3_l1_set",
+              "payload": {
+                "prompt": "Match each word to its meaning",
+                "pairs": [
+                  {
+                    "left": "Bir",
+                    "right": "One"
+                  },
+                  {
+                    "left": "İki",
+                    "right": "Two"
+                  },
+                  {
+                    "left": "Üç",
+                    "right": "Three"
+                  },
+                  {
+                    "left": "Dört",
+                    "right": "Four"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "tr_u3_l1_e8",
+              "type": "sentenceArrangement",
+              "vocabId": "tr_bir",
+              "payload": {
+                "prompt": "Build the sentence",
+                "shuffledChips": [
+                  "Ben",
+                  "dört",
+                  "yaşındayım"
+                ],
+                "correctSentence": [
+                  "Ben",
+                  "dört",
+                  "yaşındayım"
+                ],
+                "translation": "I am four years old"
+              }
+            },
+            {
+              "id": "tr_u3_l1_e9",
+              "type": "fillInTheBlank",
+              "vocabId": "tr_uc",
+              "payload": {
+                "prompt": "Complete the sentence",
+                "sentenceTemplate": "Ben ___ yaşındayım.",
+                "options": [
+                  "bir",
+                  "İki",
+                  "dört",
+                  "üç"
+                ],
+                "correctAnswer": "üç",
+                "translation": "I am three years old"
+              }
+            }
+          ]
+        },
+        {
+          "id": "tr_u3_l2",
+          "title": "Getting Around",
+          "subtitle": "Sol, Sağ, Düz, Sokak, İstasyon",
+          "icon": "directions",
+          "reviewVocabIds": [
+            "tr_nerede",
+            "tr_bu"
+          ],
+          "exercises": [
+            {
+              "id": "tr_u3_l2_e1",
+              "type": "imageRecognition",
+              "vocabId": "tr_sol",
+              "payload": {
+                "prompt": "What does this word mean?",
+                "emoji": "⬅️",
+                "targetWord": "Sol",
+                "meaning": "Left",
+                "distractorMeanings": [
+                  "Right",
+                  "Straight ahead",
+                  "Street"
+                ],
+                "distractorWords": [
+                  "Sağ",
+                  "Düz",
+                  "Sokak"
+                ]
+              }
+            },
+            {
+              "id": "tr_u3_l2_e2",
+              "type": "multipleChoice",
+              "vocabId": "tr_sag",
+              "payload": {
+                "prompt": "Which word means 'Right'?",
+                "options": [
+                  "Sağ",
+                  "Düz",
+                  "Sokak",
+                  "Sol"
+                ],
+                "correctIndex": 0
+              }
+            },
+            {
+              "id": "tr_u3_l2_e3",
+              "type": "listening",
+              "vocabId": "tr_duz",
+              "payload": {
+                "prompt": "Listen and select what you hear",
+                "audioText": "Düz",
+                "ttsLocale": "tr-TR",
+                "options": [
+                  "Sağ",
+                  "Sokak",
+                  "Düz",
+                  "Sol"
+                ],
+                "correctIndex": 2,
+                "translation": "Straight ahead"
+              }
+            },
+            {
+              "id": "tr_u3_l2_e4",
+              "type": "multipleChoice",
+              "vocabId": "tr_nerede",
+              "payload": {
+                "prompt": "Which word means 'Where is'?",
+                "options": [
+                  "Sağ",
+                  "Sol",
+                  "Nerede",
+                  "Düz"
+                ],
+                "correctIndex": 2
+              }
+            },
+            {
+              "id": "tr_u3_l2_e5",
+              "type": "translation",
+              "vocabId": "tr_sokak",
+              "payload": {
+                "prompt": "Type the English meaning",
+                "sourceText": "Sokak",
+                "acceptableAnswers": [
+                  "street",
+                  "Street"
+                ]
+              }
+            },
+            {
+              "id": "tr_u3_l2_e6",
+              "type": "speaking",
+              "vocabId": "tr_sol",
+              "payload": {
+                "prompt": "Say this phrase out loud",
+                "targetPhrase": "İstasyon nerede?",
+                "translation": "Where is the station?",
+                "ttsLocale": "tr-TR"
+              }
+            },
+            {
+              "id": "tr_u3_l2_e7",
+              "type": "wordMatching",
+              "vocabId": "tr_u3_l2_set",
+              "payload": {
+                "prompt": "Match each word to its meaning",
+                "pairs": [
+                  {
+                    "left": "Sol",
+                    "right": "Left"
+                  },
+                  {
+                    "left": "Sağ",
+                    "right": "Right"
+                  },
+                  {
+                    "left": "Düz",
+                    "right": "Straight ahead"
+                  },
+                  {
+                    "left": "Sokak",
+                    "right": "Street"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "tr_u3_l2_e8",
+              "type": "sentenceArrangement",
+              "vocabId": "tr_sol",
+              "payload": {
+                "prompt": "Build the sentence",
+                "shuffledChips": [
+                  "nerede",
+                  "Bu",
+                  "sokak"
+                ],
+                "correctSentence": [
+                  "Bu",
+                  "sokak",
+                  "nerede"
+                ],
+                "translation": "Where is this street?"
+              }
+            },
+            {
+              "id": "tr_u3_l2_e9",
+              "type": "fillInTheBlank",
+              "vocabId": "tr_istasyon",
+              "payload": {
+                "prompt": "Complete the sentence",
+                "sentenceTemplate": "Bu ___ nerede?",
+                "options": [
+                  "İstasyon",
+                  "sol",
+                  "sağ",
+                  "sokak"
+                ],
+                "correctAnswer": "İstasyon",
+                "translation": "Where is this station?"
+              }
+            }
+          ]
+        },
+        {
+          "id": "tr_u3_l3",
+          "title": "Travel Phrases",
+          "subtitle": "Havaalanı, Otel, Bilet, Tren, Bavul",
+          "icon": "travel",
+          "reviewVocabIds": [
+            "tr_yakin",
+            "tr_nerede",
+            "tr_bu",
+            "tr_bavul"
+          ],
+          "exercises": [
+            {
+              "id": "tr_u3_l3_e1",
+              "type": "imageRecognition",
+              "vocabId": "tr_havaalani",
+              "payload": {
+                "prompt": "What does this word mean?",
+                "emoji": "✈️",
+                "targetWord": "Havaalanı",
+                "meaning": "Airport",
+                "distractorMeanings": [
+                  "Hotel",
+                  "Ticket",
+                  "Train"
+                ],
+                "distractorWords": [
+                  "Otel",
+                  "Bilet",
+                  "Tren"
+                ]
+              }
+            },
+            {
+              "id": "tr_u3_l3_e2",
+              "type": "multipleChoice",
+              "vocabId": "tr_otel",
+              "payload": {
+                "prompt": "Which word means 'Hotel'?",
+                "options": [
+                  "Tren",
+                  "Otel",
+                  "Havaalanı",
+                  "Bilet"
+                ],
+                "correctIndex": 1
+              }
+            },
+            {
+              "id": "tr_u3_l3_e3",
+              "type": "listening",
+              "vocabId": "tr_bilet",
+              "payload": {
+                "prompt": "Listen and select what you hear",
+                "audioText": "Bilet",
+                "ttsLocale": "tr-TR",
+                "options": [
+                  "Havaalanı",
+                  "Tren",
+                  "Bilet",
+                  "Otel"
+                ],
+                "correctIndex": 2,
+                "translation": "Ticket"
+              }
+            },
+            {
+              "id": "tr_u3_l3_e4",
+              "type": "multipleChoice",
+              "vocabId": "tr_yakin",
+              "payload": {
+                "prompt": "Which word means 'Near'?",
+                "options": [
+                  "Otel",
+                  "Bilet",
+                  "Havaalanı",
+                  "Yakın"
+                ],
+                "correctIndex": 3
+              }
+            },
+            {
+              "id": "tr_u3_l3_e5",
+              "type": "translation",
+              "vocabId": "tr_tren",
+              "payload": {
+                "prompt": "Type the English meaning",
+                "sourceText": "Tren",
+                "acceptableAnswers": [
+                  "train",
+                  "Train"
+                ]
+              }
+            },
+            {
+              "id": "tr_u3_l3_e6",
+              "type": "speaking",
+              "vocabId": "tr_havaalani",
+              "payload": {
+                "prompt": "Say this phrase out loud",
+                "targetPhrase": "Tren yakın",
+                "translation": "The train is near",
+                "ttsLocale": "tr-TR"
+              }
+            },
+            {
+              "id": "tr_u3_l3_e7",
+              "type": "wordMatching",
+              "vocabId": "tr_u3_l3_set",
+              "payload": {
+                "prompt": "Match each word to its meaning",
+                "pairs": [
+                  {
+                    "left": "Havaalanı",
+                    "right": "Airport"
+                  },
+                  {
+                    "left": "Otel",
+                    "right": "Hotel"
+                  },
+                  {
+                    "left": "Bilet",
+                    "right": "Ticket"
+                  },
+                  {
+                    "left": "Tren",
+                    "right": "Train"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "tr_u3_l3_e8",
+              "type": "sentenceArrangement",
+              "vocabId": "tr_havaalani",
+              "payload": {
+                "prompt": "Build the sentence",
+                "shuffledChips": [
+                  "nerede",
+                  "tren",
+                  "Bu"
+                ],
+                "correctSentence": [
+                  "Bu",
+                  "tren",
+                  "nerede"
+                ],
+                "translation": "Where is this train?"
+              }
+            },
+            {
+              "id": "tr_u3_l3_e9",
+              "type": "fillInTheBlank",
+              "vocabId": "tr_otel",
+              "payload": {
+                "prompt": "Complete the sentence",
+                "sentenceTemplate": "Bu ___ yakın.",
+                "options": [
+                  "bavul",
+                  "otel",
+                  "tren",
+                  "bilet"
+                ],
+                "correctAnswer": "otel",
+                "translation": "This hotel is near"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "placementQuestions": [
+    {
+      "id": "p1",
+      "prompt": "What does 'Merhaba' mean?",
+      "options": [
+        "Goodbye",
+        "Hello",
+        "Thank you",
+        "Please"
+      ],
+      "correctIndex": 1,
+      "unlocksUnitIndex": 0
+    },
+    {
+      "id": "p2",
+      "prompt": "What does 'Lütfen' mean?",
+      "options": [
+        "Please",
+        "Good evening",
+        "Yes",
+        "No"
+      ],
+      "correctIndex": 0,
+      "unlocksUnitIndex": 0
+    },
+    {
+      "id": "p3",
+      "prompt": "What does 'İyi akşamlar' mean?",
+      "options": [
+        "Excuse me",
+        "You're welcome",
+        "Okay",
+        "Good evening"
+      ],
+      "correctIndex": 3,
+      "unlocksUnitIndex": 0
+    },
+    {
+      "id": "p4",
+      "prompt": "What does 'Anne' mean?",
+      "options": [
+        "Brother",
+        "Father",
+        "Mother",
+        "Sister"
+      ],
+      "correctIndex": 2,
+      "unlocksUnitIndex": 1
+    },
+    {
+      "id": "p5",
+      "prompt": "What does 'Erkek kardeş' mean?",
+      "options": [
+        "Grandmother",
+        "Bread",
+        "Water",
+        "Brother"
+      ],
+      "correctIndex": 3,
+      "unlocksUnitIndex": 1
+    },
+    {
+      "id": "p6",
+      "prompt": "What does 'Büyükanne' mean?",
+      "options": [
+        "Grandmother",
+        "Cheese",
+        "Milk",
+        "Apple"
+      ],
+      "correctIndex": 0,
+      "unlocksUnitIndex": 1
+    },
+    {
+      "id": "p7",
+      "prompt": "What does 'Bir' mean?",
+      "options": [
+        "Three",
+        "Four",
+        "Two",
+        "One"
+      ],
+      "correctIndex": 3,
+      "unlocksUnitIndex": 2
+    },
+    {
+      "id": "p8",
+      "prompt": "What does 'Üç' mean?",
+      "options": [
+        "Three",
+        "Right",
+        "Left",
+        "Five"
+      ],
+      "correctIndex": 0,
+      "unlocksUnitIndex": 2
+    }
+  ]
+}

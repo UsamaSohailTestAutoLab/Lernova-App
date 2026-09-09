@@ -1,0 +1,375 @@
+{
+  "id": "ja",
+  "name": "Japanese",
+  "description": "Learn conversational Japanese through short, focused lessons.",
+  "properNouns": ["アンナ", "ローザ"],
+  "units": [
+    {
+      "title": "Greetings & Basics",
+      "description": "Say hello and be polite",
+      "icon": "greeting",
+      "phraseCategory": "greetings",
+      "lessons": [
+        {
+          "title": "Say Hello",
+          "icon": "greeting",
+          "words": [
+            { "id": "konnichiwa", "w": "こんにちは", "en": "Hello", "emoji": "👋", "cat": "greetings" },
+            { "id": "arigatou", "w": "ありがとう", "en": "Thank you", "emoji": "🙏", "cat": "greetings" },
+            { "id": "onegaishimasu", "w": "おねがいします", "en": "Please", "emoji": "🙇", "cat": "greetings" },
+            { "id": "sayounara", "w": "さようなら", "en": "Goodbye", "emoji": "🙋", "cat": "greetings" },
+            { "id": "konbanwa", "w": "こんばんは", "en": "Good evening", "emoji": "🌙", "cat": "greetings" }
+          ],
+          "support": [
+            { "id": "watashiwa", "w": "わたしは", "en": "I am", "emoji": "🙋", "cat": "descriptions" },
+            { "id": "desu", "w": "です", "en": "It is", "emoji": "🟰", "cat": "descriptions" }
+          ],
+          "speak": { "phrase": "こんにちは わたしは アンナ です", "en": "Hello, I am Anna" },
+          "sentence": { "chips": ["わたしは", "アンナ", "です"], "en": "I am Anna" },
+          "fill": {
+            "template": "ありがとう、___。",
+            "answer": "さようなら",
+            "distractors": ["こんにちは", "おねがいします", "こんばんは"],
+            "en": "Thank you, goodbye",
+            "vocab": "sayounara"
+          }
+        },
+        {
+          "title": "Yes, No, Sorry",
+          "icon": "agreement",
+          "words": [
+            { "id": "hai", "w": "はい", "en": "Yes", "emoji": "✅", "cat": "greetings" },
+            { "id": "iie", "w": "いいえ", "en": "No", "emoji": "❌", "cat": "greetings" },
+            { "id": "sumimasen", "w": "すみません", "en": "Excuse me", "emoji": "🙋", "cat": "greetings" },
+            { "id": "douitashimashite", "w": "どういたしまして", "en": "You're welcome", "emoji": "🤝", "cat": "greetings" },
+            { "id": "daijoubu", "w": "だいじょうぶ", "en": "Okay", "emoji": "👍", "cat": "greetings" }
+          ],
+          "support": [
+            { "id": "tsukaremashita", "w": "つかれました", "en": "I am tired", "emoji": "😴", "cat": "descriptions" }
+          ],
+          "review": ["arigatou", "desu"],
+          "speak": { "phrase": "すみません、つかれました", "en": "Excuse me, I am tired" },
+          "sentence": { "chips": ["はい", "だいじょうぶ", "です"], "en": "Yes, it is okay" },
+          "fill": {
+            "template": "いいえ、___。",
+            "answer": "すみません",
+            "distractors": ["はい", "だいじょうぶ", "どういたしまして"],
+            "en": "No, excuse me",
+            "vocab": "sumimasen"
+          }
+        },
+        {
+          "title": "Polite Basics",
+          "icon": "manners",
+          "words": [
+            { "id": "shitsureishimasu", "w": "しつれいします", "en": "Excuse me please", "emoji": "🙇", "cat": "greetings" },
+            { "id": "oyasuminasai", "w": "おやすみなさい", "en": "Good night", "emoji": "😴", "cat": "greetings" },
+            { "id": "kanpai", "w": "かんぱい", "en": "Cheers", "emoji": "🥂", "cat": "greetings" },
+            { "id": "youkoso", "w": "ようこそ", "en": "Welcome", "emoji": "🎉", "cat": "greetings" },
+            { "id": "matane", "w": "またね", "en": "See you soon", "emoji": "👋", "cat": "greetings" }
+          ],
+          "support": [
+            { "id": "ogenkidesuka", "w": "おげんきですか", "en": "How are you", "emoji": "❓", "cat": "greetings" },
+            { "id": "soshite", "w": "そして", "en": "And", "emoji": "➕", "cat": "descriptions" },
+            { "id": "totemo", "w": "とても", "en": "Very", "emoji": "⭐", "cat": "descriptions" }
+          ],
+          "review": ["arigatou"],
+          "speak": { "phrase": "しつれいします、おげんきですか", "en": "Excuse me, how are you?" },
+          "sentence": { "chips": ["ようこそ", "そして", "おやすみなさい"], "en": "Welcome and good night" },
+          "fill": {
+            "template": "ありがとう、___。",
+            "answer": "またね",
+            "distractors": ["かんぱい", "ようこそ", "とても"],
+            "en": "Thank you, see you soon",
+            "vocab": "matane"
+          }
+        }
+      ]
+    },
+    {
+      "title": "Food & Family",
+      "description": "Talk about the people and meals you love",
+      "icon": "food",
+      "phraseCategory": "dining",
+      "lessons": [
+        {
+          "title": "Family Members",
+          "icon": "family",
+          "words": [
+            { "id": "okaasan", "w": "おかあさん", "en": "Mother", "emoji": "👩", "cat": "family" },
+            { "id": "otousan", "w": "おとうさん", "en": "Father", "emoji": "👨", "cat": "family" },
+            { "id": "oniisan", "w": "おにいさん", "en": "Brother", "emoji": "👦", "cat": "family" },
+            { "id": "oneesan", "w": "おねえさん", "en": "Sister", "emoji": "👧", "cat": "family" },
+            { "id": "obaasan", "w": "おばあさん", "en": "Grandmother", "emoji": "👵", "cat": "family" }
+          ],
+          "support": [
+            { "id": "watashino", "w": "わたしの", "en": "My", "emoji": "🫱", "cat": "descriptions" },
+            { "id": "wa", "w": "は", "en": "As for", "emoji": "📌", "cat": "descriptions" }
+          ],
+          "review": ["desu"],
+          "speak": { "phrase": "わたしの おねえさん は アンナ です", "en": "My sister is Anna" },
+          "sentence": { "chips": ["アンナ", "は", "わたしの", "おかあさん", "です"], "en": "Anna is my mother" },
+          "fill": {
+            "template": "わたしの ___ は ローザ です。",
+            "answer": "おばあさん",
+            "distractors": ["おかあさん", "おねえさん", "おとうさん"],
+            "en": "My grandmother is Rosa",
+            "vocab": "obaasan"
+          }
+        },
+        {
+          "title": "Food Basics",
+          "icon": "food",
+          "words": [
+            { "id": "pan", "w": "パン", "en": "Bread", "emoji": "🍞", "cat": "food" },
+            { "id": "mizu", "w": "みず", "en": "Water", "emoji": "💧", "cat": "food" },
+            { "id": "ringo", "w": "りんご", "en": "Apple", "emoji": "🍎", "cat": "food" },
+            { "id": "chiizu", "w": "チーズ", "en": "Cheese", "emoji": "🧀", "cat": "food" },
+            { "id": "gyuunyuu", "w": "ぎゅうにゅう", "en": "Milk", "emoji": "🥛", "cat": "food" }
+          ],
+          "support": [
+            { "id": "hoshiidesu", "w": "ほしいです", "en": "I want", "emoji": "🙋", "cat": "food" },
+            { "id": "wo", "w": "を", "en": "Object marker", "emoji": "📌", "cat": "descriptions" }
+          ],
+          "review": ["onegaishimasu"],
+          "speak": { "phrase": "パン を ほしいです、おねがいします", "en": "I want bread, please" },
+          "sentence": { "chips": ["チーズ", "を", "ほしいです"], "en": "I want cheese" },
+          "fill": {
+            "template": "___ を ほしいです。",
+            "answer": "ぎゅうにゅう",
+            "distractors": ["パン", "チーズ", "みず"],
+            "en": "I want milk",
+            "vocab": "gyuunyuu"
+          }
+        },
+        {
+          "title": "At the Table",
+          "icon": "table",
+          "words": [
+            { "id": "teeburu", "w": "テーブル", "en": "Table", "emoji": "🍽️", "cat": "home" },
+            { "id": "osara", "w": "おさら", "en": "Plate", "emoji": "🍽️", "cat": "home" },
+            { "id": "koppu", "w": "コップ", "en": "Glass", "emoji": "🥛", "cat": "home" },
+            { "id": "fooku", "w": "フォーク", "en": "Fork", "emoji": "🍴", "cat": "home" },
+            { "id": "naifu", "w": "ナイフ", "en": "Knife", "emoji": "🔪", "cat": "home" }
+          ],
+          "support": [
+            { "id": "ueni", "w": "うえに", "en": "On top", "emoji": "📍", "cat": "descriptions" },
+            { "id": "no", "w": "の", "en": "Of", "emoji": "📌", "cat": "descriptions" },
+            { "id": "arimasu", "w": "あります", "en": "There is", "emoji": "🟰", "cat": "descriptions" }
+          ],
+          "review": ["wa"],
+          "speak": { "phrase": "コップ は テーブル の うえに あります", "en": "The glass is on the table" },
+          "sentence": {
+            "chips": ["フォーク", "は", "テーブル", "の", "うえに", "あります"],
+            "en": "The fork is on the table"
+          },
+          "fill": {
+            "template": "___ は テーブル の うえに あります。",
+            "answer": "ナイフ",
+            "distractors": ["コップ", "おさら", "フォーク"],
+            "en": "The knife is on the table",
+            "vocab": "naifu"
+          }
+        }
+      ]
+    },
+    {
+      "title": "Numbers & Travel",
+      "description": "Count, navigate, and travel with confidence",
+      "icon": "travel",
+      "phraseCategory": "travel",
+      "lessons": [
+        {
+          "title": "Numbers 1-10",
+          "icon": "numbers",
+          "words": [
+            { "id": "ichi", "w": "いち", "en": "One", "emoji": "1️⃣", "cat": "numbers" },
+            { "id": "ni", "w": "に", "en": "Two", "emoji": "2️⃣", "cat": "numbers" },
+            { "id": "san", "w": "さん", "en": "Three", "emoji": "3️⃣", "cat": "numbers" },
+            { "id": "yon", "w": "よん", "en": "Four", "emoji": "4️⃣", "cat": "numbers" },
+            { "id": "go", "w": "ご", "en": "Five", "emoji": "5️⃣", "cat": "numbers" }
+          ],
+          "support": [
+            { "id": "sai", "w": "さい", "en": "Years old", "emoji": "🎂", "cat": "numbers" }
+          ],
+          "review": ["desu", "watashiwa"],
+          "speak": { "phrase": "ご さい です", "en": "I am five years old" },
+          "sentence": { "chips": ["よん", "さい", "です"], "en": "I am four years old" },
+          "fill": {
+            "template": "___ さい です。",
+            "answer": "さん",
+            "distractors": ["いち", "に", "よん"],
+            "en": "I am three years old",
+            "vocab": "san"
+          }
+        },
+        {
+          "title": "Getting Around",
+          "icon": "directions",
+          "words": [
+            { "id": "hidari", "w": "ひだり", "en": "Left", "emoji": "⬅️", "cat": "travel" },
+            { "id": "migi", "w": "みぎ", "en": "Right", "emoji": "➡️", "cat": "travel" },
+            { "id": "massugu", "w": "まっすぐ", "en": "Straight ahead", "emoji": "⬆️", "cat": "travel" },
+            { "id": "michi", "w": "みち", "en": "Street", "emoji": "🛣️", "cat": "travel" },
+            { "id": "eki", "w": "えき", "en": "Station", "emoji": "🚉", "cat": "travel" }
+          ],
+          "support": [
+            { "id": "dokodesuka", "w": "どこですか", "en": "Where is it", "emoji": "❓", "cat": "travel" }
+          ],
+          "review": ["wa", "desu"],
+          "speak": { "phrase": "えき は どこですか", "en": "Where is the station?" },
+          "sentence": { "chips": ["みち", "は", "どこですか"], "en": "Where is the street?" },
+          "fill": {
+            "template": "えき は ___ です。",
+            "answer": "ひだり",
+            "distractors": ["みぎ", "まっすぐ", "みち"],
+            "en": "The station is on the left",
+            "vocab": "hidari"
+          }
+        },
+        {
+          "title": "Travel Phrases",
+          "icon": "travel",
+          "words": [
+            { "id": "kuukou", "w": "くうこう", "en": "Airport", "emoji": "✈️", "cat": "travel" },
+            { "id": "hoteru", "w": "ホテル", "en": "Hotel", "emoji": "🏨", "cat": "travel" },
+            { "id": "kippu", "w": "きっぷ", "en": "Ticket", "emoji": "🎫", "cat": "travel" },
+            { "id": "densha", "w": "でんしゃ", "en": "Train", "emoji": "🚆", "cat": "travel" },
+            { "id": "suutsukeesu", "w": "スーツケース", "en": "Suitcase", "emoji": "🧳", "cat": "travel" }
+          ],
+          "support": [
+            { "id": "chikaidesu", "w": "ちかいです", "en": "It is near", "emoji": "📍", "cat": "travel" }
+          ],
+          "review": ["wa", "dokodesuka"],
+          "speak": { "phrase": "でんしゃ は ちかいです", "en": "The train is near" },
+          "sentence": { "chips": ["でんしゃ", "は", "どこですか"], "en": "Where is the train?" },
+          "fill": {
+            "template": "___ は ちかいです。",
+            "answer": "ホテル",
+            "distractors": ["でんしゃ", "きっぷ", "くうこう"],
+            "en": "The hotel is near",
+            "vocab": "hoteru"
+          }
+        }
+      ]
+    }
+  ],
+  "extraVocab": [
+    { "id": "akai", "w": "あかい", "en": "Red", "emoji": "🔴", "cat": "colors" },
+    { "id": "aoi", "w": "あおい", "en": "Blue", "emoji": "🔵", "cat": "colors" },
+    { "id": "midori", "w": "みどり", "en": "Green", "emoji": "🟢", "cat": "colors" },
+    { "id": "kiiro", "w": "きいろ", "en": "Yellow", "emoji": "🟡", "cat": "colors" },
+    { "id": "kuroi", "w": "くろい", "en": "Black", "emoji": "⚫", "cat": "colors" },
+    { "id": "shiroi", "w": "しろい", "en": "White", "emoji": "⚪", "cat": "colors" },
+    { "id": "inu", "w": "いぬ", "en": "Dog", "emoji": "🐕", "cat": "animals" },
+    { "id": "neko", "w": "ねこ", "en": "Cat", "emoji": "🐈", "cat": "animals" },
+    { "id": "tori", "w": "とり", "en": "Bird", "emoji": "🐦", "cat": "animals" },
+    { "id": "sakana", "w": "さかな", "en": "Fish", "emoji": "🐟", "cat": "animals" },
+    { "id": "uma", "w": "うま", "en": "Horse", "emoji": "🐴", "cat": "animals" },
+    { "id": "ushi", "w": "うし", "en": "Cow", "emoji": "🐄", "cat": "animals" },
+    { "id": "roku", "w": "ろく", "en": "Six", "emoji": "6️⃣", "cat": "numbers" },
+    { "id": "nana", "w": "なな", "en": "Seven", "emoji": "7️⃣", "cat": "numbers" },
+    { "id": "hachi", "w": "はち", "en": "Eight", "emoji": "8️⃣", "cat": "numbers" },
+    { "id": "kyuu", "w": "きゅう", "en": "Nine", "emoji": "9️⃣", "cat": "numbers" },
+    { "id": "juu", "w": "じゅう", "en": "Ten", "emoji": "🔟", "cat": "numbers" },
+    { "id": "ie", "w": "いえ", "en": "House", "emoji": "🏠", "cat": "home" },
+    { "id": "doa", "w": "ドア", "en": "Door", "emoji": "🚪", "cat": "home" },
+    { "id": "mado", "w": "まど", "en": "Window", "emoji": "🪟", "cat": "home" },
+    { "id": "isu", "w": "いす", "en": "Chair", "emoji": "🪑", "cat": "home" },
+    { "id": "beddo", "w": "ベッド", "en": "Bed", "emoji": "🛏️", "cat": "home" },
+    { "id": "koohii", "w": "コーヒー", "en": "Coffee", "emoji": "☕", "cat": "food" },
+    { "id": "ocha", "w": "おちゃ", "en": "Tea", "emoji": "🍵", "cat": "food" },
+    { "id": "toriniku", "w": "とりにく", "en": "Chicken", "emoji": "🍗", "cat": "food" },
+    { "id": "ookii", "w": "おおきい", "en": "Big", "emoji": "🐘", "cat": "descriptions" },
+    { "id": "chiisai", "w": "ちいさい", "en": "Small", "emoji": "🐁", "cat": "descriptions" },
+    { "id": "atsui", "w": "あつい", "en": "Hot", "emoji": "🔥", "cat": "descriptions" },
+    { "id": "samui", "w": "さむい", "en": "Cold", "emoji": "❄️", "cat": "descriptions" },
+    { "id": "ii", "w": "いい", "en": "Good", "emoji": "👍", "cat": "descriptions" }
+  ],
+  "conversations": [
+    {
+      "id": "cafe",
+      "title": "At the Café",
+      "scenario": "You are ordering a coffee at a café.",
+      "turns": [
+        {
+          "line": "こんにちは！なに が いいですか",
+          "lineEn": "Hello! What would you like?",
+          "options": ["コーヒー を ほしいです、おねがいします", "こんにちは、さようなら", "いぬ が います"],
+          "optionsEn": ["I want a coffee, please", "Hello, goodbye", "I have a dog"],
+          "correctIndex": 0
+        },
+        {
+          "line": "ほか に なにか ありますか",
+          "lineEn": "Anything else?",
+          "options": ["いいえ、ありがとう", "はい、ねこ を ほしいです", "おやすみなさい"],
+          "optionsEn": ["No, thank you", "Yes, I want a cat", "Good night"],
+          "correctIndex": 0
+        },
+        {
+          "line": "コーヒー です。いい ひ を！",
+          "lineEn": "Here is your coffee. Have a nice day!",
+          "options": ["ありがとう、さようなら", "えき は どこですか", "ご さい です"],
+          "optionsEn": ["Thank you, goodbye", "Where is the station?", "I am five years old"],
+          "correctIndex": 0
+        }
+      ]
+    },
+    {
+      "id": "directions",
+      "title": "Asking Directions",
+      "scenario": "You are lost and need to find the station.",
+      "turns": [
+        {
+          "line": "こんにちは、てつだいましょうか",
+          "lineEn": "Hello, can I help you?",
+          "options": ["えき は どこですか", "チーズ を ほしいです", "わたしの おかあさん は アンナ です"],
+          "optionsEn": ["Where is the station?", "I want cheese", "My mother is Anna"],
+          "correctIndex": 0
+        },
+        {
+          "line": "まっすぐ、そして ひだり です",
+          "lineEn": "Straight ahead, then left.",
+          "options": ["ありがとう", "いいえ、すみません", "よん さい です"],
+          "optionsEn": ["Thank you", "No, excuse me", "I am four years old"],
+          "correctIndex": 0
+        },
+        {
+          "line": "とても ちかいです。いい たび を！",
+          "lineEn": "It is very near. Have a good trip!",
+          "options": ["ありがとう、またね", "ナイフ は テーブル の うえに あります", "ようこそ"],
+          "optionsEn": ["Thank you, see you soon", "The knife is on the table", "Welcome"],
+          "correctIndex": 0
+        }
+      ]
+    },
+    {
+      "id": "hotel",
+      "title": "Hotel Check-in",
+      "scenario": "You are checking in at a hotel.",
+      "turns": [
+        {
+          "line": "こんばんは、よやく が ありますか",
+          "lineEn": "Good evening, do you have a reservation?",
+          "options": ["はい、わたしは アンナ です", "いいえ、うま が います", "コップ は テーブル の うえに あります"],
+          "optionsEn": ["Yes, I am Anna", "No, I have a horse", "The glass is on the table"],
+          "correctIndex": 0
+        },
+        {
+          "line": "かぎ です。さん の へや です",
+          "lineEn": "Here is the key. Room three.",
+          "options": ["ありがとう、だいじょうぶ です", "りんご は どこですか", "いぬ が じゅう います"],
+          "optionsEn": ["Thank you, that is okay", "Where is the apple?", "I have ten dogs"],
+          "correctIndex": 0
+        },
+        {
+          "line": "あさごはん は なな じ です",
+          "lineEn": "Breakfast is at seven.",
+          "options": ["とても いい、おやすみなさい", "すみません、つかれました", "ようこそ そして ありがとう"],
+          "optionsEn": ["Very good, good night", "Excuse me, I am tired", "Welcome and thank you"],
+          "correctIndex": 0
+        }
+      ]
+    }
+  ]
+}

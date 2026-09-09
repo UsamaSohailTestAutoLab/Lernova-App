@@ -42,6 +42,7 @@ class LocalStorageService {
     final service = LocalStorageService(prefs);
     await service._migrateLegacySingleProfileIfNeeded();
     await service._adoptExistingProfile();
+    await service._claimLegacyFunProgressForSelectedLanguage();
     return service;
   }
 
@@ -126,19 +127,62 @@ class LocalStorageService {
     return AppSettings.fromJson(jsonDecode(raw) as Map<String, dynamic>);
   }
 
-  // Fun progress (per active account)
-  Future<void> saveFunProgress(FunProgress progress) {
+  // Fun progress (per active account, per language).
+  //
+  // Fun levels are earned against one language's vocabulary, so unlike
+  // [UserProgress] — which mixes account-level XP and streak in with
+  // course progress — there is nothing here worth carrying across a
+  // language switch. Each language just gets its own key, and switching
+  // is a matter of reading a different one.
+  String _funProgressKey(String accountId, String? languageId) =>
+      languageId == null
+          ? 'lernova.fun_progress.$accountId'
+          : 'lernova.fun_progress.$accountId.$languageId';
+
+  Future<void> saveFunProgress(FunProgress progress, {String? languageId}) {
     final id = _activeAccountId;
     if (id == null) return Future.value();
-    return _prefs.setString('lernova.fun_progress.$id', jsonEncode(progress.toJson()));
+    return _prefs.setString(
+      _funProgressKey(id, languageId),
+      jsonEncode(progress.toJson()),
+    );
   }
 
-  FunProgress? loadFunProgress() {
+  FunProgress? loadFunProgress({String? languageId}) {
     final id = _activeAccountId;
     if (id == null) return null;
-    final raw = _prefs.getString('lernova.fun_progress.$id');
+    final raw = _prefs.getString(_funProgressKey(id, languageId));
     if (raw == null) return null;
     return FunProgress.fromJson(jsonDecode(raw) as Map<String, dynamic>);
+  }
+
+  /// Runs [claimLegacyFunProgress] for whichever language the stored
+  /// profile was learning. Startup is the only place this can happen
+  /// correctly: it needs the profile, and it has to finish before any
+  /// controller reads Fun progress.
+  Future<void> _claimLegacyFunProgressForSelectedLanguage() async {
+    final languageId = loadUser()?.selectedLanguageId;
+    if (languageId == null) return;
+    await claimLegacyFunProgress(languageId);
+  }
+
+  /// Files the pre-multi-language Fun blob under the language it was
+  /// actually earned in, so an existing player's Word Rush levels
+  /// survive the upgrade instead of resetting to 1.
+  ///
+  /// Runs once: after the move the un-suffixed key is gone, and a
+  /// language that already has its own key is never overwritten.
+  Future<void> claimLegacyFunProgress(String languageId) async {
+    final id = _activeAccountId;
+    if (id == null) return;
+    final legacyKey = _funProgressKey(id, null);
+    final raw = _prefs.getString(legacyKey);
+    if (raw == null) return;
+    final scopedKey = _funProgressKey(id, languageId);
+    if (_prefs.getString(scopedKey) == null) {
+      await _prefs.setString(scopedKey, raw);
+    }
+    await _prefs.remove(legacyKey);
   }
 
   // Onboarding (per active account)

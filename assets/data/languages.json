@@ -1,4 +1,12 @@
 [
   { "id": "es", "name": "Spanish", "nativeName": "Español", "flagEmoji": "🇪🇸" },
-  { "id": "fr", "name": "French", "nativeName": "Français", "flagEmoji": "🇫🇷" }
+  { "id": "fr", "name": "French", "nativeName": "Français", "flagEmoji": "🇫🇷" },
+  { "id": "de", "name": "German", "nativeName": "Deutsch", "flagEmoji": "🇩🇪" },
+  { "id": "it", "name": "Italian", "nativeName": "Italiano", "flagEmoji": "🇮🇹" },
+  { "id": "pt", "name": "Portuguese", "nativeName": "Português", "flagEmoji": "🇵🇹" },
+  { "id": "nl", "name": "Dutch", "nativeName": "Nederlands", "flagEmoji": "🇳🇱" },
+  { "id": "tr", "name": "Turkish", "nativeName": "Türkçe", "flagEmoji": "🇹🇷" },
+  { "id": "ar", "name": "Arabic", "nativeName": "العربية", "flagEmoji": "🇸🇦" },
+  { "id": "ja", "name": "Japanese", "nativeName": "日本語", "flagEmoji": "🇯🇵" },
+  { "id": "zh", "name": "Chinese", "nativeName": "中文", "flagEmoji": "🇨🇳" }
 ]

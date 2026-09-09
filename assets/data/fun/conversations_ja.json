@@ -1,0 +1,170 @@
+[
+  {
+    "id": "ja_conv_cafe",
+    "title": "At the Café",
+    "scenario": "You are ordering a coffee at a café.",
+    "languageId": "ja",
+    "turns": [
+      {
+        "id": "ja_conv_cafe_t1",
+        "line": "こんにちは！なに が いいですか",
+        "lineEnglish": "Hello! What would you like?",
+        "options": [
+          "コーヒー を ほしいです、おねがいします",
+          "こんにちは、さようなら",
+          "いぬ が います"
+        ],
+        "optionsEnglish": [
+          "I want a coffee, please",
+          "Hello, goodbye",
+          "I have a dog"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "ja_conv_cafe_t2",
+        "line": "ほか に なにか ありますか",
+        "lineEnglish": "Anything else?",
+        "options": [
+          "いいえ、ありがとう",
+          "はい、ねこ を ほしいです",
+          "おやすみなさい"
+        ],
+        "optionsEnglish": [
+          "No, thank you",
+          "Yes, I want a cat",
+          "Good night"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "ja_conv_cafe_t3",
+        "line": "コーヒー です。いい ひ を！",
+        "lineEnglish": "Here is your coffee. Have a nice day!",
+        "options": [
+          "ありがとう、さようなら",
+          "えき は どこですか",
+          "ご さい です"
+        ],
+        "optionsEnglish": [
+          "Thank you, goodbye",
+          "Where is the station?",
+          "I am five years old"
+        ],
+        "correctIndex": 0
+      }
+    ]
+  },
+  {
+    "id": "ja_conv_directions",
+    "title": "Asking Directions",
+    "scenario": "You are lost and need to find the station.",
+    "languageId": "ja",
+    "turns": [
+      {
+        "id": "ja_conv_directions_t1",
+        "line": "こんにちは、てつだいましょうか",
+        "lineEnglish": "Hello, can I help you?",
+        "options": [
+          "えき は どこですか",
+          "チーズ を ほしいです",
+          "わたしの おかあさん は アンナ です"
+        ],
+        "optionsEnglish": [
+          "Where is the station?",
+          "I want cheese",
+          "My mother is Anna"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "ja_conv_directions_t2",
+        "line": "まっすぐ、そして ひだり です",
+        "lineEnglish": "Straight ahead, then left.",
+        "options": [
+          "ありがとう",
+          "いいえ、すみません",
+          "よん さい です"
+        ],
+        "optionsEnglish": [
+          "Thank you",
+          "No, excuse me",
+          "I am four years old"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "ja_conv_directions_t3",
+        "line": "とても ちかいです。いい たび を！",
+        "lineEnglish": "It is very near. Have a good trip!",
+        "options": [
+          "ありがとう、またね",
+          "ナイフ は テーブル の うえに あります",
+          "ようこそ"
+        ],
+        "optionsEnglish": [
+          "Thank you, see you soon",
+          "The knife is on the table",
+          "Welcome"
+        ],
+        "correctIndex": 0
+      }
+    ]
+  },
+  {
+    "id": "ja_conv_hotel",
+    "title": "Hotel Check-in",
+    "scenario": "You are checking in at a hotel.",
+    "languageId": "ja",
+    "turns": [
+      {
+        "id": "ja_conv_hotel_t1",
+        "line": "こんばんは、よやく が ありますか",
+        "lineEnglish": "Good evening, do you have a reservation?",
+        "options": [
+          "はい、わたしは アンナ です",
+          "いいえ、うま が います",
+          "コップ は テーブル の うえに あります"
+        ],
+        "optionsEnglish": [
+          "Yes, I am Anna",
+          "No, I have a horse",
+          "The glass is on the table"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "ja_conv_hotel_t2",
+        "line": "かぎ です。さん の へや です",
+        "lineEnglish": "Here is the key. Room three.",
+        "options": [
+          "ありがとう、だいじょうぶ です",
+          "りんご は どこですか",
+          "いぬ が じゅう います"
+        ],
+        "optionsEnglish": [
+          "Thank you, that is okay",
+          "Where is the apple?",
+          "I have ten dogs"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "ja_conv_hotel_t3",
+        "line": "あさごはん は なな じ です",
+        "lineEnglish": "Breakfast is at seven.",
+        "options": [
+          "とても いい、おやすみなさい",
+          "すみません、つかれました",
+          "ようこそ そして ありがとう"
+        ],
+        "optionsEnglish": [
+          "Very good, good night",
+          "Excuse me, I am tired",
+          "Welcome and thank you"
+        ],
+        "correctIndex": 0
+      }
+    ]
+  }
+]

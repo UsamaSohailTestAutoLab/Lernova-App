@@ -80,11 +80,36 @@ void main() {
       expect(level100.fallDuration.inMilliseconds, 6000);
     });
 
-    test('Word Rush fall duration still ramps up and never drops below its floor', () {
-      final rush1 = FunLevelCatalog.configFor(1, mode: FunGameMode.wordRush);
-      final rush100 = FunLevelCatalog.configFor(100, mode: FunGameMode.wordRush);
-      expect(rush100.fallDuration.inMilliseconds, lessThan(rush1.fallDuration.inMilliseconds));
-      expect(rush100.fallDuration.inMilliseconds, greaterThanOrEqualTo(1300));
+    // Word Rush used to get faster every level, down to a 1300ms floor
+    // that left barely a second to read a word — failure came from not
+    // seeing it rather than not knowing it. Progression is round length
+    // now, like every other mode.
+    test('Word Rush stays at one speed at every level', () {
+      for (final level in [1, 2, 8, 100]) {
+        expect(
+          FunLevelCatalog.configFor(level, mode: FunGameMode.wordRush)
+              .fallDuration
+              .inMilliseconds,
+          FunLevelCatalog.rushFallMs,
+          reason: 'level $level',
+        );
+      }
+    });
+
+    test('Word Rush gets longer instead, and never past the word bank', () {
+      final counts = [1, 2, 3, 8]
+          .map((l) => FunLevelCatalog.configFor(l, mode: FunGameMode.wordRush).wordCount)
+          .toList();
+
+      expect(counts.first, 14, reason: 'level 1 is unchanged');
+      // Strictly increasing.
+      for (var i = 1; i < counts.length; i++) {
+        expect(counts[i], greaterThan(counts[i - 1]));
+      }
+      expect(
+        FunLevelCatalog.configFor(100, mode: FunGameMode.wordRush).wordCount,
+        FunLevelCatalog.maxWordsPerRound,
+      );
     });
 
     test('lives scale up with word count so longer rounds stay survivable', () {
@@ -99,9 +124,15 @@ void main() {
       expect(lives, sorted);
     });
 
-    test('Word Rush keeps a fixed 3 lives regardless of level', () {
-      expect(FunLevelCatalog.configFor(1, mode: FunGameMode.wordRush).maxLives, 3);
-      expect(FunLevelCatalog.configFor(20, mode: FunGameMode.wordRush).maxLives, 3);
+    // Lives follow round length here too now that Word Rush rounds grow:
+    // three lives across fourteen words is brisk, three across sixty is
+    // a coin toss.
+    test('Word Rush lives scale with its round length', () {
+      final short = FunLevelCatalog.configFor(1, mode: FunGameMode.wordRush);
+      final long = FunLevelCatalog.configFor(20, mode: FunGameMode.wordRush);
+
+      expect(long.wordCount, greaterThan(short.wordCount));
+      expect(long.maxLives, greaterThan(short.maxLives));
     });
 
     test('question types unlock cumulatively as level increases', () {

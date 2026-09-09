@@ -1,0 +1,170 @@
+[
+  {
+    "id": "fr_conv_cafe",
+    "title": "At the Café",
+    "scenario": "You are ordering a coffee at a café.",
+    "languageId": "fr",
+    "turns": [
+      {
+        "id": "fr_conv_cafe_t1",
+        "line": "Bonjour ! Qu'est-ce que vous voulez ?",
+        "lineEnglish": "Hello! What would you like?",
+        "options": [
+          "Je veux un café, s'il vous plaît",
+          "Bonjour, au revoir",
+          "J'ai un chien"
+        ],
+        "optionsEnglish": [
+          "I want a coffee, please",
+          "Hello, goodbye",
+          "I have a dog"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "fr_conv_cafe_t2",
+        "line": "Autre chose ?",
+        "lineEnglish": "Anything else?",
+        "options": [
+          "Non, merci",
+          "Oui, je veux un chat",
+          "Bonne nuit"
+        ],
+        "optionsEnglish": [
+          "No, thank you",
+          "Yes, I want a cat",
+          "Good night"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "fr_conv_cafe_t3",
+        "line": "Voilà votre café. Bonne journée !",
+        "lineEnglish": "Here is your coffee. Have a good day!",
+        "options": [
+          "Merci, au revoir",
+          "Où est la gare ?",
+          "J'ai cinq ans"
+        ],
+        "optionsEnglish": [
+          "Thank you, goodbye",
+          "Where is the station?",
+          "I am five years old"
+        ],
+        "correctIndex": 0
+      }
+    ]
+  },
+  {
+    "id": "fr_conv_directions",
+    "title": "Asking Directions",
+    "scenario": "You are lost and need to find the station.",
+    "languageId": "fr",
+    "turns": [
+      {
+        "id": "fr_conv_directions_t1",
+        "line": "Bonjour, je peux vous aider ?",
+        "lineEnglish": "Hello, can I help you?",
+        "options": [
+          "Où est la gare, s'il vous plaît ?",
+          "Je veux du fromage",
+          "Ma mère est Anna"
+        ],
+        "optionsEnglish": [
+          "Where is the station, please?",
+          "I want some cheese",
+          "My mother is Anna"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "fr_conv_directions_t2",
+        "line": "C'est tout droit, puis à gauche.",
+        "lineEnglish": "It is straight ahead, then on the left.",
+        "options": [
+          "Merci beaucoup",
+          "Non, pardon",
+          "J'ai quatre ans"
+        ],
+        "optionsEnglish": [
+          "Thank you very much",
+          "No, sorry",
+          "I am four years old"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "fr_conv_directions_t3",
+        "line": "C'est près d'ici. Bon voyage !",
+        "lineEnglish": "It is near here. Have a good trip!",
+        "options": [
+          "Merci, à bientôt",
+          "Le couteau est sur la table",
+          "Bienvenue"
+        ],
+        "optionsEnglish": [
+          "Thank you, see you soon",
+          "The knife is on the table",
+          "Welcome"
+        ],
+        "correctIndex": 0
+      }
+    ]
+  },
+  {
+    "id": "fr_conv_hotel",
+    "title": "Hotel Check-in",
+    "scenario": "You are checking in at a hotel.",
+    "languageId": "fr",
+    "turns": [
+      {
+        "id": "fr_conv_hotel_t1",
+        "line": "Bonsoir, vous avez une réservation ?",
+        "lineEnglish": "Good evening, do you have a reservation?",
+        "options": [
+          "Oui, je m'appelle Anna",
+          "Non, j'ai un cheval",
+          "Le verre est sur la table"
+        ],
+        "optionsEnglish": [
+          "Yes, my name is Anna",
+          "No, I have a horse",
+          "The glass is on the table"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "fr_conv_hotel_t2",
+        "line": "Voici votre clé. Chambre trois.",
+        "lineEnglish": "Here is your key. Room three.",
+        "options": [
+          "Merci, d'accord",
+          "Où est la pomme ?",
+          "J'ai dix chiens"
+        ],
+        "optionsEnglish": [
+          "Thank you, okay",
+          "Where is the apple?",
+          "I have ten dogs"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "fr_conv_hotel_t3",
+        "line": "Le petit déjeuner est à sept heures.",
+        "lineEnglish": "Breakfast is at seven o'clock.",
+        "options": [
+          "Très bien, bonne nuit",
+          "Pardon, je suis désolé",
+          "Bienvenue et merci"
+        ],
+        "optionsEnglish": [
+          "Very good, good night",
+          "Excuse me, I am sorry",
+          "Welcome and thank you"
+        ],
+        "correctIndex": 0
+      }
+    ]
+  }
+]

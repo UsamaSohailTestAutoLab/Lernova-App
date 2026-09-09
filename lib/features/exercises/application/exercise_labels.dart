@@ -20,6 +20,56 @@ String correctAnswerLabel(Exercise exercise) {
   };
 }
 
+/// An English gloss shown beneath a correct answer, with the wording
+/// that actually fits it.
+class AnswerMeaning {
+  /// 'Means' where the gloss translates the answer itself; 'Full
+  /// sentence' where the answer is one word of a longer sentence and the
+  /// gloss covers the whole thing.
+  final String label;
+  final String text;
+
+  const AnswerMeaning({required this.label, required this.text});
+}
+
+/// The English meaning of [correctAnswerLabel], when the correct answer
+/// is in the learning language and nothing else on screen says what it
+/// means — null when a gloss would just repeat what the learner can
+/// already read.
+///
+/// Getting a question wrong is the moment the meaning matters most:
+/// "Correct answer: El aeropuerto está cerca" teaches word order and
+/// nothing else if you don't already know the sentence. The types that
+/// return null do so for a reason:
+///
+///  * multiple choice asks "Which word means 'X'?" — the English is the
+///    question,
+///  * translation and meaning-first image recall are *answered* in
+///    English,
+///  * a matching set already shows both sides of every pair.
+AnswerMeaning? correctAnswerMeaning(Exercise exercise) {
+  final payload = exercise.payload;
+  // Fill-in-the-blank is the one type whose answer is a *fragment* — the
+  // gloss translates the sentence it slots into, so "Means: …" under the
+  // single word "abuela" would be claiming that word means the whole
+  // sentence.
+  final label =
+      payload is FillInTheBlankPayload ? 'Full sentence' : 'Means';
+  final meaning = switch (payload) {
+    MultipleChoicePayload _ => null,
+    TranslationPayload _ => null,
+    WordMatchingPayload _ => null,
+    ImageRecognitionPayload p => p.hasMeaning ? null : p.meaning,
+    SpeakingPayload p => p.translation,
+    ListeningPayload p => p.translation,
+    SentenceArrangementPayload p => p.translation,
+    FillInTheBlankPayload p => p.translation,
+  };
+  final trimmed = meaning?.trim();
+  if (trimmed == null || trimmed.isEmpty) return null;
+  return AnswerMeaning(label: label, text: trimmed);
+}
+
 /// What the learner was asked, in one line — the question as it appeared,
 /// paired with the word it was about so a review row reads on its own.
 String promptLabel(Exercise exercise) {

@@ -1,0 +1,1659 @@
+{
+  "id": "course_it",
+  "languageId": "it",
+  "title": "Italian",
+  "description": "Learn conversational Italian through short, focused lessons.",
+  "units": [
+    {
+      "id": "it_u1",
+      "title": "Greetings & Basics",
+      "description": "Say hello and be polite",
+      "icon": "greeting",
+      "accent": "green",
+      "lessons": [
+        {
+          "id": "it_u1_l1",
+          "title": "Say Hello",
+          "subtitle": "Ciao, Grazie, Per favore, Arrivederci, Buonasera",
+          "icon": "greeting",
+          "reviewVocabIds": [
+            "it_mi_chiamo",
+            "it_e_cong",
+            "it_buonasera"
+          ],
+          "exercises": [
+            {
+              "id": "it_u1_l1_e1",
+              "type": "imageRecognition",
+              "vocabId": "it_ciao",
+              "payload": {
+                "prompt": "What does this word mean?",
+                "emoji": "👋",
+                "targetWord": "Ciao",
+                "meaning": "Hello",
+                "distractorMeanings": [
+                  "Thank you",
+                  "Please",
+                  "Goodbye"
+                ],
+                "distractorWords": [
+                  "Grazie",
+                  "Per favore",
+                  "Arrivederci"
+                ]
+              }
+            },
+            {
+              "id": "it_u1_l1_e2",
+              "type": "multipleChoice",
+              "vocabId": "it_grazie",
+              "payload": {
+                "prompt": "Which word means 'Thank you'?",
+                "options": [
+                  "Ciao",
+                  "Arrivederci",
+                  "Grazie",
+                  "Per favore"
+                ],
+                "correctIndex": 2
+              }
+            },
+            {
+              "id": "it_u1_l1_e3",
+              "type": "listening",
+              "vocabId": "it_per_favore",
+              "payload": {
+                "prompt": "Listen and select what you hear",
+                "audioText": "Per favore",
+                "ttsLocale": "it-IT",
+                "options": [
+                  "Ciao",
+                  "Per favore",
+                  "Arrivederci",
+                  "Grazie"
+                ],
+                "correctIndex": 1,
+                "translation": "Please"
+              }
+            },
+            {
+              "id": "it_u1_l1_e4",
+              "type": "multipleChoice",
+              "vocabId": "it_mi_chiamo",
+              "payload": {
+                "prompt": "Which word means 'My name is'?",
+                "options": [
+                  "Ciao",
+                  "Grazie",
+                  "Per favore",
+                  "Mi chiamo"
+                ],
+                "correctIndex": 3
+              }
+            },
+            {
+              "id": "it_u1_l1_e5",
+              "type": "translation",
+              "vocabId": "it_arrivederci",
+              "payload": {
+                "prompt": "Type the English meaning",
+                "sourceText": "Arrivederci",
+                "acceptableAnswers": [
+                  "goodbye",
+                  "Goodbye"
+                ]
+              }
+            },
+            {
+              "id": "it_u1_l1_e6",
+              "type": "speaking",
+              "vocabId": "it_ciao",
+              "payload": {
+                "prompt": "Say this phrase out loud",
+                "targetPhrase": "Ciao, mi chiamo Anna",
+                "translation": "Hello, my name is Anna",
+                "ttsLocale": "it-IT"
+              }
+            },
+            {
+              "id": "it_u1_l1_e7",
+              "type": "wordMatching",
+              "vocabId": "it_u1_l1_set",
+              "payload": {
+                "prompt": "Match each word to its meaning",
+                "pairs": [
+                  {
+                    "left": "Ciao",
+                    "right": "Hello"
+                  },
+                  {
+                    "left": "Grazie",
+                    "right": "Thank you"
+                  },
+                  {
+                    "left": "Per favore",
+                    "right": "Please"
+                  },
+                  {
+                    "left": "Arrivederci",
+                    "right": "Goodbye"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "it_u1_l1_e8",
+              "type": "sentenceArrangement",
+              "vocabId": "it_ciao",
+              "payload": {
+                "prompt": "Build the sentence",
+                "shuffledChips": [
+                  "Mi",
+                  "chiamo",
+                  "Anna"
+                ],
+                "correctSentence": [
+                  "Mi",
+                  "chiamo",
+                  "Anna"
+                ],
+                "translation": "My name is Anna"
+              }
+            },
+            {
+              "id": "it_u1_l1_e9",
+              "type": "fillInTheBlank",
+              "vocabId": "it_arrivederci",
+              "payload": {
+                "prompt": "Complete the sentence",
+                "sentenceTemplate": "Grazie e ___.",
+                "options": [
+                  "ciao",
+                  "buonasera",
+                  "arrivederci",
+                  "per favore"
+                ],
+                "correctAnswer": "arrivederci",
+                "translation": "Thank you and goodbye"
+              }
+            }
+          ]
+        },
+        {
+          "id": "it_u1_l2",
+          "title": "Yes, No, Sorry",
+          "subtitle": "Sì, No, Scusa, Prego, Va bene",
+          "icon": "agreement",
+          "reviewVocabIds": [
+            "it_sono",
+            "it_stanco",
+            "it_grazie",
+            "it_va_bene"
+          ],
+          "exercises": [
+            {
+              "id": "it_u1_l2_e1",
+              "type": "imageRecognition",
+              "vocabId": "it_si",
+              "payload": {
+                "prompt": "What does this word mean?",
+                "emoji": "✅",
+                "targetWord": "Sì",
+                "meaning": "Yes",
+                "distractorMeanings": [
+                  "No",
+                  "Excuse me",
+                  "You're welcome"
+                ],
+                "distractorWords": [
+                  "No",
+                  "Scusa",
+                  "Prego"
+                ]
+              }
+            },
+            {
+              "id": "it_u1_l2_e2",
+              "type": "multipleChoice",
+              "vocabId": "it_no",
+              "payload": {
+                "prompt": "Which word means 'No'?",
+                "options": [
+                  "No",
+                  "Scusa",
+                  "Sì",
+                  "Prego"
+                ],
+                "correctIndex": 0
+              }
+            },
+            {
+              "id": "it_u1_l2_e3",
+              "type": "listening",
+              "vocabId": "it_scusa",
+              "payload": {
+                "prompt": "Listen and select what you hear",
+                "audioText": "Scusa",
+                "ttsLocale": "it-IT",
+                "options": [
+                  "No",
+                  "Sì",
+                  "Scusa",
+                  "Prego"
+                ],
+                "correctIndex": 2,
+                "translation": "Excuse me"
+              }
+            },
+            {
+              "id": "it_u1_l2_e4",
+              "type": "multipleChoice",
+              "vocabId": "it_sono",
+              "payload": {
+                "prompt": "Which word means 'I am'?",
+                "options": [
+                  "Sono",
+                  "No",
+                  "Scusa",
+                  "Sì"
+                ],
+                "correctIndex": 0
+              }
+            },
+            {
+              "id": "it_u1_l2_e5",
+              "type": "translation",
+              "vocabId": "it_prego",
+              "payload": {
+                "prompt": "Type the English meaning",
+                "sourceText": "Prego",
+                "acceptableAnswers": [
+                  "you're welcome",
+                  "You're welcome"
+                ]
+              }
+            },
+            {
+              "id": "it_u1_l2_e6",
+              "type": "speaking",
+              "vocabId": "it_si",
+              "payload": {
+                "prompt": "Say this phrase out loud",
+                "targetPhrase": "Scusa, sono stanco",
+                "translation": "Excuse me, I am tired",
+                "ttsLocale": "it-IT"
+              }
+            },
+            {
+              "id": "it_u1_l2_e7",
+              "type": "wordMatching",
+              "vocabId": "it_u1_l2_set",
+              "payload": {
+                "prompt": "Match each word to its meaning",
+                "pairs": [
+                  {
+                    "left": "Sì",
+                    "right": "Yes"
+                  },
+                  {
+                    "left": "No",
+                    "right": "No"
+                  },
+                  {
+                    "left": "Scusa",
+                    "right": "Excuse me"
+                  },
+                  {
+                    "left": "Prego",
+                    "right": "You're welcome"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "it_u1_l2_e8",
+              "type": "sentenceArrangement",
+              "vocabId": "it_si",
+              "payload": {
+                "prompt": "Build the sentence",
+                "shuffledChips": [
+                  "bene",
+                  "Sì,",
+                  "va"
+                ],
+                "correctSentence": [
+                  "Sì,",
+                  "va",
+                  "bene"
+                ],
+                "translation": "Yes, that is okay"
+              }
+            },
+            {
+              "id": "it_u1_l2_e9",
+              "type": "fillInTheBlank",
+              "vocabId": "it_scusa",
+              "payload": {
+                "prompt": "Complete the sentence",
+                "sentenceTemplate": "No, ___.",
+                "options": [
+                  "scusa",
+                  "prego",
+                  "sì",
+                  "va bene"
+                ],
+                "correctAnswer": "scusa",
+                "translation": "No, excuse me"
+              }
+            }
+          ]
+        },
+        {
+          "id": "it_u1_l3",
+          "title": "Polite Basics",
+          "subtitle": "Mi scusi, Buonanotte, Salute, Benvenuto, A presto",
+          "icon": "manners",
+          "reviewVocabIds": [
+            "it_come_sta",
+            "it_molto",
+            "it_e_cong",
+            "it_grazie"
+          ],
+          "exercises": [
+            {
+              "id": "it_u1_l3_e1",
+              "type": "imageRecognition",
+              "vocabId": "it_mi_scusi",
+              "payload": {
+                "prompt": "What does this word mean?",
+                "emoji": "🙇",
+                "targetWord": "Mi scusi",
+                "meaning": "Excuse me please",
+                "distractorMeanings": [
+                  "Good night",
+                  "Cheers",
+                  "Welcome"
+                ],
+                "distractorWords": [
+                  "Buonanotte",
+                  "Salute",
+                  "Benvenuto"
+                ]
+              }
+            },
+            {
+              "id": "it_u1_l3_e2",
+              "type": "multipleChoice",
+              "vocabId": "it_buonanotte",
+              "payload": {
+                "prompt": "Which word means 'Good night'?",
+                "options": [
+                  "Mi scusi",
+                  "Benvenuto",
+                  "Salute",
+                  "Buonanotte"
+                ],
+                "correctIndex": 3
+              }
+            },
+            {
+              "id": "it_u1_l3_e3",
+              "type": "listening",
+              "vocabId": "it_salute",
+              "payload": {
+                "prompt": "Listen and select what you hear",
+                "audioText": "Salute",
+                "ttsLocale": "it-IT",
+                "options": [
+                  "Buonanotte",
+                  "Benvenuto",
+                  "Mi scusi",
+                  "Salute"
+                ],
+                "correctIndex": 3,
+                "translation": "Cheers"
+              }
+            },
+            {
+              "id": "it_u1_l3_e4",
+              "type": "multipleChoice",
+              "vocabId": "it_come_sta",
+              "payload": {
+                "prompt": "Which word means 'How are you'?",
+                "options": [
+                  "Mi scusi",
+                  "Come sta",
+                  "Salute",
+                  "Buonanotte"
+                ],
+                "correctIndex": 1
+              }
+            },
+            {
+              "id": "it_u1_l3_e5",
+              "type": "translation",
+              "vocabId": "it_benvenuto",
+              "payload": {
+                "prompt": "Type the English meaning",
+                "sourceText": "Benvenuto",
+                "acceptableAnswers": [
+                  "welcome",
+                  "Welcome"
+                ]
+              }
+            },
+            {
+              "id": "it_u1_l3_e6",
+              "type": "speaking",
+              "vocabId": "it_mi_scusi",
+              "payload": {
+                "prompt": "Say this phrase out loud",
+                "targetPhrase": "Mi scusi, come sta?",
+                "translation": "Excuse me, how are you?",
+                "ttsLocale": "it-IT"
+              }
+            },
+            {
+              "id": "it_u1_l3_e7",
+              "type": "wordMatching",
+              "vocabId": "it_u1_l3_set",
+              "payload": {
+                "prompt": "Match each word to its meaning",
+                "pairs": [
+                  {
+                    "left": "Mi scusi",
+                    "right": "Excuse me please"
+                  },
+                  {
+                    "left": "Buonanotte",
+                    "right": "Good night"
+                  },
+                  {
+                    "left": "Salute",
+                    "right": "Cheers"
+                  },
+                  {
+                    "left": "Benvenuto",
+                    "right": "Welcome"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "it_u1_l3_e8",
+              "type": "sentenceArrangement",
+              "vocabId": "it_mi_scusi",
+              "payload": {
+                "prompt": "Build the sentence",
+                "shuffledChips": [
+                  "buonanotte",
+                  "e",
+                  "Benvenuto"
+                ],
+                "correctSentence": [
+                  "Benvenuto",
+                  "e",
+                  "buonanotte"
+                ],
+                "translation": "Welcome and good night"
+              }
+            },
+            {
+              "id": "it_u1_l3_e9",
+              "type": "fillInTheBlank",
+              "vocabId": "it_a_presto",
+              "payload": {
+                "prompt": "Complete the sentence",
+                "sentenceTemplate": "Grazie, ___!",
+                "options": [
+                  "salute",
+                  "molto",
+                  "benvenuto",
+                  "a presto"
+                ],
+                "correctAnswer": "a presto",
+                "translation": "Thank you, see you soon"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "it_u2",
+      "title": "Food & Family",
+      "description": "Talk about the people and meals you love",
+      "icon": "food",
+      "accent": "amber",
+      "lessons": [
+        {
+          "id": "it_u2_l1",
+          "title": "Family Members",
+          "subtitle": "Madre, Padre, Fratello, Sorella, Nonna",
+          "icon": "family",
+          "reviewVocabIds": [
+            "it_mia",
+            "it_e_essere"
+          ],
+          "exercises": [
+            {
+              "id": "it_u2_l1_e1",
+              "type": "imageRecognition",
+              "vocabId": "it_madre",
+              "payload": {
+                "prompt": "What does this word mean?",
+                "emoji": "👩",
+                "targetWord": "Madre",
+                "meaning": "Mother",
+                "distractorMeanings": [
+                  "Father",
+                  "Brother",
+                  "Sister"
+                ],
+                "distractorWords": [
+                  "Padre",
+                  "Fratello",
+                  "Sorella"
+                ]
+              }
+            },
+            {
+              "id": "it_u2_l1_e2",
+              "type": "multipleChoice",
+              "vocabId": "it_padre",
+              "payload": {
+                "prompt": "Which word means 'Father'?",
+                "options": [
+                  "Fratello",
+                  "Sorella",
+                  "Padre",
+                  "Madre"
+                ],
+                "correctIndex": 2
+              }
+            },
+            {
+              "id": "it_u2_l1_e3",
+              "type": "listening",
+              "vocabId": "it_fratello",
+              "payload": {
+                "prompt": "Listen and select what you hear",
+                "audioText": "Fratello",
+                "ttsLocale": "it-IT",
+                "options": [
+                  "Fratello",
+                  "Sorella",
+                  "Padre",
+                  "Madre"
+                ],
+                "correctIndex": 0,
+                "translation": "Brother"
+              }
+            },
+            {
+              "id": "it_u2_l1_e4",
+              "type": "multipleChoice",
+              "vocabId": "it_mia",
+              "payload": {
+                "prompt": "Which word means 'My'?",
+                "options": [
+                  "Padre",
+                  "Madre",
+                  "Mia",
+                  "Fratello"
+                ],
+                "correctIndex": 2
+              }
+            },
+            {
+              "id": "it_u2_l1_e5",
+              "type": "translation",
+              "vocabId": "it_sorella",
+              "payload": {
+                "prompt": "Type the English meaning",
+                "sourceText": "Sorella",
+                "acceptableAnswers": [
+                  "sister",
+                  "Sister"
+                ]
+              }
+            },
+            {
+              "id": "it_u2_l1_e6",
+              "type": "speaking",
+              "vocabId": "it_madre",
+              "payload": {
+                "prompt": "Say this phrase out loud",
+                "targetPhrase": "Mia sorella è Anna",
+                "translation": "My sister is Anna",
+                "ttsLocale": "it-IT"
+              }
+            },
+            {
+              "id": "it_u2_l1_e7",
+              "type": "wordMatching",
+              "vocabId": "it_u2_l1_set",
+              "payload": {
+                "prompt": "Match each word to its meaning",
+                "pairs": [
+                  {
+                    "left": "Madre",
+                    "right": "Mother"
+                  },
+                  {
+                    "left": "Padre",
+                    "right": "Father"
+                  },
+                  {
+                    "left": "Fratello",
+                    "right": "Brother"
+                  },
+                  {
+                    "left": "Sorella",
+                    "right": "Sister"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "it_u2_l1_e8",
+              "type": "sentenceArrangement",
+              "vocabId": "it_madre",
+              "payload": {
+                "prompt": "Build the sentence",
+                "shuffledChips": [
+                  "Anna",
+                  "è",
+                  "mia",
+                  "madre"
+                ],
+                "correctSentence": [
+                  "Anna",
+                  "è",
+                  "mia",
+                  "madre"
+                ],
+                "translation": "Anna is my mother"
+              }
+            },
+            {
+              "id": "it_u2_l1_e9",
+              "type": "fillInTheBlank",
+              "vocabId": "it_nonna",
+              "payload": {
+                "prompt": "Complete the sentence",
+                "sentenceTemplate": "Mia ___ è Rosa.",
+                "options": [
+                  "sorella",
+                  "padre",
+                  "nonna",
+                  "madre"
+                ],
+                "correctAnswer": "nonna",
+                "translation": "My grandmother is Rosa"
+              }
+            }
+          ]
+        },
+        {
+          "id": "it_u2_l2",
+          "title": "Food Basics",
+          "subtitle": "Pane, Acqua, Mela, Formaggio, Latte",
+          "icon": "food",
+          "reviewVocabIds": [
+            "it_voglio",
+            "it_anche",
+            "it_il",
+            "it_per_favore"
+          ],
+          "exercises": [
+            {
+              "id": "it_u2_l2_e1",
+              "type": "imageRecognition",
+              "vocabId": "it_pane",
+              "payload": {
+                "prompt": "What does this word mean?",
+                "emoji": "🍞",
+                "targetWord": "Pane",
+                "meaning": "Bread",
+                "distractorMeanings": [
+                  "Water",
+                  "Apple",
+                  "Cheese"
+                ],
+                "distractorWords": [
+                  "Acqua",
+                  "Mela",
+                  "Formaggio"
+                ]
+              }
+            },
+            {
+              "id": "it_u2_l2_e2",
+              "type": "multipleChoice",
+              "vocabId": "it_acqua",
+              "payload": {
+                "prompt": "Which word means 'Water'?",
+                "options": [
+                  "Formaggio",
+                  "Acqua",
+                  "Pane",
+                  "Mela"
+                ],
+                "correctIndex": 1
+              }
+            },
+            {
+              "id": "it_u2_l2_e3",
+              "type": "listening",
+              "vocabId": "it_mela",
+              "payload": {
+                "prompt": "Listen and select what you hear",
+                "audioText": "Mela",
+                "ttsLocale": "it-IT",
+                "options": [
+                  "Pane",
+                  "Formaggio",
+                  "Mela",
+                  "Acqua"
+                ],
+                "correctIndex": 2,
+                "translation": "Apple"
+              }
+            },
+            {
+              "id": "it_u2_l2_e4",
+              "type": "multipleChoice",
+              "vocabId": "it_voglio",
+              "payload": {
+                "prompt": "Which word means 'I want'?",
+                "options": [
+                  "Acqua",
+                  "Mela",
+                  "Pane",
+                  "Voglio"
+                ],
+                "correctIndex": 3
+              }
+            },
+            {
+              "id": "it_u2_l2_e5",
+              "type": "translation",
+              "vocabId": "it_formaggio",
+              "payload": {
+                "prompt": "Type the English meaning",
+                "sourceText": "Formaggio",
+                "acceptableAnswers": [
+                  "cheese",
+                  "Cheese"
+                ]
+              }
+            },
+            {
+              "id": "it_u2_l2_e6",
+              "type": "speaking",
+              "vocabId": "it_pane",
+              "payload": {
+                "prompt": "Say this phrase out loud",
+                "targetPhrase": "Voglio anche pane, per favore",
+                "translation": "I also want bread, please",
+                "ttsLocale": "it-IT"
+              }
+            },
+            {
+              "id": "it_u2_l2_e7",
+              "type": "wordMatching",
+              "vocabId": "it_u2_l2_set",
+              "payload": {
+                "prompt": "Match each word to its meaning",
+                "pairs": [
+                  {
+                    "left": "Pane",
+                    "right": "Bread"
+                  },
+                  {
+                    "left": "Acqua",
+                    "right": "Water"
+                  },
+                  {
+                    "left": "Mela",
+                    "right": "Apple"
+                  },
+                  {
+                    "left": "Formaggio",
+                    "right": "Cheese"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "it_u2_l2_e8",
+              "type": "sentenceArrangement",
+              "vocabId": "it_pane",
+              "payload": {
+                "prompt": "Build the sentence",
+                "shuffledChips": [
+                  "Voglio",
+                  "formaggio",
+                  "il"
+                ],
+                "correctSentence": [
+                  "Voglio",
+                  "il",
+                  "formaggio"
+                ],
+                "translation": "I want the cheese"
+              }
+            },
+            {
+              "id": "it_u2_l2_e9",
+              "type": "fillInTheBlank",
+              "vocabId": "it_latte",
+              "payload": {
+                "prompt": "Complete the sentence",
+                "sentenceTemplate": "Voglio il ___.",
+                "options": [
+                  "acqua",
+                  "latte",
+                  "pane",
+                  "formaggio"
+                ],
+                "correctAnswer": "latte",
+                "translation": "I want the milk"
+              }
+            }
+          ]
+        },
+        {
+          "id": "it_u2_l3",
+          "title": "At the Table",
+          "subtitle": "Tavolo, Piatto, Bicchiere, Forchetta, Coltello",
+          "icon": "table",
+          "reviewVocabIds": [
+            "it_sul",
+            "it_la",
+            "it_il",
+            "it_e_essere"
+          ],
+          "exercises": [
+            {
+              "id": "it_u2_l3_e1",
+              "type": "imageRecognition",
+              "vocabId": "it_tavolo",
+              "payload": {
+                "prompt": "What does this word mean?",
+                "emoji": "🍽️",
+                "targetWord": "Tavolo",
+                "meaning": "Table",
+                "distractorMeanings": [
+                  "Plate",
+                  "Glass",
+                  "Fork"
+                ],
+                "distractorWords": [
+                  "Piatto",
+                  "Bicchiere",
+                  "Forchetta"
+                ]
+              }
+            },
+            {
+              "id": "it_u2_l3_e2",
+              "type": "multipleChoice",
+              "vocabId": "it_piatto",
+              "payload": {
+                "prompt": "Which word means 'Plate'?",
+                "options": [
+                  "Piatto",
+                  "Tavolo",
+                  "Bicchiere",
+                  "Forchetta"
+                ],
+                "correctIndex": 0
+              }
+            },
+            {
+              "id": "it_u2_l3_e3",
+              "type": "listening",
+              "vocabId": "it_bicchiere",
+              "payload": {
+                "prompt": "Listen and select what you hear",
+                "audioText": "Bicchiere",
+                "ttsLocale": "it-IT",
+                "options": [
+                  "Bicchiere",
+                  "Piatto",
+                  "Tavolo",
+                  "Forchetta"
+                ],
+                "correctIndex": 0,
+                "translation": "Glass"
+              }
+            },
+            {
+              "id": "it_u2_l3_e4",
+              "type": "multipleChoice",
+              "vocabId": "it_sul",
+              "payload": {
+                "prompt": "Which word means 'On the'?",
+                "options": [
+                  "Sul",
+                  "Piatto",
+                  "Bicchiere",
+                  "Tavolo"
+                ],
+                "correctIndex": 0
+              }
+            },
+            {
+              "id": "it_u2_l3_e5",
+              "type": "translation",
+              "vocabId": "it_forchetta",
+              "payload": {
+                "prompt": "Type the English meaning",
+                "sourceText": "Forchetta",
+                "acceptableAnswers": [
+                  "fork",
+                  "Fork"
+                ]
+              }
+            },
+            {
+              "id": "it_u2_l3_e6",
+              "type": "speaking",
+              "vocabId": "it_tavolo",
+              "payload": {
+                "prompt": "Say this phrase out loud",
+                "targetPhrase": "Il bicchiere è sul tavolo",
+                "translation": "The glass is on the table",
+                "ttsLocale": "it-IT"
+              }
+            },
+            {
+              "id": "it_u2_l3_e7",
+              "type": "wordMatching",
+              "vocabId": "it_u2_l3_set",
+              "payload": {
+                "prompt": "Match each word to its meaning",
+                "pairs": [
+                  {
+                    "left": "Tavolo",
+                    "right": "Table"
+                  },
+                  {
+                    "left": "Piatto",
+                    "right": "Plate"
+                  },
+                  {
+                    "left": "Bicchiere",
+                    "right": "Glass"
+                  },
+                  {
+                    "left": "Forchetta",
+                    "right": "Fork"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "it_u2_l3_e8",
+              "type": "sentenceArrangement",
+              "vocabId": "it_tavolo",
+              "payload": {
+                "prompt": "Build the sentence",
+                "shuffledChips": [
+                  "forchetta",
+                  "tavolo",
+                  "è",
+                  "La",
+                  "sul"
+                ],
+                "correctSentence": [
+                  "La",
+                  "forchetta",
+                  "è",
+                  "sul",
+                  "tavolo"
+                ],
+                "translation": "The fork is on the table"
+              }
+            },
+            {
+              "id": "it_u2_l3_e9",
+              "type": "fillInTheBlank",
+              "vocabId": "it_coltello",
+              "payload": {
+                "prompt": "Complete the sentence",
+                "sentenceTemplate": "Il ___ è sul tavolo.",
+                "options": [
+                  "coltello",
+                  "bicchiere",
+                  "piatto",
+                  "pane"
+                ],
+                "correctAnswer": "coltello",
+                "translation": "The knife is on the table"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "it_u3",
+      "title": "Numbers & Travel",
+      "description": "Count, navigate, and travel with confidence",
+      "icon": "travel",
+      "accent": "teal",
+      "lessons": [
+        {
+          "id": "it_u3_l1",
+          "title": "Numbers 1-10",
+          "subtitle": "Uno, Due, Tre, Quattro, Cinque",
+          "icon": "numbers",
+          "reviewVocabIds": [
+            "it_ho",
+            "it_anni",
+            "it_cinque"
+          ],
+          "exercises": [
+            {
+              "id": "it_u3_l1_e1",
+              "type": "imageRecognition",
+              "vocabId": "it_uno",
+              "payload": {
+                "prompt": "What does this word mean?",
+                "emoji": "1️⃣",
+                "targetWord": "Uno",
+                "meaning": "One",
+                "distractorMeanings": [
+                  "Two",
+                  "Three",
+                  "Four"
+                ],
+                "distractorWords": [
+                  "Due",
+                  "Tre",
+                  "Quattro"
+                ]
+              }
+            },
+            {
+              "id": "it_u3_l1_e2",
+              "type": "multipleChoice",
+              "vocabId": "it_due",
+              "payload": {
+                "prompt": "Which word means 'Two'?",
+                "options": [
+                  "Uno",
+                  "Tre",
+                  "Quattro",
+                  "Due"
+                ],
+                "correctIndex": 3
+              }
+            },
+            {
+              "id": "it_u3_l1_e3",
+              "type": "listening",
+              "vocabId": "it_tre",
+              "payload": {
+                "prompt": "Listen and select what you hear",
+                "audioText": "Tre",
+                "ttsLocale": "it-IT",
+                "options": [
+                  "Uno",
+                  "Quattro",
+                  "Due",
+                  "Tre"
+                ],
+                "correctIndex": 3,
+                "translation": "Three"
+              }
+            },
+            {
+              "id": "it_u3_l1_e4",
+              "type": "multipleChoice",
+              "vocabId": "it_ho",
+              "payload": {
+                "prompt": "Which word means 'I have'?",
+                "options": [
+                  "Uno",
+                  "Ho",
+                  "Tre",
+                  "Due"
+                ],
+                "correctIndex": 1
+              }
+            },
+            {
+              "id": "it_u3_l1_e5",
+              "type": "translation",
+              "vocabId": "it_quattro",
+              "payload": {
+                "prompt": "Type the English meaning",
+                "sourceText": "Quattro",
+                "acceptableAnswers": [
+                  "four",
+                  "Four"
+                ]
+              }
+            },
+            {
+              "id": "it_u3_l1_e6",
+              "type": "speaking",
+              "vocabId": "it_uno",
+              "payload": {
+                "prompt": "Say this phrase out loud",
+                "targetPhrase": "Ho cinque anni",
+                "translation": "I am five years old",
+                "ttsLocale": "it-IT"
+              }
+            },
+            {
+              "id": "it_u3_l1_e7",
+              "type": "wordMatching",
+              "vocabId": "it_u3_l1_set",
+              "payload": {
+                "prompt": "Match each word to its meaning",
+                "pairs": [
+                  {
+                    "left": "Uno",
+                    "right": "One"
+                  },
+                  {
+                    "left": "Due",
+                    "right": "Two"
+                  },
+                  {
+                    "left": "Tre",
+                    "right": "Three"
+                  },
+                  {
+                    "left": "Quattro",
+                    "right": "Four"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "it_u3_l1_e8",
+              "type": "sentenceArrangement",
+              "vocabId": "it_uno",
+              "payload": {
+                "prompt": "Build the sentence",
+                "shuffledChips": [
+                  "Ho",
+                  "quattro",
+                  "anni"
+                ],
+                "correctSentence": [
+                  "Ho",
+                  "quattro",
+                  "anni"
+                ],
+                "translation": "I am four years old"
+              }
+            },
+            {
+              "id": "it_u3_l1_e9",
+              "type": "fillInTheBlank",
+              "vocabId": "it_tre",
+              "payload": {
+                "prompt": "Complete the sentence",
+                "sentenceTemplate": "Ho ___ anni.",
+                "options": [
+                  "uno",
+                  "due",
+                  "quattro",
+                  "tre"
+                ],
+                "correctAnswer": "tre",
+                "translation": "I am three years old"
+              }
+            }
+          ]
+        },
+        {
+          "id": "it_u3_l2",
+          "title": "Getting Around",
+          "subtitle": "Sinistra, Destra, Dritto, Strada, Stazione",
+          "icon": "directions",
+          "reviewVocabIds": [
+            "it_dove_e",
+            "it_a_prep",
+            "it_la",
+            "it_e_essere",
+            "it_stazione"
+          ],
+          "exercises": [
+            {
+              "id": "it_u3_l2_e1",
+              "type": "imageRecognition",
+              "vocabId": "it_sinistra",
+              "payload": {
+                "prompt": "What does this word mean?",
+                "emoji": "⬅️",
+                "targetWord": "Sinistra",
+                "meaning": "Left",
+                "distractorMeanings": [
+                  "Right",
+                  "Straight ahead",
+                  "Street"
+                ],
+                "distractorWords": [
+                  "Destra",
+                  "Dritto",
+                  "Strada"
+                ]
+              }
+            },
+            {
+              "id": "it_u3_l2_e2",
+              "type": "multipleChoice",
+              "vocabId": "it_destra",
+              "payload": {
+                "prompt": "Which word means 'Right'?",
+                "options": [
+                  "Destra",
+                  "Dritto",
+                  "Strada",
+                  "Sinistra"
+                ],
+                "correctIndex": 0
+              }
+            },
+            {
+              "id": "it_u3_l2_e3",
+              "type": "listening",
+              "vocabId": "it_dritto",
+              "payload": {
+                "prompt": "Listen and select what you hear",
+                "audioText": "Dritto",
+                "ttsLocale": "it-IT",
+                "options": [
+                  "Destra",
+                  "Strada",
+                  "Dritto",
+                  "Sinistra"
+                ],
+                "correctIndex": 2,
+                "translation": "Straight ahead"
+              }
+            },
+            {
+              "id": "it_u3_l2_e4",
+              "type": "multipleChoice",
+              "vocabId": "it_dove_e",
+              "payload": {
+                "prompt": "Which word means 'Where is'?",
+                "options": [
+                  "Destra",
+                  "Sinistra",
+                  "Dov'è",
+                  "Dritto"
+                ],
+                "correctIndex": 2
+              }
+            },
+            {
+              "id": "it_u3_l2_e5",
+              "type": "translation",
+              "vocabId": "it_strada",
+              "payload": {
+                "prompt": "Type the English meaning",
+                "sourceText": "Strada",
+                "acceptableAnswers": [
+                  "street",
+                  "Street"
+                ]
+              }
+            },
+            {
+              "id": "it_u3_l2_e6",
+              "type": "speaking",
+              "vocabId": "it_sinistra",
+              "payload": {
+                "prompt": "Say this phrase out loud",
+                "targetPhrase": "Dov'è la stazione?",
+                "translation": "Where is the station?",
+                "ttsLocale": "it-IT"
+              }
+            },
+            {
+              "id": "it_u3_l2_e7",
+              "type": "wordMatching",
+              "vocabId": "it_u3_l2_set",
+              "payload": {
+                "prompt": "Match each word to its meaning",
+                "pairs": [
+                  {
+                    "left": "Sinistra",
+                    "right": "Left"
+                  },
+                  {
+                    "left": "Destra",
+                    "right": "Right"
+                  },
+                  {
+                    "left": "Dritto",
+                    "right": "Straight ahead"
+                  },
+                  {
+                    "left": "Strada",
+                    "right": "Street"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "it_u3_l2_e8",
+              "type": "sentenceArrangement",
+              "vocabId": "it_sinistra",
+              "payload": {
+                "prompt": "Build the sentence",
+                "shuffledChips": [
+                  "strada",
+                  "Dov'è",
+                  "la"
+                ],
+                "correctSentence": [
+                  "Dov'è",
+                  "la",
+                  "strada"
+                ],
+                "translation": "Where is the street?"
+              }
+            },
+            {
+              "id": "it_u3_l2_e9",
+              "type": "fillInTheBlank",
+              "vocabId": "it_sinistra",
+              "payload": {
+                "prompt": "Complete the sentence",
+                "sentenceTemplate": "La stazione è a ___.",
+                "options": [
+                  "sinistra",
+                  "dritto",
+                  "strada",
+                  "destra"
+                ],
+                "correctAnswer": "sinistra",
+                "translation": "The station is on the left"
+              }
+            }
+          ]
+        },
+        {
+          "id": "it_u3_l3",
+          "title": "Travel Phrases",
+          "subtitle": "Aeroporto, Albergo, Biglietto, Treno, Valigia",
+          "icon": "travel",
+          "reviewVocabIds": [
+            "it_vicino",
+            "it_il",
+            "it_la",
+            "it_dove_e",
+            "it_e_essere",
+            "it_valigia"
+          ],
+          "exercises": [
+            {
+              "id": "it_u3_l3_e1",
+              "type": "imageRecognition",
+              "vocabId": "it_aeroporto",
+              "payload": {
+                "prompt": "What does this word mean?",
+                "emoji": "✈️",
+                "targetWord": "Aeroporto",
+                "meaning": "Airport",
+                "distractorMeanings": [
+                  "Hotel",
+                  "Ticket",
+                  "Train"
+                ],
+                "distractorWords": [
+                  "Albergo",
+                  "Biglietto",
+                  "Treno"
+                ]
+              }
+            },
+            {
+              "id": "it_u3_l3_e2",
+              "type": "multipleChoice",
+              "vocabId": "it_albergo",
+              "payload": {
+                "prompt": "Which word means 'Hotel'?",
+                "options": [
+                  "Treno",
+                  "Albergo",
+                  "Aeroporto",
+                  "Biglietto"
+                ],
+                "correctIndex": 1
+              }
+            },
+            {
+              "id": "it_u3_l3_e3",
+              "type": "listening",
+              "vocabId": "it_biglietto",
+              "payload": {
+                "prompt": "Listen and select what you hear",
+                "audioText": "Biglietto",
+                "ttsLocale": "it-IT",
+                "options": [
+                  "Aeroporto",
+                  "Treno",
+                  "Biglietto",
+                  "Albergo"
+                ],
+                "correctIndex": 2,
+                "translation": "Ticket"
+              }
+            },
+            {
+              "id": "it_u3_l3_e4",
+              "type": "multipleChoice",
+              "vocabId": "it_vicino",
+              "payload": {
+                "prompt": "Which word means 'Near'?",
+                "options": [
+                  "Albergo",
+                  "Biglietto",
+                  "Aeroporto",
+                  "Vicino"
+                ],
+                "correctIndex": 3
+              }
+            },
+            {
+              "id": "it_u3_l3_e5",
+              "type": "translation",
+              "vocabId": "it_treno",
+              "payload": {
+                "prompt": "Type the English meaning",
+                "sourceText": "Treno",
+                "acceptableAnswers": [
+                  "train",
+                  "Train"
+                ]
+              }
+            },
+            {
+              "id": "it_u3_l3_e6",
+              "type": "speaking",
+              "vocabId": "it_aeroporto",
+              "payload": {
+                "prompt": "Say this phrase out loud",
+                "targetPhrase": "Il treno è vicino",
+                "translation": "The train is near",
+                "ttsLocale": "it-IT"
+              }
+            },
+            {
+              "id": "it_u3_l3_e7",
+              "type": "wordMatching",
+              "vocabId": "it_u3_l3_set",
+              "payload": {
+                "prompt": "Match each word to its meaning",
+                "pairs": [
+                  {
+                    "left": "Aeroporto",
+                    "right": "Airport"
+                  },
+                  {
+                    "left": "Albergo",
+                    "right": "Hotel"
+                  },
+                  {
+                    "left": "Biglietto",
+                    "right": "Ticket"
+                  },
+                  {
+                    "left": "Treno",
+                    "right": "Train"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "it_u3_l3_e8",
+              "type": "sentenceArrangement",
+              "vocabId": "it_aeroporto",
+              "payload": {
+                "prompt": "Build the sentence",
+                "shuffledChips": [
+                  "treno",
+                  "il",
+                  "Dov'è"
+                ],
+                "correctSentence": [
+                  "Dov'è",
+                  "il",
+                  "treno"
+                ],
+                "translation": "Where is the train?"
+              }
+            },
+            {
+              "id": "it_u3_l3_e9",
+              "type": "fillInTheBlank",
+              "vocabId": "it_biglietto",
+              "payload": {
+                "prompt": "Complete the sentence",
+                "sentenceTemplate": "Il ___ è vicino.",
+                "options": [
+                  "aeroporto",
+                  "biglietto",
+                  "treno",
+                  "albergo"
+                ],
+                "correctAnswer": "biglietto",
+                "translation": "The ticket is near"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "placementQuestions": [
+    {
+      "id": "p1",
+      "prompt": "What does 'Ciao' mean?",
+      "options": [
+        "Goodbye",
+        "Hello",
+        "Thank you",
+        "Please"
+      ],
+      "correctIndex": 1,
+      "unlocksUnitIndex": 0
+    },
+    {
+      "id": "p2",
+      "prompt": "What does 'Per favore' mean?",
+      "options": [
+        "Please",
+        "Good evening",
+        "Yes",
+        "No"
+      ],
+      "correctIndex": 0,
+      "unlocksUnitIndex": 0
+    },
+    {
+      "id": "p3",
+      "prompt": "What does 'Buonasera' mean?",
+      "options": [
+        "Excuse me",
+        "You're welcome",
+        "Okay",
+        "Good evening"
+      ],
+      "correctIndex": 3,
+      "unlocksUnitIndex": 0
+    },
+    {
+      "id": "p4",
+      "prompt": "What does 'Madre' mean?",
+      "options": [
+        "Brother",
+        "Father",
+        "Mother",
+        "Sister"
+      ],
+      "correctIndex": 2,
+      "unlocksUnitIndex": 1
+    },
+    {
+      "id": "p5",
+      "prompt": "What does 'Fratello' mean?",
+      "options": [
+        "Grandmother",
+        "Bread",
+        "Water",
+        "Brother"
+      ],
+      "correctIndex": 3,
+      "unlocksUnitIndex": 1
+    },
+    {
+      "id": "p6",
+      "prompt": "What does 'Nonna' mean?",
+      "options": [
+        "Grandmother",
+        "Cheese",
+        "Milk",
+        "Apple"
+      ],
+      "correctIndex": 0,
+      "unlocksUnitIndex": 1
+    },
+    {
+      "id": "p7",
+      "prompt": "What does 'Uno' mean?",
+      "options": [
+        "Three",
+        "Four",
+        "Two",
+        "One"
+      ],
+      "correctIndex": 3,
+      "unlocksUnitIndex": 2
+    },
+    {
+      "id": "p8",
+      "prompt": "What does 'Tre' mean?",
+      "options": [
+        "Three",
+        "Right",
+        "Left",
+        "Five"
+      ],
+      "correctIndex": 0,
+      "unlocksUnitIndex": 2
+    }
+  ]
+}

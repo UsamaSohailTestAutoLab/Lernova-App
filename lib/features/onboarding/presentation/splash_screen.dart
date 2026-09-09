@@ -6,6 +6,8 @@ import '../../../core/routing/app_routes.dart';
 import '../../../core/theme/app_colors.dart';
 import '../../../core/widgets/lernova_parrot.dart';
 import '../application/onboarding_controller.dart';
+import '../../progress/application/progress_controller.dart';
+import '../application/user_controller.dart';
 
 class SplashScreen extends ConsumerStatefulWidget {
   const SplashScreen({super.key});
@@ -34,7 +36,30 @@ class _SplashScreenState extends ConsumerState<SplashScreen>
     // No accounts to check any more — onboarding completion alone
     // decides between "carry on learning" and "first run".
     final onboardingComplete = ref.read(isOnboardingCompleteProvider);
-    context.go(onboardingComplete ? AppRoutes.home : AppRoutes.welcome);
+    if (!onboardingComplete) {
+      context.go(AppRoutes.welcome);
+      return;
+    }
+
+    // An install from before languages could be switched has progress
+    // with nothing saying which language it belongs to. Label it with
+    // whatever the profile is learning, so the first switch parks it
+    // under the right course instead of misfiling it.
+    final languageId = ref.read(userProvider).selectedLanguageId;
+    if (languageId != null) {
+      ref.read(progressProvider.notifier).adoptActiveLanguage(languageId);
+    }
+
+    // Someone who finished onboarding before the name step existed is
+    // still carrying the placeholder profile name. Ask for just that,
+    // once — re-running the whole flow would discard the language, goal
+    // and placement they already chose.
+    if (!UserController.hasRealName(ref.read(userProvider))) {
+      context.go(AppRoutes.nameEntry, extra: true);
+      return;
+    }
+
+    context.go(AppRoutes.home);
   }
 
   @override

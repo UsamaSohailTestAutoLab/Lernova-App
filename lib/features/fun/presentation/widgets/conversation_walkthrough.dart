@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../core/services/service_providers.dart';
 import '../../../../core/theme/app_colors.dart';
+import '../../../../core/theme/app_decor.dart';
 import '../../../../core/theme/app_spacing.dart';
 import '../../../../core/utils/tts_locales.dart';
 import '../../../../core/widgets/app_buttons.dart';
@@ -36,6 +37,7 @@ class ConversationWalkthrough extends ConsumerWidget {
     final theme = Theme.of(context);
     final isEnglish = stage == ConversationStage.english;
     final ttsLocale = TtsLocales.forLanguageId(conversation.languageId);
+    final languageName = _languageName(conversation.languageId);
 
     return Column(
       children: [
@@ -49,17 +51,35 @@ class ConversationWalkthrough extends ConsumerWidget {
           child: Column(
             children: [
               Text(
-                isEnglish ? 'Step 1 · Learn the conversation' : 'Step 2 · Now in Spanish',
+                isEnglish
+                    ? 'Step 1 of 3 · Read it in English'
+                    : 'Step 2 of 3 · Now in $languageName',
                 style: theme.textTheme.labelLarge?.copyWith(color: AppColors.primary),
               ),
               const SizedBox(height: AppSpacing.xs),
               Text(
                 isEnglish
-                    ? "Here's what this exchange means."
-                    : 'The same exchange, in the language you\'re learning. Tap 🔊 to hear it.',
+                    ? conversation.scenario
+                    : 'The same exchange in $languageName, with the meaning under '
+                        'each line. Tap 🔊 to hear how it sounds.',
                 style: theme.textTheme.bodyMedium,
                 textAlign: TextAlign.center,
               ),
+              // Step 1 doubles as this mode's "how it works" screen —
+              // it replaced a Review Words step whose cards only
+              // repeated this same scenario blurb.
+              if (isEnglish) ...[
+                const SizedBox(height: AppSpacing.md),
+                _HowItWorks(languageName: languageName),
+              ] else ...[
+                const SizedBox(height: AppSpacing.xs),
+                Text(
+                  "Next: you'll pick the right reply at each turn.",
+                  style: theme.textTheme.bodySmall
+                      ?.copyWith(color: theme.colorScheme.onSurfaceVariant),
+                  textAlign: TextAlign.center,
+                ),
+              ],
             ],
           ),
         ),
@@ -70,6 +90,7 @@ class ConversationWalkthrough extends ConsumerWidget {
               for (final turn in conversation.turns) ...[
                 _Line(
                   fromThem: true,
+                  speaker: 'They say',
                   primary: isEnglish ? (turn.lineEnglish ?? turn.line) : turn.line,
                   secondary: isEnglish ? null : turn.lineEnglish,
                   onListen: isEnglish
@@ -81,6 +102,10 @@ class ConversationWalkthrough extends ConsumerWidget {
                 const SizedBox(height: AppSpacing.sm),
                 _Line(
                   fromThem: false,
+                  // Naming the sides is what makes this readable as a
+                  // conversation rather than a list of sentences — and
+                  // it flags which lines are the ones you'll be asked for.
+                  speaker: 'You say',
                   primary: isEnglish
                       ? (turn.correctResponseEnglish ?? turn.correctResponse)
                       : turn.correctResponse,
@@ -101,7 +126,7 @@ class ConversationWalkthrough extends ConsumerWidget {
           child: SizedBox(
             width: double.infinity,
             child: PrimaryButton(
-              label: isEnglish ? 'Show it in Spanish' : "Practice it",
+              label: isEnglish ? 'Show it in $languageName' : 'Practice it',
               onPressed: onContinue,
             ),
           ),
@@ -111,14 +136,101 @@ class ConversationWalkthrough extends ConsumerWidget {
   }
 }
 
+/// The three beats of a Conversation Challenge, spelled out once on the
+/// first screen.
+///
+/// This mode has no vocabulary list, so it used to open on a Review
+/// Words step whose only card repeated the scenario blurb — a screen
+/// that cost a tap and taught nothing. Saying plainly what the next
+/// three screens will ask of you is what that step should have been.
+class _HowItWorks extends StatelessWidget {
+  final String languageName;
+  const _HowItWorks({required this.languageName});
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final steps = [
+      ('1', 'Read the whole conversation in English, below.'),
+      ('2', 'See the same lines in $languageName, and hear them.'),
+      ('3', 'Take one side of it — pick the right reply each turn.'),
+    ];
+
+    return Container(
+      padding: const EdgeInsets.all(AppSpacing.md),
+      decoration: BoxDecoration(
+        color: context.decor.tint(AppColors.primary),
+        borderRadius: BorderRadius.circular(AppRadius.lg),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            'How this works',
+            style: theme.textTheme.labelLarge?.copyWith(
+              color: theme.colorScheme.onSurface,
+              fontWeight: FontWeight.w800,
+            ),
+          ),
+          const SizedBox(height: AppSpacing.sm),
+          for (final (number, text) in steps) ...[
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
+                  width: 20,
+                  height: 20,
+                  alignment: Alignment.center,
+                  decoration: const BoxDecoration(
+                    color: AppColors.primary,
+                    shape: BoxShape.circle,
+                  ),
+                  child: Text(
+                    number,
+                    style: theme.textTheme.labelSmall?.copyWith(
+                      color: Colors.white,
+                      fontWeight: FontWeight.w800,
+                    ),
+                  ),
+                ),
+                const SizedBox(width: AppSpacing.sm),
+                Expanded(
+                  child: Text(
+                    text,
+                    style: theme.textTheme.bodySmall
+                        ?.copyWith(color: theme.colorScheme.onSurface),
+                  ),
+                ),
+              ],
+            ),
+            if (number != '3') const SizedBox(height: AppSpacing.xs),
+          ],
+        ],
+      ),
+    );
+  }
+}
+
+/// Which language this course teaches, for the step copy. Falls back to
+/// a neutral phrase rather than guessing at an unknown code.
+String _languageName(String languageId) => switch (languageId) {
+      'es' => 'Spanish',
+      'fr' => 'French',
+      _ => 'your new language',
+    };
+
 class _Line extends StatelessWidget {
   final bool fromThem;
+
+  /// "They say" / "You say" — see the call site.
+  final String speaker;
   final String primary;
   final String? secondary;
   final VoidCallback? onListen;
 
   const _Line({
     required this.fromThem,
+    required this.speaker,
     required this.primary,
     required this.secondary,
     required this.onListen,
@@ -127,7 +239,13 @@ class _Line extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final bg = fromThem ? theme.colorScheme.surfaceContainerHighest : AppColors.primaryLight;
+    // Your own replies used the raw primaryLight literal — a pale green
+    // that the theme's near-white body text was invisible against in
+    // dark mode, so half the conversation couldn't be read at all.
+    // decor.tint() resolves to green900 there and green100 in light.
+    final bg = fromThem
+        ? theme.colorScheme.surfaceContainerHighest
+        : context.decor.tint(AppColors.primary);
 
     return Align(
       alignment: fromThem ? Alignment.centerLeft : Alignment.centerRight,
@@ -151,6 +269,15 @@ class _Line extends StatelessWidget {
               fromThem ? CrossAxisAlignment.start : CrossAxisAlignment.end,
           mainAxisSize: MainAxisSize.min,
           children: [
+            Text(
+              speaker,
+              style: theme.textTheme.labelSmall?.copyWith(
+                color: theme.colorScheme.onSurfaceVariant,
+                fontWeight: FontWeight.w700,
+                letterSpacing: 0.4,
+              ),
+            ),
+            const SizedBox(height: 2),
             Row(
               mainAxisSize: MainAxisSize.min,
               children: [
@@ -178,7 +305,9 @@ class _Line extends StatelessWidget {
               Text(
                 secondary!,
                 style: theme.textTheme.bodySmall?.copyWith(
-                  color: theme.colorScheme.outline,
+                  // onSurfaceVariant, not outline — outline is a border
+                  // colour and is too faint to read a translation in.
+                  color: theme.colorScheme.onSurfaceVariant,
                 ),
               ),
             ],

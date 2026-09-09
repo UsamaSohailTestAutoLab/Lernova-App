@@ -43,11 +43,12 @@ Future<void> _pump(
   WidgetTester tester, {
   required ConversationStage stage,
   Conversation conversation = _conversation,
+  Brightness brightness = Brightness.light,
 }) {
   return tester.pumpWidget(
     ProviderScope(
       child: MaterialApp(
-        theme: AppTheme.light(),
+        theme: brightness == Brightness.dark ? AppTheme.dark() : AppTheme.light(),
         home: Scaffold(
           body: ConversationWalkthrough(
             conversation: conversation,
@@ -96,6 +97,63 @@ void main() {
     await _pump(tester, stage: ConversationStage.target);
     await tester.pump(const Duration(milliseconds: 300));
     expect(find.text('Practice it'), findsOneWidget);
+  });
+
+  // Every bubble names its speaker, so the screen reads as a
+  // conversation and you can see which lines will be asked of you.
+  testWidgets('each line says who is speaking', (tester) async {
+    await _pump(tester, stage: ConversationStage.target);
+    await tester.pump(const Duration(milliseconds: 300));
+
+    expect(find.text('They say'), findsOneWidget);
+    expect(find.text('You say'), findsOneWidget);
+    // And the screen says what happens after it.
+    expect(find.textContaining("you'll pick the right reply"), findsOneWidget);
+  });
+
+  // This mode has no vocabulary list, so it used to open on a Review
+  // Words step whose only card repeated the scenario blurb. Step 1 now
+  // carries that blurb *and* says what the mode will ask of you.
+  testWidgets('step 1 doubles as the "how this works" screen', (tester) async {
+    await _pump(tester, stage: ConversationStage.english);
+    await tester.pump(const Duration(milliseconds: 300));
+
+    expect(find.text("You're introducing yourself to someone new."), findsOneWidget);
+    expect(find.text('How this works'), findsOneWidget);
+    expect(find.textContaining('Read the whole conversation in English'), findsOneWidget);
+    expect(find.textContaining('hear them'), findsOneWidget);
+    expect(find.textContaining('pick the right reply each turn'), findsOneWidget);
+  });
+
+  // Regression: your own replies were drawn on the raw primaryLight
+  // literal — a pale green the theme's near-white dark-mode text was
+  // invisible against, so half the conversation could not be read.
+  testWidgets('your own replies are readable in dark mode', (tester) async {
+    await _pump(
+      tester,
+      stage: ConversationStage.target,
+      brightness: Brightness.dark,
+    );
+    await tester.pump(const Duration(milliseconds: 300));
+
+    final bubble = tester.widget<Container>(
+      find
+          .ancestor(
+            of: find.text('Estoy bien, gracias'),
+            matching: find.byType(Container),
+          )
+          .last,
+    );
+    final bg = (bubble.decoration as BoxDecoration).color!;
+    final text = tester.widget<Text>(find.text('Estoy bien, gracias'));
+    final ink = text.style!.color!;
+
+    // Reply-bubble ink and ground must not both be light.
+    expect(
+      (bg.computeLuminance() - ink.computeLuminance()).abs(),
+      greaterThan(0.3),
+      reason: 'the reply text has to stand off its own bubble',
+    );
   });
 
   testWidgets('content without translations falls back rather than showing blanks',

@@ -4,6 +4,7 @@ import '../../../core/constants/app_enums.dart';
 import '../../../core/services/service_providers.dart';
 import '../../../core/utils/fun_daily_challenge_logic.dart';
 import '../../../data/models/fun_progress.dart';
+import '../../onboarding/application/user_controller.dart';
 
 const _levelUpAccuracyThreshold = 0.7;
 
@@ -11,21 +12,30 @@ const _levelUpAccuracyThreshold = 0.7;
 /// XP, coins and vocab mastery are *not* duplicated here — those flow
 /// through the shared [ProgressController] instead.
 class FunProgressController extends Notifier<FunProgress> {
+  /// The language these levels belong to. Watched, not read, so that
+  /// switching language rebuilds this controller against the other
+  /// language's saved levels instead of leaving Spanish's on screen.
+  String? _languageId;
+
   @override
   FunProgress build() {
+    _languageId = ref.watch(userProvider.select((u) => u.selectedLanguageId));
     final storage = ref.read(localStorageServiceProvider);
     final now = DateTime.now();
-    final loaded = storage.loadFunProgress() ?? FunProgress.initial();
+    final loaded =
+        storage.loadFunProgress(languageId: _languageId) ?? FunProgress.initial();
     final reconciled = FunDailyChallengeLogic.reconcileOnResume(loaded, now);
     if (reconciled != loaded) {
-      storage.saveFunProgress(reconciled);
+      storage.saveFunProgress(reconciled, languageId: _languageId);
     }
     return reconciled;
   }
 
   void _persist(FunProgress next) {
     state = next;
-    ref.read(localStorageServiceProvider).saveFunProgress(next);
+    ref
+        .read(localStorageServiceProvider)
+        .saveFunProgress(next, languageId: _languageId);
   }
 
   /// Levels up the given mode when the round's accuracy clears the bar.

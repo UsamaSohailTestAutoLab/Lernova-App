@@ -10,9 +10,9 @@ import '../../../core/services/service_providers.dart';
 import '../../../core/theme/app_colors.dart';
 import '../../../core/theme/app_spacing.dart';
 import '../../../core/utils/tts_locales.dart';
-import '../../../core/widgets/app_dialogs.dart';
 import '../../../data/models/fun/conversation.dart';
 import '../../settings/application/settings_controller.dart';
+import '../../languages/presentation/leave_session_sheet.dart';
 import '../application/fun_conversation_session_controller.dart';
 import 'widgets/combo_hud.dart';
 import 'widgets/conversation_walkthrough.dart';
@@ -65,17 +65,23 @@ class _FunConversationScreenState extends ConsumerState<FunConversationScreen> {
     });
   }
 
+  /// Leaving mid-round, either for good or to change language. The
+  /// round is torn down first either way, so a Spanish round can never
+  /// be left running against another language's vocabulary.
   Future<void> _confirmExit() async {
-    final confirmed = await showConfirmDialog(
+    final router = GoRouter.of(context);
+    final choice = await showLeaveSessionSheet(
       context,
       title: 'Quit this round?',
       message: 'Your progress in this round will be lost.',
-      confirmLabel: 'Quit',
-      isDestructive: true,
+      exitLabel: 'Quit round',
     );
-    if (confirmed && mounted) {
-      ref.read(funConversationSessionProvider.notifier).reset();
-      context.pop();
+    if (choice == null || !mounted) return;
+
+    ref.read(funConversationSessionProvider.notifier).reset();
+    router.pop();
+    if (choice == LeaveSessionChoice.switchLanguage) {
+      router.push(AppRoutes.languages);
     }
   }
 

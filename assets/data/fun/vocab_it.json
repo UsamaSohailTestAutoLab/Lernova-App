@@ -1,0 +1,746 @@
+[
+  {
+    "id": "it_ciao",
+    "word": "Ciao",
+    "translation": "Hello",
+    "languageId": "it",
+    "category": "greetings",
+    "emoji": "👋"
+  },
+  {
+    "id": "it_grazie",
+    "word": "Grazie",
+    "translation": "Thank you",
+    "languageId": "it",
+    "category": "greetings",
+    "emoji": "🙏"
+  },
+  {
+    "id": "it_per_favore",
+    "word": "Per favore",
+    "translation": "Please",
+    "languageId": "it",
+    "category": "greetings",
+    "emoji": "🙇"
+  },
+  {
+    "id": "it_arrivederci",
+    "word": "Arrivederci",
+    "translation": "Goodbye",
+    "languageId": "it",
+    "category": "greetings",
+    "emoji": "🙋"
+  },
+  {
+    "id": "it_buonasera",
+    "word": "Buonasera",
+    "translation": "Good evening",
+    "languageId": "it",
+    "category": "greetings",
+    "emoji": "🌙"
+  },
+  {
+    "id": "it_mi_chiamo",
+    "word": "Mi chiamo",
+    "translation": "My name is",
+    "languageId": "it",
+    "category": "greetings",
+    "emoji": "🪪"
+  },
+  {
+    "id": "it_e_cong",
+    "word": "E",
+    "translation": "And",
+    "languageId": "it",
+    "category": "descriptions",
+    "emoji": "➕"
+  },
+  {
+    "id": "it_si",
+    "word": "Sì",
+    "translation": "Yes",
+    "languageId": "it",
+    "category": "greetings",
+    "emoji": "✅"
+  },
+  {
+    "id": "it_no",
+    "word": "No",
+    "translation": "No",
+    "languageId": "it",
+    "category": "greetings",
+    "emoji": "❌"
+  },
+  {
+    "id": "it_scusa",
+    "word": "Scusa",
+    "translation": "Excuse me",
+    "languageId": "it",
+    "category": "greetings",
+    "emoji": "🙋"
+  },
+  {
+    "id": "it_prego",
+    "word": "Prego",
+    "translation": "You're welcome",
+    "languageId": "it",
+    "category": "greetings",
+    "emoji": "🤝"
+  },
+  {
+    "id": "it_va_bene",
+    "word": "Va bene",
+    "translation": "Okay",
+    "languageId": "it",
+    "category": "greetings",
+    "emoji": "👍"
+  },
+  {
+    "id": "it_sono",
+    "word": "Sono",
+    "translation": "I am",
+    "languageId": "it",
+    "category": "descriptions",
+    "emoji": "🙋"
+  },
+  {
+    "id": "it_stanco",
+    "word": "Stanco",
+    "translation": "Tired",
+    "languageId": "it",
+    "category": "descriptions",
+    "emoji": "😴"
+  },
+  {
+    "id": "it_mi_scusi",
+    "word": "Mi scusi",
+    "translation": "Excuse me please",
+    "languageId": "it",
+    "category": "greetings",
+    "emoji": "🙇"
+  },
+  {
+    "id": "it_buonanotte",
+    "word": "Buonanotte",
+    "translation": "Good night",
+    "languageId": "it",
+    "category": "greetings",
+    "emoji": "😴"
+  },
+  {
+    "id": "it_salute",
+    "word": "Salute",
+    "translation": "Cheers",
+    "languageId": "it",
+    "category": "greetings",
+    "emoji": "🥂"
+  },
+  {
+    "id": "it_benvenuto",
+    "word": "Benvenuto",
+    "translation": "Welcome",
+    "languageId": "it",
+    "category": "greetings",
+    "emoji": "🎉"
+  },
+  {
+    "id": "it_a_presto",
+    "word": "A presto",
+    "translation": "See you soon",
+    "languageId": "it",
+    "category": "greetings",
+    "emoji": "👋"
+  },
+  {
+    "id": "it_come_sta",
+    "word": "Come sta",
+    "translation": "How are you",
+    "languageId": "it",
+    "category": "greetings",
+    "emoji": "❓"
+  },
+  {
+    "id": "it_molto",
+    "word": "Molto",
+    "translation": "Very",
+    "languageId": "it",
+    "category": "descriptions",
+    "emoji": "⭐"
+  },
+  {
+    "id": "it_madre",
+    "word": "Madre",
+    "translation": "Mother",
+    "languageId": "it",
+    "category": "family",
+    "emoji": "👩"
+  },
+  {
+    "id": "it_padre",
+    "word": "Padre",
+    "translation": "Father",
+    "languageId": "it",
+    "category": "family",
+    "emoji": "👨"
+  },
+  {
+    "id": "it_fratello",
+    "word": "Fratello",
+    "translation": "Brother",
+    "languageId": "it",
+    "category": "family",
+    "emoji": "👦"
+  },
+  {
+    "id": "it_sorella",
+    "word": "Sorella",
+    "translation": "Sister",
+    "languageId": "it",
+    "category": "family",
+    "emoji": "👧"
+  },
+  {
+    "id": "it_nonna",
+    "word": "Nonna",
+    "translation": "Grandmother",
+    "languageId": "it",
+    "category": "family",
+    "emoji": "👵"
+  },
+  {
+    "id": "it_mia",
+    "word": "Mia",
+    "translation": "My",
+    "languageId": "it",
+    "category": "descriptions",
+    "emoji": "🫱"
+  },
+  {
+    "id": "it_e_essere",
+    "word": "È",
+    "translation": "Is",
+    "languageId": "it",
+    "category": "descriptions",
+    "emoji": "🟰"
+  },
+  {
+    "id": "it_pane",
+    "word": "Pane",
+    "translation": "Bread",
+    "languageId": "it",
+    "category": "food",
+    "emoji": "🍞"
+  },
+  {
+    "id": "it_acqua",
+    "word": "Acqua",
+    "translation": "Water",
+    "languageId": "it",
+    "category": "food",
+    "emoji": "💧"
+  },
+  {
+    "id": "it_mela",
+    "word": "Mela",
+    "translation": "Apple",
+    "languageId": "it",
+    "category": "food",
+    "emoji": "🍎"
+  },
+  {
+    "id": "it_formaggio",
+    "word": "Formaggio",
+    "translation": "Cheese",
+    "languageId": "it",
+    "category": "food",
+    "emoji": "🧀"
+  },
+  {
+    "id": "it_latte",
+    "word": "Latte",
+    "translation": "Milk",
+    "languageId": "it",
+    "category": "food",
+    "emoji": "🥛"
+  },
+  {
+    "id": "it_voglio",
+    "word": "Voglio",
+    "translation": "I want",
+    "languageId": "it",
+    "category": "food",
+    "emoji": "🙋"
+  },
+  {
+    "id": "it_anche",
+    "word": "Anche",
+    "translation": "Also",
+    "languageId": "it",
+    "category": "descriptions",
+    "emoji": "➕"
+  },
+  {
+    "id": "it_il",
+    "word": "Il",
+    "translation": "The",
+    "languageId": "it",
+    "category": "descriptions",
+    "emoji": "📌"
+  },
+  {
+    "id": "it_tavolo",
+    "word": "Tavolo",
+    "translation": "Table",
+    "languageId": "it",
+    "category": "home",
+    "emoji": "🍽️"
+  },
+  {
+    "id": "it_piatto",
+    "word": "Piatto",
+    "translation": "Plate",
+    "languageId": "it",
+    "category": "home",
+    "emoji": "🍽️"
+  },
+  {
+    "id": "it_bicchiere",
+    "word": "Bicchiere",
+    "translation": "Glass",
+    "languageId": "it",
+    "category": "home",
+    "emoji": "🥛"
+  },
+  {
+    "id": "it_forchetta",
+    "word": "Forchetta",
+    "translation": "Fork",
+    "languageId": "it",
+    "category": "home",
+    "emoji": "🍴"
+  },
+  {
+    "id": "it_coltello",
+    "word": "Coltello",
+    "translation": "Knife",
+    "languageId": "it",
+    "category": "home",
+    "emoji": "🔪"
+  },
+  {
+    "id": "it_sul",
+    "word": "Sul",
+    "translation": "On the",
+    "languageId": "it",
+    "category": "descriptions",
+    "emoji": "📍"
+  },
+  {
+    "id": "it_la",
+    "word": "La",
+    "translation": "The one",
+    "languageId": "it",
+    "category": "descriptions",
+    "emoji": "📌"
+  },
+  {
+    "id": "it_uno",
+    "word": "Uno",
+    "translation": "One",
+    "languageId": "it",
+    "category": "numbers",
+    "emoji": "1️⃣"
+  },
+  {
+    "id": "it_due",
+    "word": "Due",
+    "translation": "Two",
+    "languageId": "it",
+    "category": "numbers",
+    "emoji": "2️⃣"
+  },
+  {
+    "id": "it_tre",
+    "word": "Tre",
+    "translation": "Three",
+    "languageId": "it",
+    "category": "numbers",
+    "emoji": "3️⃣"
+  },
+  {
+    "id": "it_quattro",
+    "word": "Quattro",
+    "translation": "Four",
+    "languageId": "it",
+    "category": "numbers",
+    "emoji": "4️⃣"
+  },
+  {
+    "id": "it_cinque",
+    "word": "Cinque",
+    "translation": "Five",
+    "languageId": "it",
+    "category": "numbers",
+    "emoji": "5️⃣"
+  },
+  {
+    "id": "it_ho",
+    "word": "Ho",
+    "translation": "I have",
+    "languageId": "it",
+    "category": "descriptions",
+    "emoji": "🙋"
+  },
+  {
+    "id": "it_anni",
+    "word": "Anni",
+    "translation": "Years old",
+    "languageId": "it",
+    "category": "numbers",
+    "emoji": "🎂"
+  },
+  {
+    "id": "it_sinistra",
+    "word": "Sinistra",
+    "translation": "Left",
+    "languageId": "it",
+    "category": "travel",
+    "emoji": "⬅️"
+  },
+  {
+    "id": "it_destra",
+    "word": "Destra",
+    "translation": "Right",
+    "languageId": "it",
+    "category": "travel",
+    "emoji": "➡️"
+  },
+  {
+    "id": "it_dritto",
+    "word": "Dritto",
+    "translation": "Straight ahead",
+    "languageId": "it",
+    "category": "travel",
+    "emoji": "⬆️"
+  },
+  {
+    "id": "it_strada",
+    "word": "Strada",
+    "translation": "Street",
+    "languageId": "it",
+    "category": "travel",
+    "emoji": "🛣️"
+  },
+  {
+    "id": "it_stazione",
+    "word": "Stazione",
+    "translation": "Station",
+    "languageId": "it",
+    "category": "travel",
+    "emoji": "🚉"
+  },
+  {
+    "id": "it_dove_e",
+    "word": "Dov'è",
+    "translation": "Where is",
+    "languageId": "it",
+    "category": "travel",
+    "emoji": "❓"
+  },
+  {
+    "id": "it_a_prep",
+    "word": "A",
+    "translation": "To",
+    "languageId": "it",
+    "category": "descriptions",
+    "emoji": "🧭"
+  },
+  {
+    "id": "it_aeroporto",
+    "word": "Aeroporto",
+    "translation": "Airport",
+    "languageId": "it",
+    "category": "travel",
+    "emoji": "✈️"
+  },
+  {
+    "id": "it_albergo",
+    "word": "Albergo",
+    "translation": "Hotel",
+    "languageId": "it",
+    "category": "travel",
+    "emoji": "🏨"
+  },
+  {
+    "id": "it_biglietto",
+    "word": "Biglietto",
+    "translation": "Ticket",
+    "languageId": "it",
+    "category": "travel",
+    "emoji": "🎫"
+  },
+  {
+    "id": "it_treno",
+    "word": "Treno",
+    "translation": "Train",
+    "languageId": "it",
+    "category": "travel",
+    "emoji": "🚆"
+  },
+  {
+    "id": "it_valigia",
+    "word": "Valigia",
+    "translation": "Suitcase",
+    "languageId": "it",
+    "category": "travel",
+    "emoji": "🧳"
+  },
+  {
+    "id": "it_vicino",
+    "word": "Vicino",
+    "translation": "Near",
+    "languageId": "it",
+    "category": "travel",
+    "emoji": "📍"
+  },
+  {
+    "id": "it_rosso",
+    "word": "Rosso",
+    "translation": "Red",
+    "languageId": "it",
+    "category": "colors",
+    "emoji": "🔴"
+  },
+  {
+    "id": "it_blu",
+    "word": "Blu",
+    "translation": "Blue",
+    "languageId": "it",
+    "category": "colors",
+    "emoji": "🔵"
+  },
+  {
+    "id": "it_verde",
+    "word": "Verde",
+    "translation": "Green",
+    "languageId": "it",
+    "category": "colors",
+    "emoji": "🟢"
+  },
+  {
+    "id": "it_giallo",
+    "word": "Giallo",
+    "translation": "Yellow",
+    "languageId": "it",
+    "category": "colors",
+    "emoji": "🟡"
+  },
+  {
+    "id": "it_nero",
+    "word": "Nero",
+    "translation": "Black",
+    "languageId": "it",
+    "category": "colors",
+    "emoji": "⚫"
+  },
+  {
+    "id": "it_bianco",
+    "word": "Bianco",
+    "translation": "White",
+    "languageId": "it",
+    "category": "colors",
+    "emoji": "⚪"
+  },
+  {
+    "id": "it_cane",
+    "word": "Cane",
+    "translation": "Dog",
+    "languageId": "it",
+    "category": "animals",
+    "emoji": "🐕"
+  },
+  {
+    "id": "it_gatto",
+    "word": "Gatto",
+    "translation": "Cat",
+    "languageId": "it",
+    "category": "animals",
+    "emoji": "🐈"
+  },
+  {
+    "id": "it_uccello",
+    "word": "Uccello",
+    "translation": "Bird",
+    "languageId": "it",
+    "category": "animals",
+    "emoji": "🐦"
+  },
+  {
+    "id": "it_pesce",
+    "word": "Pesce",
+    "translation": "Fish",
+    "languageId": "it",
+    "category": "animals",
+    "emoji": "🐟"
+  },
+  {
+    "id": "it_cavallo",
+    "word": "Cavallo",
+    "translation": "Horse",
+    "languageId": "it",
+    "category": "animals",
+    "emoji": "🐴"
+  },
+  {
+    "id": "it_mucca",
+    "word": "Mucca",
+    "translation": "Cow",
+    "languageId": "it",
+    "category": "animals",
+    "emoji": "🐄"
+  },
+  {
+    "id": "it_sei",
+    "word": "Sei",
+    "translation": "Six",
+    "languageId": "it",
+    "category": "numbers",
+    "emoji": "6️⃣"
+  },
+  {
+    "id": "it_sette",
+    "word": "Sette",
+    "translation": "Seven",
+    "languageId": "it",
+    "category": "numbers",
+    "emoji": "7️⃣"
+  },
+  {
+    "id": "it_otto",
+    "word": "Otto",
+    "translation": "Eight",
+    "languageId": "it",
+    "category": "numbers",
+    "emoji": "8️⃣"
+  },
+  {
+    "id": "it_nove",
+    "word": "Nove",
+    "translation": "Nine",
+    "languageId": "it",
+    "category": "numbers",
+    "emoji": "9️⃣"
+  },
+  {
+    "id": "it_dieci",
+    "word": "Dieci",
+    "translation": "Ten",
+    "languageId": "it",
+    "category": "numbers",
+    "emoji": "🔟"
+  },
+  {
+    "id": "it_casa",
+    "word": "Casa",
+    "translation": "House",
+    "languageId": "it",
+    "category": "home",
+    "emoji": "🏠"
+  },
+  {
+    "id": "it_porta",
+    "word": "Porta",
+    "translation": "Door",
+    "languageId": "it",
+    "category": "home",
+    "emoji": "🚪"
+  },
+  {
+    "id": "it_finestra",
+    "word": "Finestra",
+    "translation": "Window",
+    "languageId": "it",
+    "category": "home",
+    "emoji": "🪟"
+  },
+  {
+    "id": "it_sedia",
+    "word": "Sedia",
+    "translation": "Chair",
+    "languageId": "it",
+    "category": "home",
+    "emoji": "🪑"
+  },
+  {
+    "id": "it_letto",
+    "word": "Letto",
+    "translation": "Bed",
+    "languageId": "it",
+    "category": "home",
+    "emoji": "🛏️"
+  },
+  {
+    "id": "it_caffe",
+    "word": "Caffè",
+    "translation": "Coffee",
+    "languageId": "it",
+    "category": "food",
+    "emoji": "☕"
+  },
+  {
+    "id": "it_te",
+    "word": "Tè",
+    "translation": "Tea",
+    "languageId": "it",
+    "category": "food",
+    "emoji": "🍵"
+  },
+  {
+    "id": "it_pollo",
+    "word": "Pollo",
+    "translation": "Chicken",
+    "languageId": "it",
+    "category": "food",
+    "emoji": "🍗"
+  },
+  {
+    "id": "it_grande",
+    "word": "Grande",
+    "translation": "Big",
+    "languageId": "it",
+    "category": "descriptions",
+    "emoji": "🐘"
+  },
+  {
+    "id": "it_piccolo",
+    "word": "Piccolo",
+    "translation": "Small",
+    "languageId": "it",
+    "category": "descriptions",
+    "emoji": "🐁"
+  },
+  {
+    "id": "it_caldo",
+    "word": "Caldo",
+    "translation": "Hot",
+    "languageId": "it",
+    "category": "descriptions",
+    "emoji": "🔥"
+  },
+  {
+    "id": "it_freddo",
+    "word": "Freddo",
+    "translation": "Cold",
+    "languageId": "it",
+    "category": "descriptions",
+    "emoji": "❄️"
+  },
+  {
+    "id": "it_buono",
+    "word": "Buono",
+    "translation": "Good",
+    "languageId": "it",
+    "category": "descriptions",
+    "emoji": "👍"
+  }
+]

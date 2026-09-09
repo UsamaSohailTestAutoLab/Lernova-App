@@ -218,6 +218,7 @@ class LessonSessionController extends Notifier<LessonSessionState?> {
       promptLabel: promptLabel(exercise),
       userAnswerLabel: userAnswerLabel(exercise, answer),
       correctLabel: correctAnswerLabel(exercise),
+      correctMeaning: correctAnswerMeaning(exercise),
       wasCorrect: wasCorrect,
       attemptIndex: s.attempts.where((a) => a.exerciseId == exercise.id).length,
       spokenText: spokenTextFor(exercise),

@@ -107,6 +107,17 @@ void main() {
 
     await _openSettings(tester);
 
+    // Scrolled to, not assumed on screen: the list has grown (the
+    // language switcher now sits above these) and an off-screen tile is
+    // never built.
+    expect(find.text('Switch language'), findsOneWidget);
+
+    // Dragged into view rather than assumed on screen: the list has
+    // grown (the language switcher now sits above these) and a tile
+    // below the fold is never built.
+    await tester.drag(_settingsList(), const Offset(0, -260));
+    await tester.pump();
+
     expect(find.text('Statistics'), findsOneWidget);
     expect(find.text('Achievements'), findsOneWidget);
   });

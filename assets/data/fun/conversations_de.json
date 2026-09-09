@@ -1,0 +1,170 @@
+[
+  {
+    "id": "de_conv_cafe",
+    "title": "At the Café",
+    "scenario": "You are ordering a coffee at a café.",
+    "languageId": "de",
+    "turns": [
+      {
+        "id": "de_conv_cafe_t1",
+        "line": "Hallo! Was möchten Sie?",
+        "lineEnglish": "Hello! What would you like?",
+        "options": [
+          "Ich möchte einen Kaffee, bitte",
+          "Hallo, tschüss",
+          "Ich habe einen Hund"
+        ],
+        "optionsEnglish": [
+          "I want a coffee, please",
+          "Hello, goodbye",
+          "I have a dog"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "de_conv_cafe_t2",
+        "line": "Sonst noch etwas?",
+        "lineEnglish": "Anything else?",
+        "options": [
+          "Nein, danke",
+          "Ja, ich möchte eine Katze",
+          "Gute Nacht"
+        ],
+        "optionsEnglish": [
+          "No, thank you",
+          "Yes, I want a cat",
+          "Good night"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "de_conv_cafe_t3",
+        "line": "Hier ist Ihr Kaffee. Schönen Tag!",
+        "lineEnglish": "Here is your coffee. Have a nice day!",
+        "options": [
+          "Danke, tschüss",
+          "Wo ist der Bahnhof?",
+          "Ich bin fünf Jahre alt"
+        ],
+        "optionsEnglish": [
+          "Thank you, goodbye",
+          "Where is the station?",
+          "I am five years old"
+        ],
+        "correctIndex": 0
+      }
+    ]
+  },
+  {
+    "id": "de_conv_directions",
+    "title": "Asking Directions",
+    "scenario": "You are lost and need to find the station.",
+    "languageId": "de",
+    "turns": [
+      {
+        "id": "de_conv_directions_t1",
+        "line": "Hallo, kann ich Ihnen helfen?",
+        "lineEnglish": "Hello, can I help you?",
+        "options": [
+          "Wo ist der Bahnhof, bitte?",
+          "Ich möchte Käse",
+          "Meine Mutter ist Anna"
+        ],
+        "optionsEnglish": [
+          "Where is the station, please?",
+          "I want cheese",
+          "My mother is Anna"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "de_conv_directions_t2",
+        "line": "Geradeaus, dann links.",
+        "lineEnglish": "Straight ahead, then left.",
+        "options": [
+          "Vielen Dank",
+          "Nein, Entschuldigung",
+          "Ich bin vier Jahre alt"
+        ],
+        "optionsEnglish": [
+          "Thank you very much",
+          "No, excuse me",
+          "I am four years old"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "de_conv_directions_t3",
+        "line": "Er ist ganz in der Nähe. Gute Reise!",
+        "lineEnglish": "It is very close. Have a good trip!",
+        "options": [
+          "Danke, bis bald",
+          "Das Messer ist auf dem Tisch",
+          "Willkommen"
+        ],
+        "optionsEnglish": [
+          "Thank you, see you soon",
+          "The knife is on the table",
+          "Welcome"
+        ],
+        "correctIndex": 0
+      }
+    ]
+  },
+  {
+    "id": "de_conv_hotel",
+    "title": "Hotel Check-in",
+    "scenario": "You are checking in at a hotel.",
+    "languageId": "de",
+    "turns": [
+      {
+        "id": "de_conv_hotel_t1",
+        "line": "Guten Abend, haben Sie eine Reservierung?",
+        "lineEnglish": "Good evening, do you have a reservation?",
+        "options": [
+          "Ja, ich heiße Anna",
+          "Nein, ich habe ein Pferd",
+          "Das Glas ist auf dem Tisch"
+        ],
+        "optionsEnglish": [
+          "Yes, my name is Anna",
+          "No, I have a horse",
+          "The glass is on the table"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "de_conv_hotel_t2",
+        "line": "Hier ist Ihr Schlüssel. Zimmer drei.",
+        "lineEnglish": "Here is your key. Room three.",
+        "options": [
+          "Danke, okay",
+          "Wo ist der Apfel?",
+          "Ich habe zehn Hunde"
+        ],
+        "optionsEnglish": [
+          "Thank you, okay",
+          "Where is the apple?",
+          "I have ten dogs"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "de_conv_hotel_t3",
+        "line": "Frühstück gibt es um sieben Uhr.",
+        "lineEnglish": "Breakfast is at seven o'clock.",
+        "options": [
+          "Sehr gut, gute Nacht",
+          "Entschuldigung, ich bin müde",
+          "Willkommen und danke"
+        ],
+        "optionsEnglish": [
+          "Very good, good night",
+          "Excuse me, I am tired",
+          "Welcome and thank you"
+        ],
+        "correctIndex": 0
+      }
+    ]
+  }
+]

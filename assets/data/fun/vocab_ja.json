@@ -1,0 +1,730 @@
+[
+  {
+    "id": "ja_konnichiwa",
+    "word": "こんにちは",
+    "translation": "Hello",
+    "languageId": "ja",
+    "category": "greetings",
+    "emoji": "👋"
+  },
+  {
+    "id": "ja_arigatou",
+    "word": "ありがとう",
+    "translation": "Thank you",
+    "languageId": "ja",
+    "category": "greetings",
+    "emoji": "🙏"
+  },
+  {
+    "id": "ja_onegaishimasu",
+    "word": "おねがいします",
+    "translation": "Please",
+    "languageId": "ja",
+    "category": "greetings",
+    "emoji": "🙇"
+  },
+  {
+    "id": "ja_sayounara",
+    "word": "さようなら",
+    "translation": "Goodbye",
+    "languageId": "ja",
+    "category": "greetings",
+    "emoji": "🙋"
+  },
+  {
+    "id": "ja_konbanwa",
+    "word": "こんばんは",
+    "translation": "Good evening",
+    "languageId": "ja",
+    "category": "greetings",
+    "emoji": "🌙"
+  },
+  {
+    "id": "ja_watashiwa",
+    "word": "わたしは",
+    "translation": "I am",
+    "languageId": "ja",
+    "category": "descriptions",
+    "emoji": "🙋"
+  },
+  {
+    "id": "ja_desu",
+    "word": "です",
+    "translation": "It is",
+    "languageId": "ja",
+    "category": "descriptions",
+    "emoji": "🟰"
+  },
+  {
+    "id": "ja_hai",
+    "word": "はい",
+    "translation": "Yes",
+    "languageId": "ja",
+    "category": "greetings",
+    "emoji": "✅"
+  },
+  {
+    "id": "ja_iie",
+    "word": "いいえ",
+    "translation": "No",
+    "languageId": "ja",
+    "category": "greetings",
+    "emoji": "❌"
+  },
+  {
+    "id": "ja_sumimasen",
+    "word": "すみません",
+    "translation": "Excuse me",
+    "languageId": "ja",
+    "category": "greetings",
+    "emoji": "🙋"
+  },
+  {
+    "id": "ja_douitashimashite",
+    "word": "どういたしまして",
+    "translation": "You're welcome",
+    "languageId": "ja",
+    "category": "greetings",
+    "emoji": "🤝"
+  },
+  {
+    "id": "ja_daijoubu",
+    "word": "だいじょうぶ",
+    "translation": "Okay",
+    "languageId": "ja",
+    "category": "greetings",
+    "emoji": "👍"
+  },
+  {
+    "id": "ja_tsukaremashita",
+    "word": "つかれました",
+    "translation": "I am tired",
+    "languageId": "ja",
+    "category": "descriptions",
+    "emoji": "😴"
+  },
+  {
+    "id": "ja_shitsureishimasu",
+    "word": "しつれいします",
+    "translation": "Excuse me please",
+    "languageId": "ja",
+    "category": "greetings",
+    "emoji": "🙇"
+  },
+  {
+    "id": "ja_oyasuminasai",
+    "word": "おやすみなさい",
+    "translation": "Good night",
+    "languageId": "ja",
+    "category": "greetings",
+    "emoji": "😴"
+  },
+  {
+    "id": "ja_kanpai",
+    "word": "かんぱい",
+    "translation": "Cheers",
+    "languageId": "ja",
+    "category": "greetings",
+    "emoji": "🥂"
+  },
+  {
+    "id": "ja_youkoso",
+    "word": "ようこそ",
+    "translation": "Welcome",
+    "languageId": "ja",
+    "category": "greetings",
+    "emoji": "🎉"
+  },
+  {
+    "id": "ja_matane",
+    "word": "またね",
+    "translation": "See you soon",
+    "languageId": "ja",
+    "category": "greetings",
+    "emoji": "👋"
+  },
+  {
+    "id": "ja_ogenkidesuka",
+    "word": "おげんきですか",
+    "translation": "How are you",
+    "languageId": "ja",
+    "category": "greetings",
+    "emoji": "❓"
+  },
+  {
+    "id": "ja_soshite",
+    "word": "そして",
+    "translation": "And",
+    "languageId": "ja",
+    "category": "descriptions",
+    "emoji": "➕"
+  },
+  {
+    "id": "ja_totemo",
+    "word": "とても",
+    "translation": "Very",
+    "languageId": "ja",
+    "category": "descriptions",
+    "emoji": "⭐"
+  },
+  {
+    "id": "ja_okaasan",
+    "word": "おかあさん",
+    "translation": "Mother",
+    "languageId": "ja",
+    "category": "family",
+    "emoji": "👩"
+  },
+  {
+    "id": "ja_otousan",
+    "word": "おとうさん",
+    "translation": "Father",
+    "languageId": "ja",
+    "category": "family",
+    "emoji": "👨"
+  },
+  {
+    "id": "ja_oniisan",
+    "word": "おにいさん",
+    "translation": "Brother",
+    "languageId": "ja",
+    "category": "family",
+    "emoji": "👦"
+  },
+  {
+    "id": "ja_oneesan",
+    "word": "おねえさん",
+    "translation": "Sister",
+    "languageId": "ja",
+    "category": "family",
+    "emoji": "👧"
+  },
+  {
+    "id": "ja_obaasan",
+    "word": "おばあさん",
+    "translation": "Grandmother",
+    "languageId": "ja",
+    "category": "family",
+    "emoji": "👵"
+  },
+  {
+    "id": "ja_watashino",
+    "word": "わたしの",
+    "translation": "My",
+    "languageId": "ja",
+    "category": "descriptions",
+    "emoji": "🫱"
+  },
+  {
+    "id": "ja_wa",
+    "word": "は",
+    "translation": "As for",
+    "languageId": "ja",
+    "category": "descriptions",
+    "emoji": "📌"
+  },
+  {
+    "id": "ja_pan",
+    "word": "パン",
+    "translation": "Bread",
+    "languageId": "ja",
+    "category": "food",
+    "emoji": "🍞"
+  },
+  {
+    "id": "ja_mizu",
+    "word": "みず",
+    "translation": "Water",
+    "languageId": "ja",
+    "category": "food",
+    "emoji": "💧"
+  },
+  {
+    "id": "ja_ringo",
+    "word": "りんご",
+    "translation": "Apple",
+    "languageId": "ja",
+    "category": "food",
+    "emoji": "🍎"
+  },
+  {
+    "id": "ja_chiizu",
+    "word": "チーズ",
+    "translation": "Cheese",
+    "languageId": "ja",
+    "category": "food",
+    "emoji": "🧀"
+  },
+  {
+    "id": "ja_gyuunyuu",
+    "word": "ぎゅうにゅう",
+    "translation": "Milk",
+    "languageId": "ja",
+    "category": "food",
+    "emoji": "🥛"
+  },
+  {
+    "id": "ja_hoshiidesu",
+    "word": "ほしいです",
+    "translation": "I want",
+    "languageId": "ja",
+    "category": "food",
+    "emoji": "🙋"
+  },
+  {
+    "id": "ja_wo",
+    "word": "を",
+    "translation": "Object marker",
+    "languageId": "ja",
+    "category": "descriptions",
+    "emoji": "📌"
+  },
+  {
+    "id": "ja_teeburu",
+    "word": "テーブル",
+    "translation": "Table",
+    "languageId": "ja",
+    "category": "home",
+    "emoji": "🍽️"
+  },
+  {
+    "id": "ja_osara",
+    "word": "おさら",
+    "translation": "Plate",
+    "languageId": "ja",
+    "category": "home",
+    "emoji": "🍽️"
+  },
+  {
+    "id": "ja_koppu",
+    "word": "コップ",
+    "translation": "Glass",
+    "languageId": "ja",
+    "category": "home",
+    "emoji": "🥛"
+  },
+  {
+    "id": "ja_fooku",
+    "word": "フォーク",
+    "translation": "Fork",
+    "languageId": "ja",
+    "category": "home",
+    "emoji": "🍴"
+  },
+  {
+    "id": "ja_naifu",
+    "word": "ナイフ",
+    "translation": "Knife",
+    "languageId": "ja",
+    "category": "home",
+    "emoji": "🔪"
+  },
+  {
+    "id": "ja_ueni",
+    "word": "うえに",
+    "translation": "On top",
+    "languageId": "ja",
+    "category": "descriptions",
+    "emoji": "📍"
+  },
+  {
+    "id": "ja_no",
+    "word": "の",
+    "translation": "Of",
+    "languageId": "ja",
+    "category": "descriptions",
+    "emoji": "📌"
+  },
+  {
+    "id": "ja_arimasu",
+    "word": "あります",
+    "translation": "There is",
+    "languageId": "ja",
+    "category": "descriptions",
+    "emoji": "🟰"
+  },
+  {
+    "id": "ja_ichi",
+    "word": "いち",
+    "translation": "One",
+    "languageId": "ja",
+    "category": "numbers",
+    "emoji": "1️⃣"
+  },
+  {
+    "id": "ja_ni",
+    "word": "に",
+    "translation": "Two",
+    "languageId": "ja",
+    "category": "numbers",
+    "emoji": "2️⃣"
+  },
+  {
+    "id": "ja_san",
+    "word": "さん",
+    "translation": "Three",
+    "languageId": "ja",
+    "category": "numbers",
+    "emoji": "3️⃣"
+  },
+  {
+    "id": "ja_yon",
+    "word": "よん",
+    "translation": "Four",
+    "languageId": "ja",
+    "category": "numbers",
+    "emoji": "4️⃣"
+  },
+  {
+    "id": "ja_go",
+    "word": "ご",
+    "translation": "Five",
+    "languageId": "ja",
+    "category": "numbers",
+    "emoji": "5️⃣"
+  },
+  {
+    "id": "ja_sai",
+    "word": "さい",
+    "translation": "Years old",
+    "languageId": "ja",
+    "category": "numbers",
+    "emoji": "🎂"
+  },
+  {
+    "id": "ja_hidari",
+    "word": "ひだり",
+    "translation": "Left",
+    "languageId": "ja",
+    "category": "travel",
+    "emoji": "⬅️"
+  },
+  {
+    "id": "ja_migi",
+    "word": "みぎ",
+    "translation": "Right",
+    "languageId": "ja",
+    "category": "travel",
+    "emoji": "➡️"
+  },
+  {
+    "id": "ja_massugu",
+    "word": "まっすぐ",
+    "translation": "Straight ahead",
+    "languageId": "ja",
+    "category": "travel",
+    "emoji": "⬆️"
+  },
+  {
+    "id": "ja_michi",
+    "word": "みち",
+    "translation": "Street",
+    "languageId": "ja",
+    "category": "travel",
+    "emoji": "🛣️"
+  },
+  {
+    "id": "ja_eki",
+    "word": "えき",
+    "translation": "Station",
+    "languageId": "ja",
+    "category": "travel",
+    "emoji": "🚉"
+  },
+  {
+    "id": "ja_dokodesuka",
+    "word": "どこですか",
+    "translation": "Where is it",
+    "languageId": "ja",
+    "category": "travel",
+    "emoji": "❓"
+  },
+  {
+    "id": "ja_kuukou",
+    "word": "くうこう",
+    "translation": "Airport",
+    "languageId": "ja",
+    "category": "travel",
+    "emoji": "✈️"
+  },
+  {
+    "id": "ja_hoteru",
+    "word": "ホテル",
+    "translation": "Hotel",
+    "languageId": "ja",
+    "category": "travel",
+    "emoji": "🏨"
+  },
+  {
+    "id": "ja_kippu",
+    "word": "きっぷ",
+    "translation": "Ticket",
+    "languageId": "ja",
+    "category": "travel",
+    "emoji": "🎫"
+  },
+  {
+    "id": "ja_densha",
+    "word": "でんしゃ",
+    "translation": "Train",
+    "languageId": "ja",
+    "category": "travel",
+    "emoji": "🚆"
+  },
+  {
+    "id": "ja_suutsukeesu",
+    "word": "スーツケース",
+    "translation": "Suitcase",
+    "languageId": "ja",
+    "category": "travel",
+    "emoji": "🧳"
+  },
+  {
+    "id": "ja_chikaidesu",
+    "word": "ちかいです",
+    "translation": "It is near",
+    "languageId": "ja",
+    "category": "travel",
+    "emoji": "📍"
+  },
+  {
+    "id": "ja_akai",
+    "word": "あかい",
+    "translation": "Red",
+    "languageId": "ja",
+    "category": "colors",
+    "emoji": "🔴"
+  },
+  {
+    "id": "ja_aoi",
+    "word": "あおい",
+    "translation": "Blue",
+    "languageId": "ja",
+    "category": "colors",
+    "emoji": "🔵"
+  },
+  {
+    "id": "ja_midori",
+    "word": "みどり",
+    "translation": "Green",
+    "languageId": "ja",
+    "category": "colors",
+    "emoji": "🟢"
+  },
+  {
+    "id": "ja_kiiro",
+    "word": "きいろ",
+    "translation": "Yellow",
+    "languageId": "ja",
+    "category": "colors",
+    "emoji": "🟡"
+  },
+  {
+    "id": "ja_kuroi",
+    "word": "くろい",
+    "translation": "Black",
+    "languageId": "ja",
+    "category": "colors",
+    "emoji": "⚫"
+  },
+  {
+    "id": "ja_shiroi",
+    "word": "しろい",
+    "translation": "White",
+    "languageId": "ja",
+    "category": "colors",
+    "emoji": "⚪"
+  },
+  {
+    "id": "ja_inu",
+    "word": "いぬ",
+    "translation": "Dog",
+    "languageId": "ja",
+    "category": "animals",
+    "emoji": "🐕"
+  },
+  {
+    "id": "ja_neko",
+    "word": "ねこ",
+    "translation": "Cat",
+    "languageId": "ja",
+    "category": "animals",
+    "emoji": "🐈"
+  },
+  {
+    "id": "ja_tori",
+    "word": "とり",
+    "translation": "Bird",
+    "languageId": "ja",
+    "category": "animals",
+    "emoji": "🐦"
+  },
+  {
+    "id": "ja_sakana",
+    "word": "さかな",
+    "translation": "Fish",
+    "languageId": "ja",
+    "category": "animals",
+    "emoji": "🐟"
+  },
+  {
+    "id": "ja_uma",
+    "word": "うま",
+    "translation": "Horse",
+    "languageId": "ja",
+    "category": "animals",
+    "emoji": "🐴"
+  },
+  {
+    "id": "ja_ushi",
+    "word": "うし",
+    "translation": "Cow",
+    "languageId": "ja",
+    "category": "animals",
+    "emoji": "🐄"
+  },
+  {
+    "id": "ja_roku",
+    "word": "ろく",
+    "translation": "Six",
+    "languageId": "ja",
+    "category": "numbers",
+    "emoji": "6️⃣"
+  },
+  {
+    "id": "ja_nana",
+    "word": "なな",
+    "translation": "Seven",
+    "languageId": "ja",
+    "category": "numbers",
+    "emoji": "7️⃣"
+  },
+  {
+    "id": "ja_hachi",
+    "word": "はち",
+    "translation": "Eight",
+    "languageId": "ja",
+    "category": "numbers",
+    "emoji": "8️⃣"
+  },
+  {
+    "id": "ja_kyuu",
+    "word": "きゅう",
+    "translation": "Nine",
+    "languageId": "ja",
+    "category": "numbers",
+    "emoji": "9️⃣"
+  },
+  {
+    "id": "ja_juu",
+    "word": "じゅう",
+    "translation": "Ten",
+    "languageId": "ja",
+    "category": "numbers",
+    "emoji": "🔟"
+  },
+  {
+    "id": "ja_ie",
+    "word": "いえ",
+    "translation": "House",
+    "languageId": "ja",
+    "category": "home",
+    "emoji": "🏠"
+  },
+  {
+    "id": "ja_doa",
+    "word": "ドア",
+    "translation": "Door",
+    "languageId": "ja",
+    "category": "home",
+    "emoji": "🚪"
+  },
+  {
+    "id": "ja_mado",
+    "word": "まど",
+    "translation": "Window",
+    "languageId": "ja",
+    "category": "home",
+    "emoji": "🪟"
+  },
+  {
+    "id": "ja_isu",
+    "word": "いす",
+    "translation": "Chair",
+    "languageId": "ja",
+    "category": "home",
+    "emoji": "🪑"
+  },
+  {
+    "id": "ja_beddo",
+    "word": "ベッド",
+    "translation": "Bed",
+    "languageId": "ja",
+    "category": "home",
+    "emoji": "🛏️"
+  },
+  {
+    "id": "ja_koohii",
+    "word": "コーヒー",
+    "translation": "Coffee",
+    "languageId": "ja",
+    "category": "food",
+    "emoji": "☕"
+  },
+  {
+    "id": "ja_ocha",
+    "word": "おちゃ",
+    "translation": "Tea",
+    "languageId": "ja",
+    "category": "food",
+    "emoji": "🍵"
+  },
+  {
+    "id": "ja_toriniku",
+    "word": "とりにく",
+    "translation": "Chicken",
+    "languageId": "ja",
+    "category": "food",
+    "emoji": "🍗"
+  },
+  {
+    "id": "ja_ookii",
+    "word": "おおきい",
+    "translation": "Big",
+    "languageId": "ja",
+    "category": "descriptions",
+    "emoji": "🐘"
+  },
+  {
+    "id": "ja_chiisai",
+    "word": "ちいさい",
+    "translation": "Small",
+    "languageId": "ja",
+    "category": "descriptions",
+    "emoji": "🐁"
+  },
+  {
+    "id": "ja_atsui",
+    "word": "あつい",
+    "translation": "Hot",
+    "languageId": "ja",
+    "category": "descriptions",
+    "emoji": "🔥"
+  },
+  {
+    "id": "ja_samui",
+    "word": "さむい",
+    "translation": "Cold",
+    "languageId": "ja",
+    "category": "descriptions",
+    "emoji": "❄️"
+  },
+  {
+    "id": "ja_ii",
+    "word": "いい",
+    "translation": "Good",
+    "languageId": "ja",
+    "category": "descriptions",
+    "emoji": "👍"
+  }
+]

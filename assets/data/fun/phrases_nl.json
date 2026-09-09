@@ -1,0 +1,128 @@
+[
+  {
+    "id": "nl_phrase_u1_l1_a",
+    "phrase": "Hallo, ik heet Anna",
+    "meaning": "Hello, my name is Anna",
+    "languageId": "nl",
+    "category": "greetings"
+  },
+  {
+    "id": "nl_phrase_u1_l1_b",
+    "phrase": "Ik heet Anna",
+    "meaning": "My name is Anna",
+    "languageId": "nl",
+    "category": "greetings"
+  },
+  {
+    "id": "nl_phrase_u1_l2_a",
+    "phrase": "Sorry, ik ben moe",
+    "meaning": "Excuse me, I am tired",
+    "languageId": "nl",
+    "category": "greetings"
+  },
+  {
+    "id": "nl_phrase_u1_l2_b",
+    "phrase": "Ja, ik ben oké",
+    "meaning": "Yes, I am okay",
+    "languageId": "nl",
+    "category": "greetings"
+  },
+  {
+    "id": "nl_phrase_u1_l3_a",
+    "phrase": "Pardon, hoe gaat het?",
+    "meaning": "Excuse me, how are you?",
+    "languageId": "nl",
+    "category": "greetings"
+  },
+  {
+    "id": "nl_phrase_u1_l3_b",
+    "phrase": "Welkom en goedenacht",
+    "meaning": "Welcome and good night",
+    "languageId": "nl",
+    "category": "greetings"
+  },
+  {
+    "id": "nl_phrase_u2_l1_a",
+    "phrase": "Mijn zus is Anna",
+    "meaning": "My sister is Anna",
+    "languageId": "nl",
+    "category": "dining"
+  },
+  {
+    "id": "nl_phrase_u2_l1_b",
+    "phrase": "Anna is mijn moeder",
+    "meaning": "Anna is my mother",
+    "languageId": "nl",
+    "category": "dining"
+  },
+  {
+    "id": "nl_phrase_u2_l2_a",
+    "phrase": "Ik wil ook brood, alsjeblieft",
+    "meaning": "I also want bread, please",
+    "languageId": "nl",
+    "category": "dining"
+  },
+  {
+    "id": "nl_phrase_u2_l2_b",
+    "phrase": "Ik wil kaas",
+    "meaning": "I want cheese",
+    "languageId": "nl",
+    "category": "dining"
+  },
+  {
+    "id": "nl_phrase_u2_l3_a",
+    "phrase": "Het glas is op de tafel",
+    "meaning": "The glass is on the table",
+    "languageId": "nl",
+    "category": "dining"
+  },
+  {
+    "id": "nl_phrase_u2_l3_b",
+    "phrase": "De vork is op de tafel",
+    "meaning": "The fork is on the table",
+    "languageId": "nl",
+    "category": "dining"
+  },
+  {
+    "id": "nl_phrase_u3_l1_a",
+    "phrase": "Ik ben vijf jaar oud",
+    "meaning": "I am five years old",
+    "languageId": "nl",
+    "category": "travel"
+  },
+  {
+    "id": "nl_phrase_u3_l1_b",
+    "phrase": "Ik ben vier jaar oud",
+    "meaning": "I am four years old",
+    "languageId": "nl",
+    "category": "travel"
+  },
+  {
+    "id": "nl_phrase_u3_l2_a",
+    "phrase": "Waar is het station?",
+    "meaning": "Where is the station?",
+    "languageId": "nl",
+    "category": "travel"
+  },
+  {
+    "id": "nl_phrase_u3_l2_b",
+    "phrase": "Waar is de straat",
+    "meaning": "Where is the street?",
+    "languageId": "nl",
+    "category": "travel"
+  },
+  {
+    "id": "nl_phrase_u3_l3_a",
+    "phrase": "De trein is dichtbij",
+    "meaning": "The train is nearby",
+    "languageId": "nl",
+    "category": "travel"
+  },
+  {
+    "id": "nl_phrase_u3_l3_b",
+    "phrase": "Waar is de trein",
+    "meaning": "Where is the train?",
+    "languageId": "nl",
+    "category": "travel"
+  }
+]

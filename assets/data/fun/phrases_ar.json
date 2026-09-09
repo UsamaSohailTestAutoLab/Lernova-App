@@ -1,0 +1,128 @@
+[
+  {
+    "id": "ar_phrase_u1_l1_a",
+    "phrase": "مرحبا، اسمي آنا",
+    "meaning": "Hello, my name is Anna",
+    "languageId": "ar",
+    "category": "greetings"
+  },
+  {
+    "id": "ar_phrase_u1_l1_b",
+    "phrase": "مرحبا اسمي آنا",
+    "meaning": "Hello, my name is Anna",
+    "languageId": "ar",
+    "category": "greetings"
+  },
+  {
+    "id": "ar_phrase_u1_l2_a",
+    "phrase": "المعذرة، أنا متعب",
+    "meaning": "Excuse me, I am tired",
+    "languageId": "ar",
+    "category": "greetings"
+  },
+  {
+    "id": "ar_phrase_u1_l2_b",
+    "phrase": "نعم أنا متعب",
+    "meaning": "Yes, I am tired",
+    "languageId": "ar",
+    "category": "greetings"
+  },
+  {
+    "id": "ar_phrase_u1_l3_a",
+    "phrase": "لو سمحت، كيف حالك؟",
+    "meaning": "Excuse me, how are you?",
+    "languageId": "ar",
+    "category": "greetings"
+  },
+  {
+    "id": "ar_phrase_u1_l3_b",
+    "phrase": "أهلا وسهلا و تصبح على خير",
+    "meaning": "Welcome and good night",
+    "languageId": "ar",
+    "category": "greetings"
+  },
+  {
+    "id": "ar_phrase_u2_l1_a",
+    "phrase": "أمي هي آنا",
+    "meaning": "My mother is Anna",
+    "languageId": "ar",
+    "category": "dining"
+  },
+  {
+    "id": "ar_phrase_u2_l1_b",
+    "phrase": "آنا هي أمي",
+    "meaning": "Anna is my mother",
+    "languageId": "ar",
+    "category": "dining"
+  },
+  {
+    "id": "ar_phrase_u2_l2_a",
+    "phrase": "أريد خبز من فضلك",
+    "meaning": "I want bread, please",
+    "languageId": "ar",
+    "category": "dining"
+  },
+  {
+    "id": "ar_phrase_u2_l2_b",
+    "phrase": "أنا أريد حليب",
+    "meaning": "I want milk",
+    "languageId": "ar",
+    "category": "dining"
+  },
+  {
+    "id": "ar_phrase_u2_l3_a",
+    "phrase": "الكوب على الطاولة",
+    "meaning": "The glass is on the table",
+    "languageId": "ar",
+    "category": "dining"
+  },
+  {
+    "id": "ar_phrase_u2_l3_b",
+    "phrase": "الشوكة على الطاولة",
+    "meaning": "The fork is on the table",
+    "languageId": "ar",
+    "category": "dining"
+  },
+  {
+    "id": "ar_phrase_u3_l1_a",
+    "phrase": "لدي ثلاثة إخوة",
+    "meaning": "I have three brothers",
+    "languageId": "ar",
+    "category": "travel"
+  },
+  {
+    "id": "ar_phrase_u3_l1_b",
+    "phrase": "لدي أربعة إخوة",
+    "meaning": "I have four brothers",
+    "languageId": "ar",
+    "category": "travel"
+  },
+  {
+    "id": "ar_phrase_u3_l2_a",
+    "phrase": "أين المحطة من فضلك؟",
+    "meaning": "Where is the station, please?",
+    "languageId": "ar",
+    "category": "travel"
+  },
+  {
+    "id": "ar_phrase_u3_l2_b",
+    "phrase": "أين المحطة من فضلك",
+    "meaning": "Where is the station, please?",
+    "languageId": "ar",
+    "category": "travel"
+  },
+  {
+    "id": "ar_phrase_u3_l3_a",
+    "phrase": "القطار قريب",
+    "meaning": "The train is near",
+    "languageId": "ar",
+    "category": "travel"
+  },
+  {
+    "id": "ar_phrase_u3_l3_b",
+    "phrase": "أين القطار من فضلك",
+    "meaning": "Where is the train, please?",
+    "languageId": "ar",
+    "category": "travel"
+  }
+]

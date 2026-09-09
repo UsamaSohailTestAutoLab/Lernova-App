@@ -1,0 +1,128 @@
+[
+  {
+    "id": "de_phrase_u1_l1_a",
+    "phrase": "Hallo, ich heiße Anna",
+    "meaning": "Hello, my name is Anna",
+    "languageId": "de",
+    "category": "greetings"
+  },
+  {
+    "id": "de_phrase_u1_l1_b",
+    "phrase": "Ich heiße Anna",
+    "meaning": "My name is Anna",
+    "languageId": "de",
+    "category": "greetings"
+  },
+  {
+    "id": "de_phrase_u1_l2_a",
+    "phrase": "Entschuldigung, ich bin müde",
+    "meaning": "Excuse me, I am tired",
+    "languageId": "de",
+    "category": "greetings"
+  },
+  {
+    "id": "de_phrase_u1_l2_b",
+    "phrase": "Ja, ich bin okay",
+    "meaning": "Yes, I am okay",
+    "languageId": "de",
+    "category": "greetings"
+  },
+  {
+    "id": "de_phrase_u1_l3_a",
+    "phrase": "Entschuldigen Sie, wie geht es Ihnen?",
+    "meaning": "Excuse me, how are you?",
+    "languageId": "de",
+    "category": "greetings"
+  },
+  {
+    "id": "de_phrase_u1_l3_b",
+    "phrase": "Willkommen und gute Nacht",
+    "meaning": "Welcome and good night",
+    "languageId": "de",
+    "category": "greetings"
+  },
+  {
+    "id": "de_phrase_u2_l1_a",
+    "phrase": "Meine Schwester ist Anna",
+    "meaning": "My sister is Anna",
+    "languageId": "de",
+    "category": "dining"
+  },
+  {
+    "id": "de_phrase_u2_l1_b",
+    "phrase": "Anna ist meine Mutter",
+    "meaning": "Anna is my mother",
+    "languageId": "de",
+    "category": "dining"
+  },
+  {
+    "id": "de_phrase_u2_l2_a",
+    "phrase": "Ich möchte auch Brot, bitte",
+    "meaning": "I also want bread, please",
+    "languageId": "de",
+    "category": "dining"
+  },
+  {
+    "id": "de_phrase_u2_l2_b",
+    "phrase": "Ich möchte Käse",
+    "meaning": "I want cheese",
+    "languageId": "de",
+    "category": "dining"
+  },
+  {
+    "id": "de_phrase_u2_l3_a",
+    "phrase": "Das Messer ist auf dem Tisch",
+    "meaning": "The knife is on the table",
+    "languageId": "de",
+    "category": "dining"
+  },
+  {
+    "id": "de_phrase_u2_l3_b",
+    "phrase": "Das Glas ist auf dem Tisch",
+    "meaning": "The glass is on the table",
+    "languageId": "de",
+    "category": "dining"
+  },
+  {
+    "id": "de_phrase_u3_l1_a",
+    "phrase": "Ich bin fünf Jahre alt",
+    "meaning": "I am five years old",
+    "languageId": "de",
+    "category": "travel"
+  },
+  {
+    "id": "de_phrase_u3_l1_b",
+    "phrase": "Ich bin vier Jahre alt",
+    "meaning": "I am four years old",
+    "languageId": "de",
+    "category": "travel"
+  },
+  {
+    "id": "de_phrase_u3_l2_a",
+    "phrase": "Wo ist der Bahnhof?",
+    "meaning": "Where is the station?",
+    "languageId": "de",
+    "category": "travel"
+  },
+  {
+    "id": "de_phrase_u3_l2_b",
+    "phrase": "Wo ist die Straße",
+    "meaning": "Where is the street?",
+    "languageId": "de",
+    "category": "travel"
+  },
+  {
+    "id": "de_phrase_u3_l3_a",
+    "phrase": "Der Zug ist in der Nähe",
+    "meaning": "The train is nearby",
+    "languageId": "de",
+    "category": "travel"
+  },
+  {
+    "id": "de_phrase_u3_l3_b",
+    "phrase": "Wo ist der Zug",
+    "meaning": "Where is the train?",
+    "languageId": "de",
+    "category": "travel"
+  }
+]

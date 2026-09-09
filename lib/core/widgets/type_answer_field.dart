@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../theme/app_colors.dart';
+import '../theme/app_decor.dart';
 import '../theme/app_spacing.dart';
 import 'app_buttons.dart';
 
@@ -51,8 +52,11 @@ class _TypeAnswerFieldState extends State<TypeAnswerField> {
           decoration: InputDecoration(
             hintText: widget.hintText,
             filled: true,
+            // decor.tint(), not the raw successLight/errorLight literals:
+            // those are pale washes for light mode, and a disabled
+            // field's grey text on them is unreadable in dark mode.
             fillColor: locked
-                ? (isCorrect ? AppColors.successLight : AppColors.errorLight)
+                ? context.decor.tint(isCorrect ? AppColors.success : AppColors.error)
                 : null,
           ),
           onChanged: (_) => setState(() {}),

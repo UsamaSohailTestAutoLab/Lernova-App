@@ -89,14 +89,66 @@ void main() {
     expect(s.availableIndices, contains(0));
   });
 
+  // The round set is drawn up front so the intro's Review Words step can
+  // show every sentence the round will ask for. It used to show one card
+  // because only the first phrase existed at that point, and a run could
+  // serve the same sentence twice.
+  group('round set', () {
+    test('holds one distinct phrase per round, ready before play starts', () {
+      final controller = container.read(funSentenceBuilderSessionProvider.notifier);
+      controller.start(pool: _phrases(), totalRounds: 3, random: Random(4));
+      final s = container.read(funSentenceBuilderSessionProvider)!;
+
+      expect(s.pool, hasLength(3));
+      expect(s.pool.map((p) => p.id).toSet(), hasLength(3));
+      expect(s.currentPhrase, s.pool.first);
+    });
+
+    test('a short pool shortens the round instead of repeating a sentence', () {
+      final controller = container.read(funSentenceBuilderSessionProvider.notifier);
+      controller.start(pool: _phrases().take(2).toList(), totalRounds: 8, random: Random(4));
+      final s = container.read(funSentenceBuilderSessionProvider)!;
+
+      expect(s.totalRounds, 2);
+      expect(s.pool.map((p) => p.id).toSet(), hasLength(2));
+    });
+
+    test('each round serves the next phrase in the set', () {
+      final controller = container.read(funSentenceBuilderSessionProvider.notifier);
+      controller.start(pool: _phrases(), totalRounds: 3, random: Random(9));
+      final set = container.read(funSentenceBuilderSessionProvider)!.pool;
+
+      final seen = <String>[];
+      for (var round = 0; round < 3; round++) {
+        final s = container.read(funSentenceBuilderSessionProvider)!;
+        if (s.isComplete) break;
+        seen.add(s.currentPhrase.id);
+        for (var i = 0; i < s.shuffledTokens.length; i++) {
+          controller.chooseToken(i);
+        }
+        controller.submitSentence(Random(round));
+        if (container.read(funSentenceBuilderSessionProvider)!.pendingRecall != null) {
+          controller.acknowledgeRecall(Random(round));
+        }
+      }
+
+      expect(seen, set.take(seen.length).map((p) => p.id).toList());
+    });
+  });
+
   test('running out of lives fails the session', () {
-    // A single 4-word phrase, reused every round: _tokensFor guarantees
+    // Three distinct 4-word phrases: a round set never repeats a phrase,
+    // so burning three lives needs three of them. _tokensFor guarantees
     // the shuffled order never equals the correct order for 3+ word
     // phrases, so submitting tokens in shuffled order is a reliably
     // wrong answer every time.
-    final phrase = _phrases()[2];
+    const pool = [
+      Phrase(id: 'w1', phrase: 'Buenos días a todos', meaning: 'Good morning everyone', languageId: 'es', category: 'g'),
+      Phrase(id: 'w2', phrase: 'Muchas gracias por todo', meaning: 'Thanks for everything', languageId: 'es', category: 'g'),
+      Phrase(id: 'w3', phrase: 'Hasta luego mi amigo', meaning: 'See you later my friend', languageId: 'es', category: 'g'),
+    ];
     final controller = container.read(funSentenceBuilderSessionProvider.notifier);
-    controller.start(pool: [phrase], totalRounds: 10, random: Random(5));
+    controller.start(pool: pool, totalRounds: 10, random: Random(5));
 
     for (var i = 0; i < 3; i++) {
       final s = container.read(funSentenceBuilderSessionProvider)!;

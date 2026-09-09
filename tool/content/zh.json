@@ -1,0 +1,368 @@
+{
+  "id": "zh",
+  "name": "Chinese",
+  "description": "Learn conversational Mandarin Chinese through short, focused lessons.",
+  "properNouns": ["安娜", "罗莎"],
+  "units": [
+    {
+      "title": "Greetings & Basics",
+      "description": "Say hello and be polite",
+      "icon": "greeting",
+      "phraseCategory": "greetings",
+      "lessons": [
+        {
+          "title": "Say Hello",
+          "icon": "greeting",
+          "words": [
+            { "id": "nihao", "w": "你好", "en": "Hello", "emoji": "👋", "cat": "greetings" },
+            { "id": "xiexie", "w": "谢谢", "en": "Thank you", "emoji": "🙏", "cat": "greetings" },
+            { "id": "qing", "w": "请", "en": "Please", "emoji": "🙇", "cat": "greetings" },
+            { "id": "zaijian", "w": "再见", "en": "Goodbye", "emoji": "🙋", "cat": "greetings" },
+            { "id": "wanshanghao", "w": "晚上好", "en": "Good evening", "emoji": "🌙", "cat": "greetings" }
+          ],
+          "support": [
+            { "id": "wojiao", "w": "我叫", "en": "My name is", "emoji": "🪪", "cat": "greetings" },
+            { "id": "he", "w": "和", "en": "And", "emoji": "➕", "cat": "descriptions" }
+          ],
+          "speak": { "phrase": "你好 我叫 安娜", "en": "Hello, my name is Anna" },
+          "sentence": { "chips": ["你好", "我叫", "安娜"], "en": "Hello, my name is Anna" },
+          "fill": {
+            "template": "谢谢 和 ___。",
+            "answer": "再见",
+            "distractors": ["你好", "请", "晚上好"],
+            "en": "Thank you and goodbye",
+            "vocab": "zaijian"
+          }
+        },
+        {
+          "title": "Yes, No, Sorry",
+          "icon": "agreement",
+          "words": [
+            { "id": "shi", "w": "是", "en": "Yes", "emoji": "✅", "cat": "greetings" },
+            { "id": "bushi", "w": "不是", "en": "No", "emoji": "❌", "cat": "greetings" },
+            { "id": "duibuqi", "w": "对不起", "en": "Excuse me", "emoji": "🙋", "cat": "greetings" },
+            { "id": "bukeqi", "w": "不客气", "en": "You're welcome", "emoji": "🤝", "cat": "greetings" },
+            { "id": "haode", "w": "好的", "en": "Okay", "emoji": "👍", "cat": "greetings" }
+          ],
+          "support": [
+            { "id": "wo", "w": "我", "en": "I", "emoji": "🙋", "cat": "descriptions" },
+            { "id": "lei", "w": "累", "en": "Tired", "emoji": "😴", "cat": "descriptions" },
+            { "id": "hen", "w": "很", "en": "Very", "emoji": "⭐", "cat": "descriptions" }
+          ],
+          "review": ["xiexie"],
+          "speak": { "phrase": "对不起 我 很 累", "en": "Excuse me, I am very tired" },
+          "sentence": { "chips": ["我", "不是", "累"], "en": "I am not tired" },
+          "fill": {
+            "template": "不是 ___。",
+            "answer": "对不起",
+            "distractors": ["是", "好的", "不客气"],
+            "en": "No, excuse me",
+            "vocab": "duibuqi"
+          }
+        },
+        {
+          "title": "Polite Basics",
+          "icon": "manners",
+          "words": [
+            { "id": "darao_yixia", "w": "打扰一下", "en": "Excuse me please", "emoji": "🙇", "cat": "greetings" },
+            { "id": "wanan", "w": "晚安", "en": "Good night", "emoji": "😴", "cat": "greetings" },
+            { "id": "ganbei", "w": "干杯", "en": "Cheers", "emoji": "🥂", "cat": "greetings" },
+            { "id": "huanying", "w": "欢迎", "en": "Welcome", "emoji": "🎉", "cat": "greetings" },
+            { "id": "huitoujian", "w": "回头见", "en": "See you soon", "emoji": "👋", "cat": "greetings" }
+          ],
+          "support": [
+            { "id": "nihaoma", "w": "你好吗", "en": "How are you", "emoji": "❓", "cat": "greetings" }
+          ],
+          "review": ["he", "xiexie"],
+          "speak": { "phrase": "打扰一下 你好吗", "en": "Excuse me, how are you?" },
+          "sentence": { "chips": ["欢迎", "和", "晚安"], "en": "Welcome and good night" },
+          "fill": {
+            "template": "谢谢 ___。",
+            "answer": "回头见",
+            "distractors": ["干杯", "欢迎", "晚安"],
+            "en": "Thank you, see you soon",
+            "vocab": "huitoujian"
+          }
+        }
+      ]
+    },
+    {
+      "title": "Food & Family",
+      "description": "Talk about the people and meals you love",
+      "icon": "food",
+      "phraseCategory": "dining",
+      "lessons": [
+        {
+          "title": "Family Members",
+          "icon": "family",
+          "words": [
+            { "id": "mama", "w": "妈妈", "en": "Mother", "emoji": "👩", "cat": "family" },
+            { "id": "baba", "w": "爸爸", "en": "Father", "emoji": "👨", "cat": "family" },
+            { "id": "gege", "w": "哥哥", "en": "Brother", "emoji": "👦", "cat": "family" },
+            { "id": "jiejie", "w": "姐姐", "en": "Sister", "emoji": "👧", "cat": "family" },
+            { "id": "nainai", "w": "奶奶", "en": "Grandmother", "emoji": "👵", "cat": "family" }
+          ],
+          "support": [
+            { "id": "wode", "w": "我的", "en": "My", "emoji": "🫱", "cat": "descriptions" }
+          ],
+          "review": ["shi"],
+          "speak": { "phrase": "我的 姐姐 是 安娜", "en": "My sister is Anna" },
+          "sentence": { "chips": ["安娜", "是", "我的", "妈妈"], "en": "Anna is my mother" },
+          "fill": {
+            "template": "我的 ___ 是 罗莎。",
+            "answer": "奶奶",
+            "distractors": ["妈妈", "姐姐", "爸爸"],
+            "en": "My grandmother is Rosa",
+            "vocab": "nainai"
+          }
+        },
+        {
+          "title": "Food Basics",
+          "icon": "food",
+          "words": [
+            { "id": "mianbao", "w": "面包", "en": "Bread", "emoji": "🍞", "cat": "food" },
+            { "id": "shui", "w": "水", "en": "Water", "emoji": "💧", "cat": "food" },
+            { "id": "pingguo", "w": "苹果", "en": "Apple", "emoji": "🍎", "cat": "food" },
+            { "id": "nailao", "w": "奶酪", "en": "Cheese", "emoji": "🧀", "cat": "food" },
+            { "id": "niunai", "w": "牛奶", "en": "Milk", "emoji": "🥛", "cat": "food" }
+          ],
+          "support": [
+            { "id": "yao", "w": "要", "en": "Want", "emoji": "🙋", "cat": "food" }
+          ],
+          "review": ["qing", "wo"],
+          "speak": { "phrase": "我 要 面包 请", "en": "I want bread, please" },
+          "sentence": { "chips": ["我", "要", "奶酪"], "en": "I want cheese" },
+          "fill": {
+            "template": "我 要 ___。",
+            "answer": "牛奶",
+            "distractors": ["面包", "奶酪", "水"],
+            "en": "I want milk",
+            "vocab": "niunai"
+          }
+        },
+        {
+          "title": "At the Table",
+          "icon": "table",
+          "words": [
+            { "id": "zhuozi", "w": "桌子", "en": "Table", "emoji": "🍽️", "cat": "home" },
+            { "id": "panzi", "w": "盘子", "en": "Plate", "emoji": "🍽️", "cat": "home" },
+            { "id": "beizi", "w": "杯子", "en": "Glass", "emoji": "🥛", "cat": "home" },
+            { "id": "chazi", "w": "叉子", "en": "Fork", "emoji": "🍴", "cat": "home" },
+            { "id": "dao", "w": "刀", "en": "Knife", "emoji": "🔪", "cat": "home" }
+          ],
+          "support": [
+            { "id": "zai", "w": "在", "en": "At", "emoji": "📍", "cat": "descriptions" },
+            { "id": "shang", "w": "上", "en": "On top", "emoji": "⬆️", "cat": "descriptions" }
+          ],
+          "speak": { "phrase": "杯子 在 桌子 上", "en": "The glass is on the table" },
+          "sentence": { "chips": ["叉子", "在", "桌子", "上"], "en": "The fork is on the table" },
+          "fill": {
+            "template": "___ 在 桌子 上。",
+            "answer": "刀",
+            "distractors": ["杯子", "盘子", "叉子"],
+            "en": "The knife is on the table",
+            "vocab": "dao"
+          }
+        }
+      ]
+    },
+    {
+      "title": "Numbers & Travel",
+      "description": "Count, navigate, and travel with confidence",
+      "icon": "travel",
+      "phraseCategory": "travel",
+      "lessons": [
+        {
+          "title": "Numbers 1-10",
+          "icon": "numbers",
+          "words": [
+            { "id": "yi", "w": "一", "en": "One", "emoji": "1️⃣", "cat": "numbers" },
+            { "id": "er", "w": "二", "en": "Two", "emoji": "2️⃣", "cat": "numbers" },
+            { "id": "san", "w": "三", "en": "Three", "emoji": "3️⃣", "cat": "numbers" },
+            { "id": "si", "w": "四", "en": "Four", "emoji": "4️⃣", "cat": "numbers" },
+            { "id": "wu", "w": "五", "en": "Five", "emoji": "5️⃣", "cat": "numbers" }
+          ],
+          "support": [
+            { "id": "sui", "w": "岁", "en": "Years old", "emoji": "🎂", "cat": "numbers" }
+          ],
+          "review": ["wo"],
+          "speak": { "phrase": "我 五 岁", "en": "I am five years old" },
+          "sentence": { "chips": ["我", "四", "岁"], "en": "I am four years old" },
+          "fill": {
+            "template": "我 ___ 岁。",
+            "answer": "三",
+            "distractors": ["一", "二", "四"],
+            "en": "I am three years old",
+            "vocab": "san"
+          }
+        },
+        {
+          "title": "Getting Around",
+          "icon": "directions",
+          "words": [
+            { "id": "zuo", "w": "左", "en": "Left", "emoji": "⬅️", "cat": "travel" },
+            { "id": "you", "w": "右", "en": "Right", "emoji": "➡️", "cat": "travel" },
+            { "id": "zhizou", "w": "直走", "en": "Straight ahead", "emoji": "⬆️", "cat": "travel" },
+            { "id": "jie", "w": "街", "en": "Street", "emoji": "🛣️", "cat": "travel" },
+            { "id": "chezhan", "w": "车站", "en": "Station", "emoji": "🚉", "cat": "travel" }
+          ],
+          "support": [
+            { "id": "zai_nali", "w": "在哪里", "en": "Where is it", "emoji": "❓", "cat": "travel" }
+          ],
+          "review": ["zai", "qing"],
+          "speak": { "phrase": "车站 在哪里", "en": "Where is the station?" },
+          "sentence": { "chips": ["街", "在哪里", "请"], "en": "Where is the street, please?" },
+          "fill": {
+            "template": "车站 在 ___。",
+            "answer": "左",
+            "distractors": ["右", "直走", "街"],
+            "en": "The station is on the left",
+            "vocab": "zuo"
+          }
+        },
+        {
+          "title": "Travel Phrases",
+          "icon": "travel",
+          "words": [
+            { "id": "jichang", "w": "机场", "en": "Airport", "emoji": "✈️", "cat": "travel" },
+            { "id": "jiudian", "w": "酒店", "en": "Hotel", "emoji": "🏨", "cat": "travel" },
+            { "id": "chepiao", "w": "车票", "en": "Ticket", "emoji": "🎫", "cat": "travel" },
+            { "id": "huoche", "w": "火车", "en": "Train", "emoji": "🚆", "cat": "travel" },
+            { "id": "xinglixiang", "w": "行李箱", "en": "Suitcase", "emoji": "🧳", "cat": "travel" }
+          ],
+          "support": [
+            { "id": "henjin", "w": "很近", "en": "It is near", "emoji": "📍", "cat": "travel" }
+          ],
+          "review": ["zai_nali", "qing"],
+          "speak": { "phrase": "火车 很近", "en": "The train is near" },
+          "sentence": { "chips": ["火车", "在哪里", "请"], "en": "Where is the train, please?" },
+          "fill": {
+            "template": "___ 很近。",
+            "answer": "酒店",
+            "distractors": ["火车", "车票", "机场"],
+            "en": "The hotel is near",
+            "vocab": "jiudian"
+          }
+        }
+      ]
+    }
+  ],
+  "extraVocab": [
+    { "id": "hongse", "w": "红色", "en": "Red", "emoji": "🔴", "cat": "colors" },
+    { "id": "lanse", "w": "蓝色", "en": "Blue", "emoji": "🔵", "cat": "colors" },
+    { "id": "luse", "w": "绿色", "en": "Green", "emoji": "🟢", "cat": "colors" },
+    { "id": "huangse", "w": "黄色", "en": "Yellow", "emoji": "🟡", "cat": "colors" },
+    { "id": "heise", "w": "黑色", "en": "Black", "emoji": "⚫", "cat": "colors" },
+    { "id": "baise", "w": "白色", "en": "White", "emoji": "⚪", "cat": "colors" },
+    { "id": "gou", "w": "狗", "en": "Dog", "emoji": "🐕", "cat": "animals" },
+    { "id": "mao", "w": "猫", "en": "Cat", "emoji": "🐈", "cat": "animals" },
+    { "id": "niao", "w": "鸟", "en": "Bird", "emoji": "🐦", "cat": "animals" },
+    { "id": "yu", "w": "鱼", "en": "Fish", "emoji": "🐟", "cat": "animals" },
+    { "id": "ma", "w": "马", "en": "Horse", "emoji": "🐴", "cat": "animals" },
+    { "id": "niu", "w": "牛", "en": "Cow", "emoji": "🐄", "cat": "animals" },
+    { "id": "liu", "w": "六", "en": "Six", "emoji": "6️⃣", "cat": "numbers" },
+    { "id": "qi", "w": "七", "en": "Seven", "emoji": "7️⃣", "cat": "numbers" },
+    { "id": "ba", "w": "八", "en": "Eight", "emoji": "8️⃣", "cat": "numbers" },
+    { "id": "jiu", "w": "九", "en": "Nine", "emoji": "9️⃣", "cat": "numbers" },
+    { "id": "shi_ten", "w": "十", "en": "Ten", "emoji": "🔟", "cat": "numbers" },
+    { "id": "fangzi", "w": "房子", "en": "House", "emoji": "🏠", "cat": "home" },
+    { "id": "men", "w": "门", "en": "Door", "emoji": "🚪", "cat": "home" },
+    { "id": "chuanghu", "w": "窗户", "en": "Window", "emoji": "🪟", "cat": "home" },
+    { "id": "yizi", "w": "椅子", "en": "Chair", "emoji": "🪑", "cat": "home" },
+    { "id": "chuang", "w": "床", "en": "Bed", "emoji": "🛏️", "cat": "home" },
+    { "id": "kafei", "w": "咖啡", "en": "Coffee", "emoji": "☕", "cat": "food" },
+    { "id": "cha", "w": "茶", "en": "Tea", "emoji": "🍵", "cat": "food" },
+    { "id": "jirou", "w": "鸡肉", "en": "Chicken", "emoji": "🍗", "cat": "food" },
+    { "id": "da", "w": "大", "en": "Big", "emoji": "🐘", "cat": "descriptions" },
+    { "id": "xiao", "w": "小", "en": "Small", "emoji": "🐁", "cat": "descriptions" },
+    { "id": "re", "w": "热", "en": "Hot", "emoji": "🔥", "cat": "descriptions" },
+    { "id": "leng", "w": "冷", "en": "Cold", "emoji": "❄️", "cat": "descriptions" },
+    { "id": "hao", "w": "好", "en": "Good", "emoji": "👍", "cat": "descriptions" }
+  ],
+  "conversations": [
+    {
+      "id": "cafe",
+      "title": "At the Café",
+      "scenario": "You are ordering a coffee at a café.",
+      "turns": [
+        {
+          "line": "你好！你要什么？",
+          "lineEn": "Hello! What would you like?",
+          "options": ["我 要 咖啡 请", "你好 再见", "我 有 一 只 狗"],
+          "optionsEn": ["I want a coffee, please", "Hello, goodbye", "I have a dog"],
+          "correctIndex": 0
+        },
+        {
+          "line": "还要别的吗？",
+          "lineEn": "Anything else?",
+          "options": ["不是 谢谢", "是 我 要 一 只 猫", "晚安"],
+          "optionsEn": ["No, thank you", "Yes, I want a cat", "Good night"],
+          "correctIndex": 0
+        },
+        {
+          "line": "这是你的咖啡。祝你今天愉快！",
+          "lineEn": "Here is your coffee. Have a nice day!",
+          "options": ["谢谢 再见", "车站 在哪里", "我 五 岁"],
+          "optionsEn": ["Thank you, goodbye", "Where is the station?", "I am five years old"],
+          "correctIndex": 0
+        }
+      ]
+    },
+    {
+      "id": "directions",
+      "title": "Asking Directions",
+      "scenario": "You are lost and need to find the station.",
+      "turns": [
+        {
+          "line": "你好，需要帮忙吗？",
+          "lineEn": "Hello, can I help you?",
+          "options": ["车站 在哪里 请", "我 要 奶酪", "我的 妈妈 是 安娜"],
+          "optionsEn": ["Where is the station, please?", "I want cheese", "My mother is Anna"],
+          "correctIndex": 0
+        },
+        {
+          "line": "直走，然后左转。",
+          "lineEn": "Straight ahead, then turn left.",
+          "options": ["很 谢谢", "不是 对不起", "我 四 岁"],
+          "optionsEn": ["Thank you very much", "No, excuse me", "I am four years old"],
+          "correctIndex": 0
+        },
+        {
+          "line": "非常近。旅途愉快！",
+          "lineEn": "It is very near. Have a good trip!",
+          "options": ["谢谢 回头见", "刀 在 桌子 上", "欢迎"],
+          "optionsEn": ["Thank you, see you soon", "The knife is on the table", "Welcome"],
+          "correctIndex": 0
+        }
+      ]
+    },
+    {
+      "id": "hotel",
+      "title": "Hotel Check-in",
+      "scenario": "You are checking in at a hotel.",
+      "turns": [
+        {
+          "line": "晚上好，你有预订吗？",
+          "lineEn": "Good evening, do you have a reservation?",
+          "options": ["是 我叫 安娜", "不是 我 有 马", "杯子 在 桌子 上"],
+          "optionsEn": ["Yes, my name is Anna", "No, I have a horse", "The glass is on the table"],
+          "correctIndex": 0
+        },
+        {
+          "line": "这是你的钥匙。三号房间。",
+          "lineEn": "Here is your key. Room three.",
+          "options": ["谢谢 好的", "苹果 在哪里", "我 有 十 只 狗"],
+          "optionsEn": ["Thank you, okay", "Where is the apple?", "I have ten dogs"],
+          "correctIndex": 0
+        },
+        {
+          "line": "早餐是七点。",
+          "lineEn": "Breakfast is at seven.",
+          "options": ["很 好 晚安", "对不起 我 很 累", "欢迎 和 谢谢"],
+          "optionsEn": ["Very good, good night", "Excuse me, I am very tired", "Welcome and thank you"],
+          "correctIndex": 0
+        }
+      ]
+    }
+  ]
+}

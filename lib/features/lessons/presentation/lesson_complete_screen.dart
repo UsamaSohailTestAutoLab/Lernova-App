@@ -6,7 +6,7 @@ import '../../../core/routing/app_routes.dart';
 import '../../../core/theme/app_colors.dart';
 import '../../../core/widgets/app_metric.dart';
 import '../../../core/widgets/celebration_scaffold.dart';
-import '../../../core/widgets/spark_mascot.dart';
+import '../../../core/widgets/lernova_parrot.dart';
 import '../../exercises/application/lesson_session_controller.dart';
 import '../application/lesson_nav_args.dart';
 import 'lesson_review_screen.dart';
@@ -60,7 +60,34 @@ class LessonCompleteScreen extends ConsumerWidget {
       );
     }
 
+    /// Back out of a failed attempt to the level's own start screen.
+    ///
+    /// Only offered when the attempt ended early: a finished lesson has
+    /// XP and a streak waiting behind Continue, and skipping that would
+    /// silently drop rewards the learner earned. Running out of hearts
+    /// earns none of that, so leaving costs nothing — and without a way
+    /// out, the only exit is replaying the level that just beat you.
+    void backToLevelStart() {
+      final unitIndex = session.unitIndex;
+      final lesson = session.lesson;
+      ref.read(lessonSessionProvider.notifier).reset();
+      if (session.isReviewSession || unitIndex < 0) {
+        context.go(AppRoutes.home);
+        return;
+      }
+      context.pushReplacement(
+        AppRoutes.lessonIntro,
+        extra: LessonNavArgs(
+          course: session.course,
+          unitIndex: unitIndex,
+          lessonIndex: _lessonIndexOf(session),
+          lesson: lesson,
+        ),
+      );
+    }
+
     return CelebrationScaffold(
+      onBack: outOfHearts ? backToLevelStart : null,
       headline: outOfHearts
           ? 'Out of hearts'
           : (isPerfect ? 'Perfect lesson!' : 'Lesson complete!'),
@@ -69,8 +96,8 @@ class LessonCompleteScreen extends ConsumerWidget {
           : null,
       hero: CelebrationHero.mascot,
       mascotMood: outOfHearts
-          ? SparkMood.sad
-          : (isPerfect ? SparkMood.celebrate : SparkMood.happy),
+          ? LernovaParrotMood.sad
+          : (isPerfect ? LernovaParrotMood.celebrate : LernovaParrotMood.happy),
       intensity: outOfHearts
           ? CelebrationIntensity.none
           : (isPerfect ? CelebrationIntensity.full : CelebrationIntensity.medium),

@@ -1,0 +1,1661 @@
+{
+  "id": "course_ja",
+  "languageId": "ja",
+  "title": "Japanese",
+  "description": "Learn conversational Japanese through short, focused lessons.",
+  "units": [
+    {
+      "id": "ja_u1",
+      "title": "Greetings & Basics",
+      "description": "Say hello and be polite",
+      "icon": "greeting",
+      "accent": "green",
+      "lessons": [
+        {
+          "id": "ja_u1_l1",
+          "title": "Say Hello",
+          "subtitle": "こんにちは, ありがとう, おねがいします, さようなら, こんばんは",
+          "icon": "greeting",
+          "reviewVocabIds": [
+            "ja_watashiwa",
+            "ja_desu",
+            "ja_konbanwa"
+          ],
+          "exercises": [
+            {
+              "id": "ja_u1_l1_e1",
+              "type": "imageRecognition",
+              "vocabId": "ja_konnichiwa",
+              "payload": {
+                "prompt": "What does this word mean?",
+                "emoji": "👋",
+                "targetWord": "こんにちは",
+                "meaning": "Hello",
+                "distractorMeanings": [
+                  "Thank you",
+                  "Please",
+                  "Goodbye"
+                ],
+                "distractorWords": [
+                  "ありがとう",
+                  "おねがいします",
+                  "さようなら"
+                ]
+              }
+            },
+            {
+              "id": "ja_u1_l1_e2",
+              "type": "multipleChoice",
+              "vocabId": "ja_arigatou",
+              "payload": {
+                "prompt": "Which word means 'Thank you'?",
+                "options": [
+                  "こんにちは",
+                  "さようなら",
+                  "ありがとう",
+                  "おねがいします"
+                ],
+                "correctIndex": 2
+              }
+            },
+            {
+              "id": "ja_u1_l1_e3",
+              "type": "listening",
+              "vocabId": "ja_onegaishimasu",
+              "payload": {
+                "prompt": "Listen and select what you hear",
+                "audioText": "おねがいします",
+                "ttsLocale": "ja-JP",
+                "options": [
+                  "こんにちは",
+                  "おねがいします",
+                  "さようなら",
+                  "ありがとう"
+                ],
+                "correctIndex": 1,
+                "translation": "Please"
+              }
+            },
+            {
+              "id": "ja_u1_l1_e4",
+              "type": "multipleChoice",
+              "vocabId": "ja_watashiwa",
+              "payload": {
+                "prompt": "Which word means 'I am'?",
+                "options": [
+                  "こんにちは",
+                  "ありがとう",
+                  "おねがいします",
+                  "わたしは"
+                ],
+                "correctIndex": 3
+              }
+            },
+            {
+              "id": "ja_u1_l1_e5",
+              "type": "translation",
+              "vocabId": "ja_sayounara",
+              "payload": {
+                "prompt": "Type the English meaning",
+                "sourceText": "さようなら",
+                "acceptableAnswers": [
+                  "goodbye",
+                  "Goodbye"
+                ]
+              }
+            },
+            {
+              "id": "ja_u1_l1_e6",
+              "type": "speaking",
+              "vocabId": "ja_konnichiwa",
+              "payload": {
+                "prompt": "Say this phrase out loud",
+                "targetPhrase": "こんにちは わたしは アンナ です",
+                "translation": "Hello, I am Anna",
+                "ttsLocale": "ja-JP"
+              }
+            },
+            {
+              "id": "ja_u1_l1_e7",
+              "type": "wordMatching",
+              "vocabId": "ja_u1_l1_set",
+              "payload": {
+                "prompt": "Match each word to its meaning",
+                "pairs": [
+                  {
+                    "left": "こんにちは",
+                    "right": "Hello"
+                  },
+                  {
+                    "left": "ありがとう",
+                    "right": "Thank you"
+                  },
+                  {
+                    "left": "おねがいします",
+                    "right": "Please"
+                  },
+                  {
+                    "left": "さようなら",
+                    "right": "Goodbye"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "ja_u1_l1_e8",
+              "type": "sentenceArrangement",
+              "vocabId": "ja_konnichiwa",
+              "payload": {
+                "prompt": "Build the sentence",
+                "shuffledChips": [
+                  "わたしは",
+                  "アンナ",
+                  "です"
+                ],
+                "correctSentence": [
+                  "わたしは",
+                  "アンナ",
+                  "です"
+                ],
+                "translation": "I am Anna"
+              }
+            },
+            {
+              "id": "ja_u1_l1_e9",
+              "type": "fillInTheBlank",
+              "vocabId": "ja_sayounara",
+              "payload": {
+                "prompt": "Complete the sentence",
+                "sentenceTemplate": "ありがとう、___。",
+                "options": [
+                  "こんにちは",
+                  "こんばんは",
+                  "さようなら",
+                  "おねがいします"
+                ],
+                "correctAnswer": "さようなら",
+                "translation": "Thank you, goodbye"
+              }
+            }
+          ]
+        },
+        {
+          "id": "ja_u1_l2",
+          "title": "Yes, No, Sorry",
+          "subtitle": "はい, いいえ, すみません, どういたしまして, だいじょうぶ",
+          "icon": "agreement",
+          "reviewVocabIds": [
+            "ja_tsukaremashita",
+            "ja_arigatou",
+            "ja_desu",
+            "ja_daijoubu"
+          ],
+          "exercises": [
+            {
+              "id": "ja_u1_l2_e1",
+              "type": "imageRecognition",
+              "vocabId": "ja_hai",
+              "payload": {
+                "prompt": "What does this word mean?",
+                "emoji": "✅",
+                "targetWord": "はい",
+                "meaning": "Yes",
+                "distractorMeanings": [
+                  "No",
+                  "Excuse me",
+                  "You're welcome"
+                ],
+                "distractorWords": [
+                  "いいえ",
+                  "すみません",
+                  "どういたしまして"
+                ]
+              }
+            },
+            {
+              "id": "ja_u1_l2_e2",
+              "type": "multipleChoice",
+              "vocabId": "ja_iie",
+              "payload": {
+                "prompt": "Which word means 'No'?",
+                "options": [
+                  "いいえ",
+                  "すみません",
+                  "はい",
+                  "どういたしまして"
+                ],
+                "correctIndex": 0
+              }
+            },
+            {
+              "id": "ja_u1_l2_e3",
+              "type": "listening",
+              "vocabId": "ja_sumimasen",
+              "payload": {
+                "prompt": "Listen and select what you hear",
+                "audioText": "すみません",
+                "ttsLocale": "ja-JP",
+                "options": [
+                  "いいえ",
+                  "はい",
+                  "すみません",
+                  "どういたしまして"
+                ],
+                "correctIndex": 2,
+                "translation": "Excuse me"
+              }
+            },
+            {
+              "id": "ja_u1_l2_e4",
+              "type": "multipleChoice",
+              "vocabId": "ja_tsukaremashita",
+              "payload": {
+                "prompt": "Which word means 'I am tired'?",
+                "options": [
+                  "つかれました",
+                  "いいえ",
+                  "すみません",
+                  "はい"
+                ],
+                "correctIndex": 0
+              }
+            },
+            {
+              "id": "ja_u1_l2_e5",
+              "type": "translation",
+              "vocabId": "ja_douitashimashite",
+              "payload": {
+                "prompt": "Type the English meaning",
+                "sourceText": "どういたしまして",
+                "acceptableAnswers": [
+                  "you're welcome",
+                  "You're welcome"
+                ]
+              }
+            },
+            {
+              "id": "ja_u1_l2_e6",
+              "type": "speaking",
+              "vocabId": "ja_hai",
+              "payload": {
+                "prompt": "Say this phrase out loud",
+                "targetPhrase": "すみません、つかれました",
+                "translation": "Excuse me, I am tired",
+                "ttsLocale": "ja-JP"
+              }
+            },
+            {
+              "id": "ja_u1_l2_e7",
+              "type": "wordMatching",
+              "vocabId": "ja_u1_l2_set",
+              "payload": {
+                "prompt": "Match each word to its meaning",
+                "pairs": [
+                  {
+                    "left": "はい",
+                    "right": "Yes"
+                  },
+                  {
+                    "left": "いいえ",
+                    "right": "No"
+                  },
+                  {
+                    "left": "すみません",
+                    "right": "Excuse me"
+                  },
+                  {
+                    "left": "どういたしまして",
+                    "right": "You're welcome"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "ja_u1_l2_e8",
+              "type": "sentenceArrangement",
+              "vocabId": "ja_hai",
+              "payload": {
+                "prompt": "Build the sentence",
+                "shuffledChips": [
+                  "です",
+                  "はい",
+                  "だいじょうぶ"
+                ],
+                "correctSentence": [
+                  "はい",
+                  "だいじょうぶ",
+                  "です"
+                ],
+                "translation": "Yes, it is okay"
+              }
+            },
+            {
+              "id": "ja_u1_l2_e9",
+              "type": "fillInTheBlank",
+              "vocabId": "ja_sumimasen",
+              "payload": {
+                "prompt": "Complete the sentence",
+                "sentenceTemplate": "いいえ、___。",
+                "options": [
+                  "すみません",
+                  "だいじょうぶ",
+                  "はい",
+                  "どういたしまして"
+                ],
+                "correctAnswer": "すみません",
+                "translation": "No, excuse me"
+              }
+            }
+          ]
+        },
+        {
+          "id": "ja_u1_l3",
+          "title": "Polite Basics",
+          "subtitle": "しつれいします, おやすみなさい, かんぱい, ようこそ, またね",
+          "icon": "manners",
+          "reviewVocabIds": [
+            "ja_ogenkidesuka",
+            "ja_soshite",
+            "ja_totemo",
+            "ja_arigatou"
+          ],
+          "exercises": [
+            {
+              "id": "ja_u1_l3_e1",
+              "type": "imageRecognition",
+              "vocabId": "ja_shitsureishimasu",
+              "payload": {
+                "prompt": "What does this word mean?",
+                "emoji": "🙇",
+                "targetWord": "しつれいします",
+                "meaning": "Excuse me please",
+                "distractorMeanings": [
+                  "Good night",
+                  "Cheers",
+                  "Welcome"
+                ],
+                "distractorWords": [
+                  "おやすみなさい",
+                  "かんぱい",
+                  "ようこそ"
+                ]
+              }
+            },
+            {
+              "id": "ja_u1_l3_e2",
+              "type": "multipleChoice",
+              "vocabId": "ja_oyasuminasai",
+              "payload": {
+                "prompt": "Which word means 'Good night'?",
+                "options": [
+                  "しつれいします",
+                  "ようこそ",
+                  "かんぱい",
+                  "おやすみなさい"
+                ],
+                "correctIndex": 3
+              }
+            },
+            {
+              "id": "ja_u1_l3_e3",
+              "type": "listening",
+              "vocabId": "ja_kanpai",
+              "payload": {
+                "prompt": "Listen and select what you hear",
+                "audioText": "かんぱい",
+                "ttsLocale": "ja-JP",
+                "options": [
+                  "おやすみなさい",
+                  "ようこそ",
+                  "しつれいします",
+                  "かんぱい"
+                ],
+                "correctIndex": 3,
+                "translation": "Cheers"
+              }
+            },
+            {
+              "id": "ja_u1_l3_e4",
+              "type": "multipleChoice",
+              "vocabId": "ja_ogenkidesuka",
+              "payload": {
+                "prompt": "Which word means 'How are you'?",
+                "options": [
+                  "しつれいします",
+                  "おげんきですか",
+                  "かんぱい",
+                  "おやすみなさい"
+                ],
+                "correctIndex": 1
+              }
+            },
+            {
+              "id": "ja_u1_l3_e5",
+              "type": "translation",
+              "vocabId": "ja_youkoso",
+              "payload": {
+                "prompt": "Type the English meaning",
+                "sourceText": "ようこそ",
+                "acceptableAnswers": [
+                  "welcome",
+                  "Welcome"
+                ]
+              }
+            },
+            {
+              "id": "ja_u1_l3_e6",
+              "type": "speaking",
+              "vocabId": "ja_shitsureishimasu",
+              "payload": {
+                "prompt": "Say this phrase out loud",
+                "targetPhrase": "しつれいします、おげんきですか",
+                "translation": "Excuse me, how are you?",
+                "ttsLocale": "ja-JP"
+              }
+            },
+            {
+              "id": "ja_u1_l3_e7",
+              "type": "wordMatching",
+              "vocabId": "ja_u1_l3_set",
+              "payload": {
+                "prompt": "Match each word to its meaning",
+                "pairs": [
+                  {
+                    "left": "しつれいします",
+                    "right": "Excuse me please"
+                  },
+                  {
+                    "left": "おやすみなさい",
+                    "right": "Good night"
+                  },
+                  {
+                    "left": "かんぱい",
+                    "right": "Cheers"
+                  },
+                  {
+                    "left": "ようこそ",
+                    "right": "Welcome"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "ja_u1_l3_e8",
+              "type": "sentenceArrangement",
+              "vocabId": "ja_shitsureishimasu",
+              "payload": {
+                "prompt": "Build the sentence",
+                "shuffledChips": [
+                  "おやすみなさい",
+                  "そして",
+                  "ようこそ"
+                ],
+                "correctSentence": [
+                  "ようこそ",
+                  "そして",
+                  "おやすみなさい"
+                ],
+                "translation": "Welcome and good night"
+              }
+            },
+            {
+              "id": "ja_u1_l3_e9",
+              "type": "fillInTheBlank",
+              "vocabId": "ja_matane",
+              "payload": {
+                "prompt": "Complete the sentence",
+                "sentenceTemplate": "ありがとう、___。",
+                "options": [
+                  "かんぱい",
+                  "とても",
+                  "ようこそ",
+                  "またね"
+                ],
+                "correctAnswer": "またね",
+                "translation": "Thank you, see you soon"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ja_u2",
+      "title": "Food & Family",
+      "description": "Talk about the people and meals you love",
+      "icon": "food",
+      "accent": "amber",
+      "lessons": [
+        {
+          "id": "ja_u2_l1",
+          "title": "Family Members",
+          "subtitle": "おかあさん, おとうさん, おにいさん, おねえさん, おばあさん",
+          "icon": "family",
+          "reviewVocabIds": [
+            "ja_watashino",
+            "ja_wa",
+            "ja_desu"
+          ],
+          "exercises": [
+            {
+              "id": "ja_u2_l1_e1",
+              "type": "imageRecognition",
+              "vocabId": "ja_okaasan",
+              "payload": {
+                "prompt": "What does this word mean?",
+                "emoji": "👩",
+                "targetWord": "おかあさん",
+                "meaning": "Mother",
+                "distractorMeanings": [
+                  "Father",
+                  "Brother",
+                  "Sister"
+                ],
+                "distractorWords": [
+                  "おとうさん",
+                  "おにいさん",
+                  "おねえさん"
+                ]
+              }
+            },
+            {
+              "id": "ja_u2_l1_e2",
+              "type": "multipleChoice",
+              "vocabId": "ja_otousan",
+              "payload": {
+                "prompt": "Which word means 'Father'?",
+                "options": [
+                  "おにいさん",
+                  "おねえさん",
+                  "おとうさん",
+                  "おかあさん"
+                ],
+                "correctIndex": 2
+              }
+            },
+            {
+              "id": "ja_u2_l1_e3",
+              "type": "listening",
+              "vocabId": "ja_oniisan",
+              "payload": {
+                "prompt": "Listen and select what you hear",
+                "audioText": "おにいさん",
+                "ttsLocale": "ja-JP",
+                "options": [
+                  "おにいさん",
+                  "おねえさん",
+                  "おとうさん",
+                  "おかあさん"
+                ],
+                "correctIndex": 0,
+                "translation": "Brother"
+              }
+            },
+            {
+              "id": "ja_u2_l1_e4",
+              "type": "multipleChoice",
+              "vocabId": "ja_watashino",
+              "payload": {
+                "prompt": "Which word means 'My'?",
+                "options": [
+                  "おとうさん",
+                  "おかあさん",
+                  "わたしの",
+                  "おにいさん"
+                ],
+                "correctIndex": 2
+              }
+            },
+            {
+              "id": "ja_u2_l1_e5",
+              "type": "translation",
+              "vocabId": "ja_oneesan",
+              "payload": {
+                "prompt": "Type the English meaning",
+                "sourceText": "おねえさん",
+                "acceptableAnswers": [
+                  "sister",
+                  "Sister"
+                ]
+              }
+            },
+            {
+              "id": "ja_u2_l1_e6",
+              "type": "speaking",
+              "vocabId": "ja_okaasan",
+              "payload": {
+                "prompt": "Say this phrase out loud",
+                "targetPhrase": "わたしの おねえさん は アンナ です",
+                "translation": "My sister is Anna",
+                "ttsLocale": "ja-JP"
+              }
+            },
+            {
+              "id": "ja_u2_l1_e7",
+              "type": "wordMatching",
+              "vocabId": "ja_u2_l1_set",
+              "payload": {
+                "prompt": "Match each word to its meaning",
+                "pairs": [
+                  {
+                    "left": "おかあさん",
+                    "right": "Mother"
+                  },
+                  {
+                    "left": "おとうさん",
+                    "right": "Father"
+                  },
+                  {
+                    "left": "おにいさん",
+                    "right": "Brother"
+                  },
+                  {
+                    "left": "おねえさん",
+                    "right": "Sister"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "ja_u2_l1_e8",
+              "type": "sentenceArrangement",
+              "vocabId": "ja_okaasan",
+              "payload": {
+                "prompt": "Build the sentence",
+                "shuffledChips": [
+                  "は",
+                  "アンナ",
+                  "です",
+                  "わたしの",
+                  "おかあさん"
+                ],
+                "correctSentence": [
+                  "アンナ",
+                  "は",
+                  "わたしの",
+                  "おかあさん",
+                  "です"
+                ],
+                "translation": "Anna is my mother"
+              }
+            },
+            {
+              "id": "ja_u2_l1_e9",
+              "type": "fillInTheBlank",
+              "vocabId": "ja_obaasan",
+              "payload": {
+                "prompt": "Complete the sentence",
+                "sentenceTemplate": "わたしの ___ は ローザ です。",
+                "options": [
+                  "おねえさん",
+                  "おとうさん",
+                  "おばあさん",
+                  "おかあさん"
+                ],
+                "correctAnswer": "おばあさん",
+                "translation": "My grandmother is Rosa"
+              }
+            }
+          ]
+        },
+        {
+          "id": "ja_u2_l2",
+          "title": "Food Basics",
+          "subtitle": "パン, みず, りんご, チーズ, ぎゅうにゅう",
+          "icon": "food",
+          "reviewVocabIds": [
+            "ja_hoshiidesu",
+            "ja_wo",
+            "ja_onegaishimasu"
+          ],
+          "exercises": [
+            {
+              "id": "ja_u2_l2_e1",
+              "type": "imageRecognition",
+              "vocabId": "ja_pan",
+              "payload": {
+                "prompt": "What does this word mean?",
+                "emoji": "🍞",
+                "targetWord": "パン",
+                "meaning": "Bread",
+                "distractorMeanings": [
+                  "Water",
+                  "Apple",
+                  "Cheese"
+                ],
+                "distractorWords": [
+                  "みず",
+                  "りんご",
+                  "チーズ"
+                ]
+              }
+            },
+            {
+              "id": "ja_u2_l2_e2",
+              "type": "multipleChoice",
+              "vocabId": "ja_mizu",
+              "payload": {
+                "prompt": "Which word means 'Water'?",
+                "options": [
+                  "チーズ",
+                  "みず",
+                  "パン",
+                  "りんご"
+                ],
+                "correctIndex": 1
+              }
+            },
+            {
+              "id": "ja_u2_l2_e3",
+              "type": "listening",
+              "vocabId": "ja_ringo",
+              "payload": {
+                "prompt": "Listen and select what you hear",
+                "audioText": "りんご",
+                "ttsLocale": "ja-JP",
+                "options": [
+                  "パン",
+                  "チーズ",
+                  "りんご",
+                  "みず"
+                ],
+                "correctIndex": 2,
+                "translation": "Apple"
+              }
+            },
+            {
+              "id": "ja_u2_l2_e4",
+              "type": "multipleChoice",
+              "vocabId": "ja_hoshiidesu",
+              "payload": {
+                "prompt": "Which word means 'I want'?",
+                "options": [
+                  "みず",
+                  "りんご",
+                  "パン",
+                  "ほしいです"
+                ],
+                "correctIndex": 3
+              }
+            },
+            {
+              "id": "ja_u2_l2_e5",
+              "type": "translation",
+              "vocabId": "ja_chiizu",
+              "payload": {
+                "prompt": "Type the English meaning",
+                "sourceText": "チーズ",
+                "acceptableAnswers": [
+                  "cheese",
+                  "Cheese"
+                ]
+              }
+            },
+            {
+              "id": "ja_u2_l2_e6",
+              "type": "speaking",
+              "vocabId": "ja_pan",
+              "payload": {
+                "prompt": "Say this phrase out loud",
+                "targetPhrase": "パン を ほしいです、おねがいします",
+                "translation": "I want bread, please",
+                "ttsLocale": "ja-JP"
+              }
+            },
+            {
+              "id": "ja_u2_l2_e7",
+              "type": "wordMatching",
+              "vocabId": "ja_u2_l2_set",
+              "payload": {
+                "prompt": "Match each word to its meaning",
+                "pairs": [
+                  {
+                    "left": "パン",
+                    "right": "Bread"
+                  },
+                  {
+                    "left": "みず",
+                    "right": "Water"
+                  },
+                  {
+                    "left": "りんご",
+                    "right": "Apple"
+                  },
+                  {
+                    "left": "チーズ",
+                    "right": "Cheese"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "ja_u2_l2_e8",
+              "type": "sentenceArrangement",
+              "vocabId": "ja_pan",
+              "payload": {
+                "prompt": "Build the sentence",
+                "shuffledChips": [
+                  "チーズ",
+                  "ほしいです",
+                  "を"
+                ],
+                "correctSentence": [
+                  "チーズ",
+                  "を",
+                  "ほしいです"
+                ],
+                "translation": "I want cheese"
+              }
+            },
+            {
+              "id": "ja_u2_l2_e9",
+              "type": "fillInTheBlank",
+              "vocabId": "ja_gyuunyuu",
+              "payload": {
+                "prompt": "Complete the sentence",
+                "sentenceTemplate": "___ を ほしいです。",
+                "options": [
+                  "みず",
+                  "ぎゅうにゅう",
+                  "パン",
+                  "チーズ"
+                ],
+                "correctAnswer": "ぎゅうにゅう",
+                "translation": "I want milk"
+              }
+            }
+          ]
+        },
+        {
+          "id": "ja_u2_l3",
+          "title": "At the Table",
+          "subtitle": "テーブル, おさら, コップ, フォーク, ナイフ",
+          "icon": "table",
+          "reviewVocabIds": [
+            "ja_ueni",
+            "ja_no",
+            "ja_arimasu",
+            "ja_wa"
+          ],
+          "exercises": [
+            {
+              "id": "ja_u2_l3_e1",
+              "type": "imageRecognition",
+              "vocabId": "ja_teeburu",
+              "payload": {
+                "prompt": "What does this word mean?",
+                "emoji": "🍽️",
+                "targetWord": "テーブル",
+                "meaning": "Table",
+                "distractorMeanings": [
+                  "Plate",
+                  "Glass",
+                  "Fork"
+                ],
+                "distractorWords": [
+                  "おさら",
+                  "コップ",
+                  "フォーク"
+                ]
+              }
+            },
+            {
+              "id": "ja_u2_l3_e2",
+              "type": "multipleChoice",
+              "vocabId": "ja_osara",
+              "payload": {
+                "prompt": "Which word means 'Plate'?",
+                "options": [
+                  "おさら",
+                  "テーブル",
+                  "コップ",
+                  "フォーク"
+                ],
+                "correctIndex": 0
+              }
+            },
+            {
+              "id": "ja_u2_l3_e3",
+              "type": "listening",
+              "vocabId": "ja_koppu",
+              "payload": {
+                "prompt": "Listen and select what you hear",
+                "audioText": "コップ",
+                "ttsLocale": "ja-JP",
+                "options": [
+                  "コップ",
+                  "おさら",
+                  "テーブル",
+                  "フォーク"
+                ],
+                "correctIndex": 0,
+                "translation": "Glass"
+              }
+            },
+            {
+              "id": "ja_u2_l3_e4",
+              "type": "multipleChoice",
+              "vocabId": "ja_ueni",
+              "payload": {
+                "prompt": "Which word means 'On top'?",
+                "options": [
+                  "うえに",
+                  "おさら",
+                  "コップ",
+                  "テーブル"
+                ],
+                "correctIndex": 0
+              }
+            },
+            {
+              "id": "ja_u2_l3_e5",
+              "type": "translation",
+              "vocabId": "ja_fooku",
+              "payload": {
+                "prompt": "Type the English meaning",
+                "sourceText": "フォーク",
+                "acceptableAnswers": [
+                  "fork",
+                  "Fork"
+                ]
+              }
+            },
+            {
+              "id": "ja_u2_l3_e6",
+              "type": "speaking",
+              "vocabId": "ja_teeburu",
+              "payload": {
+                "prompt": "Say this phrase out loud",
+                "targetPhrase": "コップ は テーブル の うえに あります",
+                "translation": "The glass is on the table",
+                "ttsLocale": "ja-JP"
+              }
+            },
+            {
+              "id": "ja_u2_l3_e7",
+              "type": "wordMatching",
+              "vocabId": "ja_u2_l3_set",
+              "payload": {
+                "prompt": "Match each word to its meaning",
+                "pairs": [
+                  {
+                    "left": "テーブル",
+                    "right": "Table"
+                  },
+                  {
+                    "left": "おさら",
+                    "right": "Plate"
+                  },
+                  {
+                    "left": "コップ",
+                    "right": "Glass"
+                  },
+                  {
+                    "left": "フォーク",
+                    "right": "Fork"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "ja_u2_l3_e8",
+              "type": "sentenceArrangement",
+              "vocabId": "ja_teeburu",
+              "payload": {
+                "prompt": "Build the sentence",
+                "shuffledChips": [
+                  "フォーク",
+                  "は",
+                  "うえに",
+                  "あります",
+                  "テーブル",
+                  "の"
+                ],
+                "correctSentence": [
+                  "フォーク",
+                  "は",
+                  "テーブル",
+                  "の",
+                  "うえに",
+                  "あります"
+                ],
+                "translation": "The fork is on the table"
+              }
+            },
+            {
+              "id": "ja_u2_l3_e9",
+              "type": "fillInTheBlank",
+              "vocabId": "ja_naifu",
+              "payload": {
+                "prompt": "Complete the sentence",
+                "sentenceTemplate": "___ は テーブル の うえに あります。",
+                "options": [
+                  "ナイフ",
+                  "コップ",
+                  "おさら",
+                  "フォーク"
+                ],
+                "correctAnswer": "ナイフ",
+                "translation": "The knife is on the table"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ja_u3",
+      "title": "Numbers & Travel",
+      "description": "Count, navigate, and travel with confidence",
+      "icon": "travel",
+      "accent": "teal",
+      "lessons": [
+        {
+          "id": "ja_u3_l1",
+          "title": "Numbers 1-10",
+          "subtitle": "いち, に, さん, よん, ご",
+          "icon": "numbers",
+          "reviewVocabIds": [
+            "ja_sai",
+            "ja_desu",
+            "ja_watashiwa",
+            "ja_go"
+          ],
+          "exercises": [
+            {
+              "id": "ja_u3_l1_e1",
+              "type": "imageRecognition",
+              "vocabId": "ja_ichi",
+              "payload": {
+                "prompt": "What does this word mean?",
+                "emoji": "1️⃣",
+                "targetWord": "いち",
+                "meaning": "One",
+                "distractorMeanings": [
+                  "Two",
+                  "Three",
+                  "Four"
+                ],
+                "distractorWords": [
+                  "に",
+                  "さん",
+                  "よん"
+                ]
+              }
+            },
+            {
+              "id": "ja_u3_l1_e2",
+              "type": "multipleChoice",
+              "vocabId": "ja_ni",
+              "payload": {
+                "prompt": "Which word means 'Two'?",
+                "options": [
+                  "いち",
+                  "さん",
+                  "よん",
+                  "に"
+                ],
+                "correctIndex": 3
+              }
+            },
+            {
+              "id": "ja_u3_l1_e3",
+              "type": "listening",
+              "vocabId": "ja_san",
+              "payload": {
+                "prompt": "Listen and select what you hear",
+                "audioText": "さん",
+                "ttsLocale": "ja-JP",
+                "options": [
+                  "いち",
+                  "よん",
+                  "に",
+                  "さん"
+                ],
+                "correctIndex": 3,
+                "translation": "Three"
+              }
+            },
+            {
+              "id": "ja_u3_l1_e4",
+              "type": "multipleChoice",
+              "vocabId": "ja_sai",
+              "payload": {
+                "prompt": "Which word means 'Years old'?",
+                "options": [
+                  "いち",
+                  "さい",
+                  "さん",
+                  "に"
+                ],
+                "correctIndex": 1
+              }
+            },
+            {
+              "id": "ja_u3_l1_e5",
+              "type": "translation",
+              "vocabId": "ja_yon",
+              "payload": {
+                "prompt": "Type the English meaning",
+                "sourceText": "よん",
+                "acceptableAnswers": [
+                  "four",
+                  "Four"
+                ]
+              }
+            },
+            {
+              "id": "ja_u3_l1_e6",
+              "type": "speaking",
+              "vocabId": "ja_ichi",
+              "payload": {
+                "prompt": "Say this phrase out loud",
+                "targetPhrase": "ご さい です",
+                "translation": "I am five years old",
+                "ttsLocale": "ja-JP"
+              }
+            },
+            {
+              "id": "ja_u3_l1_e7",
+              "type": "wordMatching",
+              "vocabId": "ja_u3_l1_set",
+              "payload": {
+                "prompt": "Match each word to its meaning",
+                "pairs": [
+                  {
+                    "left": "いち",
+                    "right": "One"
+                  },
+                  {
+                    "left": "に",
+                    "right": "Two"
+                  },
+                  {
+                    "left": "さん",
+                    "right": "Three"
+                  },
+                  {
+                    "left": "よん",
+                    "right": "Four"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "ja_u3_l1_e8",
+              "type": "sentenceArrangement",
+              "vocabId": "ja_ichi",
+              "payload": {
+                "prompt": "Build the sentence",
+                "shuffledChips": [
+                  "よん",
+                  "さい",
+                  "です"
+                ],
+                "correctSentence": [
+                  "よん",
+                  "さい",
+                  "です"
+                ],
+                "translation": "I am four years old"
+              }
+            },
+            {
+              "id": "ja_u3_l1_e9",
+              "type": "fillInTheBlank",
+              "vocabId": "ja_san",
+              "payload": {
+                "prompt": "Complete the sentence",
+                "sentenceTemplate": "___ さい です。",
+                "options": [
+                  "いち",
+                  "に",
+                  "よん",
+                  "さん"
+                ],
+                "correctAnswer": "さん",
+                "translation": "I am three years old"
+              }
+            }
+          ]
+        },
+        {
+          "id": "ja_u3_l2",
+          "title": "Getting Around",
+          "subtitle": "ひだり, みぎ, まっすぐ, みち, えき",
+          "icon": "directions",
+          "reviewVocabIds": [
+            "ja_dokodesuka",
+            "ja_wa",
+            "ja_desu",
+            "ja_eki"
+          ],
+          "exercises": [
+            {
+              "id": "ja_u3_l2_e1",
+              "type": "imageRecognition",
+              "vocabId": "ja_hidari",
+              "payload": {
+                "prompt": "What does this word mean?",
+                "emoji": "⬅️",
+                "targetWord": "ひだり",
+                "meaning": "Left",
+                "distractorMeanings": [
+                  "Right",
+                  "Straight ahead",
+                  "Street"
+                ],
+                "distractorWords": [
+                  "みぎ",
+                  "まっすぐ",
+                  "みち"
+                ]
+              }
+            },
+            {
+              "id": "ja_u3_l2_e2",
+              "type": "multipleChoice",
+              "vocabId": "ja_migi",
+              "payload": {
+                "prompt": "Which word means 'Right'?",
+                "options": [
+                  "みぎ",
+                  "まっすぐ",
+                  "みち",
+                  "ひだり"
+                ],
+                "correctIndex": 0
+              }
+            },
+            {
+              "id": "ja_u3_l2_e3",
+              "type": "listening",
+              "vocabId": "ja_massugu",
+              "payload": {
+                "prompt": "Listen and select what you hear",
+                "audioText": "まっすぐ",
+                "ttsLocale": "ja-JP",
+                "options": [
+                  "みぎ",
+                  "みち",
+                  "まっすぐ",
+                  "ひだり"
+                ],
+                "correctIndex": 2,
+                "translation": "Straight ahead"
+              }
+            },
+            {
+              "id": "ja_u3_l2_e4",
+              "type": "multipleChoice",
+              "vocabId": "ja_dokodesuka",
+              "payload": {
+                "prompt": "Which word means 'Where is it'?",
+                "options": [
+                  "みぎ",
+                  "ひだり",
+                  "どこですか",
+                  "まっすぐ"
+                ],
+                "correctIndex": 2
+              }
+            },
+            {
+              "id": "ja_u3_l2_e5",
+              "type": "translation",
+              "vocabId": "ja_michi",
+              "payload": {
+                "prompt": "Type the English meaning",
+                "sourceText": "みち",
+                "acceptableAnswers": [
+                  "street",
+                  "Street"
+                ]
+              }
+            },
+            {
+              "id": "ja_u3_l2_e6",
+              "type": "speaking",
+              "vocabId": "ja_hidari",
+              "payload": {
+                "prompt": "Say this phrase out loud",
+                "targetPhrase": "えき は どこですか",
+                "translation": "Where is the station?",
+                "ttsLocale": "ja-JP"
+              }
+            },
+            {
+              "id": "ja_u3_l2_e7",
+              "type": "wordMatching",
+              "vocabId": "ja_u3_l2_set",
+              "payload": {
+                "prompt": "Match each word to its meaning",
+                "pairs": [
+                  {
+                    "left": "ひだり",
+                    "right": "Left"
+                  },
+                  {
+                    "left": "みぎ",
+                    "right": "Right"
+                  },
+                  {
+                    "left": "まっすぐ",
+                    "right": "Straight ahead"
+                  },
+                  {
+                    "left": "みち",
+                    "right": "Street"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "ja_u3_l2_e8",
+              "type": "sentenceArrangement",
+              "vocabId": "ja_hidari",
+              "payload": {
+                "prompt": "Build the sentence",
+                "shuffledChips": [
+                  "どこですか",
+                  "みち",
+                  "は"
+                ],
+                "correctSentence": [
+                  "みち",
+                  "は",
+                  "どこですか"
+                ],
+                "translation": "Where is the street?"
+              }
+            },
+            {
+              "id": "ja_u3_l2_e9",
+              "type": "fillInTheBlank",
+              "vocabId": "ja_hidari",
+              "payload": {
+                "prompt": "Complete the sentence",
+                "sentenceTemplate": "えき は ___ です。",
+                "options": [
+                  "ひだり",
+                  "まっすぐ",
+                  "みち",
+                  "みぎ"
+                ],
+                "correctAnswer": "ひだり",
+                "translation": "The station is on the left"
+              }
+            }
+          ]
+        },
+        {
+          "id": "ja_u3_l3",
+          "title": "Travel Phrases",
+          "subtitle": "くうこう, ホテル, きっぷ, でんしゃ, スーツケース",
+          "icon": "travel",
+          "reviewVocabIds": [
+            "ja_chikaidesu",
+            "ja_wa",
+            "ja_dokodesuka",
+            "ja_suutsukeesu"
+          ],
+          "exercises": [
+            {
+              "id": "ja_u3_l3_e1",
+              "type": "imageRecognition",
+              "vocabId": "ja_kuukou",
+              "payload": {
+                "prompt": "What does this word mean?",
+                "emoji": "✈️",
+                "targetWord": "くうこう",
+                "meaning": "Airport",
+                "distractorMeanings": [
+                  "Hotel",
+                  "Ticket",
+                  "Train"
+                ],
+                "distractorWords": [
+                  "ホテル",
+                  "きっぷ",
+                  "でんしゃ"
+                ]
+              }
+            },
+            {
+              "id": "ja_u3_l3_e2",
+              "type": "multipleChoice",
+              "vocabId": "ja_hoteru",
+              "payload": {
+                "prompt": "Which word means 'Hotel'?",
+                "options": [
+                  "でんしゃ",
+                  "ホテル",
+                  "くうこう",
+                  "きっぷ"
+                ],
+                "correctIndex": 1
+              }
+            },
+            {
+              "id": "ja_u3_l3_e3",
+              "type": "listening",
+              "vocabId": "ja_kippu",
+              "payload": {
+                "prompt": "Listen and select what you hear",
+                "audioText": "きっぷ",
+                "ttsLocale": "ja-JP",
+                "options": [
+                  "くうこう",
+                  "でんしゃ",
+                  "きっぷ",
+                  "ホテル"
+                ],
+                "correctIndex": 2,
+                "translation": "Ticket"
+              }
+            },
+            {
+              "id": "ja_u3_l3_e4",
+              "type": "multipleChoice",
+              "vocabId": "ja_chikaidesu",
+              "payload": {
+                "prompt": "Which word means 'It is near'?",
+                "options": [
+                  "ホテル",
+                  "きっぷ",
+                  "くうこう",
+                  "ちかいです"
+                ],
+                "correctIndex": 3
+              }
+            },
+            {
+              "id": "ja_u3_l3_e5",
+              "type": "translation",
+              "vocabId": "ja_densha",
+              "payload": {
+                "prompt": "Type the English meaning",
+                "sourceText": "でんしゃ",
+                "acceptableAnswers": [
+                  "train",
+                  "Train"
+                ]
+              }
+            },
+            {
+              "id": "ja_u3_l3_e6",
+              "type": "speaking",
+              "vocabId": "ja_kuukou",
+              "payload": {
+                "prompt": "Say this phrase out loud",
+                "targetPhrase": "でんしゃ は ちかいです",
+                "translation": "The train is near",
+                "ttsLocale": "ja-JP"
+              }
+            },
+            {
+              "id": "ja_u3_l3_e7",
+              "type": "wordMatching",
+              "vocabId": "ja_u3_l3_set",
+              "payload": {
+                "prompt": "Match each word to its meaning",
+                "pairs": [
+                  {
+                    "left": "くうこう",
+                    "right": "Airport"
+                  },
+                  {
+                    "left": "ホテル",
+                    "right": "Hotel"
+                  },
+                  {
+                    "left": "きっぷ",
+                    "right": "Ticket"
+                  },
+                  {
+                    "left": "でんしゃ",
+                    "right": "Train"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "ja_u3_l3_e8",
+              "type": "sentenceArrangement",
+              "vocabId": "ja_kuukou",
+              "payload": {
+                "prompt": "Build the sentence",
+                "shuffledChips": [
+                  "どこですか",
+                  "は",
+                  "でんしゃ"
+                ],
+                "correctSentence": [
+                  "でんしゃ",
+                  "は",
+                  "どこですか"
+                ],
+                "translation": "Where is the train?"
+              }
+            },
+            {
+              "id": "ja_u3_l3_e9",
+              "type": "fillInTheBlank",
+              "vocabId": "ja_hoteru",
+              "payload": {
+                "prompt": "Complete the sentence",
+                "sentenceTemplate": "___ は ちかいです。",
+                "options": [
+                  "くうこう",
+                  "ホテル",
+                  "でんしゃ",
+                  "きっぷ"
+                ],
+                "correctAnswer": "ホテル",
+                "translation": "The hotel is near"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "placementQuestions": [
+    {
+      "id": "p1",
+      "prompt": "What does 'こんにちは' mean?",
+      "options": [
+        "Goodbye",
+        "Hello",
+        "Thank you",
+        "Please"
+      ],
+      "correctIndex": 1,
+      "unlocksUnitIndex": 0
+    },
+    {
+      "id": "p2",
+      "prompt": "What does 'おねがいします' mean?",
+      "options": [
+        "Please",
+        "Good evening",
+        "Yes",
+        "No"
+      ],
+      "correctIndex": 0,
+      "unlocksUnitIndex": 0
+    },
+    {
+      "id": "p3",
+      "prompt": "What does 'こんばんは' mean?",
+      "options": [
+        "Excuse me",
+        "You're welcome",
+        "Okay",
+        "Good evening"
+      ],
+      "correctIndex": 3,
+      "unlocksUnitIndex": 0
+    },
+    {
+      "id": "p4",
+      "prompt": "What does 'おかあさん' mean?",
+      "options": [
+        "Brother",
+        "Father",
+        "Mother",
+        "Sister"
+      ],
+      "correctIndex": 2,
+      "unlocksUnitIndex": 1
+    },
+    {
+      "id": "p5",
+      "prompt": "What does 'おにいさん' mean?",
+      "options": [
+        "Grandmother",
+        "Bread",
+        "Water",
+        "Brother"
+      ],
+      "correctIndex": 3,
+      "unlocksUnitIndex": 1
+    },
+    {
+      "id": "p6",
+      "prompt": "What does 'おばあさん' mean?",
+      "options": [
+        "Grandmother",
+        "Cheese",
+        "Milk",
+        "Apple"
+      ],
+      "correctIndex": 0,
+      "unlocksUnitIndex": 1
+    },
+    {
+      "id": "p7",
+      "prompt": "What does 'いち' mean?",
+      "options": [
+        "Three",
+        "Four",
+        "Two",
+        "One"
+      ],
+      "correctIndex": 3,
+      "unlocksUnitIndex": 2
+    },
+    {
+      "id": "p8",
+      "prompt": "What does 'さん' mean?",
+      "options": [
+        "Three",
+        "Right",
+        "Left",
+        "Five"
+      ],
+      "correctIndex": 0,
+      "unlocksUnitIndex": 2
+    }
+  ]
+}

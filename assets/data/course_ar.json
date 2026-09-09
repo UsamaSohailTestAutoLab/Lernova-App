@@ -1,0 +1,1663 @@
+{
+  "id": "course_ar",
+  "languageId": "ar",
+  "title": "Arabic",
+  "description": "Learn conversational Arabic through short, focused lessons.",
+  "units": [
+    {
+      "id": "ar_u1",
+      "title": "Greetings & Basics",
+      "description": "Say hello and be polite",
+      "icon": "greeting",
+      "accent": "green",
+      "lessons": [
+        {
+          "id": "ar_u1_l1",
+          "title": "Say Hello",
+          "subtitle": "مرحبا, شكرا, من فضلك, مع السلامة, مساء الخير",
+          "icon": "greeting",
+          "reviewVocabIds": [
+            "ar_ismi",
+            "ar_wa",
+            "ar_masaa_alkhayr"
+          ],
+          "exercises": [
+            {
+              "id": "ar_u1_l1_e1",
+              "type": "imageRecognition",
+              "vocabId": "ar_marhaba",
+              "payload": {
+                "prompt": "What does this word mean?",
+                "emoji": "👋",
+                "targetWord": "مرحبا",
+                "meaning": "Hello",
+                "distractorMeanings": [
+                  "Thank you",
+                  "Please",
+                  "Goodbye"
+                ],
+                "distractorWords": [
+                  "شكرا",
+                  "من فضلك",
+                  "مع السلامة"
+                ]
+              }
+            },
+            {
+              "id": "ar_u1_l1_e2",
+              "type": "multipleChoice",
+              "vocabId": "ar_shukran",
+              "payload": {
+                "prompt": "Which word means 'Thank you'?",
+                "options": [
+                  "مرحبا",
+                  "مع السلامة",
+                  "شكرا",
+                  "من فضلك"
+                ],
+                "correctIndex": 2
+              }
+            },
+            {
+              "id": "ar_u1_l1_e3",
+              "type": "listening",
+              "vocabId": "ar_min_fadlik",
+              "payload": {
+                "prompt": "Listen and select what you hear",
+                "audioText": "من فضلك",
+                "ttsLocale": "ar-SA",
+                "options": [
+                  "مرحبا",
+                  "من فضلك",
+                  "مع السلامة",
+                  "شكرا"
+                ],
+                "correctIndex": 1,
+                "translation": "Please"
+              }
+            },
+            {
+              "id": "ar_u1_l1_e4",
+              "type": "multipleChoice",
+              "vocabId": "ar_ismi",
+              "payload": {
+                "prompt": "Which word means 'My name is'?",
+                "options": [
+                  "مرحبا",
+                  "شكرا",
+                  "من فضلك",
+                  "اسمي"
+                ],
+                "correctIndex": 3
+              }
+            },
+            {
+              "id": "ar_u1_l1_e5",
+              "type": "translation",
+              "vocabId": "ar_maa_assalama",
+              "payload": {
+                "prompt": "Type the English meaning",
+                "sourceText": "مع السلامة",
+                "acceptableAnswers": [
+                  "goodbye",
+                  "Goodbye"
+                ]
+              }
+            },
+            {
+              "id": "ar_u1_l1_e6",
+              "type": "speaking",
+              "vocabId": "ar_marhaba",
+              "payload": {
+                "prompt": "Say this phrase out loud",
+                "targetPhrase": "مرحبا، اسمي آنا",
+                "translation": "Hello, my name is Anna",
+                "ttsLocale": "ar-SA"
+              }
+            },
+            {
+              "id": "ar_u1_l1_e7",
+              "type": "wordMatching",
+              "vocabId": "ar_u1_l1_set",
+              "payload": {
+                "prompt": "Match each word to its meaning",
+                "pairs": [
+                  {
+                    "left": "مرحبا",
+                    "right": "Hello"
+                  },
+                  {
+                    "left": "شكرا",
+                    "right": "Thank you"
+                  },
+                  {
+                    "left": "من فضلك",
+                    "right": "Please"
+                  },
+                  {
+                    "left": "مع السلامة",
+                    "right": "Goodbye"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "ar_u1_l1_e8",
+              "type": "sentenceArrangement",
+              "vocabId": "ar_marhaba",
+              "payload": {
+                "prompt": "Build the sentence",
+                "shuffledChips": [
+                  "مرحبا",
+                  "اسمي",
+                  "آنا"
+                ],
+                "correctSentence": [
+                  "مرحبا",
+                  "اسمي",
+                  "آنا"
+                ],
+                "translation": "Hello, my name is Anna"
+              }
+            },
+            {
+              "id": "ar_u1_l1_e9",
+              "type": "fillInTheBlank",
+              "vocabId": "ar_maa_assalama",
+              "payload": {
+                "prompt": "Complete the sentence",
+                "sentenceTemplate": "شكرا و ___.",
+                "options": [
+                  "مرحبا",
+                  "مساء الخير",
+                  "مع السلامة",
+                  "من فضلك"
+                ],
+                "correctAnswer": "مع السلامة",
+                "translation": "Thank you and goodbye"
+              }
+            }
+          ]
+        },
+        {
+          "id": "ar_u1_l2",
+          "title": "Yes, No, Sorry",
+          "subtitle": "نعم, لا, المعذرة, عفوا, حسنا",
+          "icon": "agreement",
+          "reviewVocabIds": [
+            "ar_ana",
+            "ar_mutab",
+            "ar_shukran",
+            "ar_hasanan"
+          ],
+          "exercises": [
+            {
+              "id": "ar_u1_l2_e1",
+              "type": "imageRecognition",
+              "vocabId": "ar_naam",
+              "payload": {
+                "prompt": "What does this word mean?",
+                "emoji": "✅",
+                "targetWord": "نعم",
+                "meaning": "Yes",
+                "distractorMeanings": [
+                  "No",
+                  "Excuse me",
+                  "You're welcome"
+                ],
+                "distractorWords": [
+                  "لا",
+                  "المعذرة",
+                  "عفوا"
+                ]
+              }
+            },
+            {
+              "id": "ar_u1_l2_e2",
+              "type": "multipleChoice",
+              "vocabId": "ar_la",
+              "payload": {
+                "prompt": "Which word means 'No'?",
+                "options": [
+                  "لا",
+                  "المعذرة",
+                  "نعم",
+                  "عفوا"
+                ],
+                "correctIndex": 0
+              }
+            },
+            {
+              "id": "ar_u1_l2_e3",
+              "type": "listening",
+              "vocabId": "ar_almadhira",
+              "payload": {
+                "prompt": "Listen and select what you hear",
+                "audioText": "المعذرة",
+                "ttsLocale": "ar-SA",
+                "options": [
+                  "لا",
+                  "نعم",
+                  "المعذرة",
+                  "عفوا"
+                ],
+                "correctIndex": 2,
+                "translation": "Excuse me"
+              }
+            },
+            {
+              "id": "ar_u1_l2_e4",
+              "type": "multipleChoice",
+              "vocabId": "ar_ana",
+              "payload": {
+                "prompt": "Which word means 'I am'?",
+                "options": [
+                  "أنا",
+                  "لا",
+                  "المعذرة",
+                  "نعم"
+                ],
+                "correctIndex": 0
+              }
+            },
+            {
+              "id": "ar_u1_l2_e5",
+              "type": "translation",
+              "vocabId": "ar_afwan",
+              "payload": {
+                "prompt": "Type the English meaning",
+                "sourceText": "عفوا",
+                "acceptableAnswers": [
+                  "you're welcome",
+                  "You're welcome"
+                ]
+              }
+            },
+            {
+              "id": "ar_u1_l2_e6",
+              "type": "speaking",
+              "vocabId": "ar_naam",
+              "payload": {
+                "prompt": "Say this phrase out loud",
+                "targetPhrase": "المعذرة، أنا متعب",
+                "translation": "Excuse me, I am tired",
+                "ttsLocale": "ar-SA"
+              }
+            },
+            {
+              "id": "ar_u1_l2_e7",
+              "type": "wordMatching",
+              "vocabId": "ar_u1_l2_set",
+              "payload": {
+                "prompt": "Match each word to its meaning",
+                "pairs": [
+                  {
+                    "left": "نعم",
+                    "right": "Yes"
+                  },
+                  {
+                    "left": "لا",
+                    "right": "No"
+                  },
+                  {
+                    "left": "المعذرة",
+                    "right": "Excuse me"
+                  },
+                  {
+                    "left": "عفوا",
+                    "right": "You're welcome"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "ar_u1_l2_e8",
+              "type": "sentenceArrangement",
+              "vocabId": "ar_naam",
+              "payload": {
+                "prompt": "Build the sentence",
+                "shuffledChips": [
+                  "متعب",
+                  "نعم",
+                  "أنا"
+                ],
+                "correctSentence": [
+                  "نعم",
+                  "أنا",
+                  "متعب"
+                ],
+                "translation": "Yes, I am tired"
+              }
+            },
+            {
+              "id": "ar_u1_l2_e9",
+              "type": "fillInTheBlank",
+              "vocabId": "ar_almadhira",
+              "payload": {
+                "prompt": "Complete the sentence",
+                "sentenceTemplate": "لا، ___.",
+                "options": [
+                  "المعذرة",
+                  "حسنا",
+                  "نعم",
+                  "عفوا"
+                ],
+                "correctAnswer": "المعذرة",
+                "translation": "No, excuse me"
+              }
+            }
+          ]
+        },
+        {
+          "id": "ar_u1_l3",
+          "title": "Polite Basics",
+          "subtitle": "لو سمحت, تصبح على خير, في صحتك, أهلا وسهلا, إلى اللقاء",
+          "icon": "manners",
+          "reviewVocabIds": [
+            "ar_kayfa_haluk",
+            "ar_jiddan",
+            "ar_wa",
+            "ar_shukran"
+          ],
+          "exercises": [
+            {
+              "id": "ar_u1_l3_e1",
+              "type": "imageRecognition",
+              "vocabId": "ar_law_samaht",
+              "payload": {
+                "prompt": "What does this word mean?",
+                "emoji": "🙇",
+                "targetWord": "لو سمحت",
+                "meaning": "Excuse me please",
+                "distractorMeanings": [
+                  "Good night",
+                  "Cheers",
+                  "Welcome"
+                ],
+                "distractorWords": [
+                  "تصبح على خير",
+                  "في صحتك",
+                  "أهلا وسهلا"
+                ]
+              }
+            },
+            {
+              "id": "ar_u1_l3_e2",
+              "type": "multipleChoice",
+              "vocabId": "ar_tusbih_ala_khayr",
+              "payload": {
+                "prompt": "Which word means 'Good night'?",
+                "options": [
+                  "لو سمحت",
+                  "أهلا وسهلا",
+                  "في صحتك",
+                  "تصبح على خير"
+                ],
+                "correctIndex": 3
+              }
+            },
+            {
+              "id": "ar_u1_l3_e3",
+              "type": "listening",
+              "vocabId": "ar_fi_sihtak",
+              "payload": {
+                "prompt": "Listen and select what you hear",
+                "audioText": "في صحتك",
+                "ttsLocale": "ar-SA",
+                "options": [
+                  "تصبح على خير",
+                  "أهلا وسهلا",
+                  "لو سمحت",
+                  "في صحتك"
+                ],
+                "correctIndex": 3,
+                "translation": "Cheers"
+              }
+            },
+            {
+              "id": "ar_u1_l3_e4",
+              "type": "multipleChoice",
+              "vocabId": "ar_kayfa_haluk",
+              "payload": {
+                "prompt": "Which word means 'How are you'?",
+                "options": [
+                  "لو سمحت",
+                  "كيف حالك",
+                  "في صحتك",
+                  "تصبح على خير"
+                ],
+                "correctIndex": 1
+              }
+            },
+            {
+              "id": "ar_u1_l3_e5",
+              "type": "translation",
+              "vocabId": "ar_ahlan_wa_sahlan",
+              "payload": {
+                "prompt": "Type the English meaning",
+                "sourceText": "أهلا وسهلا",
+                "acceptableAnswers": [
+                  "welcome",
+                  "Welcome"
+                ]
+              }
+            },
+            {
+              "id": "ar_u1_l3_e6",
+              "type": "speaking",
+              "vocabId": "ar_law_samaht",
+              "payload": {
+                "prompt": "Say this phrase out loud",
+                "targetPhrase": "لو سمحت، كيف حالك؟",
+                "translation": "Excuse me, how are you?",
+                "ttsLocale": "ar-SA"
+              }
+            },
+            {
+              "id": "ar_u1_l3_e7",
+              "type": "wordMatching",
+              "vocabId": "ar_u1_l3_set",
+              "payload": {
+                "prompt": "Match each word to its meaning",
+                "pairs": [
+                  {
+                    "left": "لو سمحت",
+                    "right": "Excuse me please"
+                  },
+                  {
+                    "left": "تصبح على خير",
+                    "right": "Good night"
+                  },
+                  {
+                    "left": "في صحتك",
+                    "right": "Cheers"
+                  },
+                  {
+                    "left": "أهلا وسهلا",
+                    "right": "Welcome"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "ar_u1_l3_e8",
+              "type": "sentenceArrangement",
+              "vocabId": "ar_law_samaht",
+              "payload": {
+                "prompt": "Build the sentence",
+                "shuffledChips": [
+                  "وسهلا",
+                  "تصبح",
+                  "على",
+                  "خير",
+                  "و",
+                  "أهلا"
+                ],
+                "correctSentence": [
+                  "أهلا",
+                  "وسهلا",
+                  "و",
+                  "تصبح",
+                  "على",
+                  "خير"
+                ],
+                "translation": "Welcome and good night"
+              }
+            },
+            {
+              "id": "ar_u1_l3_e9",
+              "type": "fillInTheBlank",
+              "vocabId": "ar_ila_alliqaa",
+              "payload": {
+                "prompt": "Complete the sentence",
+                "sentenceTemplate": "شكرا، ___!",
+                "options": [
+                  "في صحتك",
+                  "جدا",
+                  "أهلا وسهلا",
+                  "إلى اللقاء"
+                ],
+                "correctAnswer": "إلى اللقاء",
+                "translation": "Thank you, see you soon"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ar_u2",
+      "title": "Food & Family",
+      "description": "Talk about the people and meals you love",
+      "icon": "food",
+      "accent": "amber",
+      "lessons": [
+        {
+          "id": "ar_u2_l1",
+          "title": "Family Members",
+          "subtitle": "أم, أب, أخ, أخت, جدة",
+          "icon": "family",
+          "reviewVocabIds": [
+            "ar_ummi",
+            "ar_hiya",
+            "ar_jaddati",
+            "ar_jadda"
+          ],
+          "exercises": [
+            {
+              "id": "ar_u2_l1_e1",
+              "type": "imageRecognition",
+              "vocabId": "ar_umm",
+              "payload": {
+                "prompt": "What does this word mean?",
+                "emoji": "👩",
+                "targetWord": "أم",
+                "meaning": "Mother",
+                "distractorMeanings": [
+                  "Father",
+                  "Brother",
+                  "Sister"
+                ],
+                "distractorWords": [
+                  "أب",
+                  "أخ",
+                  "أخت"
+                ]
+              }
+            },
+            {
+              "id": "ar_u2_l1_e2",
+              "type": "multipleChoice",
+              "vocabId": "ar_ab",
+              "payload": {
+                "prompt": "Which word means 'Father'?",
+                "options": [
+                  "أخ",
+                  "أخت",
+                  "أب",
+                  "أم"
+                ],
+                "correctIndex": 2
+              }
+            },
+            {
+              "id": "ar_u2_l1_e3",
+              "type": "listening",
+              "vocabId": "ar_akh",
+              "payload": {
+                "prompt": "Listen and select what you hear",
+                "audioText": "أخ",
+                "ttsLocale": "ar-SA",
+                "options": [
+                  "أخ",
+                  "أخت",
+                  "أب",
+                  "أم"
+                ],
+                "correctIndex": 0,
+                "translation": "Brother"
+              }
+            },
+            {
+              "id": "ar_u2_l1_e4",
+              "type": "multipleChoice",
+              "vocabId": "ar_ummi",
+              "payload": {
+                "prompt": "Which word means 'My mother'?",
+                "options": [
+                  "أب",
+                  "أم",
+                  "أمي",
+                  "أخ"
+                ],
+                "correctIndex": 2
+              }
+            },
+            {
+              "id": "ar_u2_l1_e5",
+              "type": "translation",
+              "vocabId": "ar_ukht",
+              "payload": {
+                "prompt": "Type the English meaning",
+                "sourceText": "أخت",
+                "acceptableAnswers": [
+                  "sister",
+                  "Sister"
+                ]
+              }
+            },
+            {
+              "id": "ar_u2_l1_e6",
+              "type": "speaking",
+              "vocabId": "ar_umm",
+              "payload": {
+                "prompt": "Say this phrase out loud",
+                "targetPhrase": "أمي هي آنا",
+                "translation": "My mother is Anna",
+                "ttsLocale": "ar-SA"
+              }
+            },
+            {
+              "id": "ar_u2_l1_e7",
+              "type": "wordMatching",
+              "vocabId": "ar_u2_l1_set",
+              "payload": {
+                "prompt": "Match each word to its meaning",
+                "pairs": [
+                  {
+                    "left": "أم",
+                    "right": "Mother"
+                  },
+                  {
+                    "left": "أب",
+                    "right": "Father"
+                  },
+                  {
+                    "left": "أخ",
+                    "right": "Brother"
+                  },
+                  {
+                    "left": "أخت",
+                    "right": "Sister"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "ar_u2_l1_e8",
+              "type": "sentenceArrangement",
+              "vocabId": "ar_umm",
+              "payload": {
+                "prompt": "Build the sentence",
+                "shuffledChips": [
+                  "هي",
+                  "آنا",
+                  "أمي"
+                ],
+                "correctSentence": [
+                  "آنا",
+                  "هي",
+                  "أمي"
+                ],
+                "translation": "Anna is my mother"
+              }
+            },
+            {
+              "id": "ar_u2_l1_e9",
+              "type": "fillInTheBlank",
+              "vocabId": "ar_jaddati",
+              "payload": {
+                "prompt": "Complete the sentence",
+                "sentenceTemplate": "___ هي روزا.",
+                "options": [
+                  "أخت",
+                  "أب",
+                  "جدتي",
+                  "أمي"
+                ],
+                "correctAnswer": "جدتي",
+                "translation": "My grandmother is Rosa"
+              }
+            }
+          ]
+        },
+        {
+          "id": "ar_u2_l2",
+          "title": "Food Basics",
+          "subtitle": "خبز, ماء, تفاحة, جبن, حليب",
+          "icon": "food",
+          "reviewVocabIds": [
+            "ar_urid",
+            "ar_min_fadlik",
+            "ar_ana",
+            "ar_halib"
+          ],
+          "exercises": [
+            {
+              "id": "ar_u2_l2_e1",
+              "type": "imageRecognition",
+              "vocabId": "ar_khubz",
+              "payload": {
+                "prompt": "What does this word mean?",
+                "emoji": "🍞",
+                "targetWord": "خبز",
+                "meaning": "Bread",
+                "distractorMeanings": [
+                  "Water",
+                  "Apple",
+                  "Cheese"
+                ],
+                "distractorWords": [
+                  "ماء",
+                  "تفاحة",
+                  "جبن"
+                ]
+              }
+            },
+            {
+              "id": "ar_u2_l2_e2",
+              "type": "multipleChoice",
+              "vocabId": "ar_maa",
+              "payload": {
+                "prompt": "Which word means 'Water'?",
+                "options": [
+                  "جبن",
+                  "ماء",
+                  "خبز",
+                  "تفاحة"
+                ],
+                "correctIndex": 1
+              }
+            },
+            {
+              "id": "ar_u2_l2_e3",
+              "type": "listening",
+              "vocabId": "ar_tuffaha",
+              "payload": {
+                "prompt": "Listen and select what you hear",
+                "audioText": "تفاحة",
+                "ttsLocale": "ar-SA",
+                "options": [
+                  "خبز",
+                  "جبن",
+                  "تفاحة",
+                  "ماء"
+                ],
+                "correctIndex": 2,
+                "translation": "Apple"
+              }
+            },
+            {
+              "id": "ar_u2_l2_e4",
+              "type": "multipleChoice",
+              "vocabId": "ar_urid",
+              "payload": {
+                "prompt": "Which word means 'I want'?",
+                "options": [
+                  "ماء",
+                  "تفاحة",
+                  "خبز",
+                  "أريد"
+                ],
+                "correctIndex": 3
+              }
+            },
+            {
+              "id": "ar_u2_l2_e5",
+              "type": "translation",
+              "vocabId": "ar_jubn",
+              "payload": {
+                "prompt": "Type the English meaning",
+                "sourceText": "جبن",
+                "acceptableAnswers": [
+                  "cheese",
+                  "Cheese"
+                ]
+              }
+            },
+            {
+              "id": "ar_u2_l2_e6",
+              "type": "speaking",
+              "vocabId": "ar_khubz",
+              "payload": {
+                "prompt": "Say this phrase out loud",
+                "targetPhrase": "أريد خبز من فضلك",
+                "translation": "I want bread, please",
+                "ttsLocale": "ar-SA"
+              }
+            },
+            {
+              "id": "ar_u2_l2_e7",
+              "type": "wordMatching",
+              "vocabId": "ar_u2_l2_set",
+              "payload": {
+                "prompt": "Match each word to its meaning",
+                "pairs": [
+                  {
+                    "left": "خبز",
+                    "right": "Bread"
+                  },
+                  {
+                    "left": "ماء",
+                    "right": "Water"
+                  },
+                  {
+                    "left": "تفاحة",
+                    "right": "Apple"
+                  },
+                  {
+                    "left": "جبن",
+                    "right": "Cheese"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "ar_u2_l2_e8",
+              "type": "sentenceArrangement",
+              "vocabId": "ar_khubz",
+              "payload": {
+                "prompt": "Build the sentence",
+                "shuffledChips": [
+                  "أنا",
+                  "حليب",
+                  "أريد"
+                ],
+                "correctSentence": [
+                  "أنا",
+                  "أريد",
+                  "حليب"
+                ],
+                "translation": "I want milk"
+              }
+            },
+            {
+              "id": "ar_u2_l2_e9",
+              "type": "fillInTheBlank",
+              "vocabId": "ar_tuffaha",
+              "payload": {
+                "prompt": "Complete the sentence",
+                "sentenceTemplate": "أنا أريد ___.",
+                "options": [
+                  "ماء",
+                  "تفاحة",
+                  "خبز",
+                  "جبن"
+                ],
+                "correctAnswer": "تفاحة",
+                "translation": "I want an apple"
+              }
+            }
+          ]
+        },
+        {
+          "id": "ar_u2_l3",
+          "title": "At the Table",
+          "subtitle": "الطاولة, الطبق, الكوب, الشوكة, السكين",
+          "icon": "table",
+          "reviewVocabIds": [
+            "ar_ala",
+            "ar_hadha"
+          ],
+          "exercises": [
+            {
+              "id": "ar_u2_l3_e1",
+              "type": "imageRecognition",
+              "vocabId": "ar_attawila",
+              "payload": {
+                "prompt": "What does this word mean?",
+                "emoji": "🍽️",
+                "targetWord": "الطاولة",
+                "meaning": "The table",
+                "distractorMeanings": [
+                  "The plate",
+                  "The glass",
+                  "The fork"
+                ],
+                "distractorWords": [
+                  "الطبق",
+                  "الكوب",
+                  "الشوكة"
+                ]
+              }
+            },
+            {
+              "id": "ar_u2_l3_e2",
+              "type": "multipleChoice",
+              "vocabId": "ar_attabaq",
+              "payload": {
+                "prompt": "Which word means 'The plate'?",
+                "options": [
+                  "الطبق",
+                  "الطاولة",
+                  "الكوب",
+                  "الشوكة"
+                ],
+                "correctIndex": 0
+              }
+            },
+            {
+              "id": "ar_u2_l3_e3",
+              "type": "listening",
+              "vocabId": "ar_alkub",
+              "payload": {
+                "prompt": "Listen and select what you hear",
+                "audioText": "الكوب",
+                "ttsLocale": "ar-SA",
+                "options": [
+                  "الكوب",
+                  "الطبق",
+                  "الطاولة",
+                  "الشوكة"
+                ],
+                "correctIndex": 0,
+                "translation": "The glass"
+              }
+            },
+            {
+              "id": "ar_u2_l3_e4",
+              "type": "multipleChoice",
+              "vocabId": "ar_ala",
+              "payload": {
+                "prompt": "Which word means 'On'?",
+                "options": [
+                  "على",
+                  "الطبق",
+                  "الكوب",
+                  "الطاولة"
+                ],
+                "correctIndex": 0
+              }
+            },
+            {
+              "id": "ar_u2_l3_e5",
+              "type": "translation",
+              "vocabId": "ar_ashshawka",
+              "payload": {
+                "prompt": "Type the English meaning",
+                "sourceText": "الشوكة",
+                "acceptableAnswers": [
+                  "the fork",
+                  "The fork"
+                ]
+              }
+            },
+            {
+              "id": "ar_u2_l3_e6",
+              "type": "speaking",
+              "vocabId": "ar_attawila",
+              "payload": {
+                "prompt": "Say this phrase out loud",
+                "targetPhrase": "الكوب على الطاولة",
+                "translation": "The glass is on the table",
+                "ttsLocale": "ar-SA"
+              }
+            },
+            {
+              "id": "ar_u2_l3_e7",
+              "type": "wordMatching",
+              "vocabId": "ar_u2_l3_set",
+              "payload": {
+                "prompt": "Match each word to its meaning",
+                "pairs": [
+                  {
+                    "left": "الطاولة",
+                    "right": "The table"
+                  },
+                  {
+                    "left": "الطبق",
+                    "right": "The plate"
+                  },
+                  {
+                    "left": "الكوب",
+                    "right": "The glass"
+                  },
+                  {
+                    "left": "الشوكة",
+                    "right": "The fork"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "ar_u2_l3_e8",
+              "type": "sentenceArrangement",
+              "vocabId": "ar_attawila",
+              "payload": {
+                "prompt": "Build the sentence",
+                "shuffledChips": [
+                  "على",
+                  "الطاولة",
+                  "الشوكة"
+                ],
+                "correctSentence": [
+                  "الشوكة",
+                  "على",
+                  "الطاولة"
+                ],
+                "translation": "The fork is on the table"
+              }
+            },
+            {
+              "id": "ar_u2_l3_e9",
+              "type": "fillInTheBlank",
+              "vocabId": "ar_assikkin",
+              "payload": {
+                "prompt": "Complete the sentence",
+                "sentenceTemplate": "___ على الطاولة.",
+                "options": [
+                  "السكين",
+                  "الكوب",
+                  "الطبق",
+                  "الشوكة"
+                ],
+                "correctAnswer": "السكين",
+                "translation": "The knife is on the table"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ar_u3",
+      "title": "Numbers & Travel",
+      "description": "Count, navigate, and travel with confidence",
+      "icon": "travel",
+      "accent": "teal",
+      "lessons": [
+        {
+          "id": "ar_u3_l1",
+          "title": "Numbers 1-10",
+          "subtitle": "واحد, اثنان, ثلاثة, أربعة, خمسة",
+          "icon": "numbers",
+          "reviewVocabIds": [
+            "ar_ladayya",
+            "ar_ikhwa"
+          ],
+          "exercises": [
+            {
+              "id": "ar_u3_l1_e1",
+              "type": "imageRecognition",
+              "vocabId": "ar_wahid",
+              "payload": {
+                "prompt": "What does this word mean?",
+                "emoji": "1️⃣",
+                "targetWord": "واحد",
+                "meaning": "One",
+                "distractorMeanings": [
+                  "Two",
+                  "Three",
+                  "Four"
+                ],
+                "distractorWords": [
+                  "اثنان",
+                  "ثلاثة",
+                  "أربعة"
+                ]
+              }
+            },
+            {
+              "id": "ar_u3_l1_e2",
+              "type": "multipleChoice",
+              "vocabId": "ar_ithnan",
+              "payload": {
+                "prompt": "Which word means 'Two'?",
+                "options": [
+                  "واحد",
+                  "ثلاثة",
+                  "أربعة",
+                  "اثنان"
+                ],
+                "correctIndex": 3
+              }
+            },
+            {
+              "id": "ar_u3_l1_e3",
+              "type": "listening",
+              "vocabId": "ar_thalatha",
+              "payload": {
+                "prompt": "Listen and select what you hear",
+                "audioText": "ثلاثة",
+                "ttsLocale": "ar-SA",
+                "options": [
+                  "واحد",
+                  "أربعة",
+                  "اثنان",
+                  "ثلاثة"
+                ],
+                "correctIndex": 3,
+                "translation": "Three"
+              }
+            },
+            {
+              "id": "ar_u3_l1_e4",
+              "type": "multipleChoice",
+              "vocabId": "ar_ladayya",
+              "payload": {
+                "prompt": "Which word means 'I have'?",
+                "options": [
+                  "واحد",
+                  "لدي",
+                  "ثلاثة",
+                  "اثنان"
+                ],
+                "correctIndex": 1
+              }
+            },
+            {
+              "id": "ar_u3_l1_e5",
+              "type": "translation",
+              "vocabId": "ar_arbaa",
+              "payload": {
+                "prompt": "Type the English meaning",
+                "sourceText": "أربعة",
+                "acceptableAnswers": [
+                  "four",
+                  "Four"
+                ]
+              }
+            },
+            {
+              "id": "ar_u3_l1_e6",
+              "type": "speaking",
+              "vocabId": "ar_wahid",
+              "payload": {
+                "prompt": "Say this phrase out loud",
+                "targetPhrase": "لدي ثلاثة إخوة",
+                "translation": "I have three brothers",
+                "ttsLocale": "ar-SA"
+              }
+            },
+            {
+              "id": "ar_u3_l1_e7",
+              "type": "wordMatching",
+              "vocabId": "ar_u3_l1_set",
+              "payload": {
+                "prompt": "Match each word to its meaning",
+                "pairs": [
+                  {
+                    "left": "واحد",
+                    "right": "One"
+                  },
+                  {
+                    "left": "اثنان",
+                    "right": "Two"
+                  },
+                  {
+                    "left": "ثلاثة",
+                    "right": "Three"
+                  },
+                  {
+                    "left": "أربعة",
+                    "right": "Four"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "ar_u3_l1_e8",
+              "type": "sentenceArrangement",
+              "vocabId": "ar_wahid",
+              "payload": {
+                "prompt": "Build the sentence",
+                "shuffledChips": [
+                  "لدي",
+                  "أربعة",
+                  "إخوة"
+                ],
+                "correctSentence": [
+                  "لدي",
+                  "أربعة",
+                  "إخوة"
+                ],
+                "translation": "I have four brothers"
+              }
+            },
+            {
+              "id": "ar_u3_l1_e9",
+              "type": "fillInTheBlank",
+              "vocabId": "ar_khamsa",
+              "payload": {
+                "prompt": "Complete the sentence",
+                "sentenceTemplate": "لدي ___ إخوة.",
+                "options": [
+                  "واحد",
+                  "اثنان",
+                  "ثلاثة",
+                  "خمسة"
+                ],
+                "correctAnswer": "خمسة",
+                "translation": "I have five brothers"
+              }
+            }
+          ]
+        },
+        {
+          "id": "ar_u3_l2",
+          "title": "Getting Around",
+          "subtitle": "يسار, يمين, مستقيم, شارع, محطة",
+          "icon": "directions",
+          "reviewVocabIds": [
+            "ar_ayna",
+            "ar_almahatta",
+            "ar_ashsharia",
+            "ar_min_fadlik",
+            "ar_mahatta"
+          ],
+          "exercises": [
+            {
+              "id": "ar_u3_l2_e1",
+              "type": "imageRecognition",
+              "vocabId": "ar_yasar",
+              "payload": {
+                "prompt": "What does this word mean?",
+                "emoji": "⬅️",
+                "targetWord": "يسار",
+                "meaning": "Left",
+                "distractorMeanings": [
+                  "Right",
+                  "Straight ahead",
+                  "Street"
+                ],
+                "distractorWords": [
+                  "يمين",
+                  "مستقيم",
+                  "شارع"
+                ]
+              }
+            },
+            {
+              "id": "ar_u3_l2_e2",
+              "type": "multipleChoice",
+              "vocabId": "ar_yamin",
+              "payload": {
+                "prompt": "Which word means 'Right'?",
+                "options": [
+                  "يمين",
+                  "مستقيم",
+                  "شارع",
+                  "يسار"
+                ],
+                "correctIndex": 0
+              }
+            },
+            {
+              "id": "ar_u3_l2_e3",
+              "type": "listening",
+              "vocabId": "ar_mustaqim",
+              "payload": {
+                "prompt": "Listen and select what you hear",
+                "audioText": "مستقيم",
+                "ttsLocale": "ar-SA",
+                "options": [
+                  "يمين",
+                  "شارع",
+                  "مستقيم",
+                  "يسار"
+                ],
+                "correctIndex": 2,
+                "translation": "Straight ahead"
+              }
+            },
+            {
+              "id": "ar_u3_l2_e4",
+              "type": "multipleChoice",
+              "vocabId": "ar_ayna",
+              "payload": {
+                "prompt": "Which word means 'Where'?",
+                "options": [
+                  "يمين",
+                  "يسار",
+                  "أين",
+                  "مستقيم"
+                ],
+                "correctIndex": 2
+              }
+            },
+            {
+              "id": "ar_u3_l2_e5",
+              "type": "translation",
+              "vocabId": "ar_sharia",
+              "payload": {
+                "prompt": "Type the English meaning",
+                "sourceText": "شارع",
+                "acceptableAnswers": [
+                  "street",
+                  "Street"
+                ]
+              }
+            },
+            {
+              "id": "ar_u3_l2_e6",
+              "type": "speaking",
+              "vocabId": "ar_yasar",
+              "payload": {
+                "prompt": "Say this phrase out loud",
+                "targetPhrase": "أين المحطة من فضلك؟",
+                "translation": "Where is the station, please?",
+                "ttsLocale": "ar-SA"
+              }
+            },
+            {
+              "id": "ar_u3_l2_e7",
+              "type": "wordMatching",
+              "vocabId": "ar_u3_l2_set",
+              "payload": {
+                "prompt": "Match each word to its meaning",
+                "pairs": [
+                  {
+                    "left": "يسار",
+                    "right": "Left"
+                  },
+                  {
+                    "left": "يمين",
+                    "right": "Right"
+                  },
+                  {
+                    "left": "مستقيم",
+                    "right": "Straight ahead"
+                  },
+                  {
+                    "left": "شارع",
+                    "right": "Street"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "ar_u3_l2_e8",
+              "type": "sentenceArrangement",
+              "vocabId": "ar_yasar",
+              "payload": {
+                "prompt": "Build the sentence",
+                "shuffledChips": [
+                  "من",
+                  "المحطة",
+                  "أين",
+                  "فضلك"
+                ],
+                "correctSentence": [
+                  "أين",
+                  "المحطة",
+                  "من",
+                  "فضلك"
+                ],
+                "translation": "Where is the station, please?"
+              }
+            },
+            {
+              "id": "ar_u3_l2_e9",
+              "type": "fillInTheBlank",
+              "vocabId": "ar_ashsharia",
+              "payload": {
+                "prompt": "Complete the sentence",
+                "sentenceTemplate": "أين ___؟",
+                "options": [
+                  "الشارع",
+                  "يسار",
+                  "يمين",
+                  "المحطة"
+                ],
+                "correctAnswer": "الشارع",
+                "translation": "Where is the street?"
+              }
+            }
+          ]
+        },
+        {
+          "id": "ar_u3_l3",
+          "title": "Travel Phrases",
+          "subtitle": "مطار, فندق, تذكرة, قطار, حقيبة",
+          "icon": "travel",
+          "reviewVocabIds": [
+            "ar_qarib",
+            "ar_alqitar",
+            "ar_alfunduq",
+            "ar_ayna",
+            "ar_almahatta",
+            "ar_min_fadlik",
+            "ar_haqiba"
+          ],
+          "exercises": [
+            {
+              "id": "ar_u3_l3_e1",
+              "type": "imageRecognition",
+              "vocabId": "ar_matar",
+              "payload": {
+                "prompt": "What does this word mean?",
+                "emoji": "✈️",
+                "targetWord": "مطار",
+                "meaning": "Airport",
+                "distractorMeanings": [
+                  "Hotel",
+                  "Ticket",
+                  "Train"
+                ],
+                "distractorWords": [
+                  "فندق",
+                  "تذكرة",
+                  "قطار"
+                ]
+              }
+            },
+            {
+              "id": "ar_u3_l3_e2",
+              "type": "multipleChoice",
+              "vocabId": "ar_funduq",
+              "payload": {
+                "prompt": "Which word means 'Hotel'?",
+                "options": [
+                  "قطار",
+                  "فندق",
+                  "مطار",
+                  "تذكرة"
+                ],
+                "correctIndex": 1
+              }
+            },
+            {
+              "id": "ar_u3_l3_e3",
+              "type": "listening",
+              "vocabId": "ar_tadhkira",
+              "payload": {
+                "prompt": "Listen and select what you hear",
+                "audioText": "تذكرة",
+                "ttsLocale": "ar-SA",
+                "options": [
+                  "مطار",
+                  "قطار",
+                  "تذكرة",
+                  "فندق"
+                ],
+                "correctIndex": 2,
+                "translation": "Ticket"
+              }
+            },
+            {
+              "id": "ar_u3_l3_e4",
+              "type": "multipleChoice",
+              "vocabId": "ar_qarib",
+              "payload": {
+                "prompt": "Which word means 'Near'?",
+                "options": [
+                  "فندق",
+                  "تذكرة",
+                  "مطار",
+                  "قريب"
+                ],
+                "correctIndex": 3
+              }
+            },
+            {
+              "id": "ar_u3_l3_e5",
+              "type": "translation",
+              "vocabId": "ar_qitar",
+              "payload": {
+                "prompt": "Type the English meaning",
+                "sourceText": "قطار",
+                "acceptableAnswers": [
+                  "train",
+                  "Train"
+                ]
+              }
+            },
+            {
+              "id": "ar_u3_l3_e6",
+              "type": "speaking",
+              "vocabId": "ar_matar",
+              "payload": {
+                "prompt": "Say this phrase out loud",
+                "targetPhrase": "القطار قريب",
+                "translation": "The train is near",
+                "ttsLocale": "ar-SA"
+              }
+            },
+            {
+              "id": "ar_u3_l3_e7",
+              "type": "wordMatching",
+              "vocabId": "ar_u3_l3_set",
+              "payload": {
+                "prompt": "Match each word to its meaning",
+                "pairs": [
+                  {
+                    "left": "مطار",
+                    "right": "Airport"
+                  },
+                  {
+                    "left": "فندق",
+                    "right": "Hotel"
+                  },
+                  {
+                    "left": "تذكرة",
+                    "right": "Ticket"
+                  },
+                  {
+                    "left": "قطار",
+                    "right": "Train"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "ar_u3_l3_e8",
+              "type": "sentenceArrangement",
+              "vocabId": "ar_matar",
+              "payload": {
+                "prompt": "Build the sentence",
+                "shuffledChips": [
+                  "من",
+                  "فضلك",
+                  "القطار",
+                  "أين"
+                ],
+                "correctSentence": [
+                  "أين",
+                  "القطار",
+                  "من",
+                  "فضلك"
+                ],
+                "translation": "Where is the train, please?"
+              }
+            },
+            {
+              "id": "ar_u3_l3_e9",
+              "type": "fillInTheBlank",
+              "vocabId": "ar_alfunduq",
+              "payload": {
+                "prompt": "Complete the sentence",
+                "sentenceTemplate": "___ قريب.",
+                "options": [
+                  "مطار",
+                  "الفندق",
+                  "القطار",
+                  "تذكرة"
+                ],
+                "correctAnswer": "الفندق",
+                "translation": "The hotel is near"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "placementQuestions": [
+    {
+      "id": "p1",
+      "prompt": "What does 'مرحبا' mean?",
+      "options": [
+        "Goodbye",
+        "Hello",
+        "Thank you",
+        "Please"
+      ],
+      "correctIndex": 1,
+      "unlocksUnitIndex": 0
+    },
+    {
+      "id": "p2",
+      "prompt": "What does 'من فضلك' mean?",
+      "options": [
+        "Please",
+        "Good evening",
+        "Yes",
+        "No"
+      ],
+      "correctIndex": 0,
+      "unlocksUnitIndex": 0
+    },
+    {
+      "id": "p3",
+      "prompt": "What does 'مساء الخير' mean?",
+      "options": [
+        "Excuse me",
+        "You're welcome",
+        "Okay",
+        "Good evening"
+      ],
+      "correctIndex": 3,
+      "unlocksUnitIndex": 0
+    },
+    {
+      "id": "p4",
+      "prompt": "What does 'أم' mean?",
+      "options": [
+        "Brother",
+        "Father",
+        "Mother",
+        "Sister"
+      ],
+      "correctIndex": 2,
+      "unlocksUnitIndex": 1
+    },
+    {
+      "id": "p5",
+      "prompt": "What does 'أخ' mean?",
+      "options": [
+        "Grandmother",
+        "Bread",
+        "Water",
+        "Brother"
+      ],
+      "correctIndex": 3,
+      "unlocksUnitIndex": 1
+    },
+    {
+      "id": "p6",
+      "prompt": "What does 'جدة' mean?",
+      "options": [
+        "Grandmother",
+        "Cheese",
+        "Milk",
+        "Apple"
+      ],
+      "correctIndex": 0,
+      "unlocksUnitIndex": 1
+    },
+    {
+      "id": "p7",
+      "prompt": "What does 'واحد' mean?",
+      "options": [
+        "Three",
+        "Four",
+        "Two",
+        "One"
+      ],
+      "correctIndex": 3,
+      "unlocksUnitIndex": 2
+    },
+    {
+      "id": "p8",
+      "prompt": "What does 'ثلاثة' mean?",
+      "options": [
+        "Three",
+        "Right",
+        "Left",
+        "Five"
+      ],
+      "correctIndex": 0,
+      "unlocksUnitIndex": 2
+    }
+  ]
+}

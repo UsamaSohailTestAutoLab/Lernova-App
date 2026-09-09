@@ -2,50 +2,1672 @@
   "id": "course_fr",
   "languageId": "fr",
   "title": "French",
-  "description": "Get started with essential French words and phrases.",
-  "placementQuestions": [
-    { "id": "fp1", "prompt": "What does 'Bonjour' mean?", "options": ["Goodbye", "Hello", "Thanks", "Please"], "correctIndex": 1, "unlocksUnitIndex": 0 },
-    { "id": "fp2", "prompt": "What does 'Chien' mean?", "options": ["Cat", "Dog", "House", "Water"], "correctIndex": 1, "unlocksUnitIndex": 0 }
-  ],
+  "description": "Learn conversational French through short, focused lessons.",
   "units": [
     {
       "id": "fr_u1",
-      "title": "First Words",
-      "description": "Your first French vocabulary",
+      "title": "Greetings & Basics",
+      "description": "Say hello and be polite",
       "icon": "greeting",
       "accent": "green",
       "lessons": [
         {
           "id": "fr_u1_l1",
-          "title": "Bonjour!",
-          "subtitle": "Basic French greetings",
+          "title": "Say Hello",
+          "subtitle": "Bonjour, Merci, S'il vous plaît, Au revoir, Bonsoir",
           "icon": "greeting",
+          "reviewVocabIds": [
+            "fr_je_mappelle",
+            "fr_et",
+            "fr_bonsoir"
+          ],
           "exercises": [
-            { "id": "fr_u1_l1_e1", "type": "multipleChoice", "vocabId": "fr_bonjour", "payload": { "prompt": "Which word means 'Hello'?", "options": ["Bonjour", "Au revoir", "Merci", "Non"], "correctIndex": 0 } },
-            { "id": "fr_u1_l1_e2", "type": "translation", "vocabId": "fr_merci", "payload": { "prompt": "Type the English meaning", "sourceText": "Merci beaucoup", "acceptableAnswers": ["thank you very much", "Thank you very much"] } },
-            { "id": "fr_u1_l1_e3", "type": "listening", "vocabId": "fr_au_revoir", "payload": { "prompt": "Listen and select what you hear", "audioText": "Au revoir", "ttsLocale": "fr-FR", "options": ["Bonjour", "Au revoir", "Merci", "Oui"], "correctIndex": 1 } },
-            { "id": "fr_u1_l1_e4", "type": "speaking", "vocabId": "fr_sil_vous_plait", "payload": { "prompt": "Say this phrase out loud", "targetPhrase": "S'il vous plaît", "translation": "Please" } },
-            { "id": "fr_u1_l1_e5", "type": "wordMatching", "vocabId": "fr_greetings_set1", "payload": { "prompt": "Match each word to its meaning", "pairs": [ { "left": "Bonjour", "right": "Hello" }, { "left": "Merci", "right": "Thank you" }, { "left": "Oui", "right": "Yes" }, { "left": "Non", "right": "No" } ] } },
-            { "id": "fr_u1_l1_e6", "type": "sentenceArrangement", "vocabId": "fr_merci", "payload": { "prompt": "Build the sentence", "shuffledChips": ["beaucoup", "Merci"], "correctSentence": ["Merci", "beaucoup"] } },
-            { "id": "fr_u1_l1_e7", "type": "fillInTheBlank", "vocabId": "fr_bonjour", "payload": { "sentenceTemplate": "___, madame.", "options": ["Bonjour", "Non", "Merci", "Oui"], "correctAnswer": "Bonjour" } }
+            {
+              "id": "fr_u1_l1_e1",
+              "type": "imageRecognition",
+              "vocabId": "fr_bonjour",
+              "payload": {
+                "prompt": "What does this word mean?",
+                "emoji": "👋",
+                "targetWord": "Bonjour",
+                "meaning": "Hello",
+                "distractorMeanings": [
+                  "Thank you",
+                  "Please",
+                  "Goodbye"
+                ],
+                "distractorWords": [
+                  "Merci",
+                  "S'il vous plaît",
+                  "Au revoir"
+                ]
+              }
+            },
+            {
+              "id": "fr_u1_l1_e2",
+              "type": "multipleChoice",
+              "vocabId": "fr_merci",
+              "payload": {
+                "prompt": "Which word means 'Thank you'?",
+                "options": [
+                  "Bonjour",
+                  "Au revoir",
+                  "Merci",
+                  "S'il vous plaît"
+                ],
+                "correctIndex": 2
+              }
+            },
+            {
+              "id": "fr_u1_l1_e3",
+              "type": "listening",
+              "vocabId": "fr_sil_vous_plait",
+              "payload": {
+                "prompt": "Listen and select what you hear",
+                "audioText": "S'il vous plaît",
+                "ttsLocale": "fr-FR",
+                "options": [
+                  "Bonjour",
+                  "S'il vous plaît",
+                  "Au revoir",
+                  "Merci"
+                ],
+                "correctIndex": 1,
+                "translation": "Please"
+              }
+            },
+            {
+              "id": "fr_u1_l1_e4",
+              "type": "multipleChoice",
+              "vocabId": "fr_je_mappelle",
+              "payload": {
+                "prompt": "Which word means 'My name is'?",
+                "options": [
+                  "Bonjour",
+                  "Merci",
+                  "S'il vous plaît",
+                  "Je m'appelle"
+                ],
+                "correctIndex": 3
+              }
+            },
+            {
+              "id": "fr_u1_l1_e5",
+              "type": "translation",
+              "vocabId": "fr_au_revoir",
+              "payload": {
+                "prompt": "Type the English meaning",
+                "sourceText": "Au revoir",
+                "acceptableAnswers": [
+                  "goodbye",
+                  "Goodbye"
+                ]
+              }
+            },
+            {
+              "id": "fr_u1_l1_e6",
+              "type": "speaking",
+              "vocabId": "fr_bonjour",
+              "payload": {
+                "prompt": "Say this phrase out loud",
+                "targetPhrase": "Bonjour, je m'appelle Anna",
+                "translation": "Hello, my name is Anna",
+                "ttsLocale": "fr-FR"
+              }
+            },
+            {
+              "id": "fr_u1_l1_e7",
+              "type": "wordMatching",
+              "vocabId": "fr_u1_l1_set",
+              "payload": {
+                "prompt": "Match each word to its meaning",
+                "pairs": [
+                  {
+                    "left": "Bonjour",
+                    "right": "Hello"
+                  },
+                  {
+                    "left": "Merci",
+                    "right": "Thank you"
+                  },
+                  {
+                    "left": "S'il vous plaît",
+                    "right": "Please"
+                  },
+                  {
+                    "left": "Au revoir",
+                    "right": "Goodbye"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "fr_u1_l1_e8",
+              "type": "sentenceArrangement",
+              "vocabId": "fr_bonjour",
+              "payload": {
+                "prompt": "Build the sentence",
+                "shuffledChips": [
+                  "Je",
+                  "m'appelle",
+                  "Anna"
+                ],
+                "correctSentence": [
+                  "Je",
+                  "m'appelle",
+                  "Anna"
+                ],
+                "translation": "My name is Anna"
+              }
+            },
+            {
+              "id": "fr_u1_l1_e9",
+              "type": "fillInTheBlank",
+              "vocabId": "fr_au_revoir",
+              "payload": {
+                "prompt": "Complete the sentence",
+                "sentenceTemplate": "Merci et ___.",
+                "options": [
+                  "bonjour",
+                  "s'il vous plaît",
+                  "au revoir",
+                  "bonsoir"
+                ],
+                "correctAnswer": "au revoir",
+                "translation": "Thank you and goodbye"
+              }
+            }
           ]
         },
         {
           "id": "fr_u1_l2",
-          "title": "Everyday Words",
-          "subtitle": "Common French essentials",
-          "icon": "essentials",
+          "title": "Yes, No, Sorry",
+          "subtitle": "Oui, Non, Pardon, De rien, D'accord",
+          "icon": "agreement",
+          "reviewVocabIds": [
+            "fr_je_suis",
+            "fr_desole",
+            "fr_merci",
+            "fr_daccord"
+          ],
           "exercises": [
-            { "id": "fr_u1_l2_e1", "type": "multipleChoice", "vocabId": "fr_eau", "payload": { "prompt": "Which word means 'Water'?", "options": ["Eau", "Pain", "Chat", "Chien"], "correctIndex": 0 } },
-            { "id": "fr_u1_l2_e2", "type": "translation", "vocabId": "fr_ami", "payload": { "prompt": "Type the English meaning", "sourceText": "Mon ami", "acceptableAnswers": ["my friend", "My friend"] } },
-            { "id": "fr_u1_l2_e3", "type": "listening", "vocabId": "fr_maison", "payload": { "prompt": "Listen and select what you hear", "audioText": "Maison", "ttsLocale": "fr-FR", "options": ["Chien", "Maison", "Chat", "Pain"], "correctIndex": 1 } },
-            { "id": "fr_u1_l2_e4", "type": "speaking", "vocabId": "fr_chat", "payload": { "prompt": "Say this phrase out loud", "targetPhrase": "J'aime mon chat", "translation": "I love my cat" } },
-            { "id": "fr_u1_l2_e5", "type": "wordMatching", "vocabId": "fr_words_set1", "payload": { "prompt": "Match each word to its meaning", "pairs": [ { "left": "Eau", "right": "Water" }, { "left": "Pain", "right": "Bread" }, { "left": "Chat", "right": "Cat" }, { "left": "Chien", "right": "Dog" } ] } },
-            { "id": "fr_u1_l2_e6", "type": "sentenceArrangement", "vocabId": "fr_chien", "payload": { "prompt": "Build the sentence", "shuffledChips": ["chien", "mon", "J'aime"], "correctSentence": ["J'aime", "mon", "chien"] } },
-            { "id": "fr_u1_l2_e7", "type": "fillInTheBlank", "vocabId": "fr_maison", "payload": { "sentenceTemplate": "J'habite dans une ___.", "options": ["maison", "eau", "pain", "ami"], "correctAnswer": "maison" } }
+            {
+              "id": "fr_u1_l2_e1",
+              "type": "imageRecognition",
+              "vocabId": "fr_oui",
+              "payload": {
+                "prompt": "What does this word mean?",
+                "emoji": "✅",
+                "targetWord": "Oui",
+                "meaning": "Yes",
+                "distractorMeanings": [
+                  "No",
+                  "Excuse me",
+                  "You're welcome"
+                ],
+                "distractorWords": [
+                  "Non",
+                  "Pardon",
+                  "De rien"
+                ]
+              }
+            },
+            {
+              "id": "fr_u1_l2_e2",
+              "type": "multipleChoice",
+              "vocabId": "fr_non",
+              "payload": {
+                "prompt": "Which word means 'No'?",
+                "options": [
+                  "Non",
+                  "Pardon",
+                  "Oui",
+                  "De rien"
+                ],
+                "correctIndex": 0
+              }
+            },
+            {
+              "id": "fr_u1_l2_e3",
+              "type": "listening",
+              "vocabId": "fr_pardon",
+              "payload": {
+                "prompt": "Listen and select what you hear",
+                "audioText": "Pardon",
+                "ttsLocale": "fr-FR",
+                "options": [
+                  "Non",
+                  "Oui",
+                  "Pardon",
+                  "De rien"
+                ],
+                "correctIndex": 2,
+                "translation": "Excuse me"
+              }
+            },
+            {
+              "id": "fr_u1_l2_e4",
+              "type": "multipleChoice",
+              "vocabId": "fr_je_suis",
+              "payload": {
+                "prompt": "Which word means 'I am'?",
+                "options": [
+                  "Je suis",
+                  "Non",
+                  "Pardon",
+                  "Oui"
+                ],
+                "correctIndex": 0
+              }
+            },
+            {
+              "id": "fr_u1_l2_e5",
+              "type": "translation",
+              "vocabId": "fr_de_rien",
+              "payload": {
+                "prompt": "Type the English meaning",
+                "sourceText": "De rien",
+                "acceptableAnswers": [
+                  "you're welcome",
+                  "You're welcome"
+                ]
+              }
+            },
+            {
+              "id": "fr_u1_l2_e6",
+              "type": "speaking",
+              "vocabId": "fr_oui",
+              "payload": {
+                "prompt": "Say this phrase out loud",
+                "targetPhrase": "Pardon, je suis désolé",
+                "translation": "Excuse me, I am sorry",
+                "ttsLocale": "fr-FR"
+              }
+            },
+            {
+              "id": "fr_u1_l2_e7",
+              "type": "wordMatching",
+              "vocabId": "fr_u1_l2_set",
+              "payload": {
+                "prompt": "Match each word to its meaning",
+                "pairs": [
+                  {
+                    "left": "Oui",
+                    "right": "Yes"
+                  },
+                  {
+                    "left": "Non",
+                    "right": "No"
+                  },
+                  {
+                    "left": "Pardon",
+                    "right": "Excuse me"
+                  },
+                  {
+                    "left": "De rien",
+                    "right": "You're welcome"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "fr_u1_l2_e8",
+              "type": "sentenceArrangement",
+              "vocabId": "fr_oui",
+              "payload": {
+                "prompt": "Build the sentence",
+                "shuffledChips": [
+                  "suis",
+                  "d'accord",
+                  "Oui,",
+                  "je"
+                ],
+                "correctSentence": [
+                  "Oui,",
+                  "je",
+                  "suis",
+                  "d'accord"
+                ],
+                "translation": "Yes, I agree"
+              }
+            },
+            {
+              "id": "fr_u1_l2_e9",
+              "type": "fillInTheBlank",
+              "vocabId": "fr_pardon",
+              "payload": {
+                "prompt": "Complete the sentence",
+                "sentenceTemplate": "Non, ___.",
+                "options": [
+                  "pardon",
+                  "de rien",
+                  "oui",
+                  "d'accord"
+                ],
+                "correctAnswer": "pardon",
+                "translation": "No, sorry"
+              }
+            }
+          ]
+        },
+        {
+          "id": "fr_u1_l3",
+          "title": "Polite Basics",
+          "subtitle": "Excusez-moi, Bonne nuit, Santé, Bienvenue, À bientôt",
+          "icon": "manners",
+          "reviewVocabIds": [
+            "fr_comment_allez_vous",
+            "fr_tres",
+            "fr_et",
+            "fr_merci"
+          ],
+          "exercises": [
+            {
+              "id": "fr_u1_l3_e1",
+              "type": "imageRecognition",
+              "vocabId": "fr_excusez_moi",
+              "payload": {
+                "prompt": "What does this word mean?",
+                "emoji": "🙇",
+                "targetWord": "Excusez-moi",
+                "meaning": "Excuse me please",
+                "distractorMeanings": [
+                  "Good night",
+                  "Cheers",
+                  "Welcome"
+                ],
+                "distractorWords": [
+                  "Bonne nuit",
+                  "Santé",
+                  "Bienvenue"
+                ]
+              }
+            },
+            {
+              "id": "fr_u1_l3_e2",
+              "type": "multipleChoice",
+              "vocabId": "fr_bonne_nuit",
+              "payload": {
+                "prompt": "Which word means 'Good night'?",
+                "options": [
+                  "Excusez-moi",
+                  "Bienvenue",
+                  "Santé",
+                  "Bonne nuit"
+                ],
+                "correctIndex": 3
+              }
+            },
+            {
+              "id": "fr_u1_l3_e3",
+              "type": "listening",
+              "vocabId": "fr_sante",
+              "payload": {
+                "prompt": "Listen and select what you hear",
+                "audioText": "Santé",
+                "ttsLocale": "fr-FR",
+                "options": [
+                  "Bonne nuit",
+                  "Bienvenue",
+                  "Excusez-moi",
+                  "Santé"
+                ],
+                "correctIndex": 3,
+                "translation": "Cheers"
+              }
+            },
+            {
+              "id": "fr_u1_l3_e4",
+              "type": "multipleChoice",
+              "vocabId": "fr_comment_allez_vous",
+              "payload": {
+                "prompt": "Which word means 'How are you'?",
+                "options": [
+                  "Excusez-moi",
+                  "Comment allez-vous",
+                  "Santé",
+                  "Bonne nuit"
+                ],
+                "correctIndex": 1
+              }
+            },
+            {
+              "id": "fr_u1_l3_e5",
+              "type": "translation",
+              "vocabId": "fr_bienvenue",
+              "payload": {
+                "prompt": "Type the English meaning",
+                "sourceText": "Bienvenue",
+                "acceptableAnswers": [
+                  "welcome",
+                  "Welcome"
+                ]
+              }
+            },
+            {
+              "id": "fr_u1_l3_e6",
+              "type": "speaking",
+              "vocabId": "fr_excusez_moi",
+              "payload": {
+                "prompt": "Say this phrase out loud",
+                "targetPhrase": "Excusez-moi, comment allez-vous ?",
+                "translation": "Excuse me, how are you?",
+                "ttsLocale": "fr-FR"
+              }
+            },
+            {
+              "id": "fr_u1_l3_e7",
+              "type": "wordMatching",
+              "vocabId": "fr_u1_l3_set",
+              "payload": {
+                "prompt": "Match each word to its meaning",
+                "pairs": [
+                  {
+                    "left": "Excusez-moi",
+                    "right": "Excuse me please"
+                  },
+                  {
+                    "left": "Bonne nuit",
+                    "right": "Good night"
+                  },
+                  {
+                    "left": "Santé",
+                    "right": "Cheers"
+                  },
+                  {
+                    "left": "Bienvenue",
+                    "right": "Welcome"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "fr_u1_l3_e8",
+              "type": "sentenceArrangement",
+              "vocabId": "fr_excusez_moi",
+              "payload": {
+                "prompt": "Build the sentence",
+                "shuffledChips": [
+                  "nuit",
+                  "Bienvenue",
+                  "et",
+                  "bonne"
+                ],
+                "correctSentence": [
+                  "Bienvenue",
+                  "et",
+                  "bonne",
+                  "nuit"
+                ],
+                "translation": "Welcome and good night"
+              }
+            },
+            {
+              "id": "fr_u1_l3_e9",
+              "type": "fillInTheBlank",
+              "vocabId": "fr_a_bientot",
+              "payload": {
+                "prompt": "Complete the sentence",
+                "sentenceTemplate": "Merci, ___ !",
+                "options": [
+                  "santé",
+                  "très",
+                  "bienvenue",
+                  "à bientôt"
+                ],
+                "correctAnswer": "à bientôt",
+                "translation": "Thank you, see you soon"
+              }
+            }
           ]
         }
       ]
+    },
+    {
+      "id": "fr_u2",
+      "title": "Food & Family",
+      "description": "Talk about the people and meals you love",
+      "icon": "food",
+      "accent": "amber",
+      "lessons": [
+        {
+          "id": "fr_u2_l1",
+          "title": "Family Members",
+          "subtitle": "Mère, Père, Frère, Sœur, Grand-mère",
+          "icon": "family",
+          "reviewVocabIds": [
+            "fr_ma",
+            "fr_est"
+          ],
+          "exercises": [
+            {
+              "id": "fr_u2_l1_e1",
+              "type": "imageRecognition",
+              "vocabId": "fr_mere",
+              "payload": {
+                "prompt": "What does this word mean?",
+                "emoji": "👩",
+                "targetWord": "Mère",
+                "meaning": "Mother",
+                "distractorMeanings": [
+                  "Father",
+                  "Brother",
+                  "Sister"
+                ],
+                "distractorWords": [
+                  "Père",
+                  "Frère",
+                  "Sœur"
+                ]
+              }
+            },
+            {
+              "id": "fr_u2_l1_e2",
+              "type": "multipleChoice",
+              "vocabId": "fr_pere",
+              "payload": {
+                "prompt": "Which word means 'Father'?",
+                "options": [
+                  "Frère",
+                  "Sœur",
+                  "Père",
+                  "Mère"
+                ],
+                "correctIndex": 2
+              }
+            },
+            {
+              "id": "fr_u2_l1_e3",
+              "type": "listening",
+              "vocabId": "fr_frere",
+              "payload": {
+                "prompt": "Listen and select what you hear",
+                "audioText": "Frère",
+                "ttsLocale": "fr-FR",
+                "options": [
+                  "Frère",
+                  "Sœur",
+                  "Père",
+                  "Mère"
+                ],
+                "correctIndex": 0,
+                "translation": "Brother"
+              }
+            },
+            {
+              "id": "fr_u2_l1_e4",
+              "type": "multipleChoice",
+              "vocabId": "fr_ma",
+              "payload": {
+                "prompt": "Which word means 'My'?",
+                "options": [
+                  "Père",
+                  "Mère",
+                  "Ma",
+                  "Frère"
+                ],
+                "correctIndex": 2
+              }
+            },
+            {
+              "id": "fr_u2_l1_e5",
+              "type": "translation",
+              "vocabId": "fr_soeur",
+              "payload": {
+                "prompt": "Type the English meaning",
+                "sourceText": "Sœur",
+                "acceptableAnswers": [
+                  "sister",
+                  "Sister"
+                ]
+              }
+            },
+            {
+              "id": "fr_u2_l1_e6",
+              "type": "speaking",
+              "vocabId": "fr_mere",
+              "payload": {
+                "prompt": "Say this phrase out loud",
+                "targetPhrase": "Ma sœur est Anna",
+                "translation": "My sister is Anna",
+                "ttsLocale": "fr-FR"
+              }
+            },
+            {
+              "id": "fr_u2_l1_e7",
+              "type": "wordMatching",
+              "vocabId": "fr_u2_l1_set",
+              "payload": {
+                "prompt": "Match each word to its meaning",
+                "pairs": [
+                  {
+                    "left": "Mère",
+                    "right": "Mother"
+                  },
+                  {
+                    "left": "Père",
+                    "right": "Father"
+                  },
+                  {
+                    "left": "Frère",
+                    "right": "Brother"
+                  },
+                  {
+                    "left": "Sœur",
+                    "right": "Sister"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "fr_u2_l1_e8",
+              "type": "sentenceArrangement",
+              "vocabId": "fr_mere",
+              "payload": {
+                "prompt": "Build the sentence",
+                "shuffledChips": [
+                  "Anna",
+                  "est",
+                  "ma",
+                  "mère"
+                ],
+                "correctSentence": [
+                  "Anna",
+                  "est",
+                  "ma",
+                  "mère"
+                ],
+                "translation": "Anna is my mother"
+              }
+            },
+            {
+              "id": "fr_u2_l1_e9",
+              "type": "fillInTheBlank",
+              "vocabId": "fr_grand_mere",
+              "payload": {
+                "prompt": "Complete the sentence",
+                "sentenceTemplate": "Ma ___ est Rosa.",
+                "options": [
+                  "frère",
+                  "mère",
+                  "grand-mère",
+                  "père"
+                ],
+                "correctAnswer": "grand-mère",
+                "translation": "My grandmother is Rosa"
+              }
+            }
+          ]
+        },
+        {
+          "id": "fr_u2_l2",
+          "title": "Food Basics",
+          "subtitle": "Pain, Eau, Pomme, Fromage, Lait",
+          "icon": "food",
+          "reviewVocabIds": [
+            "fr_je_veux",
+            "fr_du",
+            "fr_sil_vous_plait"
+          ],
+          "exercises": [
+            {
+              "id": "fr_u2_l2_e1",
+              "type": "imageRecognition",
+              "vocabId": "fr_pain",
+              "payload": {
+                "prompt": "What does this word mean?",
+                "emoji": "🍞",
+                "targetWord": "Pain",
+                "meaning": "Bread",
+                "distractorMeanings": [
+                  "Water",
+                  "Apple",
+                  "Cheese"
+                ],
+                "distractorWords": [
+                  "Eau",
+                  "Pomme",
+                  "Fromage"
+                ]
+              }
+            },
+            {
+              "id": "fr_u2_l2_e2",
+              "type": "multipleChoice",
+              "vocabId": "fr_eau",
+              "payload": {
+                "prompt": "Which word means 'Water'?",
+                "options": [
+                  "Fromage",
+                  "Eau",
+                  "Pain",
+                  "Pomme"
+                ],
+                "correctIndex": 1
+              }
+            },
+            {
+              "id": "fr_u2_l2_e3",
+              "type": "listening",
+              "vocabId": "fr_pomme",
+              "payload": {
+                "prompt": "Listen and select what you hear",
+                "audioText": "Pomme",
+                "ttsLocale": "fr-FR",
+                "options": [
+                  "Pain",
+                  "Fromage",
+                  "Pomme",
+                  "Eau"
+                ],
+                "correctIndex": 2,
+                "translation": "Apple"
+              }
+            },
+            {
+              "id": "fr_u2_l2_e4",
+              "type": "multipleChoice",
+              "vocabId": "fr_je_veux",
+              "payload": {
+                "prompt": "Which word means 'I want'?",
+                "options": [
+                  "Eau",
+                  "Pomme",
+                  "Pain",
+                  "Je veux"
+                ],
+                "correctIndex": 3
+              }
+            },
+            {
+              "id": "fr_u2_l2_e5",
+              "type": "translation",
+              "vocabId": "fr_fromage",
+              "payload": {
+                "prompt": "Type the English meaning",
+                "sourceText": "Fromage",
+                "acceptableAnswers": [
+                  "cheese",
+                  "Cheese"
+                ]
+              }
+            },
+            {
+              "id": "fr_u2_l2_e6",
+              "type": "speaking",
+              "vocabId": "fr_pain",
+              "payload": {
+                "prompt": "Say this phrase out loud",
+                "targetPhrase": "Je veux du pain, s'il vous plaît",
+                "translation": "I want some bread, please",
+                "ttsLocale": "fr-FR"
+              }
+            },
+            {
+              "id": "fr_u2_l2_e7",
+              "type": "wordMatching",
+              "vocabId": "fr_u2_l2_set",
+              "payload": {
+                "prompt": "Match each word to its meaning",
+                "pairs": [
+                  {
+                    "left": "Pain",
+                    "right": "Bread"
+                  },
+                  {
+                    "left": "Eau",
+                    "right": "Water"
+                  },
+                  {
+                    "left": "Pomme",
+                    "right": "Apple"
+                  },
+                  {
+                    "left": "Fromage",
+                    "right": "Cheese"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "fr_u2_l2_e8",
+              "type": "sentenceArrangement",
+              "vocabId": "fr_pain",
+              "payload": {
+                "prompt": "Build the sentence",
+                "shuffledChips": [
+                  "veux",
+                  "du",
+                  "fromage",
+                  "Je"
+                ],
+                "correctSentence": [
+                  "Je",
+                  "veux",
+                  "du",
+                  "fromage"
+                ],
+                "translation": "I want some cheese"
+              }
+            },
+            {
+              "id": "fr_u2_l2_e9",
+              "type": "fillInTheBlank",
+              "vocabId": "fr_lait",
+              "payload": {
+                "prompt": "Complete the sentence",
+                "sentenceTemplate": "Je veux du ___.",
+                "options": [
+                  "eau",
+                  "lait",
+                  "pain",
+                  "fromage"
+                ],
+                "correctAnswer": "lait",
+                "translation": "I want some milk"
+              }
+            }
+          ]
+        },
+        {
+          "id": "fr_u2_l3",
+          "title": "At the Table",
+          "subtitle": "Table, Assiette, Verre, Fourchette, Couteau",
+          "icon": "table",
+          "reviewVocabIds": [
+            "fr_sur",
+            "fr_le",
+            "fr_la",
+            "fr_est",
+            "fr_ma"
+          ],
+          "exercises": [
+            {
+              "id": "fr_u2_l3_e1",
+              "type": "imageRecognition",
+              "vocabId": "fr_table",
+              "payload": {
+                "prompt": "What does this word mean?",
+                "emoji": "🍽️",
+                "targetWord": "Table",
+                "meaning": "Table",
+                "distractorMeanings": [
+                  "Plate",
+                  "Glass",
+                  "Fork"
+                ],
+                "distractorWords": [
+                  "Assiette",
+                  "Verre",
+                  "Fourchette"
+                ]
+              }
+            },
+            {
+              "id": "fr_u2_l3_e2",
+              "type": "multipleChoice",
+              "vocabId": "fr_assiette",
+              "payload": {
+                "prompt": "Which word means 'Plate'?",
+                "options": [
+                  "Assiette",
+                  "Table",
+                  "Verre",
+                  "Fourchette"
+                ],
+                "correctIndex": 0
+              }
+            },
+            {
+              "id": "fr_u2_l3_e3",
+              "type": "listening",
+              "vocabId": "fr_verre",
+              "payload": {
+                "prompt": "Listen and select what you hear",
+                "audioText": "Verre",
+                "ttsLocale": "fr-FR",
+                "options": [
+                  "Verre",
+                  "Assiette",
+                  "Table",
+                  "Fourchette"
+                ],
+                "correctIndex": 0,
+                "translation": "Glass"
+              }
+            },
+            {
+              "id": "fr_u2_l3_e4",
+              "type": "multipleChoice",
+              "vocabId": "fr_sur",
+              "payload": {
+                "prompt": "Which word means 'On'?",
+                "options": [
+                  "Sur",
+                  "Assiette",
+                  "Verre",
+                  "Table"
+                ],
+                "correctIndex": 0
+              }
+            },
+            {
+              "id": "fr_u2_l3_e5",
+              "type": "translation",
+              "vocabId": "fr_fourchette",
+              "payload": {
+                "prompt": "Type the English meaning",
+                "sourceText": "Fourchette",
+                "acceptableAnswers": [
+                  "fork",
+                  "Fork"
+                ]
+              }
+            },
+            {
+              "id": "fr_u2_l3_e6",
+              "type": "speaking",
+              "vocabId": "fr_table",
+              "payload": {
+                "prompt": "Say this phrase out loud",
+                "targetPhrase": "Le verre est sur la table",
+                "translation": "The glass is on the table",
+                "ttsLocale": "fr-FR"
+              }
+            },
+            {
+              "id": "fr_u2_l3_e7",
+              "type": "wordMatching",
+              "vocabId": "fr_u2_l3_set",
+              "payload": {
+                "prompt": "Match each word to its meaning",
+                "pairs": [
+                  {
+                    "left": "Table",
+                    "right": "Table"
+                  },
+                  {
+                    "left": "Assiette",
+                    "right": "Plate"
+                  },
+                  {
+                    "left": "Verre",
+                    "right": "Glass"
+                  },
+                  {
+                    "left": "Fourchette",
+                    "right": "Fork"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "fr_u2_l3_e8",
+              "type": "sentenceArrangement",
+              "vocabId": "fr_table",
+              "payload": {
+                "prompt": "Build the sentence",
+                "shuffledChips": [
+                  "La",
+                  "fourchette",
+                  "la",
+                  "table",
+                  "est",
+                  "sur"
+                ],
+                "correctSentence": [
+                  "La",
+                  "fourchette",
+                  "est",
+                  "sur",
+                  "la",
+                  "table"
+                ],
+                "translation": "The fork is on the table"
+              }
+            },
+            {
+              "id": "fr_u2_l3_e9",
+              "type": "fillInTheBlank",
+              "vocabId": "fr_couteau",
+              "payload": {
+                "prompt": "Complete the sentence",
+                "sentenceTemplate": "Le ___ est sur la table.",
+                "options": [
+                  "couteau",
+                  "verre",
+                  "assiette",
+                  "pain"
+                ],
+                "correctAnswer": "couteau",
+                "translation": "The knife is on the table"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fr_u3",
+      "title": "Numbers & Travel",
+      "description": "Count, navigate, and travel with confidence",
+      "icon": "travel",
+      "accent": "teal",
+      "lessons": [
+        {
+          "id": "fr_u3_l1",
+          "title": "Numbers 1-10",
+          "subtitle": "Un, Deux, Trois, Quatre, Cinq",
+          "icon": "numbers",
+          "reviewVocabIds": [
+            "fr_jai",
+            "fr_ans",
+            "fr_cinq"
+          ],
+          "exercises": [
+            {
+              "id": "fr_u3_l1_e1",
+              "type": "imageRecognition",
+              "vocabId": "fr_un",
+              "payload": {
+                "prompt": "What does this word mean?",
+                "emoji": "1️⃣",
+                "targetWord": "Un",
+                "meaning": "One",
+                "distractorMeanings": [
+                  "Two",
+                  "Three",
+                  "Four"
+                ],
+                "distractorWords": [
+                  "Deux",
+                  "Trois",
+                  "Quatre"
+                ]
+              }
+            },
+            {
+              "id": "fr_u3_l1_e2",
+              "type": "multipleChoice",
+              "vocabId": "fr_deux",
+              "payload": {
+                "prompt": "Which word means 'Two'?",
+                "options": [
+                  "Un",
+                  "Trois",
+                  "Quatre",
+                  "Deux"
+                ],
+                "correctIndex": 3
+              }
+            },
+            {
+              "id": "fr_u3_l1_e3",
+              "type": "listening",
+              "vocabId": "fr_trois",
+              "payload": {
+                "prompt": "Listen and select what you hear",
+                "audioText": "Trois",
+                "ttsLocale": "fr-FR",
+                "options": [
+                  "Un",
+                  "Quatre",
+                  "Deux",
+                  "Trois"
+                ],
+                "correctIndex": 3,
+                "translation": "Three"
+              }
+            },
+            {
+              "id": "fr_u3_l1_e4",
+              "type": "multipleChoice",
+              "vocabId": "fr_jai",
+              "payload": {
+                "prompt": "Which word means 'I have'?",
+                "options": [
+                  "Un",
+                  "J'ai",
+                  "Trois",
+                  "Deux"
+                ],
+                "correctIndex": 1
+              }
+            },
+            {
+              "id": "fr_u3_l1_e5",
+              "type": "translation",
+              "vocabId": "fr_quatre",
+              "payload": {
+                "prompt": "Type the English meaning",
+                "sourceText": "Quatre",
+                "acceptableAnswers": [
+                  "four",
+                  "Four"
+                ]
+              }
+            },
+            {
+              "id": "fr_u3_l1_e6",
+              "type": "speaking",
+              "vocabId": "fr_un",
+              "payload": {
+                "prompt": "Say this phrase out loud",
+                "targetPhrase": "J'ai cinq ans",
+                "translation": "I am five years old",
+                "ttsLocale": "fr-FR"
+              }
+            },
+            {
+              "id": "fr_u3_l1_e7",
+              "type": "wordMatching",
+              "vocabId": "fr_u3_l1_set",
+              "payload": {
+                "prompt": "Match each word to its meaning",
+                "pairs": [
+                  {
+                    "left": "Un",
+                    "right": "One"
+                  },
+                  {
+                    "left": "Deux",
+                    "right": "Two"
+                  },
+                  {
+                    "left": "Trois",
+                    "right": "Three"
+                  },
+                  {
+                    "left": "Quatre",
+                    "right": "Four"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "fr_u3_l1_e8",
+              "type": "sentenceArrangement",
+              "vocabId": "fr_un",
+              "payload": {
+                "prompt": "Build the sentence",
+                "shuffledChips": [
+                  "J'ai",
+                  "quatre",
+                  "ans"
+                ],
+                "correctSentence": [
+                  "J'ai",
+                  "quatre",
+                  "ans"
+                ],
+                "translation": "I am four years old"
+              }
+            },
+            {
+              "id": "fr_u3_l1_e9",
+              "type": "fillInTheBlank",
+              "vocabId": "fr_trois",
+              "payload": {
+                "prompt": "Complete the sentence",
+                "sentenceTemplate": "J'ai ___ ans.",
+                "options": [
+                  "un",
+                  "deux",
+                  "quatre",
+                  "trois"
+                ],
+                "correctAnswer": "trois",
+                "translation": "I am three years old"
+              }
+            }
+          ]
+        },
+        {
+          "id": "fr_u3_l2",
+          "title": "Getting Around",
+          "subtitle": "Gauche, Droite, Tout droit, Rue, Gare",
+          "icon": "directions",
+          "reviewVocabIds": [
+            "fr_ou_est",
+            "fr_a",
+            "fr_la",
+            "fr_le",
+            "fr_gare"
+          ],
+          "exercises": [
+            {
+              "id": "fr_u3_l2_e1",
+              "type": "imageRecognition",
+              "vocabId": "fr_gauche",
+              "payload": {
+                "prompt": "What does this word mean?",
+                "emoji": "⬅️",
+                "targetWord": "Gauche",
+                "meaning": "Left",
+                "distractorMeanings": [
+                  "Right",
+                  "Straight ahead",
+                  "Street"
+                ],
+                "distractorWords": [
+                  "Droite",
+                  "Tout droit",
+                  "Rue"
+                ]
+              }
+            },
+            {
+              "id": "fr_u3_l2_e2",
+              "type": "multipleChoice",
+              "vocabId": "fr_droite",
+              "payload": {
+                "prompt": "Which word means 'Right'?",
+                "options": [
+                  "Droite",
+                  "Tout droit",
+                  "Rue",
+                  "Gauche"
+                ],
+                "correctIndex": 0
+              }
+            },
+            {
+              "id": "fr_u3_l2_e3",
+              "type": "listening",
+              "vocabId": "fr_tout_droit",
+              "payload": {
+                "prompt": "Listen and select what you hear",
+                "audioText": "Tout droit",
+                "ttsLocale": "fr-FR",
+                "options": [
+                  "Droite",
+                  "Rue",
+                  "Tout droit",
+                  "Gauche"
+                ],
+                "correctIndex": 2,
+                "translation": "Straight ahead"
+              }
+            },
+            {
+              "id": "fr_u3_l2_e4",
+              "type": "multipleChoice",
+              "vocabId": "fr_ou_est",
+              "payload": {
+                "prompt": "Which word means 'Where is'?",
+                "options": [
+                  "Droite",
+                  "Gauche",
+                  "Où est",
+                  "Tout droit"
+                ],
+                "correctIndex": 2
+              }
+            },
+            {
+              "id": "fr_u3_l2_e5",
+              "type": "translation",
+              "vocabId": "fr_rue",
+              "payload": {
+                "prompt": "Type the English meaning",
+                "sourceText": "Rue",
+                "acceptableAnswers": [
+                  "street",
+                  "Street"
+                ]
+              }
+            },
+            {
+              "id": "fr_u3_l2_e6",
+              "type": "speaking",
+              "vocabId": "fr_gauche",
+              "payload": {
+                "prompt": "Say this phrase out loud",
+                "targetPhrase": "Où est la gare ?",
+                "translation": "Where is the station?",
+                "ttsLocale": "fr-FR"
+              }
+            },
+            {
+              "id": "fr_u3_l2_e7",
+              "type": "wordMatching",
+              "vocabId": "fr_u3_l2_set",
+              "payload": {
+                "prompt": "Match each word to its meaning",
+                "pairs": [
+                  {
+                    "left": "Gauche",
+                    "right": "Left"
+                  },
+                  {
+                    "left": "Droite",
+                    "right": "Right"
+                  },
+                  {
+                    "left": "Tout droit",
+                    "right": "Straight ahead"
+                  },
+                  {
+                    "left": "Rue",
+                    "right": "Street"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "fr_u3_l2_e8",
+              "type": "sentenceArrangement",
+              "vocabId": "fr_gauche",
+              "payload": {
+                "prompt": "Build the sentence",
+                "shuffledChips": [
+                  "la",
+                  "est",
+                  "Où",
+                  "rue"
+                ],
+                "correctSentence": [
+                  "Où",
+                  "est",
+                  "la",
+                  "rue"
+                ],
+                "translation": "Where is the street?"
+              }
+            },
+            {
+              "id": "fr_u3_l2_e9",
+              "type": "fillInTheBlank",
+              "vocabId": "fr_gauche",
+              "payload": {
+                "prompt": "Complete the sentence",
+                "sentenceTemplate": "La gare est à ___.",
+                "options": [
+                  "gauche",
+                  "tout droit",
+                  "rue",
+                  "droite"
+                ],
+                "correctAnswer": "gauche",
+                "translation": "The station is on the left"
+              }
+            }
+          ]
+        },
+        {
+          "id": "fr_u3_l3",
+          "title": "Travel Phrases",
+          "subtitle": "Aéroport, Hôtel, Billet, Train, Valise",
+          "icon": "travel",
+          "reviewVocabIds": [
+            "fr_pres",
+            "fr_de",
+            "fr_le",
+            "fr_la",
+            "fr_est",
+            "fr_gare",
+            "fr_ou_est",
+            "fr_valise"
+          ],
+          "exercises": [
+            {
+              "id": "fr_u3_l3_e1",
+              "type": "imageRecognition",
+              "vocabId": "fr_aeroport",
+              "payload": {
+                "prompt": "What does this word mean?",
+                "emoji": "✈️",
+                "targetWord": "Aéroport",
+                "meaning": "Airport",
+                "distractorMeanings": [
+                  "Hotel",
+                  "Ticket",
+                  "Train"
+                ],
+                "distractorWords": [
+                  "Hôtel",
+                  "Billet",
+                  "Train"
+                ]
+              }
+            },
+            {
+              "id": "fr_u3_l3_e2",
+              "type": "multipleChoice",
+              "vocabId": "fr_hotel",
+              "payload": {
+                "prompt": "Which word means 'Hotel'?",
+                "options": [
+                  "Train",
+                  "Hôtel",
+                  "Aéroport",
+                  "Billet"
+                ],
+                "correctIndex": 1
+              }
+            },
+            {
+              "id": "fr_u3_l3_e3",
+              "type": "listening",
+              "vocabId": "fr_billet",
+              "payload": {
+                "prompt": "Listen and select what you hear",
+                "audioText": "Billet",
+                "ttsLocale": "fr-FR",
+                "options": [
+                  "Aéroport",
+                  "Train",
+                  "Billet",
+                  "Hôtel"
+                ],
+                "correctIndex": 2,
+                "translation": "Ticket"
+              }
+            },
+            {
+              "id": "fr_u3_l3_e4",
+              "type": "multipleChoice",
+              "vocabId": "fr_pres",
+              "payload": {
+                "prompt": "Which word means 'Near'?",
+                "options": [
+                  "Hôtel",
+                  "Billet",
+                  "Aéroport",
+                  "Près"
+                ],
+                "correctIndex": 3
+              }
+            },
+            {
+              "id": "fr_u3_l3_e5",
+              "type": "translation",
+              "vocabId": "fr_train",
+              "payload": {
+                "prompt": "Type the English meaning",
+                "sourceText": "Train",
+                "acceptableAnswers": [
+                  "train",
+                  "Train"
+                ]
+              }
+            },
+            {
+              "id": "fr_u3_l3_e6",
+              "type": "speaking",
+              "vocabId": "fr_aeroport",
+              "payload": {
+                "prompt": "Say this phrase out loud",
+                "targetPhrase": "Le train est près de la gare",
+                "translation": "The train is near the station",
+                "ttsLocale": "fr-FR"
+              }
+            },
+            {
+              "id": "fr_u3_l3_e7",
+              "type": "wordMatching",
+              "vocabId": "fr_u3_l3_set",
+              "payload": {
+                "prompt": "Match each word to its meaning",
+                "pairs": [
+                  {
+                    "left": "Aéroport",
+                    "right": "Airport"
+                  },
+                  {
+                    "left": "Hôtel",
+                    "right": "Hotel"
+                  },
+                  {
+                    "left": "Billet",
+                    "right": "Ticket"
+                  },
+                  {
+                    "left": "Train",
+                    "right": "Train"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "fr_u3_l3_e8",
+              "type": "sentenceArrangement",
+              "vocabId": "fr_aeroport",
+              "payload": {
+                "prompt": "Build the sentence",
+                "shuffledChips": [
+                  "le",
+                  "train",
+                  "est",
+                  "Où"
+                ],
+                "correctSentence": [
+                  "Où",
+                  "est",
+                  "le",
+                  "train"
+                ],
+                "translation": "Where is the train?"
+              }
+            },
+            {
+              "id": "fr_u3_l3_e9",
+              "type": "fillInTheBlank",
+              "vocabId": "fr_hotel",
+              "payload": {
+                "prompt": "Complete the sentence",
+                "sentenceTemplate": "Le ___ est près de la gare.",
+                "options": [
+                  "aéroport",
+                  "hôtel",
+                  "train",
+                  "billet"
+                ],
+                "correctAnswer": "hôtel",
+                "translation": "The hotel is near the station"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "placementQuestions": [
+    {
+      "id": "p1",
+      "prompt": "What does 'Bonjour' mean?",
+      "options": [
+        "Goodbye",
+        "Hello",
+        "Thank you",
+        "Please"
+      ],
+      "correctIndex": 1,
+      "unlocksUnitIndex": 0
+    },
+    {
+      "id": "p2",
+      "prompt": "What does 'S'il vous plaît' mean?",
+      "options": [
+        "Please",
+        "Good evening",
+        "Yes",
+        "No"
+      ],
+      "correctIndex": 0,
+      "unlocksUnitIndex": 0
+    },
+    {
+      "id": "p3",
+      "prompt": "What does 'Bonsoir' mean?",
+      "options": [
+        "Excuse me",
+        "You're welcome",
+        "Okay",
+        "Good evening"
+      ],
+      "correctIndex": 3,
+      "unlocksUnitIndex": 0
+    },
+    {
+      "id": "p4",
+      "prompt": "What does 'Mère' mean?",
+      "options": [
+        "Brother",
+        "Father",
+        "Mother",
+        "Sister"
+      ],
+      "correctIndex": 2,
+      "unlocksUnitIndex": 1
+    },
+    {
+      "id": "p5",
+      "prompt": "What does 'Frère' mean?",
+      "options": [
+        "Grandmother",
+        "Bread",
+        "Water",
+        "Brother"
+      ],
+      "correctIndex": 3,
+      "unlocksUnitIndex": 1
+    },
+    {
+      "id": "p6",
+      "prompt": "What does 'Grand-mère' mean?",
+      "options": [
+        "Grandmother",
+        "Cheese",
+        "Milk",
+        "Apple"
+      ],
+      "correctIndex": 0,
+      "unlocksUnitIndex": 1
+    },
+    {
+      "id": "p7",
+      "prompt": "What does 'Un' mean?",
+      "options": [
+        "Three",
+        "Four",
+        "Two",
+        "One"
+      ],
+      "correctIndex": 3,
+      "unlocksUnitIndex": 2
+    },
+    {
+      "id": "p8",
+      "prompt": "What does 'Trois' mean?",
+      "options": [
+        "Three",
+        "Right",
+        "Left",
+        "Five"
+      ],
+      "correctIndex": 0,
+      "unlocksUnitIndex": 2
     }
   ]
 }

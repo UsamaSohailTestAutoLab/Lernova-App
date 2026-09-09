@@ -1,0 +1,128 @@
+[
+  {
+    "id": "ja_phrase_u1_l1_a",
+    "phrase": "こんにちは わたしは アンナ です",
+    "meaning": "Hello, I am Anna",
+    "languageId": "ja",
+    "category": "greetings"
+  },
+  {
+    "id": "ja_phrase_u1_l1_b",
+    "phrase": "わたしは アンナ です",
+    "meaning": "I am Anna",
+    "languageId": "ja",
+    "category": "greetings"
+  },
+  {
+    "id": "ja_phrase_u1_l2_a",
+    "phrase": "すみません、つかれました",
+    "meaning": "Excuse me, I am tired",
+    "languageId": "ja",
+    "category": "greetings"
+  },
+  {
+    "id": "ja_phrase_u1_l2_b",
+    "phrase": "はい だいじょうぶ です",
+    "meaning": "Yes, it is okay",
+    "languageId": "ja",
+    "category": "greetings"
+  },
+  {
+    "id": "ja_phrase_u1_l3_a",
+    "phrase": "しつれいします、おげんきですか",
+    "meaning": "Excuse me, how are you?",
+    "languageId": "ja",
+    "category": "greetings"
+  },
+  {
+    "id": "ja_phrase_u1_l3_b",
+    "phrase": "ようこそ そして おやすみなさい",
+    "meaning": "Welcome and good night",
+    "languageId": "ja",
+    "category": "greetings"
+  },
+  {
+    "id": "ja_phrase_u2_l1_a",
+    "phrase": "わたしの おねえさん は アンナ です",
+    "meaning": "My sister is Anna",
+    "languageId": "ja",
+    "category": "dining"
+  },
+  {
+    "id": "ja_phrase_u2_l1_b",
+    "phrase": "アンナ は わたしの おかあさん です",
+    "meaning": "Anna is my mother",
+    "languageId": "ja",
+    "category": "dining"
+  },
+  {
+    "id": "ja_phrase_u2_l2_a",
+    "phrase": "パン を ほしいです、おねがいします",
+    "meaning": "I want bread, please",
+    "languageId": "ja",
+    "category": "dining"
+  },
+  {
+    "id": "ja_phrase_u2_l2_b",
+    "phrase": "チーズ を ほしいです",
+    "meaning": "I want cheese",
+    "languageId": "ja",
+    "category": "dining"
+  },
+  {
+    "id": "ja_phrase_u2_l3_a",
+    "phrase": "コップ は テーブル の うえに あります",
+    "meaning": "The glass is on the table",
+    "languageId": "ja",
+    "category": "dining"
+  },
+  {
+    "id": "ja_phrase_u2_l3_b",
+    "phrase": "フォーク は テーブル の うえに あります",
+    "meaning": "The fork is on the table",
+    "languageId": "ja",
+    "category": "dining"
+  },
+  {
+    "id": "ja_phrase_u3_l1_a",
+    "phrase": "ご さい です",
+    "meaning": "I am five years old",
+    "languageId": "ja",
+    "category": "travel"
+  },
+  {
+    "id": "ja_phrase_u3_l1_b",
+    "phrase": "よん さい です",
+    "meaning": "I am four years old",
+    "languageId": "ja",
+    "category": "travel"
+  },
+  {
+    "id": "ja_phrase_u3_l2_a",
+    "phrase": "えき は どこですか",
+    "meaning": "Where is the station?",
+    "languageId": "ja",
+    "category": "travel"
+  },
+  {
+    "id": "ja_phrase_u3_l2_b",
+    "phrase": "みち は どこですか",
+    "meaning": "Where is the street?",
+    "languageId": "ja",
+    "category": "travel"
+  },
+  {
+    "id": "ja_phrase_u3_l3_a",
+    "phrase": "でんしゃ は ちかいです",
+    "meaning": "The train is near",
+    "languageId": "ja",
+    "category": "travel"
+  },
+  {
+    "id": "ja_phrase_u3_l3_b",
+    "phrase": "でんしゃ は どこですか",
+    "meaning": "Where is the train?",
+    "languageId": "ja",
+    "category": "travel"
+  }
+]

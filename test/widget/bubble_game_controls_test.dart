@@ -35,9 +35,10 @@ const _questions = [
   ),
 ];
 
-/// Level 3 so the round uses the rising bubble field rather than the
-/// Level 1 water-survival scene, whose ambient wave animation never
-/// settles under `pumpAndSettle`.
+/// A Word Bubble round, which uses the rising bubble field. Word
+/// Survival's water scene has an ambient wave animation that never
+/// settles under `pumpAndSettle`; it is covered separately, with
+/// bounded pumps, in word_survival_mode_test.dart.
 const _level = FunLevelConfig(
   level: 3,
   wordCount: 2,

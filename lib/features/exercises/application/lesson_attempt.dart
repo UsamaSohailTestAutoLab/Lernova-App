@@ -1,4 +1,5 @@
 import '../../../core/constants/app_enums.dart';
+import 'exercise_labels.dart';
 
 /// One answer the learner actually gave, captured at the moment it was
 /// graded.
@@ -21,6 +22,12 @@ class LessonAttempt {
   final String promptLabel;
   final String userAnswerLabel;
   final String correctLabel;
+
+  /// English meaning of [correctLabel], where the correct answer is in
+  /// the language being learned and nothing else on the row says what it
+  /// means. Null when a gloss would be redundant.
+  final AnswerMeaning? correctMeaning;
+
   final bool wasCorrect;
 
   /// 0 for the learner's first sighting of this exercise in the session;
@@ -36,6 +43,7 @@ class LessonAttempt {
     required this.correctLabel,
     required this.wasCorrect,
     required this.attemptIndex,
+    this.correctMeaning,
     this.spokenText,
     this.ttsLocale = 'es-ES',
   });

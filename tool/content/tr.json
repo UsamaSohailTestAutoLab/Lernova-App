@@ -1,0 +1,371 @@
+{
+  "id": "tr",
+  "name": "Turkish",
+  "description": "Learn conversational Turkish through short, focused lessons.",
+  "properNouns": ["Anna", "Rosa"],
+  "units": [
+    {
+      "title": "Greetings & Basics",
+      "description": "Say hello and be polite",
+      "icon": "greeting",
+      "phraseCategory": "greetings",
+      "lessons": [
+        {
+          "title": "Say Hello",
+          "icon": "greeting",
+          "words": [
+            { "id": "merhaba", "w": "Merhaba", "en": "Hello", "emoji": "👋", "cat": "greetings" },
+            { "id": "tesekkurler", "w": "Teşekkürler", "en": "Thank you", "emoji": "🙏", "cat": "greetings" },
+            { "id": "lutfen", "w": "Lütfen", "en": "Please", "emoji": "🙇", "cat": "greetings" },
+            { "id": "hosca_kal", "w": "Hoşça kal", "en": "Goodbye", "emoji": "🙋", "cat": "greetings" },
+            { "id": "iyi_aksamlar", "w": "İyi akşamlar", "en": "Good evening", "emoji": "🌙", "cat": "greetings" }
+          ],
+          "support": [
+            { "id": "benim_adim", "w": "Benim adım", "en": "My name is", "emoji": "🪪", "cat": "greetings" },
+            { "id": "ve", "w": "Ve", "en": "And", "emoji": "➕", "cat": "descriptions" }
+          ],
+          "speak": { "phrase": "Merhaba, benim adım Anna", "en": "Hello, my name is Anna" },
+          "sentence": { "chips": ["Benim", "adım", "Anna"], "en": "My name is Anna" },
+          "fill": {
+            "template": "Teşekkürler ve ___.",
+            "answer": "hoşça kal",
+            "distractors": ["merhaba", "lütfen", "İyi akşamlar"],
+            "en": "Thank you and goodbye",
+            "vocab": "hosca_kal"
+          }
+        },
+        {
+          "title": "Yes, No, Sorry",
+          "icon": "agreement",
+          "words": [
+            { "id": "evet", "w": "Evet", "en": "Yes", "emoji": "✅", "cat": "greetings" },
+            { "id": "hayir", "w": "Hayır", "en": "No", "emoji": "❌", "cat": "greetings" },
+            { "id": "affedersiniz", "w": "Affedersiniz", "en": "Excuse me", "emoji": "🙋", "cat": "greetings" },
+            { "id": "rica_ederim", "w": "Rica ederim", "en": "You're welcome", "emoji": "🤝", "cat": "greetings" },
+            { "id": "tamam", "w": "Tamam", "en": "Okay", "emoji": "👍", "cat": "greetings" }
+          ],
+          "support": [
+            { "id": "ben", "w": "Ben", "en": "I", "emoji": "🙋", "cat": "descriptions" },
+            { "id": "yorgunum", "w": "Yorgunum", "en": "I am tired", "emoji": "😴", "cat": "descriptions" }
+          ],
+          "review": ["tesekkurler"],
+          "speak": { "phrase": "Affedersiniz, ben yorgunum", "en": "Excuse me, I am tired" },
+          "sentence": { "chips": ["Evet,", "ben", "yorgunum"], "en": "Yes, I am tired" },
+          "fill": {
+            "template": "Hayır, ___.",
+            "answer": "affedersiniz",
+            "distractors": ["evet", "tamam", "rica ederim"],
+            "en": "No, excuse me",
+            "vocab": "affedersiniz"
+          }
+        },
+        {
+          "title": "Polite Basics",
+          "icon": "manners",
+          "words": [
+            { "id": "pardon", "w": "Pardon", "en": "Excuse me please", "emoji": "🙇", "cat": "greetings" },
+            { "id": "iyi_geceler", "w": "İyi geceler", "en": "Good night", "emoji": "😴", "cat": "greetings" },
+            { "id": "serefe", "w": "Şerefe", "en": "Cheers", "emoji": "🥂", "cat": "greetings" },
+            { "id": "hos_geldiniz", "w": "Hoş geldiniz", "en": "Welcome", "emoji": "🎉", "cat": "greetings" },
+            { "id": "gorusuruz", "w": "Görüşürüz", "en": "See you soon", "emoji": "👋", "cat": "greetings" }
+          ],
+          "support": [
+            { "id": "nasilsiniz", "w": "Nasılsınız", "en": "How are you", "emoji": "❓", "cat": "greetings" },
+            { "id": "cok", "w": "Çok", "en": "Very", "emoji": "⭐", "cat": "descriptions" }
+          ],
+          "review": ["ve", "tesekkurler"],
+          "speak": { "phrase": "Pardon, nasılsınız?", "en": "Excuse me, how are you?" },
+          "sentence": { "chips": ["Hoş", "geldiniz", "ve", "İyi", "geceler"], "en": "Welcome and good night" },
+          "fill": {
+            "template": "Teşekkürler, ___!",
+            "answer": "görüşürüz",
+            "distractors": ["şerefe", "Hoş geldiniz", "çok"],
+            "en": "Thank you, see you soon",
+            "vocab": "gorusuruz"
+          }
+        }
+      ]
+    },
+    {
+      "title": "Food & Family",
+      "description": "Talk about the people and meals you love",
+      "icon": "food",
+      "phraseCategory": "dining",
+      "lessons": [
+        {
+          "title": "Family Members",
+          "icon": "family",
+          "words": [
+            { "id": "anne", "w": "Anne", "en": "Mother", "emoji": "👩", "cat": "family" },
+            { "id": "baba", "w": "Baba", "en": "Father", "emoji": "👨", "cat": "family" },
+            { "id": "erkek_kardes", "w": "Erkek kardeş", "en": "Brother", "emoji": "👦", "cat": "family" },
+            { "id": "kiz_kardes", "w": "Kız kardeş", "en": "Sister", "emoji": "👧", "cat": "family" },
+            { "id": "buyukanne", "w": "Büyükanne", "en": "Grandmother", "emoji": "👵", "cat": "family" }
+          ],
+          "support": [
+            { "id": "benim", "w": "Benim", "en": "My", "emoji": "🫱", "cat": "descriptions" },
+            { "id": "annem", "w": "Annem", "en": "My mother", "emoji": "👩", "cat": "family" },
+            { "id": "buyukannem", "w": "Büyükannem", "en": "My grandmother", "emoji": "👵", "cat": "family" }
+          ],
+          "speak": { "phrase": "Benim annem Anna", "en": "My mother is Anna" },
+          "sentence": { "chips": ["Anna", "benim", "annem"], "en": "Anna is my mother" },
+          "fill": {
+            "template": "Benim ___ Rosa.",
+            "answer": "büyükannem",
+            "distractors": ["annem", "anne", "baba"],
+            "en": "My grandmother is Rosa",
+            "vocab": "buyukannem"
+          }
+        },
+        {
+          "title": "Food Basics",
+          "icon": "food",
+          "words": [
+            { "id": "ekmek", "w": "Ekmek", "en": "Bread", "emoji": "🍞", "cat": "food" },
+            { "id": "su", "w": "Su", "en": "Water", "emoji": "💧", "cat": "food" },
+            { "id": "elma", "w": "Elma", "en": "Apple", "emoji": "🍎", "cat": "food" },
+            { "id": "peynir", "w": "Peynir", "en": "Cheese", "emoji": "🧀", "cat": "food" },
+            { "id": "sut", "w": "Süt", "en": "Milk", "emoji": "🥛", "cat": "food" }
+          ],
+          "support": [
+            { "id": "istiyorum", "w": "istiyorum", "en": "I want", "emoji": "🙋", "cat": "food" },
+            { "id": "bir_a", "w": "Bir", "en": "A", "emoji": "☝️", "cat": "descriptions" }
+          ],
+          "review": ["lutfen", "ben"],
+          "speak": { "phrase": "Bir ekmek istiyorum, lütfen", "en": "I want a bread, please" },
+          "sentence": { "chips": ["Ben", "süt", "istiyorum"], "en": "I want milk" },
+          "fill": {
+            "template": "Ben ___ istiyorum.",
+            "answer": "elma",
+            "distractors": ["ekmek", "peynir", "su"],
+            "en": "I want an apple",
+            "vocab": "elma"
+          }
+        },
+        {
+          "title": "At the Table",
+          "icon": "table",
+          "words": [
+            { "id": "masa", "w": "Masa", "en": "Table", "emoji": "🍽️", "cat": "home" },
+            { "id": "tabak", "w": "Tabak", "en": "Plate", "emoji": "🍽️", "cat": "home" },
+            { "id": "bardak", "w": "Bardak", "en": "Glass", "emoji": "🥛", "cat": "home" },
+            { "id": "catal", "w": "Çatal", "en": "Fork", "emoji": "🍴", "cat": "home" },
+            { "id": "bicak", "w": "Bıçak", "en": "Knife", "emoji": "🔪", "cat": "home" }
+          ],
+          "support": [
+            { "id": "masada", "w": "Masada", "en": "On the table", "emoji": "📍", "cat": "descriptions" },
+            { "id": "var", "w": "Var", "en": "There is", "emoji": "🟰", "cat": "descriptions" }
+          ],
+          "review": ["bir_a"],
+          "speak": { "phrase": "Masada bir bardak var", "en": "There is a glass on the table" },
+          "sentence": { "chips": ["Masada", "bir", "çatal", "var"], "en": "There is a fork on the table" },
+          "fill": {
+            "template": "Masada bir ___ var.",
+            "answer": "bıçak",
+            "distractors": ["bardak", "tabak", "masa"],
+            "en": "There is a knife on the table",
+            "vocab": "bicak"
+          }
+        }
+      ]
+    },
+    {
+      "title": "Numbers & Travel",
+      "description": "Count, navigate, and travel with confidence",
+      "icon": "travel",
+      "phraseCategory": "travel",
+      "lessons": [
+        {
+          "title": "Numbers 1-10",
+          "icon": "numbers",
+          "words": [
+            { "id": "bir", "w": "Bir", "en": "One", "emoji": "1️⃣", "cat": "numbers" },
+            { "id": "iki", "w": "İki", "en": "Two", "emoji": "2️⃣", "cat": "numbers" },
+            { "id": "uc", "w": "Üç", "en": "Three", "emoji": "3️⃣", "cat": "numbers" },
+            { "id": "dort", "w": "Dört", "en": "Four", "emoji": "4️⃣", "cat": "numbers" },
+            { "id": "bes", "w": "Beş", "en": "Five", "emoji": "5️⃣", "cat": "numbers" }
+          ],
+          "support": [
+            { "id": "yasindayim", "w": "Yaşındayım", "en": "Years old I am", "emoji": "🎂", "cat": "numbers" }
+          ],
+          "review": ["ben", "var"],
+          "speak": { "phrase": "Beş yaşındayım", "en": "I am five years old" },
+          "sentence": { "chips": ["Ben", "dört", "yaşındayım"], "en": "I am four years old" },
+          "fill": {
+            "template": "Ben ___ yaşındayım.",
+            "answer": "üç",
+            "distractors": ["bir", "İki", "dört"],
+            "en": "I am three years old",
+            "vocab": "uc"
+          }
+        },
+        {
+          "title": "Getting Around",
+          "icon": "directions",
+          "words": [
+            { "id": "sol", "w": "Sol", "en": "Left", "emoji": "⬅️", "cat": "travel" },
+            { "id": "sag", "w": "Sağ", "en": "Right", "emoji": "➡️", "cat": "travel" },
+            { "id": "duz", "w": "Düz", "en": "Straight ahead", "emoji": "⬆️", "cat": "travel" },
+            { "id": "sokak", "w": "Sokak", "en": "Street", "emoji": "🛣️", "cat": "travel" },
+            { "id": "istasyon", "w": "İstasyon", "en": "Station", "emoji": "🚉", "cat": "travel" }
+          ],
+          "support": [
+            { "id": "nerede", "w": "Nerede", "en": "Where is", "emoji": "❓", "cat": "travel" },
+            { "id": "bu", "w": "Bu", "en": "This", "emoji": "👉", "cat": "descriptions" }
+          ],
+          "speak": { "phrase": "İstasyon nerede?", "en": "Where is the station?" },
+          "sentence": { "chips": ["Bu", "sokak", "nerede"], "en": "Where is this street?" },
+          "fill": {
+            "template": "Bu ___ nerede?",
+            "answer": "İstasyon",
+            "distractors": ["sokak", "sol", "sağ"],
+            "en": "Where is this station?",
+            "vocab": "istasyon"
+          }
+        },
+        {
+          "title": "Travel Phrases",
+          "icon": "travel",
+          "words": [
+            { "id": "havaalani", "w": "Havaalanı", "en": "Airport", "emoji": "✈️", "cat": "travel" },
+            { "id": "otel", "w": "Otel", "en": "Hotel", "emoji": "🏨", "cat": "travel" },
+            { "id": "bilet", "w": "Bilet", "en": "Ticket", "emoji": "🎫", "cat": "travel" },
+            { "id": "tren", "w": "Tren", "en": "Train", "emoji": "🚆", "cat": "travel" },
+            { "id": "bavul", "w": "Bavul", "en": "Suitcase", "emoji": "🧳", "cat": "travel" }
+          ],
+          "support": [
+            { "id": "yakin", "w": "Yakın", "en": "Near", "emoji": "📍", "cat": "travel" }
+          ],
+          "review": ["nerede", "bu"],
+          "speak": { "phrase": "Tren yakın", "en": "The train is near" },
+          "sentence": { "chips": ["Bu", "tren", "nerede"], "en": "Where is this train?" },
+          "fill": {
+            "template": "Bu ___ yakın.",
+            "answer": "otel",
+            "distractors": ["tren", "bilet", "bavul"],
+            "en": "This hotel is near",
+            "vocab": "otel"
+          }
+        }
+      ]
+    }
+  ],
+  "extraVocab": [
+    { "id": "kirmizi", "w": "Kırmızı", "en": "Red", "emoji": "🔴", "cat": "colors" },
+    { "id": "mavi", "w": "Mavi", "en": "Blue", "emoji": "🔵", "cat": "colors" },
+    { "id": "yesil", "w": "Yeşil", "en": "Green", "emoji": "🟢", "cat": "colors" },
+    { "id": "sari", "w": "Sarı", "en": "Yellow", "emoji": "🟡", "cat": "colors" },
+    { "id": "siyah", "w": "Siyah", "en": "Black", "emoji": "⚫", "cat": "colors" },
+    { "id": "beyaz", "w": "Beyaz", "en": "White", "emoji": "⚪", "cat": "colors" },
+    { "id": "kopek", "w": "Köpek", "en": "Dog", "emoji": "🐕", "cat": "animals" },
+    { "id": "kedi", "w": "Kedi", "en": "Cat", "emoji": "🐈", "cat": "animals" },
+    { "id": "kus", "w": "Kuş", "en": "Bird", "emoji": "🐦", "cat": "animals" },
+    { "id": "balik", "w": "Balık", "en": "Fish", "emoji": "🐟", "cat": "animals" },
+    { "id": "at", "w": "At", "en": "Horse", "emoji": "🐴", "cat": "animals" },
+    { "id": "inek", "w": "İnek", "en": "Cow", "emoji": "🐄", "cat": "animals" },
+    { "id": "alti", "w": "Altı", "en": "Six", "emoji": "6️⃣", "cat": "numbers" },
+    { "id": "yedi", "w": "Yedi", "en": "Seven", "emoji": "7️⃣", "cat": "numbers" },
+    { "id": "sekiz", "w": "Sekiz", "en": "Eight", "emoji": "8️⃣", "cat": "numbers" },
+    { "id": "dokuz", "w": "Dokuz", "en": "Nine", "emoji": "9️⃣", "cat": "numbers" },
+    { "id": "on", "w": "On", "en": "Ten", "emoji": "🔟", "cat": "numbers" },
+    { "id": "ev", "w": "Ev", "en": "House", "emoji": "🏠", "cat": "home" },
+    { "id": "kapi", "w": "Kapı", "en": "Door", "emoji": "🚪", "cat": "home" },
+    { "id": "pencere", "w": "Pencere", "en": "Window", "emoji": "🪟", "cat": "home" },
+    { "id": "sandalye", "w": "Sandalye", "en": "Chair", "emoji": "🪑", "cat": "home" },
+    { "id": "yatak", "w": "Yatak", "en": "Bed", "emoji": "🛏️", "cat": "home" },
+    { "id": "kahve", "w": "Kahve", "en": "Coffee", "emoji": "☕", "cat": "food" },
+    { "id": "cay", "w": "Çay", "en": "Tea", "emoji": "🍵", "cat": "food" },
+    { "id": "tavuk", "w": "Tavuk", "en": "Chicken", "emoji": "🍗", "cat": "food" },
+    { "id": "buyuk", "w": "Büyük", "en": "Big", "emoji": "🐘", "cat": "descriptions" },
+    { "id": "kucuk", "w": "Küçük", "en": "Small", "emoji": "🐁", "cat": "descriptions" },
+    { "id": "sicak", "w": "Sıcak", "en": "Hot", "emoji": "🔥", "cat": "descriptions" },
+    { "id": "soguk", "w": "Soğuk", "en": "Cold", "emoji": "❄️", "cat": "descriptions" },
+    { "id": "iyi", "w": "İyi", "en": "Good", "emoji": "👍", "cat": "descriptions" }
+  ],
+  "conversations": [
+    {
+      "id": "cafe",
+      "title": "At the Café",
+      "scenario": "You are ordering a coffee at a café.",
+      "turns": [
+        {
+          "line": "Merhaba! Ne istersiniz?",
+          "lineEn": "Hello! What would you like?",
+          "options": ["Bir kahve istiyorum, lütfen", "Merhaba, hoşça kal", "Bir köpeğim var"],
+          "optionsEn": ["I want a coffee, please", "Hello, goodbye", "I have a dog"],
+          "correctIndex": 0
+        },
+        {
+          "line": "Başka bir şey?",
+          "lineEn": "Anything else?",
+          "options": ["Hayır, teşekkürler", "Evet, bir kedi istiyorum", "İyi geceler"],
+          "optionsEn": ["No, thank you", "Yes, I want a cat", "Good night"],
+          "correctIndex": 0
+        },
+        {
+          "line": "Buyurun kahveniz. İyi günler!",
+          "lineEn": "Here is your coffee. Have a good day!",
+          "options": ["Teşekkürler, hoşça kal", "İstasyon nerede?", "Beş yaşındayım"],
+          "optionsEn": ["Thank you, goodbye", "Where is the station?", "I am five years old"],
+          "correctIndex": 0
+        }
+      ]
+    },
+    {
+      "id": "directions",
+      "title": "Asking Directions",
+      "scenario": "You are lost and need to find the station.",
+      "turns": [
+        {
+          "line": "Merhaba, yardım edebilir miyim?",
+          "lineEn": "Hello, can I help you?",
+          "options": ["İstasyon nerede, lütfen?", "Peynir istiyorum", "Benim annem Anna"],
+          "optionsEn": ["Where is the station, please?", "I want cheese", "My mother is Anna"],
+          "correctIndex": 0
+        },
+        {
+          "line": "Düz gidin, sonra sol.",
+          "lineEn": "Go straight ahead, then left.",
+          "options": ["Çok teşekkürler", "Hayır, affedersiniz", "Ben dört yaşındayım"],
+          "optionsEn": ["Thank you very much", "No, excuse me", "I am four years old"],
+          "correctIndex": 0
+        },
+        {
+          "line": "Çok yakın. İyi yolculuklar!",
+          "lineEn": "It is very near. Have a good trip!",
+          "options": ["Teşekkürler, görüşürüz", "Masada bir bıçak var", "Hoş geldiniz"],
+          "optionsEn": ["Thank you, see you soon", "There is a knife on the table", "Welcome"],
+          "correctIndex": 0
+        }
+      ]
+    },
+    {
+      "id": "hotel",
+      "title": "Hotel Check-in",
+      "scenario": "You are checking in at a hotel.",
+      "turns": [
+        {
+          "line": "İyi akşamlar, rezervasyonunuz var mı?",
+          "lineEn": "Good evening, do you have a reservation?",
+          "options": ["Evet, benim adım Anna", "Hayır, bir atım var", "Masada bir bardak var"],
+          "optionsEn": ["Yes, my name is Anna", "No, I have a horse", "There is a glass on the table"],
+          "correctIndex": 0
+        },
+        {
+          "line": "Buyurun anahtarınız. Oda üç.",
+          "lineEn": "Here is your key. Room three.",
+          "options": ["Teşekkürler, tamam", "Elma nerede?", "On köpeğim var"],
+          "optionsEn": ["Thank you, okay", "Where is the apple?", "I have ten dogs"],
+          "correctIndex": 0
+        },
+        {
+          "line": "Kahvaltı yedide.",
+          "lineEn": "Breakfast is at seven.",
+          "options": ["Çok iyi, iyi geceler", "Affedersiniz, ben yorgunum", "Hoş geldiniz ve teşekkürler"],
+          "optionsEn": ["Very good, good night", "Excuse me, I am tired", "Welcome and thank you"],
+          "correctIndex": 0
+        }
+      ]
+    }
+  ]
+}

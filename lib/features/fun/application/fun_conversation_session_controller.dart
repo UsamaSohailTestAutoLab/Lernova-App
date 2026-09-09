@@ -121,7 +121,11 @@ class FunConversationSessionController extends Notifier<FunConversationState?> {
   @override
   FunConversationState? build() => null;
 
-  Conversation _pick(List<Conversation> pool, Random random) => pool[random.nextInt(pool.length)];
+  /// A lookup into the round set [start] drew up front, not a fresh
+  /// draw — a session can't serve the same conversation twice, and the
+  /// preview can name every scenario before play begins.
+  Conversation _conversationAt(List<Conversation> pool, int index) =>
+      pool[index % pool.length];
 
   void start({
     required List<Conversation> pool,
@@ -129,10 +133,16 @@ class FunConversationSessionController extends Notifier<FunConversationState?> {
     required Random random,
   }) {
     if (pool.isEmpty) return;
-    final conversation = _pick(pool, random);
+    // Draw the whole session's conversations now, distinct, so a round
+    // can't repeat a scenario and the preview can list them all.
+    final drawn = List<Conversation>.from(pool)..shuffle(random);
+    final count =
+        totalConversations < drawn.length ? totalConversations : drawn.length;
+    final roundSet = drawn.take(count).toList();
+    final conversation = roundSet.first;
     state = FunConversationState(
-      pool: pool,
-      totalConversations: totalConversations,
+      pool: roundSet,
+      totalConversations: count,
       currentConversationIndex: 0,
       currentConversation: conversation,
       currentTurnIndex: 0,
@@ -224,7 +234,7 @@ class FunConversationSessionController extends Notifier<FunConversationState?> {
       return;
     }
 
-    final nextConversation = _pick(s.pool, random);
+    final nextConversation = _conversationAt(s.pool, nextConversationIndex);
     state = s.copyWith(
       currentConversationIndex: nextConversationIndex,
       currentConversation: nextConversation,

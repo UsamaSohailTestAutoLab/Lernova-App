@@ -106,6 +106,15 @@ class _LessonIntroBodyState extends ConsumerState<_LessonIntroBody> {
         languageId: languageId,
       ));
     }
+    // The supporting words the lesson's sentences lean on. Without these
+    // a question could be the learner's first sighting of a word — and
+    // it would be a graded sighting.
+    raw.addAll(VocabPreviewBuilder.fromVocabIds(
+      vocabIds: args.lesson.reviewVocabIds,
+      wordPool: words,
+      phrasePool: phrases,
+      languageId: languageId,
+    ));
     final items = VocabPreviewBuilder.dedupe(raw);
 
     // A fresh arrangement every attempt: the order is reshuffled, some

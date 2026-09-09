@@ -26,6 +26,7 @@ import '../application/fun_conversation_session_controller.dart';
 import '../application/fun_memory_match_session_controller.dart';
 import '../application/fun_sentence_builder_session_controller.dart';
 import '../application/fun_word_match_session_controller.dart';
+import 'water_survival_intro_screen.dart';
 import 'widgets/lives_indicator.dart';
 
 class FunGameIntroScreen extends ConsumerWidget {
@@ -193,10 +194,15 @@ class FunGameIntroScreen extends ConsumerWidget {
                               totalRounds: levelConfig.wordCount.clamp(3, 8),
                               random: Random(),
                             );
-                        final currentPhrase =
-                            ref.read(funSentenceBuilderSessionProvider)!.currentPhrase;
+                        // Every sentence the round will ask for, not just
+                        // the first — the round set is drawn up front.
+                        final roundPhrases =
+                            ref.read(funSentenceBuilderSessionProvider)!.pool;
                         goToPreview(
-                          items: [VocabPreviewBuilder.fromPhrase(currentPhrase, languageId: languageId)],
+                          items: [
+                            for (final p in roundPhrases)
+                              VocabPreviewBuilder.fromPhrase(p, languageId: languageId),
+                          ],
                           onStartRoute: AppRoutes.funSentenceBuilderPlay,
                         );
                         return;
@@ -224,12 +230,14 @@ class FunGameIntroScreen extends ConsumerWidget {
                               totalConversations: 2,
                               random: Random(),
                             );
-                        final currentConversation =
-                            ref.read(funConversationSessionProvider)!.currentConversation;
-                        goToPreview(
-                          items: [VocabPreviewBuilder.fromConversation(currentConversation)],
-                          onStartRoute: AppRoutes.funConversationPlay,
-                        );
+                        // No Review Words step here. This mode has no
+                        // vocabulary list to review — the cards only
+                        // repeated the scenario blurb the walkthrough is
+                        // about to show anyway. The dialogue's own
+                        // three-step walkthrough (read it in English,
+                        // then in the target language, then reply) is
+                        // the guidance for this mode.
+                        context.push(AppRoutes.funConversationPlay);
                         return;
                       }
 
@@ -251,10 +259,25 @@ class FunGameIntroScreen extends ConsumerWidget {
                         phrasePool: phrasesAsync.value ?? const [],
                         languageId: languageId,
                       );
+                      // Word Survival's stake needs explaining once,
+                      // before play — meeting it cold means finding out
+                      // what the water does by drowning in it. Every
+                      // level of the mode is a survival round, so this
+                      // is gated on the mode rather than on level 1;
+                      // seen once, it never appears again.
+                      final needsSurvivalIntro =
+                          mode == FunGameMode.wordSurvival &&
+                              !ref
+                                  .read(progressProvider)
+                                  .seenTutorialIds
+                                  .contains(waterSurvivalTutorialId);
+
                       goToPreview(
                         items: items,
-                        onStartRoute: AppRoutes.funGamePlay,
-                        onStartExtra: args,
+                        onStartRoute: needsSurvivalIntro
+                            ? AppRoutes.funSurvivalIntro
+                            : AppRoutes.funGamePlay,
+                        onStartExtra: needsSurvivalIntro ? null : args,
                       );
                     },
                   );

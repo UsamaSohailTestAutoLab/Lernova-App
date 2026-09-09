@@ -21,7 +21,8 @@ class FunLevelCatalog {
     final clampedLevel = level < 1 ? 1 : level;
     final isRush = mode == FunGameMode.wordRush;
 
-    final wordCount = isRush ? 14 : wordCountForLevel(clampedLevel);
+    final wordCount =
+        isRush ? rushWordCountForLevel(clampedLevel) : wordCountForLevel(clampedLevel);
     final choiceCount = (3 + (clampedLevel ~/ 2)).clamp(3, 6);
 
     // Bubble games stay at 2–3 options forever. Piling more bubbles on
@@ -31,9 +32,15 @@ class FunLevelCatalog {
     // quality of the distractors.
     final bubbleOptionCount = clampedLevel <= 1 ? 2 : 3;
 
-    final fallMs = isRush
-        ? (3000 - (clampedLevel - 1) * 250).clamp(1300, 3000)
-        : 6000;
+    // Word Rush is *fast*, but it does not get faster.
+    //
+    // It used to shave 250ms off every level down to a 1300ms floor,
+    // which by level 8 left barely a second to read a word — the mode
+    // stopped being a language game and became a reaction test, and
+    // failure came from not seeing the word rather than not knowing it.
+    // Its difficulty now comes from round length, like every other mode:
+    // the same brisk speed, more words to get through.
+    final fallMs = isRush ? rushFallMs : 6000;
 
     final types = _typesFor(mode, clampedLevel);
 
@@ -45,8 +52,27 @@ class FunLevelCatalog {
       fallDuration: Duration(milliseconds: fallMs),
       allowedTypes: types,
       comboEnabled: isRush || clampedLevel >= 6,
-      maxLives: isRush ? 3 : _livesFor(wordCount),
+      // Lives follow word count in Word Rush too, now that its rounds
+      // grow. Three lives across fourteen words is brisk; three across
+      // sixty is a coin toss, and the same reasoning that scales lives
+      // everywhere else applies once the round length is what moves.
+      maxLives: _livesFor(wordCount),
     );
+  }
+
+  /// Word Rush's constant fall speed — twice as quick as the other
+  /// modes' 6000ms, which is what makes it "rush", and unchanging so the
+  /// mode stays readable at every level.
+  static const int rushFallMs = 3000;
+
+  /// Words a Word Rush round asks for at [level]: 14 to start, six more
+  /// each level, capped at the authored word bank like every other mode.
+  ///
+  /// A gentler curve than [wordCountForLevel]'s doubling — these words
+  /// arrive twice as fast, so the same count is a good deal more work.
+  static int rushWordCountForLevel(int level) {
+    final count = 14 + (level - 1) * 6;
+    return count > maxWordsPerRound ? maxWordsPerRound : count;
   }
 
   /// Words a round asks for at [level]: 10 to start, doubling each

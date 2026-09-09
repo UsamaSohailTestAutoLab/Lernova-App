@@ -12,20 +12,15 @@ final coursesProvider = FutureProvider<List<Course>>((ref) {
   return ref.watch(courseRepositoryProvider).getCourses();
 });
 
-final courseByIdProvider =
-    FutureProvider.family<Course?, String>((ref, courseId) async {
-  final courses = await ref.watch(coursesProvider.future);
-  for (final course in courses) {
-    if (course.id == courseId) return course;
-  }
-  return null;
-});
+// Both resolve one course through the repository rather than through
+// [coursesProvider]: the catalogue is ten languages now, and a screen
+// that needs Spanish should not wait on Japanese being parsed. Only the
+// language list actually wants them all.
+final courseByIdProvider = FutureProvider.family<Course?, String>(
+  (ref, courseId) => ref.watch(courseRepositoryProvider).getCourseById(courseId),
+);
 
-final courseByLanguageProvider =
-    FutureProvider.family<Course?, String>((ref, languageId) async {
-  final courses = await ref.watch(coursesProvider.future);
-  for (final course in courses) {
-    if (course.languageId == languageId) return course;
-  }
-  return null;
-});
+final courseByLanguageProvider = FutureProvider.family<Course?, String>(
+  (ref, languageId) =>
+      ref.watch(courseRepositoryProvider).getCourseByLanguage(languageId),
+);

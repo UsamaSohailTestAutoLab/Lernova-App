@@ -86,6 +86,11 @@ void main() {
       await tester.pump();
       await tester.pump(const Duration(milliseconds: 200));
 
+      // Word Bubble goes straight from the review step into bubbles.
+      // The rising-water explainer belongs to Word Survival now, and
+      // must not stand in the way of the first game a player opens.
+      expect(find.text('Watch out! 🌊'), findsNothing);
+
       // Gameplay screen: 3 lives showing, and real falling answer bubbles
       // generated from the bundled Fun vocabulary content.
       expect(find.byIcon(Icons.favorite_rounded), findsWidgets);

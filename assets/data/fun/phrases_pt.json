@@ -1,0 +1,128 @@
+[
+  {
+    "id": "pt_phrase_u1_l1_a",
+    "phrase": "Olá, meu nome é Anna",
+    "meaning": "Hello, my name is Anna",
+    "languageId": "pt",
+    "category": "greetings"
+  },
+  {
+    "id": "pt_phrase_u1_l1_b",
+    "phrase": "Meu nome é Anna",
+    "meaning": "My name is Anna",
+    "languageId": "pt",
+    "category": "greetings"
+  },
+  {
+    "id": "pt_phrase_u1_l2_a",
+    "phrase": "Desculpe, eu estou cansado",
+    "meaning": "Excuse me, I am tired",
+    "languageId": "pt",
+    "category": "greetings"
+  },
+  {
+    "id": "pt_phrase_u1_l2_b",
+    "phrase": "Sim, tudo bem",
+    "meaning": "Yes, all good",
+    "languageId": "pt",
+    "category": "greetings"
+  },
+  {
+    "id": "pt_phrase_u1_l3_a",
+    "phrase": "Com licença, como vai?",
+    "meaning": "Excuse me, how are you?",
+    "languageId": "pt",
+    "category": "greetings"
+  },
+  {
+    "id": "pt_phrase_u1_l3_b",
+    "phrase": "Bem-vindo e boa noite",
+    "meaning": "Welcome and good night",
+    "languageId": "pt",
+    "category": "greetings"
+  },
+  {
+    "id": "pt_phrase_u2_l1_a",
+    "phrase": "Minha irmã é Anna",
+    "meaning": "My sister is Anna",
+    "languageId": "pt",
+    "category": "dining"
+  },
+  {
+    "id": "pt_phrase_u2_l1_b",
+    "phrase": "Anna é minha mãe",
+    "meaning": "Anna is my mother",
+    "languageId": "pt",
+    "category": "dining"
+  },
+  {
+    "id": "pt_phrase_u2_l2_a",
+    "phrase": "Eu quero pão, por favor",
+    "meaning": "I want bread, please",
+    "languageId": "pt",
+    "category": "dining"
+  },
+  {
+    "id": "pt_phrase_u2_l2_b",
+    "phrase": "Eu quero o queijo",
+    "meaning": "I want the cheese",
+    "languageId": "pt",
+    "category": "dining"
+  },
+  {
+    "id": "pt_phrase_u2_l3_a",
+    "phrase": "O copo está na mesa",
+    "meaning": "The glass is on the table",
+    "languageId": "pt",
+    "category": "dining"
+  },
+  {
+    "id": "pt_phrase_u2_l3_b",
+    "phrase": "A faca está na mesa",
+    "meaning": "The knife is on the table",
+    "languageId": "pt",
+    "category": "dining"
+  },
+  {
+    "id": "pt_phrase_u3_l1_a",
+    "phrase": "Eu tenho cinco anos",
+    "meaning": "I am five years old",
+    "languageId": "pt",
+    "category": "travel"
+  },
+  {
+    "id": "pt_phrase_u3_l1_b",
+    "phrase": "Eu tenho quatro anos",
+    "meaning": "I am four years old",
+    "languageId": "pt",
+    "category": "travel"
+  },
+  {
+    "id": "pt_phrase_u3_l2_a",
+    "phrase": "Onde está a estação?",
+    "meaning": "Where is the station?",
+    "languageId": "pt",
+    "category": "travel"
+  },
+  {
+    "id": "pt_phrase_u3_l2_b",
+    "phrase": "Onde está a rua",
+    "meaning": "Where is the street?",
+    "languageId": "pt",
+    "category": "travel"
+  },
+  {
+    "id": "pt_phrase_u3_l3_a",
+    "phrase": "O comboio está perto",
+    "meaning": "The train is near",
+    "languageId": "pt",
+    "category": "travel"
+  },
+  {
+    "id": "pt_phrase_u3_l3_b",
+    "phrase": "Onde está o comboio",
+    "meaning": "Where is the train?",
+    "languageId": "pt",
+    "category": "travel"
+  }
+]

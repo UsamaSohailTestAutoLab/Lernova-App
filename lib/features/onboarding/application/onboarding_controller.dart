@@ -7,6 +7,9 @@ import '../../progress/application/progress_controller.dart';
 import 'user_controller.dart';
 
 class OnboardingSelections {
+  /// Collected in the first step and written to the profile by [finish].
+  final String? fullName;
+
   final String? languageId;
   final LearningGoal learningGoal;
   final DailyGoalXp dailyGoal;
@@ -14,6 +17,7 @@ class OnboardingSelections {
   final bool placementCompleted;
 
   const OnboardingSelections({
+    this.fullName,
     this.languageId,
     this.learningGoal = LearningGoal.regular,
     this.dailyGoal = DailyGoalXp.twenty,
@@ -22,6 +26,7 @@ class OnboardingSelections {
   });
 
   OnboardingSelections copyWith({
+    String? fullName,
     String? languageId,
     LearningGoal? learningGoal,
     DailyGoalXp? dailyGoal,
@@ -29,6 +34,7 @@ class OnboardingSelections {
     bool? placementCompleted,
   }) {
     return OnboardingSelections(
+      fullName: fullName ?? this.fullName,
       languageId: languageId ?? this.languageId,
       learningGoal: learningGoal ?? this.learningGoal,
       dailyGoal: dailyGoal ?? this.dailyGoal,
@@ -45,6 +51,10 @@ class OnboardingSelections {
 class OnboardingController extends Notifier<OnboardingSelections> {
   @override
   OnboardingSelections build() => const OnboardingSelections();
+
+  void setFullName(String name) {
+    state = state.copyWith(fullName: name.trim());
+  }
 
   void setLanguage(String languageId) {
     state = state.copyWith(languageId: languageId);
@@ -81,6 +91,14 @@ class OnboardingController extends Notifier<OnboardingSelections> {
     }
 
     final userController = ref.read(userProvider.notifier);
+    // The name is written before anything else so every screen that
+    // greets the learner has it from the first frame after onboarding.
+    // Falls back to the default profile name rather than writing an
+    // empty string if this somehow ran without the name step.
+    final name = state.fullName?.trim();
+    if (name != null && name.isNotEmpty) {
+      await userController.setFullName(name);
+    }
     await userController.selectLanguage(languageId);
     await userController.setLearningGoal(state.learningGoal);
     await userController.setCurrentCourse(course.id);
@@ -88,6 +106,7 @@ class OnboardingController extends Notifier<OnboardingSelections> {
     ref.read(progressProvider.notifier).initializeForOnboarding(
           dailyGoalXp: state.dailyGoal.xp,
           unlockedUnitIndex: state.placementUnlockedUnitIndex ?? 0,
+          languageId: languageId,
         );
 
     await ref.read(localStorageServiceProvider).setOnboardingComplete(true);

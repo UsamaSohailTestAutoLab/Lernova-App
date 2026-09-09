@@ -1,0 +1,754 @@
+[
+  {
+    "id": "de_hallo",
+    "word": "Hallo",
+    "translation": "Hello",
+    "languageId": "de",
+    "category": "greetings",
+    "emoji": "👋"
+  },
+  {
+    "id": "de_danke",
+    "word": "Danke",
+    "translation": "Thank you",
+    "languageId": "de",
+    "category": "greetings",
+    "emoji": "🙏"
+  },
+  {
+    "id": "de_bitte",
+    "word": "Bitte",
+    "translation": "Please",
+    "languageId": "de",
+    "category": "greetings",
+    "emoji": "🙇"
+  },
+  {
+    "id": "de_tschuess",
+    "word": "Tschüss",
+    "translation": "Goodbye",
+    "languageId": "de",
+    "category": "greetings",
+    "emoji": "🙋"
+  },
+  {
+    "id": "de_guten_abend",
+    "word": "Guten Abend",
+    "translation": "Good evening",
+    "languageId": "de",
+    "category": "greetings",
+    "emoji": "🌙"
+  },
+  {
+    "id": "de_ich_heisse",
+    "word": "Ich heiße",
+    "translation": "My name is",
+    "languageId": "de",
+    "category": "greetings",
+    "emoji": "🪪"
+  },
+  {
+    "id": "de_und",
+    "word": "Und",
+    "translation": "And",
+    "languageId": "de",
+    "category": "descriptions",
+    "emoji": "➕"
+  },
+  {
+    "id": "de_ja",
+    "word": "Ja",
+    "translation": "Yes",
+    "languageId": "de",
+    "category": "greetings",
+    "emoji": "✅"
+  },
+  {
+    "id": "de_nein",
+    "word": "Nein",
+    "translation": "No",
+    "languageId": "de",
+    "category": "greetings",
+    "emoji": "❌"
+  },
+  {
+    "id": "de_entschuldigung",
+    "word": "Entschuldigung",
+    "translation": "Excuse me",
+    "languageId": "de",
+    "category": "greetings",
+    "emoji": "🙋"
+  },
+  {
+    "id": "de_gern_geschehen",
+    "word": "Gern geschehen",
+    "translation": "You're welcome",
+    "languageId": "de",
+    "category": "greetings",
+    "emoji": "🤝"
+  },
+  {
+    "id": "de_okay",
+    "word": "Okay",
+    "translation": "Okay",
+    "languageId": "de",
+    "category": "greetings",
+    "emoji": "👍"
+  },
+  {
+    "id": "de_ich_bin",
+    "word": "Ich bin",
+    "translation": "I am",
+    "languageId": "de",
+    "category": "descriptions",
+    "emoji": "🙋"
+  },
+  {
+    "id": "de_muede",
+    "word": "Müde",
+    "translation": "Tired",
+    "languageId": "de",
+    "category": "descriptions",
+    "emoji": "😴"
+  },
+  {
+    "id": "de_entschuldigen_sie",
+    "word": "Entschuldigen Sie",
+    "translation": "Excuse me please",
+    "languageId": "de",
+    "category": "greetings",
+    "emoji": "🙇"
+  },
+  {
+    "id": "de_gute_nacht",
+    "word": "Gute Nacht",
+    "translation": "Good night",
+    "languageId": "de",
+    "category": "greetings",
+    "emoji": "😴"
+  },
+  {
+    "id": "de_prost",
+    "word": "Prost",
+    "translation": "Cheers",
+    "languageId": "de",
+    "category": "greetings",
+    "emoji": "🥂"
+  },
+  {
+    "id": "de_willkommen",
+    "word": "Willkommen",
+    "translation": "Welcome",
+    "languageId": "de",
+    "category": "greetings",
+    "emoji": "🎉"
+  },
+  {
+    "id": "de_bis_bald",
+    "word": "Bis bald",
+    "translation": "See you soon",
+    "languageId": "de",
+    "category": "greetings",
+    "emoji": "👋"
+  },
+  {
+    "id": "de_wie_geht_es_ihnen",
+    "word": "Wie geht es Ihnen",
+    "translation": "How are you",
+    "languageId": "de",
+    "category": "greetings",
+    "emoji": "❓"
+  },
+  {
+    "id": "de_sehr",
+    "word": "Sehr",
+    "translation": "Very",
+    "languageId": "de",
+    "category": "descriptions",
+    "emoji": "⭐"
+  },
+  {
+    "id": "de_mutter",
+    "word": "Mutter",
+    "translation": "Mother",
+    "languageId": "de",
+    "category": "family",
+    "emoji": "👩"
+  },
+  {
+    "id": "de_vater",
+    "word": "Vater",
+    "translation": "Father",
+    "languageId": "de",
+    "category": "family",
+    "emoji": "👨"
+  },
+  {
+    "id": "de_bruder",
+    "word": "Bruder",
+    "translation": "Brother",
+    "languageId": "de",
+    "category": "family",
+    "emoji": "👦"
+  },
+  {
+    "id": "de_schwester",
+    "word": "Schwester",
+    "translation": "Sister",
+    "languageId": "de",
+    "category": "family",
+    "emoji": "👧"
+  },
+  {
+    "id": "de_grossmutter",
+    "word": "Großmutter",
+    "translation": "Grandmother",
+    "languageId": "de",
+    "category": "family",
+    "emoji": "👵"
+  },
+  {
+    "id": "de_meine",
+    "word": "Meine",
+    "translation": "My",
+    "languageId": "de",
+    "category": "descriptions",
+    "emoji": "🫱"
+  },
+  {
+    "id": "de_ist",
+    "word": "Ist",
+    "translation": "Is",
+    "languageId": "de",
+    "category": "descriptions",
+    "emoji": "🟰"
+  },
+  {
+    "id": "de_brot",
+    "word": "Brot",
+    "translation": "Bread",
+    "languageId": "de",
+    "category": "food",
+    "emoji": "🍞"
+  },
+  {
+    "id": "de_wasser",
+    "word": "Wasser",
+    "translation": "Water",
+    "languageId": "de",
+    "category": "food",
+    "emoji": "💧"
+  },
+  {
+    "id": "de_apfel",
+    "word": "Apfel",
+    "translation": "Apple",
+    "languageId": "de",
+    "category": "food",
+    "emoji": "🍎"
+  },
+  {
+    "id": "de_kaese",
+    "word": "Käse",
+    "translation": "Cheese",
+    "languageId": "de",
+    "category": "food",
+    "emoji": "🧀"
+  },
+  {
+    "id": "de_milch",
+    "word": "Milch",
+    "translation": "Milk",
+    "languageId": "de",
+    "category": "food",
+    "emoji": "🥛"
+  },
+  {
+    "id": "de_ich_moechte",
+    "word": "Ich möchte",
+    "translation": "I want",
+    "languageId": "de",
+    "category": "food",
+    "emoji": "🙋"
+  },
+  {
+    "id": "de_auch",
+    "word": "Auch",
+    "translation": "Also",
+    "languageId": "de",
+    "category": "descriptions",
+    "emoji": "➕"
+  },
+  {
+    "id": "de_tisch",
+    "word": "Tisch",
+    "translation": "Table",
+    "languageId": "de",
+    "category": "home",
+    "emoji": "🍽️"
+  },
+  {
+    "id": "de_teller",
+    "word": "Teller",
+    "translation": "Plate",
+    "languageId": "de",
+    "category": "home",
+    "emoji": "🍽️"
+  },
+  {
+    "id": "de_glas",
+    "word": "Glas",
+    "translation": "Glass",
+    "languageId": "de",
+    "category": "home",
+    "emoji": "🥛"
+  },
+  {
+    "id": "de_gabel",
+    "word": "Gabel",
+    "translation": "Fork",
+    "languageId": "de",
+    "category": "home",
+    "emoji": "🍴"
+  },
+  {
+    "id": "de_messer",
+    "word": "Messer",
+    "translation": "Knife",
+    "languageId": "de",
+    "category": "home",
+    "emoji": "🔪"
+  },
+  {
+    "id": "de_auf",
+    "word": "Auf",
+    "translation": "On",
+    "languageId": "de",
+    "category": "descriptions",
+    "emoji": "📍"
+  },
+  {
+    "id": "de_dem",
+    "word": "Dem",
+    "translation": "The",
+    "languageId": "de",
+    "category": "descriptions",
+    "emoji": "📌"
+  },
+  {
+    "id": "de_das",
+    "word": "Das",
+    "translation": "That",
+    "languageId": "de",
+    "category": "descriptions",
+    "emoji": "📌"
+  },
+  {
+    "id": "de_eins",
+    "word": "Eins",
+    "translation": "One",
+    "languageId": "de",
+    "category": "numbers",
+    "emoji": "1️⃣"
+  },
+  {
+    "id": "de_zwei",
+    "word": "Zwei",
+    "translation": "Two",
+    "languageId": "de",
+    "category": "numbers",
+    "emoji": "2️⃣"
+  },
+  {
+    "id": "de_drei",
+    "word": "Drei",
+    "translation": "Three",
+    "languageId": "de",
+    "category": "numbers",
+    "emoji": "3️⃣"
+  },
+  {
+    "id": "de_vier",
+    "word": "Vier",
+    "translation": "Four",
+    "languageId": "de",
+    "category": "numbers",
+    "emoji": "4️⃣"
+  },
+  {
+    "id": "de_fuenf",
+    "word": "Fünf",
+    "translation": "Five",
+    "languageId": "de",
+    "category": "numbers",
+    "emoji": "5️⃣"
+  },
+  {
+    "id": "de_jahre_alt",
+    "word": "Jahre alt",
+    "translation": "Years old",
+    "languageId": "de",
+    "category": "numbers",
+    "emoji": "🎂"
+  },
+  {
+    "id": "de_ich_habe",
+    "word": "Ich habe",
+    "translation": "I have",
+    "languageId": "de",
+    "category": "descriptions",
+    "emoji": "🙋"
+  },
+  {
+    "id": "de_links",
+    "word": "Links",
+    "translation": "Left",
+    "languageId": "de",
+    "category": "travel",
+    "emoji": "⬅️"
+  },
+  {
+    "id": "de_rechts",
+    "word": "Rechts",
+    "translation": "Right",
+    "languageId": "de",
+    "category": "travel",
+    "emoji": "➡️"
+  },
+  {
+    "id": "de_geradeaus",
+    "word": "Geradeaus",
+    "translation": "Straight ahead",
+    "languageId": "de",
+    "category": "travel",
+    "emoji": "⬆️"
+  },
+  {
+    "id": "de_strasse",
+    "word": "Straße",
+    "translation": "Street",
+    "languageId": "de",
+    "category": "travel",
+    "emoji": "🛣️"
+  },
+  {
+    "id": "de_bahnhof",
+    "word": "Bahnhof",
+    "translation": "Station",
+    "languageId": "de",
+    "category": "travel",
+    "emoji": "🚉"
+  },
+  {
+    "id": "de_wo_ist",
+    "word": "Wo ist",
+    "translation": "Where is",
+    "languageId": "de",
+    "category": "travel",
+    "emoji": "❓"
+  },
+  {
+    "id": "de_der",
+    "word": "Der",
+    "translation": "The",
+    "languageId": "de",
+    "category": "descriptions",
+    "emoji": "📌"
+  },
+  {
+    "id": "de_die",
+    "word": "Die",
+    "translation": "The other",
+    "languageId": "de",
+    "category": "descriptions",
+    "emoji": "📌"
+  },
+  {
+    "id": "de_flughafen",
+    "word": "Flughafen",
+    "translation": "Airport",
+    "languageId": "de",
+    "category": "travel",
+    "emoji": "✈️"
+  },
+  {
+    "id": "de_hotel",
+    "word": "Hotel",
+    "translation": "Hotel",
+    "languageId": "de",
+    "category": "travel",
+    "emoji": "🏨"
+  },
+  {
+    "id": "de_fahrkarte",
+    "word": "Fahrkarte",
+    "translation": "Ticket",
+    "languageId": "de",
+    "category": "travel",
+    "emoji": "🎫"
+  },
+  {
+    "id": "de_zug",
+    "word": "Zug",
+    "translation": "Train",
+    "languageId": "de",
+    "category": "travel",
+    "emoji": "🚆"
+  },
+  {
+    "id": "de_koffer",
+    "word": "Koffer",
+    "translation": "Suitcase",
+    "languageId": "de",
+    "category": "travel",
+    "emoji": "🧳"
+  },
+  {
+    "id": "de_in_der_naehe",
+    "word": "In der Nähe",
+    "translation": "Nearby",
+    "languageId": "de",
+    "category": "travel",
+    "emoji": "📍"
+  },
+  {
+    "id": "de_rot",
+    "word": "Rot",
+    "translation": "Red",
+    "languageId": "de",
+    "category": "colors",
+    "emoji": "🔴"
+  },
+  {
+    "id": "de_blau",
+    "word": "Blau",
+    "translation": "Blue",
+    "languageId": "de",
+    "category": "colors",
+    "emoji": "🔵"
+  },
+  {
+    "id": "de_gruen",
+    "word": "Grün",
+    "translation": "Green",
+    "languageId": "de",
+    "category": "colors",
+    "emoji": "🟢"
+  },
+  {
+    "id": "de_gelb",
+    "word": "Gelb",
+    "translation": "Yellow",
+    "languageId": "de",
+    "category": "colors",
+    "emoji": "🟡"
+  },
+  {
+    "id": "de_schwarz",
+    "word": "Schwarz",
+    "translation": "Black",
+    "languageId": "de",
+    "category": "colors",
+    "emoji": "⚫"
+  },
+  {
+    "id": "de_weiss",
+    "word": "Weiß",
+    "translation": "White",
+    "languageId": "de",
+    "category": "colors",
+    "emoji": "⚪"
+  },
+  {
+    "id": "de_hund",
+    "word": "Hund",
+    "translation": "Dog",
+    "languageId": "de",
+    "category": "animals",
+    "emoji": "🐕"
+  },
+  {
+    "id": "de_katze",
+    "word": "Katze",
+    "translation": "Cat",
+    "languageId": "de",
+    "category": "animals",
+    "emoji": "🐈"
+  },
+  {
+    "id": "de_vogel",
+    "word": "Vogel",
+    "translation": "Bird",
+    "languageId": "de",
+    "category": "animals",
+    "emoji": "🐦"
+  },
+  {
+    "id": "de_fisch",
+    "word": "Fisch",
+    "translation": "Fish",
+    "languageId": "de",
+    "category": "animals",
+    "emoji": "🐟"
+  },
+  {
+    "id": "de_pferd",
+    "word": "Pferd",
+    "translation": "Horse",
+    "languageId": "de",
+    "category": "animals",
+    "emoji": "🐴"
+  },
+  {
+    "id": "de_kuh",
+    "word": "Kuh",
+    "translation": "Cow",
+    "languageId": "de",
+    "category": "animals",
+    "emoji": "🐄"
+  },
+  {
+    "id": "de_sechs",
+    "word": "Sechs",
+    "translation": "Six",
+    "languageId": "de",
+    "category": "numbers",
+    "emoji": "6️⃣"
+  },
+  {
+    "id": "de_sieben",
+    "word": "Sieben",
+    "translation": "Seven",
+    "languageId": "de",
+    "category": "numbers",
+    "emoji": "7️⃣"
+  },
+  {
+    "id": "de_acht",
+    "word": "Acht",
+    "translation": "Eight",
+    "languageId": "de",
+    "category": "numbers",
+    "emoji": "8️⃣"
+  },
+  {
+    "id": "de_neun",
+    "word": "Neun",
+    "translation": "Nine",
+    "languageId": "de",
+    "category": "numbers",
+    "emoji": "9️⃣"
+  },
+  {
+    "id": "de_zehn",
+    "word": "Zehn",
+    "translation": "Ten",
+    "languageId": "de",
+    "category": "numbers",
+    "emoji": "🔟"
+  },
+  {
+    "id": "de_haus",
+    "word": "Haus",
+    "translation": "House",
+    "languageId": "de",
+    "category": "home",
+    "emoji": "🏠"
+  },
+  {
+    "id": "de_tuer",
+    "word": "Tür",
+    "translation": "Door",
+    "languageId": "de",
+    "category": "home",
+    "emoji": "🚪"
+  },
+  {
+    "id": "de_fenster",
+    "word": "Fenster",
+    "translation": "Window",
+    "languageId": "de",
+    "category": "home",
+    "emoji": "🪟"
+  },
+  {
+    "id": "de_stuhl",
+    "word": "Stuhl",
+    "translation": "Chair",
+    "languageId": "de",
+    "category": "home",
+    "emoji": "🪑"
+  },
+  {
+    "id": "de_bett",
+    "word": "Bett",
+    "translation": "Bed",
+    "languageId": "de",
+    "category": "home",
+    "emoji": "🛏️"
+  },
+  {
+    "id": "de_kaffee",
+    "word": "Kaffee",
+    "translation": "Coffee",
+    "languageId": "de",
+    "category": "food",
+    "emoji": "☕"
+  },
+  {
+    "id": "de_tee",
+    "word": "Tee",
+    "translation": "Tea",
+    "languageId": "de",
+    "category": "food",
+    "emoji": "🍵"
+  },
+  {
+    "id": "de_haehnchen",
+    "word": "Hähnchen",
+    "translation": "Chicken",
+    "languageId": "de",
+    "category": "food",
+    "emoji": "🍗"
+  },
+  {
+    "id": "de_gross",
+    "word": "Groß",
+    "translation": "Big",
+    "languageId": "de",
+    "category": "descriptions",
+    "emoji": "🐘"
+  },
+  {
+    "id": "de_klein",
+    "word": "Klein",
+    "translation": "Small",
+    "languageId": "de",
+    "category": "descriptions",
+    "emoji": "🐁"
+  },
+  {
+    "id": "de_heiss",
+    "word": "Heiß",
+    "translation": "Hot",
+    "languageId": "de",
+    "category": "descriptions",
+    "emoji": "🔥"
+  },
+  {
+    "id": "de_kalt",
+    "word": "Kalt",
+    "translation": "Cold",
+    "languageId": "de",
+    "category": "descriptions",
+    "emoji": "❄️"
+  },
+  {
+    "id": "de_gut",
+    "word": "Gut",
+    "translation": "Good",
+    "languageId": "de",
+    "category": "descriptions",
+    "emoji": "👍"
+  }
+]

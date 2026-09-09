@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../core/theme/app_colors.dart';
+import '../../../core/theme/app_decor.dart';
 import '../../../core/theme/app_spacing.dart';
 import '../../../core/widgets/app_buttons.dart';
 import '../../../data/models/exercise.dart';
@@ -51,6 +52,27 @@ class _SentenceArrangementExerciseState extends State<SentenceArrangementExercis
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(widget.payload.prompt, style: theme.textTheme.headlineSmall),
+        // The sentence to build, in English. Without it the prompt was
+        // "Build the sentence" and nothing else — the learner had to
+        // guess which sentence was wanted as well as its word order.
+        if (widget.payload.translation != null) ...[
+          const SizedBox(height: AppSpacing.sm),
+          Container(
+            width: double.infinity,
+            padding: const EdgeInsets.all(AppSpacing.md),
+            decoration: BoxDecoration(
+              color: context.decor.tint(AppColors.primary),
+              borderRadius: BorderRadius.circular(AppRadius.md),
+            ),
+            child: Text(
+              '“${widget.payload.translation}”',
+              style: theme.textTheme.titleMedium?.copyWith(
+                color: theme.colorScheme.onSurface,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+          ),
+        ],
         const SizedBox(height: AppSpacing.xl),
         Container(
           width: double.infinity,
@@ -103,27 +125,42 @@ class _SentenceArrangementExerciseState extends State<SentenceArrangementExercis
 
 class _Chip extends StatelessWidget {
   final String label;
+
   final VoidCallback onTap;
   final bool filled;
 
-  const _Chip({required this.label, required this.onTap, required this.filled});
+  const _Chip({
+    required this.label,
+    required this.onTap,
+    required this.filled,
+  });
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return InkWell(
-      borderRadius: BorderRadius.circular(12),
+      borderRadius: BorderRadius.circular(AppRadius.sm),
       onTap: onTap,
       child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: AppSpacing.md, vertical: 10),
+        padding: const EdgeInsets.symmetric(
+          horizontal: AppSpacing.md,
+          vertical: AppSpacing.sm,
+        ),
         decoration: BoxDecoration(
           color: filled ? AppColors.primary.withValues(alpha: 0.12) : theme.colorScheme.surface,
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: BorderRadius.circular(AppRadius.sm),
           border: Border.all(
             color: filled ? AppColors.primary : theme.colorScheme.outlineVariant,
           ),
         ),
-        child: Text(label, style: theme.textTheme.titleSmall),
+        // No per-word English here on purpose. Glossing every chip
+        // turned the exercise into copying labels rather than recalling
+        // the words — they are taught by the multiple-choice questions
+        // earlier in the round instead.
+        child: Text(
+          label,
+          style: theme.textTheme.titleSmall?.copyWith(fontWeight: FontWeight.w700),
+        ),
       ),
     );
   }

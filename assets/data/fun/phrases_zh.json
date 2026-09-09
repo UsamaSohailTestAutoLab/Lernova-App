@@ -1,0 +1,128 @@
+[
+  {
+    "id": "zh_phrase_u1_l1_a",
+    "phrase": "你好 我叫 安娜",
+    "meaning": "Hello, my name is Anna",
+    "languageId": "zh",
+    "category": "greetings"
+  },
+  {
+    "id": "zh_phrase_u1_l1_b",
+    "phrase": "你好 我叫 安娜",
+    "meaning": "Hello, my name is Anna",
+    "languageId": "zh",
+    "category": "greetings"
+  },
+  {
+    "id": "zh_phrase_u1_l2_a",
+    "phrase": "对不起 我 很 累",
+    "meaning": "Excuse me, I am very tired",
+    "languageId": "zh",
+    "category": "greetings"
+  },
+  {
+    "id": "zh_phrase_u1_l2_b",
+    "phrase": "我 不是 累",
+    "meaning": "I am not tired",
+    "languageId": "zh",
+    "category": "greetings"
+  },
+  {
+    "id": "zh_phrase_u1_l3_a",
+    "phrase": "打扰一下 你好吗",
+    "meaning": "Excuse me, how are you?",
+    "languageId": "zh",
+    "category": "greetings"
+  },
+  {
+    "id": "zh_phrase_u1_l3_b",
+    "phrase": "欢迎 和 晚安",
+    "meaning": "Welcome and good night",
+    "languageId": "zh",
+    "category": "greetings"
+  },
+  {
+    "id": "zh_phrase_u2_l1_a",
+    "phrase": "我的 姐姐 是 安娜",
+    "meaning": "My sister is Anna",
+    "languageId": "zh",
+    "category": "dining"
+  },
+  {
+    "id": "zh_phrase_u2_l1_b",
+    "phrase": "安娜 是 我的 妈妈",
+    "meaning": "Anna is my mother",
+    "languageId": "zh",
+    "category": "dining"
+  },
+  {
+    "id": "zh_phrase_u2_l2_a",
+    "phrase": "我 要 面包 请",
+    "meaning": "I want bread, please",
+    "languageId": "zh",
+    "category": "dining"
+  },
+  {
+    "id": "zh_phrase_u2_l2_b",
+    "phrase": "我 要 奶酪",
+    "meaning": "I want cheese",
+    "languageId": "zh",
+    "category": "dining"
+  },
+  {
+    "id": "zh_phrase_u2_l3_a",
+    "phrase": "杯子 在 桌子 上",
+    "meaning": "The glass is on the table",
+    "languageId": "zh",
+    "category": "dining"
+  },
+  {
+    "id": "zh_phrase_u2_l3_b",
+    "phrase": "叉子 在 桌子 上",
+    "meaning": "The fork is on the table",
+    "languageId": "zh",
+    "category": "dining"
+  },
+  {
+    "id": "zh_phrase_u3_l1_a",
+    "phrase": "我 五 岁",
+    "meaning": "I am five years old",
+    "languageId": "zh",
+    "category": "travel"
+  },
+  {
+    "id": "zh_phrase_u3_l1_b",
+    "phrase": "我 四 岁",
+    "meaning": "I am four years old",
+    "languageId": "zh",
+    "category": "travel"
+  },
+  {
+    "id": "zh_phrase_u3_l2_a",
+    "phrase": "车站 在哪里",
+    "meaning": "Where is the station?",
+    "languageId": "zh",
+    "category": "travel"
+  },
+  {
+    "id": "zh_phrase_u3_l2_b",
+    "phrase": "街 在哪里 请",
+    "meaning": "Where is the street, please?",
+    "languageId": "zh",
+    "category": "travel"
+  },
+  {
+    "id": "zh_phrase_u3_l3_a",
+    "phrase": "火车 很近",
+    "meaning": "The train is near",
+    "languageId": "zh",
+    "category": "travel"
+  },
+  {
+    "id": "zh_phrase_u3_l3_b",
+    "phrase": "火车 在哪里 请",
+    "meaning": "Where is the train, please?",
+    "languageId": "zh",
+    "category": "travel"
+  }
+]

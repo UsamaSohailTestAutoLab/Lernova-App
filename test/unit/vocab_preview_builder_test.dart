@@ -1,7 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:lernova/core/constants/app_enums.dart';
 import 'package:lernova/data/models/exercise.dart';
-import 'package:lernova/data/models/fun/conversation.dart';
 import 'package:lernova/data/models/fun/fun_question.dart';
 import 'package:lernova/data/models/fun/phrase.dart';
 import 'package:lernova/data/models/fun/vocab_word.dart';
@@ -96,20 +95,6 @@ void main() {
     final item = VocabPreviewBuilder.fromPhrase(_phrases.first);
     expect(item.word, 'Como estas');
     expect(item.meaning, 'How are you');
-  });
-
-  test('fromConversation builds a single "what to expect" card', () {
-    const conversation = Conversation(
-      id: 'conv1',
-      title: 'At the Café',
-      scenario: 'Ordering coffee',
-      languageId: 'es',
-      turns: [],
-    );
-    final item = VocabPreviewBuilder.fromConversation(conversation);
-    expect(item.word, 'At the Café');
-    expect(item.meaning, 'Ordering coffee');
-    expect(item.canSpeak, isFalse, reason: 'an English blurb must not be read aloud in Spanish');
   });
 
   // Regression: Review Words showed Hola / Gracias / Por Favor twice in

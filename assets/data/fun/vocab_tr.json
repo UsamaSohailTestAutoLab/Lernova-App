@@ -1,0 +1,738 @@
+[
+  {
+    "id": "tr_merhaba",
+    "word": "Merhaba",
+    "translation": "Hello",
+    "languageId": "tr",
+    "category": "greetings",
+    "emoji": "👋"
+  },
+  {
+    "id": "tr_tesekkurler",
+    "word": "Teşekkürler",
+    "translation": "Thank you",
+    "languageId": "tr",
+    "category": "greetings",
+    "emoji": "🙏"
+  },
+  {
+    "id": "tr_lutfen",
+    "word": "Lütfen",
+    "translation": "Please",
+    "languageId": "tr",
+    "category": "greetings",
+    "emoji": "🙇"
+  },
+  {
+    "id": "tr_hosca_kal",
+    "word": "Hoşça kal",
+    "translation": "Goodbye",
+    "languageId": "tr",
+    "category": "greetings",
+    "emoji": "🙋"
+  },
+  {
+    "id": "tr_iyi_aksamlar",
+    "word": "İyi akşamlar",
+    "translation": "Good evening",
+    "languageId": "tr",
+    "category": "greetings",
+    "emoji": "🌙"
+  },
+  {
+    "id": "tr_benim_adim",
+    "word": "Benim adım",
+    "translation": "My name is",
+    "languageId": "tr",
+    "category": "greetings",
+    "emoji": "🪪"
+  },
+  {
+    "id": "tr_ve",
+    "word": "Ve",
+    "translation": "And",
+    "languageId": "tr",
+    "category": "descriptions",
+    "emoji": "➕"
+  },
+  {
+    "id": "tr_evet",
+    "word": "Evet",
+    "translation": "Yes",
+    "languageId": "tr",
+    "category": "greetings",
+    "emoji": "✅"
+  },
+  {
+    "id": "tr_hayir",
+    "word": "Hayır",
+    "translation": "No",
+    "languageId": "tr",
+    "category": "greetings",
+    "emoji": "❌"
+  },
+  {
+    "id": "tr_affedersiniz",
+    "word": "Affedersiniz",
+    "translation": "Excuse me",
+    "languageId": "tr",
+    "category": "greetings",
+    "emoji": "🙋"
+  },
+  {
+    "id": "tr_rica_ederim",
+    "word": "Rica ederim",
+    "translation": "You're welcome",
+    "languageId": "tr",
+    "category": "greetings",
+    "emoji": "🤝"
+  },
+  {
+    "id": "tr_tamam",
+    "word": "Tamam",
+    "translation": "Okay",
+    "languageId": "tr",
+    "category": "greetings",
+    "emoji": "👍"
+  },
+  {
+    "id": "tr_ben",
+    "word": "Ben",
+    "translation": "I",
+    "languageId": "tr",
+    "category": "descriptions",
+    "emoji": "🙋"
+  },
+  {
+    "id": "tr_yorgunum",
+    "word": "Yorgunum",
+    "translation": "I am tired",
+    "languageId": "tr",
+    "category": "descriptions",
+    "emoji": "😴"
+  },
+  {
+    "id": "tr_pardon",
+    "word": "Pardon",
+    "translation": "Excuse me please",
+    "languageId": "tr",
+    "category": "greetings",
+    "emoji": "🙇"
+  },
+  {
+    "id": "tr_iyi_geceler",
+    "word": "İyi geceler",
+    "translation": "Good night",
+    "languageId": "tr",
+    "category": "greetings",
+    "emoji": "😴"
+  },
+  {
+    "id": "tr_serefe",
+    "word": "Şerefe",
+    "translation": "Cheers",
+    "languageId": "tr",
+    "category": "greetings",
+    "emoji": "🥂"
+  },
+  {
+    "id": "tr_hos_geldiniz",
+    "word": "Hoş geldiniz",
+    "translation": "Welcome",
+    "languageId": "tr",
+    "category": "greetings",
+    "emoji": "🎉"
+  },
+  {
+    "id": "tr_gorusuruz",
+    "word": "Görüşürüz",
+    "translation": "See you soon",
+    "languageId": "tr",
+    "category": "greetings",
+    "emoji": "👋"
+  },
+  {
+    "id": "tr_nasilsiniz",
+    "word": "Nasılsınız",
+    "translation": "How are you",
+    "languageId": "tr",
+    "category": "greetings",
+    "emoji": "❓"
+  },
+  {
+    "id": "tr_cok",
+    "word": "Çok",
+    "translation": "Very",
+    "languageId": "tr",
+    "category": "descriptions",
+    "emoji": "⭐"
+  },
+  {
+    "id": "tr_anne",
+    "word": "Anne",
+    "translation": "Mother",
+    "languageId": "tr",
+    "category": "family",
+    "emoji": "👩"
+  },
+  {
+    "id": "tr_baba",
+    "word": "Baba",
+    "translation": "Father",
+    "languageId": "tr",
+    "category": "family",
+    "emoji": "👨"
+  },
+  {
+    "id": "tr_erkek_kardes",
+    "word": "Erkek kardeş",
+    "translation": "Brother",
+    "languageId": "tr",
+    "category": "family",
+    "emoji": "👦"
+  },
+  {
+    "id": "tr_kiz_kardes",
+    "word": "Kız kardeş",
+    "translation": "Sister",
+    "languageId": "tr",
+    "category": "family",
+    "emoji": "👧"
+  },
+  {
+    "id": "tr_buyukanne",
+    "word": "Büyükanne",
+    "translation": "Grandmother",
+    "languageId": "tr",
+    "category": "family",
+    "emoji": "👵"
+  },
+  {
+    "id": "tr_benim",
+    "word": "Benim",
+    "translation": "My",
+    "languageId": "tr",
+    "category": "descriptions",
+    "emoji": "🫱"
+  },
+  {
+    "id": "tr_annem",
+    "word": "Annem",
+    "translation": "My mother",
+    "languageId": "tr",
+    "category": "family",
+    "emoji": "👩"
+  },
+  {
+    "id": "tr_buyukannem",
+    "word": "Büyükannem",
+    "translation": "My grandmother",
+    "languageId": "tr",
+    "category": "family",
+    "emoji": "👵"
+  },
+  {
+    "id": "tr_ekmek",
+    "word": "Ekmek",
+    "translation": "Bread",
+    "languageId": "tr",
+    "category": "food",
+    "emoji": "🍞"
+  },
+  {
+    "id": "tr_su",
+    "word": "Su",
+    "translation": "Water",
+    "languageId": "tr",
+    "category": "food",
+    "emoji": "💧"
+  },
+  {
+    "id": "tr_elma",
+    "word": "Elma",
+    "translation": "Apple",
+    "languageId": "tr",
+    "category": "food",
+    "emoji": "🍎"
+  },
+  {
+    "id": "tr_peynir",
+    "word": "Peynir",
+    "translation": "Cheese",
+    "languageId": "tr",
+    "category": "food",
+    "emoji": "🧀"
+  },
+  {
+    "id": "tr_sut",
+    "word": "Süt",
+    "translation": "Milk",
+    "languageId": "tr",
+    "category": "food",
+    "emoji": "🥛"
+  },
+  {
+    "id": "tr_istiyorum",
+    "word": "istiyorum",
+    "translation": "I want",
+    "languageId": "tr",
+    "category": "food",
+    "emoji": "🙋"
+  },
+  {
+    "id": "tr_bir_a",
+    "word": "Bir",
+    "translation": "A",
+    "languageId": "tr",
+    "category": "descriptions",
+    "emoji": "☝️"
+  },
+  {
+    "id": "tr_masa",
+    "word": "Masa",
+    "translation": "Table",
+    "languageId": "tr",
+    "category": "home",
+    "emoji": "🍽️"
+  },
+  {
+    "id": "tr_tabak",
+    "word": "Tabak",
+    "translation": "Plate",
+    "languageId": "tr",
+    "category": "home",
+    "emoji": "🍽️"
+  },
+  {
+    "id": "tr_bardak",
+    "word": "Bardak",
+    "translation": "Glass",
+    "languageId": "tr",
+    "category": "home",
+    "emoji": "🥛"
+  },
+  {
+    "id": "tr_catal",
+    "word": "Çatal",
+    "translation": "Fork",
+    "languageId": "tr",
+    "category": "home",
+    "emoji": "🍴"
+  },
+  {
+    "id": "tr_bicak",
+    "word": "Bıçak",
+    "translation": "Knife",
+    "languageId": "tr",
+    "category": "home",
+    "emoji": "🔪"
+  },
+  {
+    "id": "tr_masada",
+    "word": "Masada",
+    "translation": "On the table",
+    "languageId": "tr",
+    "category": "descriptions",
+    "emoji": "📍"
+  },
+  {
+    "id": "tr_var",
+    "word": "Var",
+    "translation": "There is",
+    "languageId": "tr",
+    "category": "descriptions",
+    "emoji": "🟰"
+  },
+  {
+    "id": "tr_bir",
+    "word": "Bir",
+    "translation": "One",
+    "languageId": "tr",
+    "category": "numbers",
+    "emoji": "1️⃣"
+  },
+  {
+    "id": "tr_iki",
+    "word": "İki",
+    "translation": "Two",
+    "languageId": "tr",
+    "category": "numbers",
+    "emoji": "2️⃣"
+  },
+  {
+    "id": "tr_uc",
+    "word": "Üç",
+    "translation": "Three",
+    "languageId": "tr",
+    "category": "numbers",
+    "emoji": "3️⃣"
+  },
+  {
+    "id": "tr_dort",
+    "word": "Dört",
+    "translation": "Four",
+    "languageId": "tr",
+    "category": "numbers",
+    "emoji": "4️⃣"
+  },
+  {
+    "id": "tr_bes",
+    "word": "Beş",
+    "translation": "Five",
+    "languageId": "tr",
+    "category": "numbers",
+    "emoji": "5️⃣"
+  },
+  {
+    "id": "tr_yasindayim",
+    "word": "Yaşındayım",
+    "translation": "Years old I am",
+    "languageId": "tr",
+    "category": "numbers",
+    "emoji": "🎂"
+  },
+  {
+    "id": "tr_sol",
+    "word": "Sol",
+    "translation": "Left",
+    "languageId": "tr",
+    "category": "travel",
+    "emoji": "⬅️"
+  },
+  {
+    "id": "tr_sag",
+    "word": "Sağ",
+    "translation": "Right",
+    "languageId": "tr",
+    "category": "travel",
+    "emoji": "➡️"
+  },
+  {
+    "id": "tr_duz",
+    "word": "Düz",
+    "translation": "Straight ahead",
+    "languageId": "tr",
+    "category": "travel",
+    "emoji": "⬆️"
+  },
+  {
+    "id": "tr_sokak",
+    "word": "Sokak",
+    "translation": "Street",
+    "languageId": "tr",
+    "category": "travel",
+    "emoji": "🛣️"
+  },
+  {
+    "id": "tr_istasyon",
+    "word": "İstasyon",
+    "translation": "Station",
+    "languageId": "tr",
+    "category": "travel",
+    "emoji": "🚉"
+  },
+  {
+    "id": "tr_nerede",
+    "word": "Nerede",
+    "translation": "Where is",
+    "languageId": "tr",
+    "category": "travel",
+    "emoji": "❓"
+  },
+  {
+    "id": "tr_bu",
+    "word": "Bu",
+    "translation": "This",
+    "languageId": "tr",
+    "category": "descriptions",
+    "emoji": "👉"
+  },
+  {
+    "id": "tr_havaalani",
+    "word": "Havaalanı",
+    "translation": "Airport",
+    "languageId": "tr",
+    "category": "travel",
+    "emoji": "✈️"
+  },
+  {
+    "id": "tr_otel",
+    "word": "Otel",
+    "translation": "Hotel",
+    "languageId": "tr",
+    "category": "travel",
+    "emoji": "🏨"
+  },
+  {
+    "id": "tr_bilet",
+    "word": "Bilet",
+    "translation": "Ticket",
+    "languageId": "tr",
+    "category": "travel",
+    "emoji": "🎫"
+  },
+  {
+    "id": "tr_tren",
+    "word": "Tren",
+    "translation": "Train",
+    "languageId": "tr",
+    "category": "travel",
+    "emoji": "🚆"
+  },
+  {
+    "id": "tr_bavul",
+    "word": "Bavul",
+    "translation": "Suitcase",
+    "languageId": "tr",
+    "category": "travel",
+    "emoji": "🧳"
+  },
+  {
+    "id": "tr_yakin",
+    "word": "Yakın",
+    "translation": "Near",
+    "languageId": "tr",
+    "category": "travel",
+    "emoji": "📍"
+  },
+  {
+    "id": "tr_kirmizi",
+    "word": "Kırmızı",
+    "translation": "Red",
+    "languageId": "tr",
+    "category": "colors",
+    "emoji": "🔴"
+  },
+  {
+    "id": "tr_mavi",
+    "word": "Mavi",
+    "translation": "Blue",
+    "languageId": "tr",
+    "category": "colors",
+    "emoji": "🔵"
+  },
+  {
+    "id": "tr_yesil",
+    "word": "Yeşil",
+    "translation": "Green",
+    "languageId": "tr",
+    "category": "colors",
+    "emoji": "🟢"
+  },
+  {
+    "id": "tr_sari",
+    "word": "Sarı",
+    "translation": "Yellow",
+    "languageId": "tr",
+    "category": "colors",
+    "emoji": "🟡"
+  },
+  {
+    "id": "tr_siyah",
+    "word": "Siyah",
+    "translation": "Black",
+    "languageId": "tr",
+    "category": "colors",
+    "emoji": "⚫"
+  },
+  {
+    "id": "tr_beyaz",
+    "word": "Beyaz",
+    "translation": "White",
+    "languageId": "tr",
+    "category": "colors",
+    "emoji": "⚪"
+  },
+  {
+    "id": "tr_kopek",
+    "word": "Köpek",
+    "translation": "Dog",
+    "languageId": "tr",
+    "category": "animals",
+    "emoji": "🐕"
+  },
+  {
+    "id": "tr_kedi",
+    "word": "Kedi",
+    "translation": "Cat",
+    "languageId": "tr",
+    "category": "animals",
+    "emoji": "🐈"
+  },
+  {
+    "id": "tr_kus",
+    "word": "Kuş",
+    "translation": "Bird",
+    "languageId": "tr",
+    "category": "animals",
+    "emoji": "🐦"
+  },
+  {
+    "id": "tr_balik",
+    "word": "Balık",
+    "translation": "Fish",
+    "languageId": "tr",
+    "category": "animals",
+    "emoji": "🐟"
+  },
+  {
+    "id": "tr_at",
+    "word": "At",
+    "translation": "Horse",
+    "languageId": "tr",
+    "category": "animals",
+    "emoji": "🐴"
+  },
+  {
+    "id": "tr_inek",
+    "word": "İnek",
+    "translation": "Cow",
+    "languageId": "tr",
+    "category": "animals",
+    "emoji": "🐄"
+  },
+  {
+    "id": "tr_alti",
+    "word": "Altı",
+    "translation": "Six",
+    "languageId": "tr",
+    "category": "numbers",
+    "emoji": "6️⃣"
+  },
+  {
+    "id": "tr_yedi",
+    "word": "Yedi",
+    "translation": "Seven",
+    "languageId": "tr",
+    "category": "numbers",
+    "emoji": "7️⃣"
+  },
+  {
+    "id": "tr_sekiz",
+    "word": "Sekiz",
+    "translation": "Eight",
+    "languageId": "tr",
+    "category": "numbers",
+    "emoji": "8️⃣"
+  },
+  {
+    "id": "tr_dokuz",
+    "word": "Dokuz",
+    "translation": "Nine",
+    "languageId": "tr",
+    "category": "numbers",
+    "emoji": "9️⃣"
+  },
+  {
+    "id": "tr_on",
+    "word": "On",
+    "translation": "Ten",
+    "languageId": "tr",
+    "category": "numbers",
+    "emoji": "🔟"
+  },
+  {
+    "id": "tr_ev",
+    "word": "Ev",
+    "translation": "House",
+    "languageId": "tr",
+    "category": "home",
+    "emoji": "🏠"
+  },
+  {
+    "id": "tr_kapi",
+    "word": "Kapı",
+    "translation": "Door",
+    "languageId": "tr",
+    "category": "home",
+    "emoji": "🚪"
+  },
+  {
+    "id": "tr_pencere",
+    "word": "Pencere",
+    "translation": "Window",
+    "languageId": "tr",
+    "category": "home",
+    "emoji": "🪟"
+  },
+  {
+    "id": "tr_sandalye",
+    "word": "Sandalye",
+    "translation": "Chair",
+    "languageId": "tr",
+    "category": "home",
+    "emoji": "🪑"
+  },
+  {
+    "id": "tr_yatak",
+    "word": "Yatak",
+    "translation": "Bed",
+    "languageId": "tr",
+    "category": "home",
+    "emoji": "🛏️"
+  },
+  {
+    "id": "tr_kahve",
+    "word": "Kahve",
+    "translation": "Coffee",
+    "languageId": "tr",
+    "category": "food",
+    "emoji": "☕"
+  },
+  {
+    "id": "tr_cay",
+    "word": "Çay",
+    "translation": "Tea",
+    "languageId": "tr",
+    "category": "food",
+    "emoji": "🍵"
+  },
+  {
+    "id": "tr_tavuk",
+    "word": "Tavuk",
+    "translation": "Chicken",
+    "languageId": "tr",
+    "category": "food",
+    "emoji": "🍗"
+  },
+  {
+    "id": "tr_buyuk",
+    "word": "Büyük",
+    "translation": "Big",
+    "languageId": "tr",
+    "category": "descriptions",
+    "emoji": "🐘"
+  },
+  {
+    "id": "tr_kucuk",
+    "word": "Küçük",
+    "translation": "Small",
+    "languageId": "tr",
+    "category": "descriptions",
+    "emoji": "🐁"
+  },
+  {
+    "id": "tr_sicak",
+    "word": "Sıcak",
+    "translation": "Hot",
+    "languageId": "tr",
+    "category": "descriptions",
+    "emoji": "🔥"
+  },
+  {
+    "id": "tr_soguk",
+    "word": "Soğuk",
+    "translation": "Cold",
+    "languageId": "tr",
+    "category": "descriptions",
+    "emoji": "❄️"
+  },
+  {
+    "id": "tr_iyi",
+    "word": "İyi",
+    "translation": "Good",
+    "languageId": "tr",
+    "category": "descriptions",
+    "emoji": "👍"
+  }
+]

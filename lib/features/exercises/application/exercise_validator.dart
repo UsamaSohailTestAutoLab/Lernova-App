@@ -25,8 +25,7 @@ class ExerciseValidator {
 
       case TranslationPayload p:
         if (answer is! String) return false;
-        final normalizedAnswer = normalizeForMatch(answer);
-        return p.acceptableAnswers.any((a) => normalizeForMatch(a) == normalizedAnswer);
+        return p.acceptableAnswers.any((a) => matchesTypedAnswer(answer, a));
 
       case SpeakingPayload p:
         // The widget hands back the recognized speech text (from real
@@ -65,7 +64,7 @@ class ExerciseValidator {
         // meaning instead, and that is what's graded.
         if (answer is! String) return false;
         final expected = p.hasMeaning ? p.meaning! : p.targetWord;
-        return normalizeForMatch(answer) == normalizeForMatch(expected);
+        return matchesTypedAnswer(answer, expected);
     }
   }
 }

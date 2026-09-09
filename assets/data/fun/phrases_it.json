@@ -1,0 +1,128 @@
+[
+  {
+    "id": "it_phrase_u1_l1_a",
+    "phrase": "Ciao, mi chiamo Anna",
+    "meaning": "Hello, my name is Anna",
+    "languageId": "it",
+    "category": "greetings"
+  },
+  {
+    "id": "it_phrase_u1_l1_b",
+    "phrase": "Mi chiamo Anna",
+    "meaning": "My name is Anna",
+    "languageId": "it",
+    "category": "greetings"
+  },
+  {
+    "id": "it_phrase_u1_l2_a",
+    "phrase": "Scusa, sono stanco",
+    "meaning": "Excuse me, I am tired",
+    "languageId": "it",
+    "category": "greetings"
+  },
+  {
+    "id": "it_phrase_u1_l2_b",
+    "phrase": "Sì, va bene",
+    "meaning": "Yes, that is okay",
+    "languageId": "it",
+    "category": "greetings"
+  },
+  {
+    "id": "it_phrase_u1_l3_a",
+    "phrase": "Mi scusi, come sta?",
+    "meaning": "Excuse me, how are you?",
+    "languageId": "it",
+    "category": "greetings"
+  },
+  {
+    "id": "it_phrase_u1_l3_b",
+    "phrase": "Benvenuto e buonanotte",
+    "meaning": "Welcome and good night",
+    "languageId": "it",
+    "category": "greetings"
+  },
+  {
+    "id": "it_phrase_u2_l1_a",
+    "phrase": "Mia sorella è Anna",
+    "meaning": "My sister is Anna",
+    "languageId": "it",
+    "category": "dining"
+  },
+  {
+    "id": "it_phrase_u2_l1_b",
+    "phrase": "Anna è mia madre",
+    "meaning": "Anna is my mother",
+    "languageId": "it",
+    "category": "dining"
+  },
+  {
+    "id": "it_phrase_u2_l2_a",
+    "phrase": "Voglio anche pane, per favore",
+    "meaning": "I also want bread, please",
+    "languageId": "it",
+    "category": "dining"
+  },
+  {
+    "id": "it_phrase_u2_l2_b",
+    "phrase": "Voglio il formaggio",
+    "meaning": "I want the cheese",
+    "languageId": "it",
+    "category": "dining"
+  },
+  {
+    "id": "it_phrase_u2_l3_a",
+    "phrase": "Il bicchiere è sul tavolo",
+    "meaning": "The glass is on the table",
+    "languageId": "it",
+    "category": "dining"
+  },
+  {
+    "id": "it_phrase_u2_l3_b",
+    "phrase": "La forchetta è sul tavolo",
+    "meaning": "The fork is on the table",
+    "languageId": "it",
+    "category": "dining"
+  },
+  {
+    "id": "it_phrase_u3_l1_a",
+    "phrase": "Ho cinque anni",
+    "meaning": "I am five years old",
+    "languageId": "it",
+    "category": "travel"
+  },
+  {
+    "id": "it_phrase_u3_l1_b",
+    "phrase": "Ho quattro anni",
+    "meaning": "I am four years old",
+    "languageId": "it",
+    "category": "travel"
+  },
+  {
+    "id": "it_phrase_u3_l2_a",
+    "phrase": "Dov'è la stazione?",
+    "meaning": "Where is the station?",
+    "languageId": "it",
+    "category": "travel"
+  },
+  {
+    "id": "it_phrase_u3_l2_b",
+    "phrase": "Dov'è la strada",
+    "meaning": "Where is the street?",
+    "languageId": "it",
+    "category": "travel"
+  },
+  {
+    "id": "it_phrase_u3_l3_a",
+    "phrase": "Il treno è vicino",
+    "meaning": "The train is near",
+    "languageId": "it",
+    "category": "travel"
+  },
+  {
+    "id": "it_phrase_u3_l3_b",
+    "phrase": "Dov'è il treno",
+    "meaning": "Where is the train?",
+    "languageId": "it",
+    "category": "travel"
+  }
+]

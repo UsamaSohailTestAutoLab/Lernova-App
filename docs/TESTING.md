@@ -7,7 +7,7 @@ flutter test test/widget/             # real widget-tree interaction tests
 flutter test test/unit/xp_utils_test.dart   # a single file
 ```
 
-358 tests across 45 files, all currently green. `flutter analyze` reports 0 issues — that bar is maintained continuously, not checked once at the end.
+428 tests across 54 files, all currently green. `flutter analyze` reports 0 issues — that bar is maintained continuously, not checked once at the end.
 
 ## Unit tests (`test/unit/`)
 

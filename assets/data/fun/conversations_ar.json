@@ -1,0 +1,170 @@
+[
+  {
+    "id": "ar_conv_cafe",
+    "title": "At the Café",
+    "scenario": "You are ordering a coffee at a café.",
+    "languageId": "ar",
+    "turns": [
+      {
+        "id": "ar_conv_cafe_t1",
+        "line": "مرحبا! ماذا تريد؟",
+        "lineEnglish": "Hello! What would you like?",
+        "options": [
+          "أريد قهوة من فضلك",
+          "مرحبا، مع السلامة",
+          "لدي كلب"
+        ],
+        "optionsEnglish": [
+          "I want a coffee, please",
+          "Hello, goodbye",
+          "I have a dog"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "ar_conv_cafe_t2",
+        "line": "شيء آخر؟",
+        "lineEnglish": "Anything else?",
+        "options": [
+          "لا، شكرا",
+          "نعم، أريد قطة",
+          "تصبح على خير"
+        ],
+        "optionsEnglish": [
+          "No, thank you",
+          "Yes, I want a cat",
+          "Good night"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "ar_conv_cafe_t3",
+        "line": "تفضل قهوتك. يوم سعيد!",
+        "lineEnglish": "Here is your coffee. Have a nice day!",
+        "options": [
+          "شكرا، مع السلامة",
+          "أين المحطة؟",
+          "لدي خمسة إخوة"
+        ],
+        "optionsEnglish": [
+          "Thank you, goodbye",
+          "Where is the station?",
+          "I have five brothers"
+        ],
+        "correctIndex": 0
+      }
+    ]
+  },
+  {
+    "id": "ar_conv_directions",
+    "title": "Asking Directions",
+    "scenario": "You are lost and need to find the station.",
+    "languageId": "ar",
+    "turns": [
+      {
+        "id": "ar_conv_directions_t1",
+        "line": "مرحبا، هل أساعدك؟",
+        "lineEnglish": "Hello, can I help you?",
+        "options": [
+          "أين المحطة من فضلك؟",
+          "أريد جبن",
+          "أمي هي آنا"
+        ],
+        "optionsEnglish": [
+          "Where is the station, please?",
+          "I want cheese",
+          "My mother is Anna"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "ar_conv_directions_t2",
+        "line": "مستقيم، ثم يسار.",
+        "lineEnglish": "Straight ahead, then left.",
+        "options": [
+          "شكرا جزيلا",
+          "لا، المعذرة",
+          "لدي أربعة إخوة"
+        ],
+        "optionsEnglish": [
+          "Thank you very much",
+          "No, excuse me",
+          "I have four brothers"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "ar_conv_directions_t3",
+        "line": "إنها قريبة جدا. رحلة سعيدة!",
+        "lineEnglish": "It is very near. Have a good trip!",
+        "options": [
+          "شكرا، إلى اللقاء",
+          "السكين على الطاولة",
+          "أهلا وسهلا"
+        ],
+        "optionsEnglish": [
+          "Thank you, see you soon",
+          "The knife is on the table",
+          "Welcome"
+        ],
+        "correctIndex": 0
+      }
+    ]
+  },
+  {
+    "id": "ar_conv_hotel",
+    "title": "Hotel Check-in",
+    "scenario": "You are checking in at a hotel.",
+    "languageId": "ar",
+    "turns": [
+      {
+        "id": "ar_conv_hotel_t1",
+        "line": "مساء الخير، هل لديك حجز؟",
+        "lineEnglish": "Good evening, do you have a reservation?",
+        "options": [
+          "نعم، اسمي آنا",
+          "لا، لدي حصان",
+          "الكوب على الطاولة"
+        ],
+        "optionsEnglish": [
+          "Yes, my name is Anna",
+          "No, I have a horse",
+          "The glass is on the table"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "ar_conv_hotel_t2",
+        "line": "تفضل المفتاح. غرفة ثلاثة.",
+        "lineEnglish": "Here is the key. Room three.",
+        "options": [
+          "شكرا، حسنا",
+          "أين التفاحة؟",
+          "لدي عشرة كلاب"
+        ],
+        "optionsEnglish": [
+          "Thank you, okay",
+          "Where is the apple?",
+          "I have ten dogs"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "ar_conv_hotel_t3",
+        "line": "الفطور في السابعة.",
+        "lineEnglish": "Breakfast is at seven.",
+        "options": [
+          "جيد جدا، تصبح على خير",
+          "المعذرة، أنا متعب",
+          "أهلا وسهلا و شكرا"
+        ],
+        "optionsEnglish": [
+          "Very good, good night",
+          "Excuse me, I am tired",
+          "Welcome and thank you"
+        ],
+        "correctIndex": 0
+      }
+    ]
+  }
+]

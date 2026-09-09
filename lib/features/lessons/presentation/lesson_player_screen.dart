@@ -4,12 +4,12 @@ import 'package:go_router/go_router.dart';
 
 import '../../../core/routing/app_routes.dart';
 import '../../../core/theme/app_spacing.dart';
-import '../../../core/widgets/app_dialogs.dart';
 import '../../../core/widgets/gamification_indicators.dart';
 import '../../exercises/application/exercise_labels.dart';
 import '../../exercises/application/lesson_session_controller.dart';
 import '../../exercises/presentation/exercise_type_switcher.dart';
 import '../../exercises/presentation/widgets/answer_feedback_bar.dart';
+import '../../languages/presentation/leave_session_sheet.dart';
 import '../../progress/application/progress_controller.dart';
 
 class LessonPlayerScreen extends ConsumerStatefulWidget {
@@ -22,17 +22,25 @@ class LessonPlayerScreen extends ConsumerStatefulWidget {
 class _LessonPlayerScreenState extends ConsumerState<LessonPlayerScreen> {
   bool _navigatedToCompletion = false;
 
+  /// Leaving mid-lesson, either for good or to change language.
+  ///
+  /// Both routes tear the session down first: a half-finished Spanish
+  /// lesson left running while the profile moves to French would keep
+  /// grading Spanish answers against French progress.
   Future<void> _confirmExit() async {
-    final confirmed = await showConfirmDialog(
+    final router = GoRouter.of(context);
+    final choice = await showLeaveSessionSheet(
       context,
-      title: 'Exit lesson?',
+      title: 'Leave this lesson?',
       message: 'Your progress in this lesson will be lost.',
-      confirmLabel: 'Exit',
-      isDestructive: true,
+      exitLabel: 'Exit lesson',
     );
-    if (confirmed && mounted) {
-      ref.read(lessonSessionProvider.notifier).reset();
-      context.pop();
+    if (choice == null || !mounted) return;
+
+    ref.read(lessonSessionProvider.notifier).reset();
+    router.pop();
+    if (choice == LeaveSessionChoice.switchLanguage) {
+      router.push(AppRoutes.languages);
     }
   }
 
@@ -119,6 +127,10 @@ class _LessonPlayerScreenState extends ConsumerState<LessonPlayerScreen> {
                   correctAnswerLabel:
                       session.feedback == ExerciseFeedback.incorrect
                           ? correctAnswerLabel(exercise)
+                          : null,
+                  correctAnswerMeaning:
+                      session.feedback == ExerciseFeedback.incorrect
+                          ? correctAnswerMeaning(exercise)
                           : null,
                   onContinue: _onContinue,
                 ),

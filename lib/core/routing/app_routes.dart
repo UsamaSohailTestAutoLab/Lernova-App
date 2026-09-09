@@ -7,6 +7,7 @@ class AppRoutes {
   static const welcome = '/welcome';
   static const onboardingExplainer = '/welcome/explainer';
 
+  static const nameEntry = '/onboarding/name';
   static const languageSelection = '/onboarding/language';
   static const goalSelection = '/onboarding/goal';
   static const dailyGoalSelection = '/onboarding/daily-goal';
@@ -19,6 +20,7 @@ class AppRoutes {
   static const vocabPreview = '/preview/vocab';
 
   static const funGameIntro = '/fun/intro';
+  static const funSurvivalIntro = '/fun/survival-intro';
   static const funGamePlay = '/fun/play';
   static const funRoundResults = '/fun/results';
 
@@ -43,6 +45,8 @@ class AppRoutes {
   static const achievements = '/achievements';
   static const statistics = '/statistics';
   static const shop = '/shop';
+
+  static const languages = '/languages';
 
   static const settings = '/settings';
   static const notificationSettings = '/settings/notifications';

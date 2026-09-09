@@ -125,7 +125,12 @@ class FunSentenceBuilderSessionController extends Notifier<FunSentenceBuilderSta
   @override
   FunSentenceBuilderState? build() => null;
 
-  Phrase _pickPhrase(List<Phrase> pool, Random random) => pool[random.nextInt(pool.length)];
+  /// The phrase for a given round. [pool] is the round set chosen up
+  /// front by [start], so this is a lookup, not a draw — rounds can't
+  /// repeat a phrase, and the Review Words step can show the whole set
+  /// before play begins.
+  Phrase _phraseForRound(List<Phrase> pool, int roundIndex) =>
+      pool[roundIndex % pool.length];
 
   List<String> _tokensFor(Phrase phrase, Random random) {
     final tokens = phrase.phrase.split(' ');
@@ -140,10 +145,17 @@ class FunSentenceBuilderSessionController extends Notifier<FunSentenceBuilderSta
 
   void start({required List<Phrase> pool, required int totalRounds, required Random random}) {
     if (pool.isEmpty) return;
-    final phrase = _pickPhrase(pool, random);
+    // Draw the whole round set now, distinct and shuffled, rather than
+    // picking one phrase at a time: a run used to be able to serve the
+    // same sentence twice, and the preview could only ever show the one
+    // phrase that happened to be first.
+    final drawn = List<Phrase>.from(pool)..shuffle(random);
+    final rounds = totalRounds < drawn.length ? totalRounds : drawn.length;
+    final roundSet = drawn.take(rounds).toList();
+    final phrase = roundSet.first;
     state = FunSentenceBuilderState(
-      pool: pool,
-      totalRounds: totalRounds,
+      pool: roundSet,
+      totalRounds: rounds,
       currentRoundIndex: 0,
       currentPhrase: phrase,
       shuffledTokens: _tokensFor(phrase, random),
@@ -207,7 +219,7 @@ class FunSentenceBuilderSessionController extends Notifier<FunSentenceBuilderSta
         return;
       }
 
-      final nextPhrase = _pickPhrase(s.pool, random);
+      final nextPhrase = _phraseForRound(s.pool, nextRoundIndex);
       state = s.copyWith(
         currentRoundIndex: nextRoundIndex,
         currentPhrase: nextPhrase,
@@ -244,7 +256,7 @@ class FunSentenceBuilderSessionController extends Notifier<FunSentenceBuilderSta
     final s = state;
     if (s == null || s.pendingRecall == null) return;
     final correct =
-        normalizeForMatch(typed) == normalizeForMatch(s.pendingRecall!.correctMeaning);
+        matchesTypedAnswer(typed, s.pendingRecall!.correctMeaning);
     if (correct) {
       _clearRecallAndAdvance(random);
     } else {
@@ -275,7 +287,7 @@ class FunSentenceBuilderSessionController extends Notifier<FunSentenceBuilderSta
       return;
     }
 
-    final nextPhrase = _pickPhrase(s.pool, random);
+    final nextPhrase = _phraseForRound(s.pool, nextRoundIndex);
     state = s.copyWith(
       currentRoundIndex: nextRoundIndex,
       currentPhrase: nextPhrase,

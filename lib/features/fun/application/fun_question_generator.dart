@@ -44,6 +44,21 @@ class FunQuestionGenerator {
     final allowedPhraseTypes = level.allowedTypes.where(_phraseTypes.contains).toList();
     final usePhrases = allowedPhraseTypes.isNotEmpty && phrases.isNotEmpty;
 
+    // A phrase-only mode (Phrase Builder) has no word types at all, so
+    // the mixed loop below would spend a 30% phrase budget and then find
+    // nothing to ask for the remaining ~70% of the round — a level-1
+    // round came out as three questions. Build those rounds entirely
+    // from the phrase pool, without repeats.
+    if (allowedWordTypes.isEmpty) {
+      if (!usePhrases) return const [];
+      return _phraseOnlyRound(
+        phrases: phrases,
+        types: allowedPhraseTypes,
+        level: level,
+        random: random,
+      );
+    }
+
     final pickedWords = weightedWordSample(words, vocabStrength, level.wordCount, random);
     var phraseSlotBudget = usePhrases ? (level.wordCount * 0.3).round() : 0;
     final emojiByLabel = emojiLookup(words);
@@ -82,6 +97,30 @@ class FunQuestionGenerator {
     }
 
     return questions;
+  }
+
+  /// Every question drawn from the phrase pool, one per distinct phrase.
+  /// Capped by the pool itself: a round can't be longer than the number
+  /// of phrases authored, since padding it would only repeat them.
+  static List<FunQuestion> _phraseOnlyRound({
+    required List<Phrase> phrases,
+    required List<FunQuestionType> types,
+    required FunLevelConfig level,
+    required Random random,
+  }) {
+    final pool = List<Phrase>.from(phrases)..shuffle(random);
+    final count = level.wordCount < pool.length ? level.wordCount : pool.length;
+    return [
+      for (var i = 0; i < count; i++)
+        _buildPhraseQuestion(
+          id: 'fq_${i}_${pool[i].id}',
+          type: types[random.nextInt(types.length)],
+          phrase: pool[i],
+          phrases: phrases,
+          choiceCount: level.bubbleOptionCount,
+          random: random,
+        ),
+    ];
   }
 
   /// A focused practice round built from exactly the given word ids

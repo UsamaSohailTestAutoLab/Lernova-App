@@ -1,0 +1,1671 @@
+{
+  "id": "course_nl",
+  "languageId": "nl",
+  "title": "Dutch",
+  "description": "Learn conversational Dutch through short, focused lessons.",
+  "units": [
+    {
+      "id": "nl_u1",
+      "title": "Greetings & Basics",
+      "description": "Say hello and be polite",
+      "icon": "greeting",
+      "accent": "green",
+      "lessons": [
+        {
+          "id": "nl_u1_l1",
+          "title": "Say Hello",
+          "subtitle": "Hallo, Dank je, Alsjeblieft, Doei, Goedenavond",
+          "icon": "greeting",
+          "reviewVocabIds": [
+            "nl_ik_heet",
+            "nl_en",
+            "nl_goedenavond"
+          ],
+          "exercises": [
+            {
+              "id": "nl_u1_l1_e1",
+              "type": "imageRecognition",
+              "vocabId": "nl_hallo",
+              "payload": {
+                "prompt": "What does this word mean?",
+                "emoji": "👋",
+                "targetWord": "Hallo",
+                "meaning": "Hello",
+                "distractorMeanings": [
+                  "Thank you",
+                  "Please",
+                  "Goodbye"
+                ],
+                "distractorWords": [
+                  "Dank je",
+                  "Alsjeblieft",
+                  "Doei"
+                ]
+              }
+            },
+            {
+              "id": "nl_u1_l1_e2",
+              "type": "multipleChoice",
+              "vocabId": "nl_dank_je",
+              "payload": {
+                "prompt": "Which word means 'Thank you'?",
+                "options": [
+                  "Hallo",
+                  "Doei",
+                  "Dank je",
+                  "Alsjeblieft"
+                ],
+                "correctIndex": 2
+              }
+            },
+            {
+              "id": "nl_u1_l1_e3",
+              "type": "listening",
+              "vocabId": "nl_alsjeblieft",
+              "payload": {
+                "prompt": "Listen and select what you hear",
+                "audioText": "Alsjeblieft",
+                "ttsLocale": "nl-NL",
+                "options": [
+                  "Hallo",
+                  "Alsjeblieft",
+                  "Doei",
+                  "Dank je"
+                ],
+                "correctIndex": 1,
+                "translation": "Please"
+              }
+            },
+            {
+              "id": "nl_u1_l1_e4",
+              "type": "multipleChoice",
+              "vocabId": "nl_ik_heet",
+              "payload": {
+                "prompt": "Which word means 'My name is'?",
+                "options": [
+                  "Hallo",
+                  "Dank je",
+                  "Alsjeblieft",
+                  "Ik heet"
+                ],
+                "correctIndex": 3
+              }
+            },
+            {
+              "id": "nl_u1_l1_e5",
+              "type": "translation",
+              "vocabId": "nl_doei",
+              "payload": {
+                "prompt": "Type the English meaning",
+                "sourceText": "Doei",
+                "acceptableAnswers": [
+                  "goodbye",
+                  "Goodbye"
+                ]
+              }
+            },
+            {
+              "id": "nl_u1_l1_e6",
+              "type": "speaking",
+              "vocabId": "nl_hallo",
+              "payload": {
+                "prompt": "Say this phrase out loud",
+                "targetPhrase": "Hallo, ik heet Anna",
+                "translation": "Hello, my name is Anna",
+                "ttsLocale": "nl-NL"
+              }
+            },
+            {
+              "id": "nl_u1_l1_e7",
+              "type": "wordMatching",
+              "vocabId": "nl_u1_l1_set",
+              "payload": {
+                "prompt": "Match each word to its meaning",
+                "pairs": [
+                  {
+                    "left": "Hallo",
+                    "right": "Hello"
+                  },
+                  {
+                    "left": "Dank je",
+                    "right": "Thank you"
+                  },
+                  {
+                    "left": "Alsjeblieft",
+                    "right": "Please"
+                  },
+                  {
+                    "left": "Doei",
+                    "right": "Goodbye"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "nl_u1_l1_e8",
+              "type": "sentenceArrangement",
+              "vocabId": "nl_hallo",
+              "payload": {
+                "prompt": "Build the sentence",
+                "shuffledChips": [
+                  "Ik",
+                  "heet",
+                  "Anna"
+                ],
+                "correctSentence": [
+                  "Ik",
+                  "heet",
+                  "Anna"
+                ],
+                "translation": "My name is Anna"
+              }
+            },
+            {
+              "id": "nl_u1_l1_e9",
+              "type": "fillInTheBlank",
+              "vocabId": "nl_doei",
+              "payload": {
+                "prompt": "Complete the sentence",
+                "sentenceTemplate": "Dank je en ___.",
+                "options": [
+                  "hallo",
+                  "goedenavond",
+                  "doei",
+                  "alsjeblieft"
+                ],
+                "correctAnswer": "doei",
+                "translation": "Thank you and goodbye"
+              }
+            }
+          ]
+        },
+        {
+          "id": "nl_u1_l2",
+          "title": "Yes, No, Sorry",
+          "subtitle": "Ja, Nee, Sorry, Graag gedaan, Oké",
+          "icon": "agreement",
+          "reviewVocabIds": [
+            "nl_ik_ben",
+            "nl_moe",
+            "nl_dank_je",
+            "nl_oke"
+          ],
+          "exercises": [
+            {
+              "id": "nl_u1_l2_e1",
+              "type": "imageRecognition",
+              "vocabId": "nl_ja",
+              "payload": {
+                "prompt": "What does this word mean?",
+                "emoji": "✅",
+                "targetWord": "Ja",
+                "meaning": "Yes",
+                "distractorMeanings": [
+                  "No",
+                  "Excuse me",
+                  "You're welcome"
+                ],
+                "distractorWords": [
+                  "Nee",
+                  "Sorry",
+                  "Graag gedaan"
+                ]
+              }
+            },
+            {
+              "id": "nl_u1_l2_e2",
+              "type": "multipleChoice",
+              "vocabId": "nl_nee",
+              "payload": {
+                "prompt": "Which word means 'No'?",
+                "options": [
+                  "Nee",
+                  "Sorry",
+                  "Ja",
+                  "Graag gedaan"
+                ],
+                "correctIndex": 0
+              }
+            },
+            {
+              "id": "nl_u1_l2_e3",
+              "type": "listening",
+              "vocabId": "nl_sorry",
+              "payload": {
+                "prompt": "Listen and select what you hear",
+                "audioText": "Sorry",
+                "ttsLocale": "nl-NL",
+                "options": [
+                  "Nee",
+                  "Ja",
+                  "Sorry",
+                  "Graag gedaan"
+                ],
+                "correctIndex": 2,
+                "translation": "Excuse me"
+              }
+            },
+            {
+              "id": "nl_u1_l2_e4",
+              "type": "multipleChoice",
+              "vocabId": "nl_ik_ben",
+              "payload": {
+                "prompt": "Which word means 'I am'?",
+                "options": [
+                  "Ik ben",
+                  "Nee",
+                  "Sorry",
+                  "Ja"
+                ],
+                "correctIndex": 0
+              }
+            },
+            {
+              "id": "nl_u1_l2_e5",
+              "type": "translation",
+              "vocabId": "nl_graag_gedaan",
+              "payload": {
+                "prompt": "Type the English meaning",
+                "sourceText": "Graag gedaan",
+                "acceptableAnswers": [
+                  "you're welcome",
+                  "You're welcome"
+                ]
+              }
+            },
+            {
+              "id": "nl_u1_l2_e6",
+              "type": "speaking",
+              "vocabId": "nl_ja",
+              "payload": {
+                "prompt": "Say this phrase out loud",
+                "targetPhrase": "Sorry, ik ben moe",
+                "translation": "Excuse me, I am tired",
+                "ttsLocale": "nl-NL"
+              }
+            },
+            {
+              "id": "nl_u1_l2_e7",
+              "type": "wordMatching",
+              "vocabId": "nl_u1_l2_set",
+              "payload": {
+                "prompt": "Match each word to its meaning",
+                "pairs": [
+                  {
+                    "left": "Ja",
+                    "right": "Yes"
+                  },
+                  {
+                    "left": "Nee",
+                    "right": "No"
+                  },
+                  {
+                    "left": "Sorry",
+                    "right": "Excuse me"
+                  },
+                  {
+                    "left": "Graag gedaan",
+                    "right": "You're welcome"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "nl_u1_l2_e8",
+              "type": "sentenceArrangement",
+              "vocabId": "nl_ja",
+              "payload": {
+                "prompt": "Build the sentence",
+                "shuffledChips": [
+                  "ben",
+                  "oké",
+                  "Ja,",
+                  "ik"
+                ],
+                "correctSentence": [
+                  "Ja,",
+                  "ik",
+                  "ben",
+                  "oké"
+                ],
+                "translation": "Yes, I am okay"
+              }
+            },
+            {
+              "id": "nl_u1_l2_e9",
+              "type": "fillInTheBlank",
+              "vocabId": "nl_sorry",
+              "payload": {
+                "prompt": "Complete the sentence",
+                "sentenceTemplate": "Nee, ___.",
+                "options": [
+                  "sorry",
+                  "oké",
+                  "ja",
+                  "graag gedaan"
+                ],
+                "correctAnswer": "sorry",
+                "translation": "No, excuse me"
+              }
+            }
+          ]
+        },
+        {
+          "id": "nl_u1_l3",
+          "title": "Polite Basics",
+          "subtitle": "Pardon, Goedenacht, Proost, Welkom, Tot ziens",
+          "icon": "manners",
+          "reviewVocabIds": [
+            "nl_hoe_gaat_het",
+            "nl_heel",
+            "nl_en",
+            "nl_dank_je"
+          ],
+          "exercises": [
+            {
+              "id": "nl_u1_l3_e1",
+              "type": "imageRecognition",
+              "vocabId": "nl_pardon",
+              "payload": {
+                "prompt": "What does this word mean?",
+                "emoji": "🙇",
+                "targetWord": "Pardon",
+                "meaning": "Excuse me please",
+                "distractorMeanings": [
+                  "Good night",
+                  "Cheers",
+                  "Welcome"
+                ],
+                "distractorWords": [
+                  "Goedenacht",
+                  "Proost",
+                  "Welkom"
+                ]
+              }
+            },
+            {
+              "id": "nl_u1_l3_e2",
+              "type": "multipleChoice",
+              "vocabId": "nl_goedenacht",
+              "payload": {
+                "prompt": "Which word means 'Good night'?",
+                "options": [
+                  "Pardon",
+                  "Welkom",
+                  "Proost",
+                  "Goedenacht"
+                ],
+                "correctIndex": 3
+              }
+            },
+            {
+              "id": "nl_u1_l3_e3",
+              "type": "listening",
+              "vocabId": "nl_proost",
+              "payload": {
+                "prompt": "Listen and select what you hear",
+                "audioText": "Proost",
+                "ttsLocale": "nl-NL",
+                "options": [
+                  "Goedenacht",
+                  "Welkom",
+                  "Pardon",
+                  "Proost"
+                ],
+                "correctIndex": 3,
+                "translation": "Cheers"
+              }
+            },
+            {
+              "id": "nl_u1_l3_e4",
+              "type": "multipleChoice",
+              "vocabId": "nl_hoe_gaat_het",
+              "payload": {
+                "prompt": "Which word means 'How are you'?",
+                "options": [
+                  "Pardon",
+                  "Hoe gaat het",
+                  "Proost",
+                  "Goedenacht"
+                ],
+                "correctIndex": 1
+              }
+            },
+            {
+              "id": "nl_u1_l3_e5",
+              "type": "translation",
+              "vocabId": "nl_welkom",
+              "payload": {
+                "prompt": "Type the English meaning",
+                "sourceText": "Welkom",
+                "acceptableAnswers": [
+                  "welcome",
+                  "Welcome"
+                ]
+              }
+            },
+            {
+              "id": "nl_u1_l3_e6",
+              "type": "speaking",
+              "vocabId": "nl_pardon",
+              "payload": {
+                "prompt": "Say this phrase out loud",
+                "targetPhrase": "Pardon, hoe gaat het?",
+                "translation": "Excuse me, how are you?",
+                "ttsLocale": "nl-NL"
+              }
+            },
+            {
+              "id": "nl_u1_l3_e7",
+              "type": "wordMatching",
+              "vocabId": "nl_u1_l3_set",
+              "payload": {
+                "prompt": "Match each word to its meaning",
+                "pairs": [
+                  {
+                    "left": "Pardon",
+                    "right": "Excuse me please"
+                  },
+                  {
+                    "left": "Goedenacht",
+                    "right": "Good night"
+                  },
+                  {
+                    "left": "Proost",
+                    "right": "Cheers"
+                  },
+                  {
+                    "left": "Welkom",
+                    "right": "Welcome"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "nl_u1_l3_e8",
+              "type": "sentenceArrangement",
+              "vocabId": "nl_pardon",
+              "payload": {
+                "prompt": "Build the sentence",
+                "shuffledChips": [
+                  "goedenacht",
+                  "en",
+                  "Welkom"
+                ],
+                "correctSentence": [
+                  "Welkom",
+                  "en",
+                  "goedenacht"
+                ],
+                "translation": "Welcome and good night"
+              }
+            },
+            {
+              "id": "nl_u1_l3_e9",
+              "type": "fillInTheBlank",
+              "vocabId": "nl_tot_ziens",
+              "payload": {
+                "prompt": "Complete the sentence",
+                "sentenceTemplate": "Dank je, ___!",
+                "options": [
+                  "proost",
+                  "heel",
+                  "welkom",
+                  "tot ziens"
+                ],
+                "correctAnswer": "tot ziens",
+                "translation": "Thank you, see you soon"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nl_u2",
+      "title": "Food & Family",
+      "description": "Talk about the people and meals you love",
+      "icon": "food",
+      "accent": "amber",
+      "lessons": [
+        {
+          "id": "nl_u2_l1",
+          "title": "Family Members",
+          "subtitle": "Moeder, Vader, Broer, Zus, Oma",
+          "icon": "family",
+          "reviewVocabIds": [
+            "nl_mijn",
+            "nl_is"
+          ],
+          "exercises": [
+            {
+              "id": "nl_u2_l1_e1",
+              "type": "imageRecognition",
+              "vocabId": "nl_moeder",
+              "payload": {
+                "prompt": "What does this word mean?",
+                "emoji": "👩",
+                "targetWord": "Moeder",
+                "meaning": "Mother",
+                "distractorMeanings": [
+                  "Father",
+                  "Brother",
+                  "Sister"
+                ],
+                "distractorWords": [
+                  "Vader",
+                  "Broer",
+                  "Zus"
+                ]
+              }
+            },
+            {
+              "id": "nl_u2_l1_e2",
+              "type": "multipleChoice",
+              "vocabId": "nl_vader",
+              "payload": {
+                "prompt": "Which word means 'Father'?",
+                "options": [
+                  "Broer",
+                  "Zus",
+                  "Vader",
+                  "Moeder"
+                ],
+                "correctIndex": 2
+              }
+            },
+            {
+              "id": "nl_u2_l1_e3",
+              "type": "listening",
+              "vocabId": "nl_broer",
+              "payload": {
+                "prompt": "Listen and select what you hear",
+                "audioText": "Broer",
+                "ttsLocale": "nl-NL",
+                "options": [
+                  "Broer",
+                  "Zus",
+                  "Vader",
+                  "Moeder"
+                ],
+                "correctIndex": 0,
+                "translation": "Brother"
+              }
+            },
+            {
+              "id": "nl_u2_l1_e4",
+              "type": "multipleChoice",
+              "vocabId": "nl_mijn",
+              "payload": {
+                "prompt": "Which word means 'My'?",
+                "options": [
+                  "Vader",
+                  "Moeder",
+                  "Mijn",
+                  "Broer"
+                ],
+                "correctIndex": 2
+              }
+            },
+            {
+              "id": "nl_u2_l1_e5",
+              "type": "translation",
+              "vocabId": "nl_zus",
+              "payload": {
+                "prompt": "Type the English meaning",
+                "sourceText": "Zus",
+                "acceptableAnswers": [
+                  "sister",
+                  "Sister"
+                ]
+              }
+            },
+            {
+              "id": "nl_u2_l1_e6",
+              "type": "speaking",
+              "vocabId": "nl_moeder",
+              "payload": {
+                "prompt": "Say this phrase out loud",
+                "targetPhrase": "Mijn zus is Anna",
+                "translation": "My sister is Anna",
+                "ttsLocale": "nl-NL"
+              }
+            },
+            {
+              "id": "nl_u2_l1_e7",
+              "type": "wordMatching",
+              "vocabId": "nl_u2_l1_set",
+              "payload": {
+                "prompt": "Match each word to its meaning",
+                "pairs": [
+                  {
+                    "left": "Moeder",
+                    "right": "Mother"
+                  },
+                  {
+                    "left": "Vader",
+                    "right": "Father"
+                  },
+                  {
+                    "left": "Broer",
+                    "right": "Brother"
+                  },
+                  {
+                    "left": "Zus",
+                    "right": "Sister"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "nl_u2_l1_e8",
+              "type": "sentenceArrangement",
+              "vocabId": "nl_moeder",
+              "payload": {
+                "prompt": "Build the sentence",
+                "shuffledChips": [
+                  "Anna",
+                  "is",
+                  "mijn",
+                  "moeder"
+                ],
+                "correctSentence": [
+                  "Anna",
+                  "is",
+                  "mijn",
+                  "moeder"
+                ],
+                "translation": "Anna is my mother"
+              }
+            },
+            {
+              "id": "nl_u2_l1_e9",
+              "type": "fillInTheBlank",
+              "vocabId": "nl_oma",
+              "payload": {
+                "prompt": "Complete the sentence",
+                "sentenceTemplate": "Mijn ___ is Rosa.",
+                "options": [
+                  "zus",
+                  "vader",
+                  "oma",
+                  "moeder"
+                ],
+                "correctAnswer": "oma",
+                "translation": "My grandmother is Rosa"
+              }
+            }
+          ]
+        },
+        {
+          "id": "nl_u2_l2",
+          "title": "Food Basics",
+          "subtitle": "Brood, Water, Appel, Kaas, Melk",
+          "icon": "food",
+          "reviewVocabIds": [
+            "nl_ik_wil",
+            "nl_ook",
+            "nl_alsjeblieft"
+          ],
+          "exercises": [
+            {
+              "id": "nl_u2_l2_e1",
+              "type": "imageRecognition",
+              "vocabId": "nl_brood",
+              "payload": {
+                "prompt": "What does this word mean?",
+                "emoji": "🍞",
+                "targetWord": "Brood",
+                "meaning": "Bread",
+                "distractorMeanings": [
+                  "Water",
+                  "Apple",
+                  "Cheese"
+                ],
+                "distractorWords": [
+                  "Water",
+                  "Appel",
+                  "Kaas"
+                ]
+              }
+            },
+            {
+              "id": "nl_u2_l2_e2",
+              "type": "multipleChoice",
+              "vocabId": "nl_water",
+              "payload": {
+                "prompt": "Which word means 'Water'?",
+                "options": [
+                  "Kaas",
+                  "Water",
+                  "Brood",
+                  "Appel"
+                ],
+                "correctIndex": 1
+              }
+            },
+            {
+              "id": "nl_u2_l2_e3",
+              "type": "listening",
+              "vocabId": "nl_appel",
+              "payload": {
+                "prompt": "Listen and select what you hear",
+                "audioText": "Appel",
+                "ttsLocale": "nl-NL",
+                "options": [
+                  "Brood",
+                  "Kaas",
+                  "Appel",
+                  "Water"
+                ],
+                "correctIndex": 2,
+                "translation": "Apple"
+              }
+            },
+            {
+              "id": "nl_u2_l2_e4",
+              "type": "multipleChoice",
+              "vocabId": "nl_ik_wil",
+              "payload": {
+                "prompt": "Which word means 'I want'?",
+                "options": [
+                  "Water",
+                  "Appel",
+                  "Brood",
+                  "Ik wil"
+                ],
+                "correctIndex": 3
+              }
+            },
+            {
+              "id": "nl_u2_l2_e5",
+              "type": "translation",
+              "vocabId": "nl_kaas",
+              "payload": {
+                "prompt": "Type the English meaning",
+                "sourceText": "Kaas",
+                "acceptableAnswers": [
+                  "cheese",
+                  "Cheese"
+                ]
+              }
+            },
+            {
+              "id": "nl_u2_l2_e6",
+              "type": "speaking",
+              "vocabId": "nl_brood",
+              "payload": {
+                "prompt": "Say this phrase out loud",
+                "targetPhrase": "Ik wil ook brood, alsjeblieft",
+                "translation": "I also want bread, please",
+                "ttsLocale": "nl-NL"
+              }
+            },
+            {
+              "id": "nl_u2_l2_e7",
+              "type": "wordMatching",
+              "vocabId": "nl_u2_l2_set",
+              "payload": {
+                "prompt": "Match each word to its meaning",
+                "pairs": [
+                  {
+                    "left": "Brood",
+                    "right": "Bread"
+                  },
+                  {
+                    "left": "Water",
+                    "right": "Water"
+                  },
+                  {
+                    "left": "Appel",
+                    "right": "Apple"
+                  },
+                  {
+                    "left": "Kaas",
+                    "right": "Cheese"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "nl_u2_l2_e8",
+              "type": "sentenceArrangement",
+              "vocabId": "nl_brood",
+              "payload": {
+                "prompt": "Build the sentence",
+                "shuffledChips": [
+                  "Ik",
+                  "kaas",
+                  "wil"
+                ],
+                "correctSentence": [
+                  "Ik",
+                  "wil",
+                  "kaas"
+                ],
+                "translation": "I want cheese"
+              }
+            },
+            {
+              "id": "nl_u2_l2_e9",
+              "type": "fillInTheBlank",
+              "vocabId": "nl_melk",
+              "payload": {
+                "prompt": "Complete the sentence",
+                "sentenceTemplate": "Ik wil ___.",
+                "options": [
+                  "water",
+                  "melk",
+                  "brood",
+                  "kaas"
+                ],
+                "correctAnswer": "melk",
+                "translation": "I want milk"
+              }
+            }
+          ]
+        },
+        {
+          "id": "nl_u2_l3",
+          "title": "At the Table",
+          "subtitle": "Tafel, Bord, Glas, Vork, Mes",
+          "icon": "table",
+          "reviewVocabIds": [
+            "nl_op",
+            "nl_de",
+            "nl_het",
+            "nl_is"
+          ],
+          "exercises": [
+            {
+              "id": "nl_u2_l3_e1",
+              "type": "imageRecognition",
+              "vocabId": "nl_tafel",
+              "payload": {
+                "prompt": "What does this word mean?",
+                "emoji": "🍽️",
+                "targetWord": "Tafel",
+                "meaning": "Table",
+                "distractorMeanings": [
+                  "Plate",
+                  "Glass",
+                  "Fork"
+                ],
+                "distractorWords": [
+                  "Bord",
+                  "Glas",
+                  "Vork"
+                ]
+              }
+            },
+            {
+              "id": "nl_u2_l3_e2",
+              "type": "multipleChoice",
+              "vocabId": "nl_bord",
+              "payload": {
+                "prompt": "Which word means 'Plate'?",
+                "options": [
+                  "Bord",
+                  "Tafel",
+                  "Glas",
+                  "Vork"
+                ],
+                "correctIndex": 0
+              }
+            },
+            {
+              "id": "nl_u2_l3_e3",
+              "type": "listening",
+              "vocabId": "nl_glas",
+              "payload": {
+                "prompt": "Listen and select what you hear",
+                "audioText": "Glas",
+                "ttsLocale": "nl-NL",
+                "options": [
+                  "Glas",
+                  "Bord",
+                  "Tafel",
+                  "Vork"
+                ],
+                "correctIndex": 0,
+                "translation": "Glass"
+              }
+            },
+            {
+              "id": "nl_u2_l3_e4",
+              "type": "multipleChoice",
+              "vocabId": "nl_op",
+              "payload": {
+                "prompt": "Which word means 'On'?",
+                "options": [
+                  "Op",
+                  "Bord",
+                  "Glas",
+                  "Tafel"
+                ],
+                "correctIndex": 0
+              }
+            },
+            {
+              "id": "nl_u2_l3_e5",
+              "type": "translation",
+              "vocabId": "nl_vork",
+              "payload": {
+                "prompt": "Type the English meaning",
+                "sourceText": "Vork",
+                "acceptableAnswers": [
+                  "fork",
+                  "Fork"
+                ]
+              }
+            },
+            {
+              "id": "nl_u2_l3_e6",
+              "type": "speaking",
+              "vocabId": "nl_tafel",
+              "payload": {
+                "prompt": "Say this phrase out loud",
+                "targetPhrase": "Het glas is op de tafel",
+                "translation": "The glass is on the table",
+                "ttsLocale": "nl-NL"
+              }
+            },
+            {
+              "id": "nl_u2_l3_e7",
+              "type": "wordMatching",
+              "vocabId": "nl_u2_l3_set",
+              "payload": {
+                "prompt": "Match each word to its meaning",
+                "pairs": [
+                  {
+                    "left": "Tafel",
+                    "right": "Table"
+                  },
+                  {
+                    "left": "Bord",
+                    "right": "Plate"
+                  },
+                  {
+                    "left": "Glas",
+                    "right": "Glass"
+                  },
+                  {
+                    "left": "Vork",
+                    "right": "Fork"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "nl_u2_l3_e8",
+              "type": "sentenceArrangement",
+              "vocabId": "nl_tafel",
+              "payload": {
+                "prompt": "Build the sentence",
+                "shuffledChips": [
+                  "De",
+                  "vork",
+                  "de",
+                  "tafel",
+                  "is",
+                  "op"
+                ],
+                "correctSentence": [
+                  "De",
+                  "vork",
+                  "is",
+                  "op",
+                  "de",
+                  "tafel"
+                ],
+                "translation": "The fork is on the table"
+              }
+            },
+            {
+              "id": "nl_u2_l3_e9",
+              "type": "fillInTheBlank",
+              "vocabId": "nl_mes",
+              "payload": {
+                "prompt": "Complete the sentence",
+                "sentenceTemplate": "Het ___ is op de tafel.",
+                "options": [
+                  "mes",
+                  "glas",
+                  "bord",
+                  "brood"
+                ],
+                "correctAnswer": "mes",
+                "translation": "The knife is on the table"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nl_u3",
+      "title": "Numbers & Travel",
+      "description": "Count, navigate, and travel with confidence",
+      "icon": "travel",
+      "accent": "teal",
+      "lessons": [
+        {
+          "id": "nl_u3_l1",
+          "title": "Numbers 1-10",
+          "subtitle": "Een, Twee, Drie, Vier, Vijf",
+          "icon": "numbers",
+          "reviewVocabIds": [
+            "nl_jaar_oud",
+            "nl_ik_heb",
+            "nl_ik_ben",
+            "nl_vijf"
+          ],
+          "exercises": [
+            {
+              "id": "nl_u3_l1_e1",
+              "type": "imageRecognition",
+              "vocabId": "nl_een",
+              "payload": {
+                "prompt": "What does this word mean?",
+                "emoji": "1️⃣",
+                "targetWord": "Een",
+                "meaning": "One",
+                "distractorMeanings": [
+                  "Two",
+                  "Three",
+                  "Four"
+                ],
+                "distractorWords": [
+                  "Twee",
+                  "Drie",
+                  "Vier"
+                ]
+              }
+            },
+            {
+              "id": "nl_u3_l1_e2",
+              "type": "multipleChoice",
+              "vocabId": "nl_twee",
+              "payload": {
+                "prompt": "Which word means 'Two'?",
+                "options": [
+                  "Een",
+                  "Drie",
+                  "Vier",
+                  "Twee"
+                ],
+                "correctIndex": 3
+              }
+            },
+            {
+              "id": "nl_u3_l1_e3",
+              "type": "listening",
+              "vocabId": "nl_drie",
+              "payload": {
+                "prompt": "Listen and select what you hear",
+                "audioText": "Drie",
+                "ttsLocale": "nl-NL",
+                "options": [
+                  "Een",
+                  "Vier",
+                  "Twee",
+                  "Drie"
+                ],
+                "correctIndex": 3,
+                "translation": "Three"
+              }
+            },
+            {
+              "id": "nl_u3_l1_e4",
+              "type": "multipleChoice",
+              "vocabId": "nl_jaar_oud",
+              "payload": {
+                "prompt": "Which word means 'Years old'?",
+                "options": [
+                  "Een",
+                  "Jaar oud",
+                  "Drie",
+                  "Twee"
+                ],
+                "correctIndex": 1
+              }
+            },
+            {
+              "id": "nl_u3_l1_e5",
+              "type": "translation",
+              "vocabId": "nl_vier",
+              "payload": {
+                "prompt": "Type the English meaning",
+                "sourceText": "Vier",
+                "acceptableAnswers": [
+                  "four",
+                  "Four"
+                ]
+              }
+            },
+            {
+              "id": "nl_u3_l1_e6",
+              "type": "speaking",
+              "vocabId": "nl_een",
+              "payload": {
+                "prompt": "Say this phrase out loud",
+                "targetPhrase": "Ik ben vijf jaar oud",
+                "translation": "I am five years old",
+                "ttsLocale": "nl-NL"
+              }
+            },
+            {
+              "id": "nl_u3_l1_e7",
+              "type": "wordMatching",
+              "vocabId": "nl_u3_l1_set",
+              "payload": {
+                "prompt": "Match each word to its meaning",
+                "pairs": [
+                  {
+                    "left": "Een",
+                    "right": "One"
+                  },
+                  {
+                    "left": "Twee",
+                    "right": "Two"
+                  },
+                  {
+                    "left": "Drie",
+                    "right": "Three"
+                  },
+                  {
+                    "left": "Vier",
+                    "right": "Four"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "nl_u3_l1_e8",
+              "type": "sentenceArrangement",
+              "vocabId": "nl_een",
+              "payload": {
+                "prompt": "Build the sentence",
+                "shuffledChips": [
+                  "vier",
+                  "oud",
+                  "Ik",
+                  "ben",
+                  "jaar"
+                ],
+                "correctSentence": [
+                  "Ik",
+                  "ben",
+                  "vier",
+                  "jaar",
+                  "oud"
+                ],
+                "translation": "I am four years old"
+              }
+            },
+            {
+              "id": "nl_u3_l1_e9",
+              "type": "fillInTheBlank",
+              "vocabId": "nl_drie",
+              "payload": {
+                "prompt": "Complete the sentence",
+                "sentenceTemplate": "Ik ben ___ jaar oud.",
+                "options": [
+                  "een",
+                  "twee",
+                  "vier",
+                  "drie"
+                ],
+                "correctAnswer": "drie",
+                "translation": "I am three years old"
+              }
+            }
+          ]
+        },
+        {
+          "id": "nl_u3_l2",
+          "title": "Getting Around",
+          "subtitle": "Links, Rechts, Rechtdoor, Straat, Station",
+          "icon": "directions",
+          "reviewVocabIds": [
+            "nl_waar_is",
+            "nl_de",
+            "nl_het",
+            "nl_is",
+            "nl_station"
+          ],
+          "exercises": [
+            {
+              "id": "nl_u3_l2_e1",
+              "type": "imageRecognition",
+              "vocabId": "nl_links",
+              "payload": {
+                "prompt": "What does this word mean?",
+                "emoji": "⬅️",
+                "targetWord": "Links",
+                "meaning": "Left",
+                "distractorMeanings": [
+                  "Right",
+                  "Straight ahead",
+                  "Street"
+                ],
+                "distractorWords": [
+                  "Rechts",
+                  "Rechtdoor",
+                  "Straat"
+                ]
+              }
+            },
+            {
+              "id": "nl_u3_l2_e2",
+              "type": "multipleChoice",
+              "vocabId": "nl_rechts",
+              "payload": {
+                "prompt": "Which word means 'Right'?",
+                "options": [
+                  "Rechts",
+                  "Rechtdoor",
+                  "Straat",
+                  "Links"
+                ],
+                "correctIndex": 0
+              }
+            },
+            {
+              "id": "nl_u3_l2_e3",
+              "type": "listening",
+              "vocabId": "nl_rechtdoor",
+              "payload": {
+                "prompt": "Listen and select what you hear",
+                "audioText": "Rechtdoor",
+                "ttsLocale": "nl-NL",
+                "options": [
+                  "Rechts",
+                  "Straat",
+                  "Rechtdoor",
+                  "Links"
+                ],
+                "correctIndex": 2,
+                "translation": "Straight ahead"
+              }
+            },
+            {
+              "id": "nl_u3_l2_e4",
+              "type": "multipleChoice",
+              "vocabId": "nl_waar_is",
+              "payload": {
+                "prompt": "Which word means 'Where is'?",
+                "options": [
+                  "Rechts",
+                  "Links",
+                  "Waar is",
+                  "Rechtdoor"
+                ],
+                "correctIndex": 2
+              }
+            },
+            {
+              "id": "nl_u3_l2_e5",
+              "type": "translation",
+              "vocabId": "nl_straat",
+              "payload": {
+                "prompt": "Type the English meaning",
+                "sourceText": "Straat",
+                "acceptableAnswers": [
+                  "street",
+                  "Street"
+                ]
+              }
+            },
+            {
+              "id": "nl_u3_l2_e6",
+              "type": "speaking",
+              "vocabId": "nl_links",
+              "payload": {
+                "prompt": "Say this phrase out loud",
+                "targetPhrase": "Waar is het station?",
+                "translation": "Where is the station?",
+                "ttsLocale": "nl-NL"
+              }
+            },
+            {
+              "id": "nl_u3_l2_e7",
+              "type": "wordMatching",
+              "vocabId": "nl_u3_l2_set",
+              "payload": {
+                "prompt": "Match each word to its meaning",
+                "pairs": [
+                  {
+                    "left": "Links",
+                    "right": "Left"
+                  },
+                  {
+                    "left": "Rechts",
+                    "right": "Right"
+                  },
+                  {
+                    "left": "Rechtdoor",
+                    "right": "Straight ahead"
+                  },
+                  {
+                    "left": "Straat",
+                    "right": "Street"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "nl_u3_l2_e8",
+              "type": "sentenceArrangement",
+              "vocabId": "nl_links",
+              "payload": {
+                "prompt": "Build the sentence",
+                "shuffledChips": [
+                  "de",
+                  "is",
+                  "Waar",
+                  "straat"
+                ],
+                "correctSentence": [
+                  "Waar",
+                  "is",
+                  "de",
+                  "straat"
+                ],
+                "translation": "Where is the street?"
+              }
+            },
+            {
+              "id": "nl_u3_l2_e9",
+              "type": "fillInTheBlank",
+              "vocabId": "nl_links",
+              "payload": {
+                "prompt": "Complete the sentence",
+                "sentenceTemplate": "Het station is ___.",
+                "options": [
+                  "links",
+                  "rechtdoor",
+                  "straat",
+                  "rechts"
+                ],
+                "correctAnswer": "links",
+                "translation": "The station is on the left"
+              }
+            }
+          ]
+        },
+        {
+          "id": "nl_u3_l3",
+          "title": "Travel Phrases",
+          "subtitle": "Vliegveld, Hotel, Kaartje, Trein, Koffer",
+          "icon": "travel",
+          "reviewVocabIds": [
+            "nl_dichtbij",
+            "nl_de",
+            "nl_het",
+            "nl_is",
+            "nl_waar_is",
+            "nl_koffer"
+          ],
+          "exercises": [
+            {
+              "id": "nl_u3_l3_e1",
+              "type": "imageRecognition",
+              "vocabId": "nl_vliegveld",
+              "payload": {
+                "prompt": "What does this word mean?",
+                "emoji": "✈️",
+                "targetWord": "Vliegveld",
+                "meaning": "Airport",
+                "distractorMeanings": [
+                  "Hotel",
+                  "Ticket",
+                  "Train"
+                ],
+                "distractorWords": [
+                  "Hotel",
+                  "Kaartje",
+                  "Trein"
+                ]
+              }
+            },
+            {
+              "id": "nl_u3_l3_e2",
+              "type": "multipleChoice",
+              "vocabId": "nl_hotel",
+              "payload": {
+                "prompt": "Which word means 'Hotel'?",
+                "options": [
+                  "Trein",
+                  "Hotel",
+                  "Vliegveld",
+                  "Kaartje"
+                ],
+                "correctIndex": 1
+              }
+            },
+            {
+              "id": "nl_u3_l3_e3",
+              "type": "listening",
+              "vocabId": "nl_kaartje",
+              "payload": {
+                "prompt": "Listen and select what you hear",
+                "audioText": "Kaartje",
+                "ttsLocale": "nl-NL",
+                "options": [
+                  "Vliegveld",
+                  "Trein",
+                  "Kaartje",
+                  "Hotel"
+                ],
+                "correctIndex": 2,
+                "translation": "Ticket"
+              }
+            },
+            {
+              "id": "nl_u3_l3_e4",
+              "type": "multipleChoice",
+              "vocabId": "nl_dichtbij",
+              "payload": {
+                "prompt": "Which word means 'Nearby'?",
+                "options": [
+                  "Hotel",
+                  "Kaartje",
+                  "Vliegveld",
+                  "Dichtbij"
+                ],
+                "correctIndex": 3
+              }
+            },
+            {
+              "id": "nl_u3_l3_e5",
+              "type": "translation",
+              "vocabId": "nl_trein",
+              "payload": {
+                "prompt": "Type the English meaning",
+                "sourceText": "Trein",
+                "acceptableAnswers": [
+                  "train",
+                  "Train"
+                ]
+              }
+            },
+            {
+              "id": "nl_u3_l3_e6",
+              "type": "speaking",
+              "vocabId": "nl_vliegveld",
+              "payload": {
+                "prompt": "Say this phrase out loud",
+                "targetPhrase": "De trein is dichtbij",
+                "translation": "The train is nearby",
+                "ttsLocale": "nl-NL"
+              }
+            },
+            {
+              "id": "nl_u3_l3_e7",
+              "type": "wordMatching",
+              "vocabId": "nl_u3_l3_set",
+              "payload": {
+                "prompt": "Match each word to its meaning",
+                "pairs": [
+                  {
+                    "left": "Vliegveld",
+                    "right": "Airport"
+                  },
+                  {
+                    "left": "Hotel",
+                    "right": "Hotel"
+                  },
+                  {
+                    "left": "Kaartje",
+                    "right": "Ticket"
+                  },
+                  {
+                    "left": "Trein",
+                    "right": "Train"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "nl_u3_l3_e8",
+              "type": "sentenceArrangement",
+              "vocabId": "nl_vliegveld",
+              "payload": {
+                "prompt": "Build the sentence",
+                "shuffledChips": [
+                  "de",
+                  "trein",
+                  "is",
+                  "Waar"
+                ],
+                "correctSentence": [
+                  "Waar",
+                  "is",
+                  "de",
+                  "trein"
+                ],
+                "translation": "Where is the train?"
+              }
+            },
+            {
+              "id": "nl_u3_l3_e9",
+              "type": "fillInTheBlank",
+              "vocabId": "nl_hotel",
+              "payload": {
+                "prompt": "Complete the sentence",
+                "sentenceTemplate": "Het ___ is dichtbij.",
+                "options": [
+                  "vliegveld",
+                  "hotel",
+                  "kaartje",
+                  "trein"
+                ],
+                "correctAnswer": "hotel",
+                "translation": "The hotel is nearby"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "placementQuestions": [
+    {
+      "id": "p1",
+      "prompt": "What does 'Hallo' mean?",
+      "options": [
+        "Goodbye",
+        "Hello",
+        "Thank you",
+        "Please"
+      ],
+      "correctIndex": 1,
+      "unlocksUnitIndex": 0
+    },
+    {
+      "id": "p2",
+      "prompt": "What does 'Alsjeblieft' mean?",
+      "options": [
+        "Please",
+        "Good evening",
+        "Yes",
+        "No"
+      ],
+      "correctIndex": 0,
+      "unlocksUnitIndex": 0
+    },
+    {
+      "id": "p3",
+      "prompt": "What does 'Goedenavond' mean?",
+      "options": [
+        "Excuse me",
+        "You're welcome",
+        "Okay",
+        "Good evening"
+      ],
+      "correctIndex": 3,
+      "unlocksUnitIndex": 0
+    },
+    {
+      "id": "p4",
+      "prompt": "What does 'Moeder' mean?",
+      "options": [
+        "Brother",
+        "Father",
+        "Mother",
+        "Sister"
+      ],
+      "correctIndex": 2,
+      "unlocksUnitIndex": 1
+    },
+    {
+      "id": "p5",
+      "prompt": "What does 'Broer' mean?",
+      "options": [
+        "Grandmother",
+        "Bread",
+        "Water",
+        "Brother"
+      ],
+      "correctIndex": 3,
+      "unlocksUnitIndex": 1
+    },
+    {
+      "id": "p6",
+      "prompt": "What does 'Oma' mean?",
+      "options": [
+        "Grandmother",
+        "Cheese",
+        "Milk",
+        "Apple"
+      ],
+      "correctIndex": 0,
+      "unlocksUnitIndex": 1
+    },
+    {
+      "id": "p7",
+      "prompt": "What does 'Een' mean?",
+      "options": [
+        "Three",
+        "Four",
+        "Two",
+        "One"
+      ],
+      "correctIndex": 3,
+      "unlocksUnitIndex": 2
+    },
+    {
+      "id": "p8",
+      "prompt": "What does 'Drie' mean?",
+      "options": [
+        "Three",
+        "Right",
+        "Left",
+        "Five"
+      ],
+      "correctIndex": 0,
+      "unlocksUnitIndex": 2
+    }
+  ]
+}

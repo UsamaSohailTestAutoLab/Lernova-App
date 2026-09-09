@@ -9,6 +9,8 @@ import '../../../core/routing/app_routes.dart';
 import '../../../core/theme/app_colors.dart';
 import '../../../data/repositories/fun_content_providers.dart';
 import '../../onboarding/application/user_controller.dart';
+import '../../preview/application/retry_preview.dart';
+import '../../preview/application/vocab_preview_builder.dart';
 import '../application/fun_sentence_builder_session_controller.dart';
 import 'widgets/fun_results_shell.dart';
 
@@ -49,7 +51,17 @@ class _FunSentenceBuilderResultsScreenState
           totalRounds: session.totalRounds,
           random: Random(),
         );
-    if (mounted) context.pushReplacement(AppRoutes.funSentenceBuilderPlay);
+    if (!mounted) return;
+    final roundPhrases = ref.read(funSentenceBuilderSessionProvider)!.pool;
+    pushRetryPreview(
+      context,
+      items: [
+        for (final p in roundPhrases)
+          VocabPreviewBuilder.fromPhrase(p, languageId: languageId),
+      ],
+      levelLabel: 'Sentence Builder',
+      onStartRoute: AppRoutes.funSentenceBuilderPlay,
+    );
   }
 
   void _done() {

@@ -14,6 +14,8 @@ class TtsLocales {
     'de': 'de-DE',
     'it': 'it-IT',
     'pt': 'pt-PT',
+    'nl': 'nl-NL',
+    'zh': 'zh-CN',
     'ru': 'ru-RU',
     'ar': 'ar-SA',
     'ja': 'ja-JP',

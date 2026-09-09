@@ -2,9 +2,10 @@ import 'package:confetti/confetti.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/theme/app_colors.dart';
+import '../../../../core/theme/app_decor.dart';
 import '../../../../core/theme/app_spacing.dart';
 import '../../../../core/widgets/app_buttons.dart';
-import '../../../../core/widgets/spark_mascot.dart';
+import '../../../../core/widgets/lernova_parrot.dart';
 
 /// One stat shown in a [FunResultsShell]'s stat row.
 class FunResultStat {
@@ -68,7 +69,12 @@ class FunResultsShell extends StatelessWidget {
               child: Column(
                 children: [
                   const Spacer(),
-                  SparkMascot(size: 120, mood: success ? SparkMood.celebrate : SparkMood.sad),
+                  // The same parrot that opens a level, so finishing one
+                  // and starting one read as the same app.
+                  LernovaParrot(
+                    size: 130,
+                    mood: success ? LernovaParrotMood.celebrate : LernovaParrotMood.sad,
+                  ),
                   const SizedBox(height: AppSpacing.lg),
                   Text(
                     success ? 'Level Complete! 🎉' : 'Almost there! 💪',
@@ -112,7 +118,10 @@ class FunResultsShell extends StatelessWidget {
                         vertical: AppSpacing.sm,
                       ),
                       decoration: BoxDecoration(
-                        color: AppColors.successLight,
+                        // tint(), not the raw successLight literal, which
+                        // is a pale mint that light text vanishes into in
+                        // dark mode.
+                        color: context.decor.tint(AppColors.success),
                         borderRadius: BorderRadius.circular(AppSpacing.xl),
                       ),
                       child: Text(

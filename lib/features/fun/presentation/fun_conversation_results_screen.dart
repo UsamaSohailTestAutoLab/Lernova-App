@@ -45,7 +45,11 @@ class _FunConversationResultsScreenState extends ConsumerState<FunConversationRe
           totalConversations: session.totalConversations,
           random: Random(),
         );
-    if (mounted) context.pushReplacement(AppRoutes.funConversationPlay);
+    if (!mounted) return;
+    // Straight back in: the walkthrough at the head of each dialogue is
+    // this mode's review step, so a separate one would just be a card
+    // repeating the scenario.
+    context.pushReplacement(AppRoutes.funConversationPlay);
   }
 
   void _done() {

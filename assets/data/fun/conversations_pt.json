@@ -1,0 +1,170 @@
+[
+  {
+    "id": "pt_conv_cafe",
+    "title": "At the Café",
+    "scenario": "You are ordering a coffee at a café.",
+    "languageId": "pt",
+    "turns": [
+      {
+        "id": "pt_conv_cafe_t1",
+        "line": "Olá! O que deseja?",
+        "lineEnglish": "Hello! What would you like?",
+        "options": [
+          "Eu quero um café, por favor",
+          "Olá, adeus",
+          "Eu tenho um cão"
+        ],
+        "optionsEnglish": [
+          "I want a coffee, please",
+          "Hello, goodbye",
+          "I have a dog"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "pt_conv_cafe_t2",
+        "line": "Mais alguma coisa?",
+        "lineEnglish": "Anything else?",
+        "options": [
+          "Não, obrigado",
+          "Sim, eu quero um gato",
+          "Boa noite"
+        ],
+        "optionsEnglish": [
+          "No, thank you",
+          "Yes, I want a cat",
+          "Good night"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "pt_conv_cafe_t3",
+        "line": "Aqui está o seu café. Bom dia!",
+        "lineEnglish": "Here is your coffee. Have a good day!",
+        "options": [
+          "Obrigado, adeus",
+          "Onde está a estação?",
+          "Eu tenho cinco anos"
+        ],
+        "optionsEnglish": [
+          "Thank you, goodbye",
+          "Where is the station?",
+          "I am five years old"
+        ],
+        "correctIndex": 0
+      }
+    ]
+  },
+  {
+    "id": "pt_conv_directions",
+    "title": "Asking Directions",
+    "scenario": "You are lost and need to find the station.",
+    "languageId": "pt",
+    "turns": [
+      {
+        "id": "pt_conv_directions_t1",
+        "line": "Olá, posso ajudar?",
+        "lineEnglish": "Hello, can I help?",
+        "options": [
+          "Onde está a estação, por favor?",
+          "Eu quero o queijo",
+          "Minha mãe é Anna"
+        ],
+        "optionsEnglish": [
+          "Where is the station, please?",
+          "I want the cheese",
+          "My mother is Anna"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "pt_conv_directions_t2",
+        "line": "É em frente, depois à esquerda.",
+        "lineEnglish": "It is straight ahead, then on the left.",
+        "options": [
+          "Muito obrigado",
+          "Não, desculpe",
+          "Eu tenho quatro anos"
+        ],
+        "optionsEnglish": [
+          "Thank you very much",
+          "No, excuse me",
+          "I am four years old"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "pt_conv_directions_t3",
+        "line": "Está bem perto. Boa viagem!",
+        "lineEnglish": "It is very near. Have a good trip!",
+        "options": [
+          "Obrigado, até logo",
+          "A faca está na mesa",
+          "Bem-vindo"
+        ],
+        "optionsEnglish": [
+          "Thank you, see you soon",
+          "The knife is on the table",
+          "Welcome"
+        ],
+        "correctIndex": 0
+      }
+    ]
+  },
+  {
+    "id": "pt_conv_hotel",
+    "title": "Hotel Check-in",
+    "scenario": "You are checking in at a hotel.",
+    "languageId": "pt",
+    "turns": [
+      {
+        "id": "pt_conv_hotel_t1",
+        "line": "Boa noite, tem reserva?",
+        "lineEnglish": "Good evening, do you have a reservation?",
+        "options": [
+          "Sim, meu nome é Anna",
+          "Não, eu tenho um cavalo",
+          "O copo está na mesa"
+        ],
+        "optionsEnglish": [
+          "Yes, my name is Anna",
+          "No, I have a horse",
+          "The glass is on the table"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "pt_conv_hotel_t2",
+        "line": "Aqui está a chave. Quarto três.",
+        "lineEnglish": "Here is the key. Room three.",
+        "options": [
+          "Obrigado, tudo bem",
+          "Onde está a maçã?",
+          "Eu tenho dez cães"
+        ],
+        "optionsEnglish": [
+          "Thank you, okay",
+          "Where is the apple?",
+          "I have ten dogs"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "pt_conv_hotel_t3",
+        "line": "O pequeno-almoço é às sete.",
+        "lineEnglish": "Breakfast is at seven.",
+        "options": [
+          "Muito bom, boa noite",
+          "Desculpe, eu estou cansado",
+          "Bem-vindo e obrigado"
+        ],
+        "optionsEnglish": [
+          "Very good, good night",
+          "Excuse me, I am tired",
+          "Welcome and thank you"
+        ],
+        "correctIndex": 0
+      }
+    ]
+  }
+]

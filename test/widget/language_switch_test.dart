@@ -136,6 +136,13 @@ void main() {
     expect(find.text('Learning now'), findsOneWidget);
     // Spanish is three lessons in; the rest have never been opened.
     expect(find.text('Not started'), findsWidgets);
+
+    // A list of languages does not say what tapping one does, so the
+    // screen has to: a banner naming the action, and section headings
+    // that separate "what I am on" from "what I can move to".
+    expect(find.text('Switch your language here'), findsOneWidget);
+    expect(find.text('Currently learning'), findsOneWidget);
+    expect(find.text('Switch to another language'), findsOneWidget);
   });
 
   testWidgets('switching parks Spanish and starts French from the beginning',

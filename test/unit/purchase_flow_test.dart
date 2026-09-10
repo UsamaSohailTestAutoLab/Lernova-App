@@ -18,21 +18,31 @@ class FakePurchaseService implements PurchaseService {
   final _controller = StreamController<PurchaseUpdate>.broadcast();
 
   bool available = true;
+  // Deliberately out of price order: the controller is what has to
+  // sort them, so the fixture must not do it for free.
   List<ProductDetails> catalogue = [
     ProductDetails(
       id: ProProducts.monthly,
-      title: 'Lernova Pro (Yearly)',
-      description: 'A year of Pro',
-      price: r'$59.99',
-      rawPrice: 59.99,
-      currencyCode: 'USD',
-    ),
-    ProductDetails(
-      id: ProProducts.weekly,
       title: 'Lernova Pro (Monthly)',
       description: 'A month of Pro',
       price: r'$6.99',
       rawPrice: 6.99,
+      currencyCode: 'USD',
+    ),
+    ProductDetails(
+      id: ProProducts.weekly,
+      title: 'Lernova Pro (Weekly)',
+      description: 'A week of Pro',
+      price: r'$2.99',
+      rawPrice: 2.99,
+      currencyCode: 'USD',
+    ),
+    ProductDetails(
+      id: ProProducts.yearly,
+      title: 'Lernova Pro (Yearly)',
+      description: 'A year of Pro',
+      price: r'$59.99',
+      rawPrice: 59.99,
       currencyCode: 'USD',
     ),
   ];
@@ -99,11 +109,18 @@ void main() {
 
   group('products', () {
     test('prices come from the store, never from the app', () async {
-      expect(state().products, hasLength(2));
-      expect(state().products.map((p) => p.price), containsAll([r'$59.99', r'$6.99']));
-      // Longer period first, so "best value" reads top-down.
-      expect(state().products.first.id, ProProducts.monthly);
-      expect(state().selectedProduct?.id, ProProducts.monthly);
+      expect(state().products, hasLength(3));
+      expect(
+        state().products.map((p) => p.price),
+        containsAll([r'$59.99', r'$6.99', r'$2.99']),
+      );
+      // Longest period first, so "best value" reads top-down, and it is
+      // the plan preselected when the learner has not chosen one.
+      expect(
+        state().products.map((p) => p.id),
+        [ProProducts.yearly, ProProducts.monthly, ProProducts.weekly],
+      );
+      expect(state().selectedProduct?.id, ProProducts.yearly);
     });
 
     test('an unreachable store leaves no products rather than a fake price', () async {

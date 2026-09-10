@@ -45,6 +45,13 @@ runtime, so a price change is a store change and never an app release.
 |---|---|
 | `com.weekly.learning` | 1 week |
 | `com.monthly.learning` | 1 month |
+| `com.yearly.learning` | 1 year |
+
+All three belong to one subscription group, so a learner can move
+between them rather than holding two at once. The longest period is
+shown first and carries the "Best value" badge — the Pro screen sorts by
+the store's own price, so that ordering follows the prices you set
+rather than the order the ids are declared in.
 
 The same two ids are used on both stores, so each product created in App
 Store Connect must be created verbatim in the Play Console as well.

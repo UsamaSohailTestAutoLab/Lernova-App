@@ -32,6 +32,7 @@ flutter:
   assets:
     - assets/data/
     - assets/data/fun/
+    - assets/images/
 
   # Bundled so headings render correctly offline (google_fonts fetches at
   # runtime otherwise) and so Arabic renders without a network round trip

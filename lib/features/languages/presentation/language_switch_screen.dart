@@ -7,10 +7,13 @@ import '../../../core/theme/app_colors.dart';
 import '../../../core/theme/app_decor.dart';
 import '../../../core/theme/app_radius_ext.dart';
 import '../../../core/theme/app_spacing.dart';
+import '../../../core/widgets/app_background.dart';
+import '../../../core/widgets/app_card.dart';
 import '../../../core/widgets/app_dialogs.dart';
 import '../../../core/widgets/app_pill.dart';
 import '../../../core/widgets/app_snackbar.dart';
 import '../../../core/widgets/lernova_parrot.dart';
+import '../../../core/widgets/section_header.dart';
 import '../../../core/widgets/state_views.dart';
 import '../application/language_switch_controller.dart';
 
@@ -95,90 +98,153 @@ class _LanguageSwitchScreenState extends ConsumerState<LanguageSwitchScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
     final summariesAsync = ref.watch(languageSummariesProvider);
 
-    return Scaffold(
-      backgroundColor: Colors.transparent,
-      appBar: AppBar(
-        title: const Text('Switch language'),
-        // Explicit rather than automatic: this screen is opened from
-        // Home, from Settings, and from inside a lesson that gets torn
-        // down on the way here — the last of which can leave nothing to
-        // pop and so no arrow at all.
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back_rounded),
-          tooltip: 'Back',
-          onPressed: _leave,
-        ),
-      ),
-      // The header stays put while the list scrolls under it. With ten
-      // languages the list is the screen; a mascot that scrolls away
-      // takes the explanation of what the screen does with it.
-      body: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.fromLTRB(
-              AppSpacing.lg,
-              0,
-              AppSpacing.lg,
-              AppSpacing.md,
-            ),
-            child: Column(
-              children: [
-                const LernovaParrot(size: 56),
-                const SizedBox(height: AppSpacing.sm),
-                Text(
-                  'Every language keeps its own progress',
-                  textAlign: TextAlign.center,
-                  style: theme.textTheme.titleMedium,
-                ),
-                const SizedBox(height: AppSpacing.xs),
-                Text(
-                  'Switch whenever you like — you come back to exactly '
-                  'where you stopped.',
-                  textAlign: TextAlign.center,
-                  style: theme.textTheme.bodySmall?.copyWith(
-                    color: theme.colorScheme.onSurfaceVariant,
-                  ),
-                ),
-              ],
-            ),
+    // Painted rather than left transparent: this screen is *pushed*, not
+    // a tab, so there is no shell backdrop behind it to show through —
+    // a see-through scaffold here just exposed black.
+    return AppBackground(
+      variant: AppBackdrop.brand,
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
+        appBar: AppBar(
+          backgroundColor: Colors.transparent,
+          title: const Text('Languages'),
+          // Explicit rather than automatic: this screen is opened from
+          // Home, from Settings, and from inside a lesson that gets torn
+          // down on the way here — the last of which can leave nothing
+          // to pop, and so no arrow at all.
+          leading: IconButton(
+            icon: const Icon(Icons.arrow_back_rounded),
+            tooltip: 'Back',
+            onPressed: _leave,
           ),
-          Expanded(
-            child: summariesAsync.when(
-              data: (summaries) => ListView.separated(
-                padding: const EdgeInsets.fromLTRB(
+        ),
+        // The banner stays put while the list scrolls under it. With ten
+        // languages the list is the screen, and a banner that scrolls
+        // away takes the explanation of what the screen does with it.
+        body: SafeArea(
+          top: false,
+          child: Column(
+            children: [
+              const Padding(
+                padding: EdgeInsets.fromLTRB(
                   AppSpacing.lg,
                   0,
                   AppSpacing.lg,
-                  AppSpacing.xl,
+                  AppSpacing.md,
                 ),
-                itemCount: summaries.length,
-                separatorBuilder: (context, index) =>
-                    const SizedBox(height: AppSpacing.md),
-                itemBuilder: (context, i) => _LanguageCard(
-                  summary: summaries[i],
-                  busy: _switching,
-                  onTap: () => _select(summaries[i]),
-                ),
+                child: _SwitchBanner(),
               ),
-              loading: () => ListView(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: AppSpacing.lg,
-                ),
-                children: List.generate(
-                  5,
-                  (_) => const Padding(
-                    padding: EdgeInsets.only(bottom: AppSpacing.md),
-                    child: SkeletonBox(height: 92),
+              Expanded(
+                child: summariesAsync.when(
+                  data: _buildList,
+                  loading: () => ListView(
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: AppSpacing.lg),
+                    children: List.generate(
+                      5,
+                      (_) => const Padding(
+                        padding: EdgeInsets.only(bottom: AppSpacing.md),
+                        child: SkeletonBox(height: 104),
+                      ),
+                    ),
+                  ),
+                  error: (e, st) => ErrorStateView(
+                    message: 'Could not load languages.',
+                    onRetry: () => ref.invalidate(languageSummariesProvider),
                   ),
                 ),
               ),
-              error: (e, st) => ErrorStateView(
-                message: 'Could not load languages.',
-                onRetry: () => ref.invalidate(languageSummariesProvider),
-              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  /// Split in two, because the two halves answer different questions:
+  /// the first is "what am I on", the rest is "what can I move to". The
+  /// section heading is also where the *action* gets named — a list of
+  /// languages does not otherwise say what tapping one will do.
+  Widget _buildList(List<LanguageSummary> summaries) {
+    final active = [for (final s in summaries) if (s.isActive) s];
+    final others = [for (final s in summaries) if (!s.isActive) s];
+
+    return ListView(
+      padding: const EdgeInsets.fromLTRB(
+        AppSpacing.lg,
+        0,
+        AppSpacing.lg,
+        AppSpacing.xl,
+      ),
+      children: [
+        if (active.isNotEmpty) ...[
+          const SectionHeader(title: 'Currently learning', dense: true),
+          for (final summary in active)
+            _LanguageCard(
+              summary: summary,
+              busy: _switching,
+              onTap: () => _select(summary),
+            ),
+          const SizedBox(height: AppSpacing.lg),
+        ],
+        if (others.isNotEmpty) ...[
+          const SectionHeader(
+            title: 'Switch to another language',
+            subtitle: 'Tap one to start learning it instead.',
+            dense: true,
+          ),
+          for (final summary in others) ...[
+            _LanguageCard(
+              summary: summary,
+              busy: _switching,
+              onTap: () => _select(summary),
+            ),
+            const SizedBox(height: AppSpacing.md),
+          ],
+        ],
+      ],
+    );
+  }
+}
+
+/// Says what the screen is for, in the one place a learner looks first.
+class _SwitchBanner extends StatelessWidget {
+  const _SwitchBanner();
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
+    return AppCard(
+      variant: AppCardVariant.tinted,
+      tint: AppColors.primary,
+      padding: const EdgeInsets.all(AppSpacing.md),
+      child: Row(
+        children: [
+          const LernovaParrot(size: 54),
+          const SizedBox(width: AppSpacing.md),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(
+                  'Switch your language here',
+                  style: theme.textTheme.titleMedium
+                      ?.copyWith(fontWeight: FontWeight.w800),
+                ),
+                const SizedBox(height: 2),
+                Text(
+                  'Every language keeps its own lessons, XP and streak, so '
+                  'you always come back to where you stopped.',
+                  style: theme.textTheme.bodySmall?.copyWith(
+                    color: theme.colorScheme.onSurfaceVariant,
+                    height: 1.3,
+                  ),
+                ),
+              ],
             ),
           ),
         ],
@@ -206,6 +272,10 @@ class _LanguageCard extends StatelessWidget {
     final active = summary.isActive;
     final available = summary.isAvailable;
 
+    final done = summary.lessonsCompleted;
+    final total = summary.totalLessons;
+    final ratio = total == 0 ? 0.0 : (done / total).clamp(0.0, 1.0);
+
     return Opacity(
       opacity: available ? 1 : 0.55,
       child: Material(
@@ -215,7 +285,7 @@ class _LanguageCard extends StatelessWidget {
           borderRadius: BorderRadius.circular(AppRadius.card),
           onTap: busy ? null : onTap,
           child: Container(
-            padding: const EdgeInsets.all(AppSpacing.lg),
+            padding: const EdgeInsets.all(AppSpacing.md),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(AppRadius.card),
               border: Border.all(
@@ -223,82 +293,113 @@ class _LanguageCard extends StatelessWidget {
                 width: active ? 2 : 1,
               ),
             ),
-            child: Row(
+            child: Column(
               children: [
-                Text(
-                  summary.language.flagEmoji,
-                  style: const TextStyle(fontSize: 34),
-                ),
-                const SizedBox(width: AppSpacing.md),
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
+                Row(
+                  children: [
+                    // The flag gets a fixed tile rather than sitting as
+                    // bare text: emoji flags differ in width by platform
+                    // and script, and a shifting left edge made the
+                    // names fail to line up down the list.
+                    Container(
+                      width: 52,
+                      height: 52,
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                        color: surfaceColors.surface,
+                        borderRadius: BorderRadius.circular(AppRadius.sm),
+                        border: Border.all(color: surfaceColors.border),
+                      ),
+                      child: Text(
+                        summary.language.flagEmoji,
+                        style: const TextStyle(fontSize: 28),
+                      ),
+                    ),
+                    const SizedBox(width: AppSpacing.md),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisSize: MainAxisSize.min,
                         children: [
-                          Flexible(
-                            child: Text(
-                              summary.language.name,
-                              style: theme.textTheme.titleMedium,
-                              overflow: TextOverflow.ellipsis,
+                          Row(
+                            children: [
+                              Flexible(
+                                child: Text(
+                                  summary.language.name,
+                                  style: theme.textTheme.titleMedium?.copyWith(
+                                    fontWeight: FontWeight.w800,
+                                  ),
+                                  overflow: TextOverflow.ellipsis,
+                                ),
+                              ),
+                              if (active) ...[
+                                const SizedBox(width: AppSpacing.sm),
+                                const AppPill(
+                                  label: 'Learning now',
+                                  color: AppColors.primary,
+                                  filled: true,
+                                  size: 0.85,
+                                ),
+                              ],
+                            ],
+                          ),
+                          Text(
+                            summary.language.nativeName,
+                            style: theme.textTheme.bodySmall?.copyWith(
+                              color: theme.colorScheme.onSurfaceVariant,
                             ),
                           ),
-                          if (active) ...[
-                            const SizedBox(width: AppSpacing.sm),
-                            const AppPill(
-                              label: 'Learning now',
-                              color: AppColors.primary,
-                              filled: true,
-                              size: 0.85,
+                          const SizedBox(height: 2),
+                          Text(
+                            summary.positionLabel,
+                            style: theme.textTheme.labelLarge?.copyWith(
+                              color: available
+                                  ? theme.colorScheme.onSurface
+                                  : theme.colorScheme.onSurfaceVariant,
                             ),
-                          ],
+                          ),
                         ],
                       ),
-                      Text(
-                        summary.language.nativeName,
-                        style: theme.textTheme.bodySmall?.copyWith(
-                          color: theme.colorScheme.onSurfaceVariant,
-                        ),
-                      ),
-                      const SizedBox(height: AppSpacing.sm),
-                      Text(
-                        summary.positionLabel,
-                        style: theme.textTheme.labelLarge?.copyWith(
-                          color: available
-                              ? theme.colorScheme.onSurface
-                              : theme.colorScheme.onSurfaceVariant,
-                        ),
-                      ),
-                      if (available && summary.totalLessons > 0) ...[
-                        const SizedBox(height: AppSpacing.xs),
-                        ClipRRect(
+                    ),
+                    const SizedBox(width: AppSpacing.sm),
+                    Icon(
+                      available
+                          ? (active
+                              ? Icons.play_circle_fill_rounded
+                              : Icons.chevron_right_rounded)
+                          : Icons.lock_outline_rounded,
+                      color: active
+                          ? AppColors.primary
+                          : theme.colorScheme.onSurfaceVariant,
+                      size: active ? 30 : 24,
+                    ),
+                  ],
+                ),
+                if (available && total > 0) ...[
+                  const SizedBox(height: AppSpacing.sm),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: ClipRRect(
                           borderRadius: BorderRadius.circular(AppRadius.pill),
                           child: LinearProgressIndicator(
-                            value:
-                                summary.lessonsCompleted / summary.totalLessons,
+                            value: ratio,
                             minHeight: 6,
                             backgroundColor: surfaceColors.border,
                           ),
                         ),
-                        const SizedBox(height: AppSpacing.xs),
-                        Text(
-                          '${summary.lessonsCompleted} of '
-                          '${summary.totalLessons} lessons',
-                          style: theme.textTheme.bodySmall?.copyWith(
-                            color: theme.colorScheme.onSurfaceVariant,
-                          ),
+                      ),
+                      const SizedBox(width: AppSpacing.sm),
+                      Text(
+                        '$done/$total lessons',
+                        style: theme.textTheme.bodySmall?.copyWith(
+                          color: theme.colorScheme.onSurfaceVariant,
+                          fontWeight: FontWeight.w600,
                         ),
-                      ],
+                      ),
                     ],
                   ),
-                ),
-                if (!active)
-                  Icon(
-                    available
-                        ? Icons.chevron_right_rounded
-                        : Icons.lock_outline_rounded,
-                    color: theme.colorScheme.onSurfaceVariant,
-                  ),
+                ],
               ],
             ),
           ),

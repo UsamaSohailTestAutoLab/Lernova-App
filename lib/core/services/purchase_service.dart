@@ -14,8 +14,9 @@ class ProProducts {
 
   static const weekly = 'com.weekly.learning';
   static const monthly = 'com.monthly.learning';
+  static const yearly = 'com.yearly.learning';
 
-  static const all = {weekly, monthly};
+  static const all = {weekly, monthly, yearly};
 }
 
 /// What happened to a purchase attempt, in terms the UI can render.

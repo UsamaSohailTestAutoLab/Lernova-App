@@ -19,15 +19,22 @@ enum LernovaParrotMood {
   sad,
 }
 
-/// Lernova's mascot: a round, friendly parrot, entirely custom-painted.
+/// Lernova's mascot: a round, friendly parrot.
 ///
 /// A parrot because the bird that *repeats what it hears* is the obvious
 /// companion for a language app — and because its silhouette is
 /// unmistakably its own: a three-feather crest, a large hooked amber
-/// beak, a swept tail and a single folded wing. Deliberately not an owl,
-/// not round-eyed-and-tuftless, and not traceable to any existing app's
-/// character. Like every other piece of art here it is drawn in code, so
-/// there is no image asset and nothing borrowed.
+/// beak, a swept tail and a single folded wing.
+///
+/// Renders [artworkAsset] when that file is present, and falls back to
+/// the custom-painted parrot below when it is not. The fallback is the
+/// point: every screen in the app draws its mascot through this one
+/// widget, so a missing or misnamed artwork file must degrade to the
+/// old character rather than to a broken-image box seventeen times
+/// over.
+///
+/// One caveat while a single bitmap is supplying every mood: [mood] no
+/// longer changes the face. Supply per-mood artwork to bring that back.
 class LernovaParrot extends StatefulWidget {
   final double size;
   final LernovaParrotMood mood;
@@ -40,6 +47,10 @@ class LernovaParrot extends StatefulWidget {
   /// used everywhere else the name appears standalone (Welcome,
   /// Settings).
   final bool showWordmark;
+
+  /// The mascot artwork. Drop a transparent-background PNG here and
+  /// every screen picks it up; delete it and the painted parrot returns.
+  static const artworkAsset = 'assets/images/lernova_parrot.png';
 
   const LernovaParrot({
     super.key,
@@ -84,7 +95,16 @@ class _LernovaParrotState extends State<LernovaParrot>
     final art = SizedBox(
       width: widget.size,
       height: widget.size * 1.15,
-      child: CustomPaint(painter: _ParrotPainter(mood: widget.mood)),
+      child: Image.asset(
+        LernovaParrot.artworkAsset,
+        fit: BoxFit.contain,
+        // Every call site scales one large source down to between 48
+        // and 130 logical pixels, which is exactly where nearest-
+        // neighbour sampling shows.
+        filterQuality: FilterQuality.medium,
+        errorBuilder: (context, error, stackTrace) =>
+            CustomPaint(painter: _ParrotPainter(mood: widget.mood)),
+      ),
     );
 
     final symbol = widget.animate

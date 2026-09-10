@@ -286,15 +286,19 @@ class _PlanCard extends StatelessWidget {
     required this.onTap,
   });
 
-  /// The billing period, derived from the product id rather than parsed
-  /// out of the store's localized title — that title is translated and
-  /// often carries the app name, so it is display text, not data.
-  String get _period =>
-      product.id == ProProducts.monthly ? 'per month' : 'per week';
+  /// The plan's name and billing period, derived from the product id
+  /// rather than parsed out of the store's localized title — that title
+  /// is translated and often carries the app name, so it is display
+  /// text, not data.
+  (String, String) get _plan => switch (product.id) {
+        ProProducts.yearly => ('Yearly', 'per year'),
+        ProProducts.monthly => ('Monthly', 'per month'),
+        _ => ('Weekly', 'per week'),
+      };
 
-  /// The longer period is the better deal per day, so it carries the
+  /// The longest period is the best deal per day, so it carries the
   /// badge — and [PurchaseController] sorts by price so it lands on top.
-  bool get _isBestValue => product.id == ProProducts.monthly;
+  bool get _isBestValue => product.id == ProProducts.yearly;
 
   @override
   Widget build(BuildContext context) {
@@ -347,9 +351,7 @@ class _PlanCard extends StatelessWidget {
                           children: [
                             Flexible(
                               child: Text(
-                                product.id == ProProducts.monthly
-                                    ? 'Monthly'
-                                    : 'Weekly',
+                                _plan.$1,
                                 style: theme.textTheme.titleMedium
                                     ?.copyWith(fontWeight: FontWeight.w800),
                               ),
@@ -378,7 +380,7 @@ class _PlanCard extends StatelessWidget {
                           ],
                         ),
                         Text(
-                          _period,
+                          _plan.$2,
                           style: theme.textTheme.bodySmall?.copyWith(
                             color: theme.colorScheme.onSurfaceVariant,
                           ),

@@ -1,0 +1,8 @@
+Keeps assets/images/ in the repository.
+
+pubspec.yaml declares this directory, and Flutter errors with "unable to
+find directory entry in pubspec.yaml" when it is absent — which a fresh
+clone would hit, because git does not track empty directories.
+
+Drop lernova_parrot.png here (see LernovaParrot.artworkAsset). Until
+then the mascot falls back to its painted version.

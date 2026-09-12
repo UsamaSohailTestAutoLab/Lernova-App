@@ -6,7 +6,11 @@ plugins {
 
 android {
     namespace = "com.lernova.lernova"
-    compileSdk = flutter.compileSdkVersion
+    // permission_handler_android (the notification permission gate)
+    // requires callers to compile against API 37. Flutter default is
+    // still 36, so it is pinned here rather than waiting on the
+    // toolchain default to move.
+    compileSdk = 37
     ndkVersion = flutter.ndkVersion
 
     compileOptions {

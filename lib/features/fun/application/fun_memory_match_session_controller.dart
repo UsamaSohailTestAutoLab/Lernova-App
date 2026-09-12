@@ -40,7 +40,6 @@ class FunMemoryMatchState {
   final int combo;
   final int bestCombo;
   final int xpEarned;
-  final int coinsEarned;
   final int matchesFound;
   final int mismatches;
   final Map<String, int> vocabDeltas;
@@ -60,7 +59,6 @@ class FunMemoryMatchState {
     required this.combo,
     required this.bestCombo,
     required this.xpEarned,
-    required this.coinsEarned,
     required this.matchesFound,
     required this.mismatches,
     required this.vocabDeltas,
@@ -84,7 +82,6 @@ class FunMemoryMatchState {
     int? combo,
     int? bestCombo,
     int? xpEarned,
-    int? coinsEarned,
     int? matchesFound,
     int? mismatches,
     Map<String, int>? vocabDeltas,
@@ -104,7 +101,6 @@ class FunMemoryMatchState {
       combo: combo ?? this.combo,
       bestCombo: bestCombo ?? this.bestCombo,
       xpEarned: xpEarned ?? this.xpEarned,
-      coinsEarned: coinsEarned ?? this.coinsEarned,
       matchesFound: matchesFound ?? this.matchesFound,
       mismatches: mismatches ?? this.mismatches,
       vocabDeltas: vocabDeltas ?? this.vocabDeltas,
@@ -154,7 +150,6 @@ class FunMemoryMatchSessionController extends Notifier<FunMemoryMatchState?> {
       combo: 0,
       bestCombo: 0,
       xpEarned: 0,
-      coinsEarned: 0,
       matchesFound: 0,
       mismatches: 0,
       vocabDeltas: const {},
@@ -212,7 +207,6 @@ class FunMemoryMatchSessionController extends Notifier<FunMemoryMatchState?> {
         combo: combo,
         bestCombo: bestCombo,
         xpEarned: s.xpEarned + 5 * FallingWordSessionController.comboMultiplier(combo),
-        coinsEarned: s.coinsEarned + 2,
         matchesFound: s.matchesFound + 1,
         vocabDeltas: vocabDeltas,
         isComplete: matched.length == s.cards.length,
@@ -258,7 +252,6 @@ class FunMemoryMatchSessionController extends Notifier<FunMemoryMatchState?> {
 
     final result = ref.read(progressProvider.notifier).awardFunSession(
           xpEarned: s.xpEarned,
-          coinsEarned: s.coinsEarned,
           vocabDeltas: s.vocabDeltas,
           isPerfectRound: s.isPerfectRound,
           isSpeedRound: false,

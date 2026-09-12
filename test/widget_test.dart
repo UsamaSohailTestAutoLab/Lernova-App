@@ -2,10 +2,10 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'package:lernova/core/services/local_storage_service.dart';
-import 'package:lernova/core/services/service_providers.dart';
-import 'package:lernova/core/widgets/lernova_parrot.dart';
-import 'package:lernova/main.dart';
+import 'package:lingoquest/core/services/local_storage_service.dart';
+import 'package:lingoquest/core/services/service_providers.dart';
+import 'package:lingoquest/core/widgets/lingoquest_parrot.dart';
+import 'package:lingoquest/main.dart';
 
 void main() {
   testWidgets('App boots to the splash screen', (WidgetTester tester) async {
@@ -15,13 +15,13 @@ void main() {
     await tester.pumpWidget(
       ProviderScope(
         overrides: [localStorageServiceProvider.overrideWithValue(storage)],
-        child: const LernovaApp(),
+        child: const LingoQuestApp(),
       ),
     );
     await tester.pump();
 
-    expect(find.text('Lernova'), findsOneWidget);
-    expect(find.byType(LernovaParrot), findsOneWidget);
+    expect(find.text('LingoQuest'), findsOneWidget);
+    expect(find.byType(LingoQuestParrot), findsOneWidget);
 
     // Let the splash screen's navigation timer finish so it doesn't leak
     // into the next test.

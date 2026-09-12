@@ -75,7 +75,6 @@ class _FunConversationResultsScreenState extends ConsumerState<FunConversationRe
       confettiController: _confetti,
       stats: [
         FunResultStat(label: 'XP', value: '+${result.xpEarned}', color: AppColors.accent),
-        FunResultStat(label: 'Coins', value: '+${session.coinsEarned}', color: AppColors.gem),
         FunResultStat(
           label: 'Best combo',
           value: '${session.bestCombo}',

@@ -8,7 +8,7 @@ import '../../../core/constants/app_enums.dart';
 import '../../../core/routing/app_routes.dart';
 import '../../../core/theme/app_spacing.dart';
 import '../../../core/widgets/app_buttons.dart';
-import '../../../core/widgets/lernova_parrot.dart';
+import '../../../core/widgets/lingoquest_parrot.dart';
 import '../../../core/widgets/state_views.dart';
 import '../../../data/models/exercise.dart';
 import '../../../data/models/vocab_preview_item.dart';
@@ -168,7 +168,7 @@ class _LessonIntroBodyState extends ConsumerState<_LessonIntroBody> {
           child: Column(
             children: [
               const Spacer(),
-              LernovaParrot(size: 120, mood: LernovaParrotMood.happy),
+              LingoQuestParrot(size: 120, mood: LingoQuestParrotMood.teaching),
               const SizedBox(height: AppSpacing.xl),
               Text(
                 args.isReviewSession ? 'Review Mistakes' : args.lesson.title,

@@ -4,5 +4,16 @@ pubspec.yaml declares this directory, and Flutter errors with "unable to
 find directory entry in pubspec.yaml" when it is absent — which a fresh
 clone would hit, because git does not track empty directories.
 
-Drop lernova_parrot.png here (see LernovaParrot.artworkAsset). Until
-then the mascot falls back to its painted version.
+Mascot artwork goes here. Transparent background, please: these are
+drawn over light-green and white surfaces, so any baked-in backdrop
+shows as a rectangle.
+
+  lingoquest_parrot.png            the base pose. Supplying only this
+                                   one dresses the entire app.
+  lingoquest_parrot_celebrate.png  wings spread — wins and rewards
+  lingoquest_parrot_curious.png    head tilted — "here is what's next"
+  lingoquest_parrot_sad.png        at the desk — a failed attempt
+  lingoquest_parrot_hero.png       full pose — shown with the wordmark
+
+Each pose falls back to the base file, and the base falls back to the
+painted parrot in lingoquest_parrot.dart, so any subset works.

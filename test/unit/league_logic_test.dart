@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:lernova/core/constants/app_enums.dart';
-import 'package:lernova/core/utils/league_logic.dart';
+import 'package:lingoquest/core/constants/app_enums.dart';
+import 'package:lingoquest/core/utils/league_logic.dart';
 
 void main() {
   group('LeagueLogic.resolveNextTier', () {

@@ -16,7 +16,7 @@ import '../../../core/widgets/state_views.dart';
 import '../../../core/widgets/stat_card.dart';
 import '../../../core/utils/icon_mapper.dart';
 import '../../../core/constants/app_enums.dart';
-import '../../../core/widgets/lernova_parrot.dart';
+import '../../../core/widgets/lingoquest_parrot.dart';
 import '../../../data/models/achievement.dart';
 import '../../../data/models/course.dart';
 import '../../../data/models/last_activity.dart';
@@ -40,6 +40,7 @@ class HomeScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final user = ref.watch(userProvider);
     final progress = ref.watch(progressProvider);
+    final theme = Theme.of(context);
 
     if (user.currentCourseId == null) {
       return const Scaffold(body: Center(child: CircularProgressIndicator()));
@@ -52,19 +53,25 @@ class HomeScreen extends ConsumerWidget {
       backgroundColor: Colors.transparent,
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            StreakChip(streak: progress.streakCount, onTap: () => context.push(AppRoutes.statistics)),
-            const SizedBox(width: AppSpacing.sm),
-            GemsChip(gems: progress.gems, onTap: () => context.push(AppRoutes.shop)),
-            const SizedBox(width: AppSpacing.sm),
-            // Read-only: hearts refill at the start of every lesson, so
-            // there is nowhere for this to lead.
-            HeartsChip(hearts: progress.hearts),
-          ],
+        // Home is where someone lands, so it is where the app says what
+        // it is. The counters that used to fill this bar said nothing
+        // about the app and two of them have no home here any more:
+        // hearts are a per-lesson budget that only means anything once a
+        // lesson is running, and the gem currency is gone entirely.
+        title: Text(
+          'LingoQuest',
+          style: theme.textTheme.titleLarge?.copyWith(
+            color: AppColors.primary,
+            fontWeight: FontWeight.w800,
+            letterSpacing: -0.3,
+          ),
         ),
         actions: [
+          StreakChip(
+            streak: progress.streakCount,
+            onTap: () => context.push(AppRoutes.statistics),
+          ),
+          const SizedBox(width: AppSpacing.xs),
           // The flag doubles as the language switcher, the way it does
           // in every app that teaches more than one language: it says
           // what you are learning *and* is the way to change it.
@@ -190,7 +197,7 @@ FunGameMode? _funModeFor(String? name) {
   return null;
 }
 
-/// A friendly hello at the top of Home: the Lernova parrot beside the
+/// A friendly hello at the top of Home: the LingoQuest parrot beside the
 /// learner's name and a line of encouragement that changes. Gives the
 /// dashboard a face instead of opening straight into a wall of numbers.
 class _GreetingHeader extends StatefulWidget {
@@ -274,10 +281,10 @@ class _GreetingHeaderState extends State<_GreetingHeader> {
               borderRadius: BorderRadius.circular(AppRadius.sm),
               border: Border.all(color: AppColors.primary.withValues(alpha: 0.35)),
             ),
-            child: LernovaParrot(
+            child: LingoQuestParrot(
               size: 62,
               // Grinning once today's goal is in the bag.
-              mood: goalMet ? LernovaParrotMood.celebrate : LernovaParrotMood.happy,
+              mood: goalMet ? LingoQuestParrotMood.celebrate : LingoQuestParrotMood.happy,
             ),
           ),
           const SizedBox(width: AppSpacing.md),
@@ -364,16 +371,22 @@ class _LanguageFlagButton extends ConsumerWidget {
   }
 }
 
+/// The Pro pill in the app bar.
+///
+/// It is two different things wearing one shape. For somebody who has
+/// not bought Pro it is the only upsell on the screen, and it glows to
+/// earn the tap. For a subscriber it is a membership badge — still a way
+/// into the Pro screen, where the plan and the manage link live, but
+/// quiet, because pitching a subscription to the person already paying
+/// for it is how you make them look for the cancel button.
 class _ProTag extends StatelessWidget {
   final bool isPremium;
   const _ProTag({required this.isPremium});
 
   @override
   Widget build(BuildContext context) {
-    final base = isPremium ? AppColors.accent : AppColors.primary;
+    final base = isPremium ? AppColors.success : AppColors.primary;
     return DecoratedBox(
-      // A lit gradient pill rather than a flat swatch — this is the one
-      // upsell on the screen, so it's the one element allowed to glow.
       decoration: BoxDecoration(
         gradient: LinearGradient(
           begin: Alignment.topLeft,
@@ -381,13 +394,16 @@ class _ProTag extends StatelessWidget {
           colors: [Color.lerp(base, Colors.white, 0.22)!, base],
         ),
         borderRadius: BorderRadius.circular(AppRadius.pill),
-        boxShadow: [
-          BoxShadow(
-            color: base.withValues(alpha: 0.45),
-            blurRadius: 14,
-            offset: const Offset(0, 4),
-          ),
-        ],
+        // The glow is the upsell's, not the member's.
+        boxShadow: isPremium
+            ? null
+            : [
+                BoxShadow(
+                  color: base.withValues(alpha: 0.45),
+                  blurRadius: 14,
+                  offset: const Offset(0, 4),
+                ),
+              ],
       ),
       child: Material(
         color: Colors.transparent,
@@ -404,7 +420,7 @@ class _ProTag extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 Icon(
-                  isPremium ? Icons.workspace_premium_rounded : Icons.bolt_rounded,
+                  isPremium ? Icons.verified_rounded : Icons.bolt_rounded,
                   size: 16,
                   color: Colors.white,
                 ),
@@ -495,7 +511,7 @@ class _DashboardGrid extends ConsumerWidget {
         StatCard(
           icon: Icons.emoji_events_rounded,
           emoji: '🏆',
-          color: AppColors.gem,
+          color: AppColors.teal,
           label: 'Achievements',
           value: '$achievementCount',
           onTap: () => context.push(AppRoutes.achievements),

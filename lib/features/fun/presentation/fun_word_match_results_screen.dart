@@ -82,7 +82,6 @@ class _FunWordMatchResultsScreenState extends ConsumerState<FunWordMatchResultsS
       confettiController: _confetti,
       stats: [
         FunResultStat(label: 'XP', value: '+${result.xpEarned}', color: AppColors.accent),
-        FunResultStat(label: 'Coins', value: '+${session.coinsEarned}', color: AppColors.gem),
         FunResultStat(
           label: 'Best combo',
           value: '${session.bestCombo}',

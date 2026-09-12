@@ -42,10 +42,6 @@ class XpRewardScreen extends ConsumerWidget {
                   style: theme.textTheme.displayLarge?.copyWith(color: AppColors.accent),
                 ),
               ),
-              if (result.gemsEarned > 0) ...[
-                const SizedBox(height: AppSpacing.sm),
-                Text('+${result.gemsEarned} gems earned', style: theme.textTheme.titleMedium),
-              ],
               const SizedBox(height: AppSpacing.xl),
               if (result.leveledUp) ...[
                 Text('Level up! You reached level ${result.newLevel}',

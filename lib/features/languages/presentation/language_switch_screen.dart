@@ -12,7 +12,7 @@ import '../../../core/widgets/app_card.dart';
 import '../../../core/widgets/app_dialogs.dart';
 import '../../../core/widgets/app_pill.dart';
 import '../../../core/widgets/app_snackbar.dart';
-import '../../../core/widgets/lernova_parrot.dart';
+import '../../../core/widgets/lingoquest_parrot.dart';
 import '../../../core/widgets/section_header.dart';
 import '../../../core/widgets/state_views.dart';
 import '../application/language_switch_controller.dart';
@@ -223,7 +223,7 @@ class _SwitchBanner extends StatelessWidget {
       padding: const EdgeInsets.all(AppSpacing.md),
       child: Row(
         children: [
-          const LernovaParrot(size: 54),
+          const LingoQuestParrot(size: 54),
           const SizedBox(width: AppSpacing.md),
           Expanded(
             child: Column(

@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:lernova/core/utils/string_normalize.dart';
+import 'package:lingoquest/core/utils/string_normalize.dart';
 
 void main() {
   group('normalizeForMatch', () {

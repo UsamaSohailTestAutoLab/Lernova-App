@@ -4,11 +4,11 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'package:lernova/core/services/local_storage_service.dart';
-import 'package:lernova/core/services/service_providers.dart';
-import 'package:lernova/data/models/fun/vocab_word.dart';
-import 'package:lernova/features/fun/application/fun_word_match_session_controller.dart';
-import 'package:lernova/features/progress/application/progress_controller.dart';
+import 'package:lingoquest/core/services/local_storage_service.dart';
+import 'package:lingoquest/core/services/service_providers.dart';
+import 'package:lingoquest/data/models/fun/vocab_word.dart';
+import 'package:lingoquest/features/fun/application/fun_word_match_session_controller.dart';
+import 'package:lingoquest/features/progress/application/progress_controller.dart';
 
 List<VocabWord> _words() => const [
       VocabWord(id: 'w1', word: 'Hola', translation: 'Hello', languageId: 'es', category: 'g'),

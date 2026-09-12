@@ -1,7 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:lernova/core/constants/app_enums.dart';
-import 'package:lernova/data/models/exercise.dart';
-import 'package:lernova/features/exercises/application/exercise_validator.dart';
+import 'package:lingoquest/core/constants/app_enums.dart';
+import 'package:lingoquest/data/models/exercise.dart';
+import 'package:lingoquest/features/exercises/application/exercise_validator.dart';
 
 void main() {
   group('ExerciseValidator - multipleChoice / listening', () {

@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:lernova/core/constants/app_enums.dart';
-import 'package:lernova/features/fun/application/fun_level_catalog.dart';
+import 'package:lingoquest/core/constants/app_enums.dart';
+import 'package:lingoquest/features/fun/application/fun_level_catalog.dart';
 
 void main() {
   group('FunLevelCatalog.configFor', () {

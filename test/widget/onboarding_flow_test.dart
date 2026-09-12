@@ -3,10 +3,10 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'package:lernova/core/services/local_storage_service.dart';
-import 'package:lernova/core/services/service_providers.dart';
-import 'package:lernova/core/widgets/lernova_parrot.dart';
-import 'package:lernova/main.dart';
+import 'package:lingoquest/core/services/local_storage_service.dart';
+import 'package:lingoquest/core/services/service_providers.dart';
+import 'package:lingoquest/core/widgets/lingoquest_parrot.dart';
+import 'package:lingoquest/main.dart';
 
 void main() {
   testWidgets(
@@ -18,7 +18,7 @@ void main() {
       await tester.pumpWidget(
         ProviderScope(
           overrides: [localStorageServiceProvider.overrideWithValue(storage)],
-          child: const LernovaApp(),
+          child: const LingoQuestApp(),
         ),
       );
 
@@ -28,10 +28,10 @@ void main() {
       await tester.pumpAndSettle();
 
       expect(find.text('Get started'), findsOneWidget);
-      // The original Lernova mascot, not the mock owl it briefly stood
+      // The original LingoQuest mascot, not the mock owl it briefly stood
       // in danger of copying — one parrot design used everywhere the
       // brand appears.
-      expect(find.byType(LernovaParrot), findsOneWidget);
+      expect(find.byType(LingoQuestParrot), findsOneWidget);
       // Sign-in is gone — the welcome screen offers no account path.
       expect(find.text('I already have an account'), findsNothing);
       await tester.tap(find.text('Get started'));

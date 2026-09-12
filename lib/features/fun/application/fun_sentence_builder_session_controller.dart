@@ -22,7 +22,6 @@ class FunSentenceBuilderState {
   final int combo;
   final int bestCombo;
   final int xpEarned;
-  final int coinsEarned;
   final int correctCount;
   final int wrongCount;
   final Map<String, int> vocabDeltas;
@@ -45,7 +44,6 @@ class FunSentenceBuilderState {
     required this.combo,
     required this.bestCombo,
     required this.xpEarned,
-    required this.coinsEarned,
     required this.correctCount,
     required this.wrongCount,
     required this.vocabDeltas,
@@ -75,7 +73,6 @@ class FunSentenceBuilderState {
     int? combo,
     int? bestCombo,
     int? xpEarned,
-    int? coinsEarned,
     int? correctCount,
     int? wrongCount,
     Map<String, int>? vocabDeltas,
@@ -99,7 +96,6 @@ class FunSentenceBuilderState {
       combo: combo ?? this.combo,
       bestCombo: bestCombo ?? this.bestCombo,
       xpEarned: xpEarned ?? this.xpEarned,
-      coinsEarned: coinsEarned ?? this.coinsEarned,
       correctCount: correctCount ?? this.correctCount,
       wrongCount: wrongCount ?? this.wrongCount,
       vocabDeltas: vocabDeltas ?? this.vocabDeltas,
@@ -164,7 +160,6 @@ class FunSentenceBuilderSessionController extends Notifier<FunSentenceBuilderSta
       combo: 0,
       bestCombo: 0,
       xpEarned: 0,
-      coinsEarned: 0,
       correctCount: 0,
       wrongCount: 0,
       vocabDeltas: const {},
@@ -201,7 +196,6 @@ class FunSentenceBuilderSessionController extends Notifier<FunSentenceBuilderSta
       final combo = s.combo + 1;
       final bestCombo = combo > s.bestCombo ? combo : s.bestCombo;
       final xp = s.xpEarned + 5 * FallingWordSessionController.comboMultiplier(combo);
-      final coins = s.coinsEarned + 2;
       final nextRoundIndex = s.currentRoundIndex + 1;
       final isComplete = nextRoundIndex >= s.totalRounds;
 
@@ -210,7 +204,6 @@ class FunSentenceBuilderSessionController extends Notifier<FunSentenceBuilderSta
           combo: combo,
           bestCombo: bestCombo,
           xpEarned: xp,
-          coinsEarned: coins,
           correctCount: s.correctCount + 1,
           vocabDeltas: vocabDeltas,
           isComplete: true,
@@ -228,7 +221,6 @@ class FunSentenceBuilderSessionController extends Notifier<FunSentenceBuilderSta
         combo: combo,
         bestCombo: bestCombo,
         xpEarned: xp,
-        coinsEarned: coins,
         correctCount: s.correctCount + 1,
         vocabDeltas: vocabDeltas,
       );
@@ -304,7 +296,6 @@ class FunSentenceBuilderSessionController extends Notifier<FunSentenceBuilderSta
 
     final result = ref.read(progressProvider.notifier).awardFunSession(
           xpEarned: s.xpEarned,
-          coinsEarned: s.coinsEarned,
           vocabDeltas: s.vocabDeltas,
           isPerfectRound: s.isPerfectRound,
           isSpeedRound: false,

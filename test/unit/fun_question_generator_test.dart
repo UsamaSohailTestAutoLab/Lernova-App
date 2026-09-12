@@ -1,11 +1,11 @@
 import 'dart:math';
 
 import 'package:flutter_test/flutter_test.dart';
-import 'package:lernova/core/constants/app_enums.dart';
-import 'package:lernova/data/models/fun/fun_level_config.dart';
-import 'package:lernova/data/models/fun/phrase.dart';
-import 'package:lernova/data/models/fun/vocab_word.dart';
-import 'package:lernova/features/fun/application/fun_question_generator.dart';
+import 'package:lingoquest/core/constants/app_enums.dart';
+import 'package:lingoquest/data/models/fun/fun_level_config.dart';
+import 'package:lingoquest/data/models/fun/phrase.dart';
+import 'package:lingoquest/data/models/fun/vocab_word.dart';
+import 'package:lingoquest/features/fun/application/fun_question_generator.dart';
 
 List<VocabWord> _words() => const [
       VocabWord(id: 'w1', word: 'Hola', translation: 'Hello', languageId: 'es', category: 'g', emoji: '👋'),

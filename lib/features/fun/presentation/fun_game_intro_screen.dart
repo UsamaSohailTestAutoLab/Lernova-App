@@ -8,7 +8,7 @@ import '../../../core/constants/app_enums.dart';
 import '../../../core/routing/app_routes.dart';
 import '../../../core/theme/app_spacing.dart';
 import '../../../core/widgets/app_buttons.dart';
-import '../../../core/widgets/lernova_parrot.dart';
+import '../../../core/widgets/lingoquest_parrot.dart';
 import '../../../core/widgets/state_views.dart';
 import '../../../data/models/last_activity.dart';
 import '../../../data/models/vocab_preview_item.dart';
@@ -106,7 +106,7 @@ class FunGameIntroScreen extends ConsumerWidget {
           child: Column(
             children: [
               const Spacer(),
-              LernovaParrot(size: 110, mood: LernovaParrotMood.happy),
+              LingoQuestParrot(size: 110, mood: LingoQuestParrotMood.happy),
               const SizedBox(height: AppSpacing.lg),
               Text(
                 '${mode.emoji}  ${mode.title}',

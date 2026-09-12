@@ -1,6 +1,6 @@
 # Course content
 
-Lernova ships ten languages. Spanish is hand-authored; the other nine
+LingoQuest ships ten languages. Spanish is hand-authored; the other nine
 are generated from compact specs.
 
 ## Layout

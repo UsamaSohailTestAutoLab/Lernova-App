@@ -4,7 +4,7 @@ import 'package:go_router/go_router.dart';
 
 import '../../../core/routing/app_routes.dart';
 import '../../../core/theme/app_colors.dart';
-import '../../../core/widgets/lernova_parrot.dart';
+import '../../../core/widgets/lingoquest_parrot.dart';
 import '../application/onboarding_controller.dart';
 import '../../progress/application/progress_controller.dart';
 import '../application/user_controller.dart';
@@ -78,10 +78,10 @@ class _SplashScreenState extends ConsumerState<SplashScreen>
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              const LernovaParrot(size: 120, mood: LernovaParrotMood.celebrate),
+              const LingoQuestParrot(size: 120, mood: LingoQuestParrotMood.celebrate),
               const SizedBox(height: 20),
               Text(
-                'Lernova',
+                'LingoQuest',
                 style: Theme.of(context).textTheme.displayMedium?.copyWith(
                       color: Colors.white,
                     ),

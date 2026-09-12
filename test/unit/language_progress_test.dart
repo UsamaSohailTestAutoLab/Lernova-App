@@ -1,17 +1,16 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:lernova/core/constants/app_enums.dart';
-import 'package:lernova/data/models/language_progress.dart';
-import 'package:lernova/data/models/last_activity.dart';
-import 'package:lernova/data/models/pro_entitlement.dart';
-import 'package:lernova/data/models/user_progress.dart';
+import 'package:lingoquest/core/constants/app_enums.dart';
+import 'package:lingoquest/data/models/language_progress.dart';
+import 'package:lingoquest/data/models/last_activity.dart';
+import 'package:lingoquest/data/models/pro_entitlement.dart';
+import 'package:lingoquest/data/models/user_progress.dart';
 
 UserProgress _spanishInProgress() => UserProgress(
       dailyGoalDate: DateTime(2026, 9, 9),
       lessonsCompletedTodayDate: DateTime(2026, 9, 9),
       weekId: '2026-W37',
       activeLanguageId: 'es',
-      // Account-level: a wallet, an attempt budget, a purchase, a target.
-      gems: 340,
+      // Account-level: an attempt budget, a purchase, a target.
       hearts: 3,
       isPremium: true,
       proEntitlement: const ProEntitlement(
@@ -109,13 +108,12 @@ void main() {
       expect(back.totalTimeSpentSeconds, 4200);
     });
 
-    // Gems are a wallet, hearts an attempt budget, Pro a purchase, and
-    // the daily target a setting. None of them is a claim about a course.
-    test('the account keeps its wallet, hearts, Pro and settings', () {
+    // Hearts are an attempt budget, Pro a purchase, and the daily
+    // target a setting. None of them is a claim about a course.
+    test('the account keeps its hearts, Pro and settings', () {
       final before = _spanishInProgress();
       final next = before.switchLanguage(from: 'es', to: 'ja');
 
-      expect(next.gems, before.gems);
       expect(next.hearts, before.hearts);
       expect(next.isPremium, isTrue);
       expect(next.proEntitlement.productId, 'com.monthly.learning');
@@ -239,7 +237,7 @@ void main() {
       expect(asSpanish.unlockedUnitIndex, 1);
       expect(asSpanish.totalXp, 1200);
       // Still the same account underneath.
-      expect(asSpanish.gems, 340);
+      expect(asSpanish.hearts, 3);
     });
   });
 

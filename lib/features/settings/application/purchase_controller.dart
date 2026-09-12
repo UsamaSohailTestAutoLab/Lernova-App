@@ -4,8 +4,16 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:in_app_purchase/in_app_purchase.dart';
 
 import '../../../core/services/purchase_service.dart';
+import '../../../core/services/subscription_manager.dart';
+import '../../../core/services/store_offer.dart';
 import '../../../data/models/pro_entitlement.dart';
 import '../../progress/application/progress_controller.dart';
+
+/// Opening the store's manage-subscription page. Separate from
+/// [PurchaseService] because it is not a purchase — it is a link out,
+/// and it has to keep working when billing is unavailable.
+final subscriptionManagerProvider =
+    Provider<SubscriptionManager>((ref) => SubscriptionManager());
 
 final purchaseServiceProvider = Provider<PurchaseService>((ref) {
   final service = PurchaseService();
@@ -118,9 +126,17 @@ class PurchaseController extends Notifier<PurchaseState> {
       return;
     }
 
-    final products = await service.loadProducts();
+    // Play answers with one entry per base plan *and* per offer, all
+    // sharing a product id, so the list is collapsed to one card per
+    // plan before anything renders.
+    final products = dedupeByPlan(await service.loadProducts());
     // Longer billing period first, so "best value" reads top-down.
-    products.sort((a, b) => b.rawPrice.compareTo(a.rawPrice));
+    // Sorted on the recurring price, not rawPrice: a plan with a free
+    // trial reports a raw price of zero on Play and would otherwise
+    // sort to the bottom.
+    products.sort(
+      (a, b) => recurringPriceOf(b).raw.compareTo(recurringPriceOf(a).raw),
+    );
     state = state.copyWith(
       phase: PurchasePhase.ready,
       products: products,

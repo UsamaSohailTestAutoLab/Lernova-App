@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:lernova/core/constants/app_enums.dart';
-import 'package:lernova/core/theme/app_theme.dart';
-import 'package:lernova/data/models/lesson.dart';
-import 'package:lernova/features/course/presentation/widgets/path_node.dart';
+import 'package:lingoquest/core/constants/app_enums.dart';
+import 'package:lingoquest/core/theme/app_theme.dart';
+import 'package:lingoquest/data/models/lesson.dart';
+import 'package:lingoquest/features/course/presentation/widgets/path_node.dart';
 
 const _lesson = Lesson(id: 'l0', title: 'Yes, No, Sorry', subtitle: '', exercises: []);
 const _rowWidth = 400.0;

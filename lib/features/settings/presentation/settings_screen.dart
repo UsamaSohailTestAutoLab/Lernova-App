@@ -7,11 +7,14 @@ import '../../../core/routing/app_routes.dart';
 import '../../../core/theme/app_colors.dart';
 import '../../../core/theme/app_spacing.dart';
 import '../../../core/widgets/app_snackbar.dart';
-import '../../../core/widgets/lernova_parrot.dart';
+import '../../../core/widgets/lingoquest_parrot.dart';
 import '../../../data/models/app_settings.dart';
 import '../../fun/application/fun_progress_controller.dart';
 import '../../languages/application/language_switch_controller.dart';
 import '../../progress/application/progress_controller.dart';
+import '../../../core/services/purchase_service.dart';
+import '../../reviews/application/review_prompt_controller.dart';
+import '../application/purchase_controller.dart';
 import '../application/settings_controller.dart';
 
 class SettingsScreen extends ConsumerWidget {
@@ -34,24 +37,84 @@ class SettingsScreen extends ConsumerWidget {
           Padding(
             padding: const EdgeInsets.symmetric(vertical: AppSpacing.lg),
             child: Center(
-              child: const LernovaParrot(size: 64, showWordmark: true),
+              child: const LingoQuestParrot(size: 64, showWordmark: true),
             ),
           ),
-          const _SectionHeader('Lernova Pro'),
-          ListTile(
-            leading: const Icon(Icons.workspace_premium_rounded, color: AppColors.accent),
-            title: const Text('Upgrade to Pro'),
-            subtitle: const Text('Unlock every level on the Path and in the Fun Zone'),
-            trailing: const Icon(Icons.chevron_right_rounded),
-            onTap: () => context.push(AppRoutes.premium),
-          ),
-          ListTile(
-            leading: const Icon(Icons.restore_rounded),
-            title: const Text('Restore Purchase'),
-            onTap: () => AppSnackBar.show(
-              context,
-              'Purchases are restored from your store account.',
-            ),
+          const _SectionHeader('LingoQuest Pro'),
+          // Selling Pro to somebody who already pays for it is the
+          // fastest way to make a subscriber feel unseen, so the whole
+          // group swaps: the upsell becomes a membership row, restore
+          // gives way to the store's manage page.
+          Consumer(
+            builder: (context, ref, _) {
+              final entitlement = ref.watch(progressProvider).proEntitlement;
+              if (!entitlement.isActive) {
+                return Column(
+                  children: [
+                    ListTile(
+                      leading: const Icon(Icons.workspace_premium_rounded,
+                          color: AppColors.accent),
+                      title: const Text('Upgrade to Pro'),
+                      subtitle: const Text(
+                          'Unlock every level on the Path and in the Fun Zone'),
+                      trailing: const Icon(Icons.chevron_right_rounded),
+                      onTap: () => context.push(AppRoutes.premium),
+                    ),
+                    Consumer(
+                      builder: (context, ref, _) {
+                        final purchase = ref.watch(purchaseProvider);
+                        return ListTile(
+                          leading: const Icon(Icons.restore_rounded),
+                          title: const Text('Restore Purchase'),
+                          subtitle: const Text(
+                              'Already subscribed? Bring Pro back on this device'),
+                          enabled: !purchase.isBusy,
+                          // This used to show a snackbar explaining that
+                          // purchases restore from the store account,
+                          // and then not restore anything. Both stores
+                          // require a restore that works.
+                          onTap: () =>
+                              ref.read(purchaseProvider.notifier).restore(),
+                        );
+                      },
+                    ),
+                  ],
+                );
+              }
+
+              final plan = ProProducts.planLabel(entitlement.productId);
+              return Column(
+                children: [
+                  ListTile(
+                    leading: const Icon(Icons.verified_rounded,
+                        color: AppColors.success),
+                    title: const Text('LingoQuest Pro'),
+                    subtitle: Text(
+                      plan == null ? 'Active' : 'Active · $plan plan',
+                    ),
+                    trailing: const Icon(Icons.chevron_right_rounded),
+                    onTap: () => context.push(AppRoutes.premium),
+                  ),
+                  ListTile(
+                    leading: const Icon(Icons.open_in_new_rounded),
+                    title: const Text('Manage subscription'),
+                    subtitle: const Text('Change your plan or cancel'),
+                    onTap: () async {
+                      final opened = await ref
+                          .read(subscriptionManagerProvider)
+                          .openManageSubscriptions(
+                            productId: entitlement.productId,
+                          );
+                      if (!context.mounted || opened) return;
+                      AppSnackBar.show(
+                        context,
+                        'Manage your subscription in your store account settings.',
+                      );
+                    },
+                  ),
+                ],
+              );
+            },
           ),
           const _SectionHeader('Language'),
           Consumer(
@@ -90,7 +153,7 @@ class SettingsScreen extends ConsumerWidget {
           ),
           ListTile(
             leading: const Icon(Icons.help_outline_rounded),
-            title: const Text('How Lernova works'),
+            title: const Text('How LingoQuest works'),
             trailing: const Icon(Icons.chevron_right_rounded),
             onTap: () => context.push(AppRoutes.onboardingExplainer, extra: true),
           ),
@@ -154,6 +217,27 @@ class SettingsScreen extends ConsumerWidget {
             onTap: () => context.push(AppRoutes.accountSettings),
           ),
           const _SectionHeader('About'),
+          ListTile(
+            leading: const Icon(Icons.star_outline_rounded),
+            title: const Text('Rate LingoQuest'),
+            subtitle: const Text('Leave a review on the App Store'),
+            trailing: const Icon(Icons.open_in_new_rounded),
+            // Opens the write-review page rather than requesting the
+            // system prompt. iOS may show nothing at all in response to
+            // a review request — it is rate-limited and can be switched
+            // off entirely — and a button that silently does nothing is
+            // a bug report waiting to happen. Someone who taps this has
+            // asked for the page, so they get the page.
+            onTap: () async {
+              final opened =
+                  await ref.read(reviewPromptProvider).openStoreListing();
+              if (!context.mounted || opened) return;
+              AppSnackBar.show(
+                context,
+                'The store listing goes live when LingoQuest ships.',
+              );
+            },
+          ),
           ListTile(
             leading: const Icon(Icons.support_agent_rounded),
             title: const Text('Support'),

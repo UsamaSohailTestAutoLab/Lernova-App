@@ -8,7 +8,6 @@ import 'last_activity.dart';
 /// strength. Persisted as one JSON blob by [LocalStorageService].
 class UserProgress {
   final int totalXp;
-  final int gems;
 
   final int hearts;
   final DateTime? lastHeartLostAt;
@@ -73,7 +72,6 @@ class UserProgress {
 
   const UserProgress({
     this.totalXp = 0,
-    this.gems = 100,
     this.hearts = 5,
     this.lastHeartLostAt,
     this.isPremium = false,
@@ -115,7 +113,6 @@ class UserProgress {
 
   UserProgress copyWith({
     int? totalXp,
-    int? gems,
     int? hearts,
     DateTime? lastHeartLostAt,
     bool clearLastHeartLostAt = false,
@@ -149,7 +146,6 @@ class UserProgress {
   }) {
     return UserProgress(
       totalXp: totalXp ?? this.totalXp,
-      gems: gems ?? this.gems,
       hearts: hearts ?? this.hearts,
       lastHeartLostAt: clearLastHeartLostAt
           ? null
@@ -192,7 +188,6 @@ class UserProgress {
 
   Map<String, dynamic> toJson() => {
         'totalXp': totalXp,
-        'gems': gems,
         'hearts': hearts,
         'lastHeartLostAt': lastHeartLostAt?.toIso8601String(),
         'isPremium': isPremium,
@@ -228,7 +223,6 @@ class UserProgress {
   factory UserProgress.fromJson(Map<String, dynamic> json) {
     return UserProgress(
       totalXp: json['totalXp'] as int? ?? 0,
-      gems: json['gems'] as int? ?? 100,
       hearts: json['hearts'] as int? ?? 5,
       lastHeartLostAt: json['lastHeartLostAt'] != null
           ? DateTime.parse(json['lastHeartLostAt'] as String)
@@ -363,9 +357,8 @@ class UserProgress {
     final arriving = parked.remove(to) ?? LanguageProgress.fresh;
 
     return UserProgress(
-      // The account: a wallet, an attempt budget, a purchase, and a
-      // target the learner set once. None of these describe a course.
-      gems: gems,
+      // The account: an attempt budget, a purchase, and a target the
+      // learner set once. None of these describe a course.
       hearts: hearts,
       lastHeartLostAt: lastHeartLostAt,
       isPremium: isPremium,

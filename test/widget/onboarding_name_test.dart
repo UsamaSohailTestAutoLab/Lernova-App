@@ -5,12 +5,12 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'package:lernova/core/services/local_storage_service.dart';
-import 'package:lernova/core/services/service_providers.dart';
-import 'package:lernova/data/models/app_user.dart';
-import 'package:lernova/data/models/user_progress.dart';
-import 'package:lernova/features/onboarding/application/user_controller.dart';
-import 'package:lernova/main.dart';
+import 'package:lingoquest/core/services/local_storage_service.dart';
+import 'package:lingoquest/core/services/service_providers.dart';
+import 'package:lingoquest/data/models/app_user.dart';
+import 'package:lingoquest/data/models/user_progress.dart';
+import 'package:lingoquest/features/onboarding/application/user_controller.dart';
+import 'package:lingoquest/main.dart';
 
 Future<LocalStorageService> _storage(Map<String, Object> values) async {
   SharedPreferences.setMockInitialValues(values);
@@ -21,7 +21,7 @@ Future<void> _boot(WidgetTester tester, LocalStorageService storage) async {
   await tester.pumpWidget(
     ProviderScope(
       overrides: [localStorageServiceProvider.overrideWithValue(storage)],
-      child: const LernovaApp(),
+      child: const LingoQuestApp(),
     ),
   );
   await tester.pump();

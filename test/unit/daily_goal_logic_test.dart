@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:lernova/core/utils/daily_goal_logic.dart';
-import 'package:lernova/data/models/user_progress.dart';
+import 'package:lingoquest/core/utils/daily_goal_logic.dart';
+import 'package:lingoquest/data/models/user_progress.dart';
 
 void main() {
   UserProgress progress({

@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:lernova/core/utils/streak_logic.dart';
-import 'package:lernova/data/models/user_progress.dart';
+import 'package:lingoquest/core/utils/streak_logic.dart';
+import 'package:lingoquest/data/models/user_progress.dart';
 
 UserProgress _progress({
   int streakCount = 0,

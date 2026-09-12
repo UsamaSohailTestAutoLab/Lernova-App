@@ -46,3 +46,32 @@ app.*.map.json
 
 # Widget Preview related
 .widget_preview/
+
+# Marketing working files.
+#
+# The App Store package is built by the scripts in marketing/build_*.mjs
+# from screen recordings captured off a real device. What is tracked is
+# the finished article — the store screenshots, the preview videos, the
+# ASO document — and the scripts that produce them. What is ignored is
+# everything in between: the raw captures, the per-beat ffmpeg clips,
+# and the zips, which only re-package the folders sitting beside them.
+# Around 142MB of the 242MB on disk, none of it worth carrying in every
+# future clone.
+marketing/raw/
+marketing/raw_ios/
+marketing/ios_clean/
+marketing/video/
+marketing/*.zip
+
+# marketing/build is where the package is assembled, so most of it is
+# throwaway — the rendered screenshot HTML, the per-beat frames, the
+# ffmpeg scratch dirs. The scripts and the data they read are not: they
+# are how the whole package gets rebuilt after the next UI change.
+marketing/build/*
+!marketing/build/*.mjs
+!marketing/build/*.json
+!marketing/build/*.txt
+
+# Node lives here only to run ffmpeg-static and sharp for those scripts.
+marketing/node_modules/
+tool/node_modules/

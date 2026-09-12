@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-/// Original Lernova color identity — parrot green primary with a warm
+/// Original LingoQuest color identity — parrot green primary with a warm
 /// amber accent for XP/streak.
 ///
 /// [primary] is deliberately a *deep* parrot green rather than the
@@ -49,9 +49,9 @@ class AppColors {
   static const Color infoLightDark = Color(0xFF122A3D);
 
   static const Color heart = Color(0xFFF04438);
-  static const Color gem = Color(0xFF2ED3C6);
-  static const Color gemLight = Color(0xFFE0F9F7);
-  static const Color gemLightDark = Color(0xFF12302D);
+  static const Color teal = Color(0xFF2ED3C6);
+  static const Color tealLight = Color(0xFFE0F9F7);
+  static const Color tealLightDark = Color(0xFF12302D);
   static const Color streak = Color(0xFFFFB020);
   static const Color violet = Color(0xFF7C5CFF); // Pro-only accent
   static const Color violetLight = Color(0xFFEEE9FF);

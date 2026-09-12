@@ -1,0 +1,1113 @@
+<title>LingoQuest Launch Dossier</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;600&display=swap">
+
+<style>
+/* ── tokens ───────────────────────────────────────────────────────────── */
+:root{
+  --paper:#FCFBF7; --raised:#FFFFFF; --ink:#16200F; --slate:#5E6B57;
+  --quest:#2E7D22; --gold:#B4780A; --rule:#E2E7DC; --rule-soft:#EEF2EA;
+  --fact:#1F6B4A; --fact-bg:#E4F3EB;
+  --est:#8A6410; --est-bg:#FBF0D9;
+  --rec:#2B5C8A; --rec-bg:#E4EEF7;
+  --risk:#A33327; --risk-bg:#FBE7E4;
+  --shadow:0 1px 2px rgba(22,32,15,.05), 0 10px 28px rgba(22,32,15,.06);
+  --display:"Fraunces",Georgia,"Times New Roman",serif;
+  --body:"Source Sans 3","Segoe UI",Helvetica,Arial,sans-serif;
+  --mono:"IBM Plex Mono","SFMono-Regular",Consolas,monospace;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#12170F; --raised:#1A2117; --ink:#EDF1E8; --slate:#9AA793;
+    --quest:#7DD167; --gold:#E8A93A; --rule:#2C3527; --rule-soft:#212A1D;
+    --fact:#7FD3AC; --fact-bg:#14302334;
+    --est:#E8C877; --est-bg:#3A2E1030;
+    --rec:#8FC2EE; --rec-bg:#16283A40;
+    --risk:#F0A197; --risk-bg:#3A1A1740;
+    --shadow:0 1px 2px rgba(0,0,0,.3), 0 10px 28px rgba(0,0,0,.25);
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#12170F; --raised:#1A2117; --ink:#EDF1E8; --slate:#9AA793;
+  --quest:#7DD167; --gold:#E8A93A; --rule:#2C3527; --rule-soft:#212A1D;
+  --fact:#7FD3AC; --fact-bg:#14302334;
+  --est:#E8C877; --est-bg:#3A2E1030;
+  --rec:#8FC2EE; --rec-bg:#16283A40;
+  --risk:#F0A197; --risk-bg:#3A1A1740;
+  --shadow:0 1px 2px rgba(0,0,0,.3), 0 10px 28px rgba(0,0,0,.25);
+  color-scheme:dark;
+}
+
+*{box-sizing:border-box;}
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:var(--body); font-size:17px; line-height:1.62;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{display:grid; grid-template-columns:248px minmax(0,1fr); gap:56px;
+      max-width:1360px; margin:0 auto; padding:0 24px;}
+
+/* ── section rail ─────────────────────────────────────────────────────── */
+.rail{position:sticky; top:0; align-self:start; max-height:100vh; overflow-y:auto;
+      padding-block:40px 48px; border-right:1px solid var(--rule);}
+.rail .brand{font-family:var(--display); font-weight:700; font-size:21px;
+             line-height:1.15; letter-spacing:-.01em; margin:0 0 4px;}
+.rail .brandsub{font-family:var(--mono); font-size:10.5px; letter-spacing:.1em;
+                text-transform:uppercase; color:var(--slate); margin:0 0 22px;}
+.rail ol{list-style:none; margin:0; padding:0 16px 0 0; display:flex;
+         flex-direction:column; gap:1px;}
+.rail a{display:grid; grid-template-columns:26px 1fr; gap:8px; align-items:baseline;
+        text-decoration:none; color:var(--slate); font-size:13.5px; line-height:1.35;
+        padding:5px 8px; border-radius:5px;}
+.rail a:hover{color:var(--ink); background:var(--rule-soft);}
+.rail a .n{font-family:var(--mono); font-size:11px; color:var(--quest); font-weight:600;}
+.rail a.on{color:var(--ink); background:var(--rule-soft); font-weight:600;}
+.rail .grp{font-family:var(--mono); font-size:10px; letter-spacing:.12em;
+           text-transform:uppercase; color:var(--slate); opacity:.75;
+           margin:18px 0 5px; padding-left:8px;}
+
+/* ── main column ──────────────────────────────────────────────────────── */
+main{padding-block:40px 120px; min-width:0;}
+.masthead{border-bottom:2px solid var(--ink); padding-bottom:26px; margin-bottom:34px;}
+.kicker{font-family:var(--mono); font-size:11px; letter-spacing:.16em;
+        text-transform:uppercase; color:var(--quest); margin:0 0 12px;}
+h1{font-family:var(--display); font-weight:700; font-size:clamp(38px,5.4vw,62px);
+   line-height:1.02; letter-spacing:-.022em; margin:0 0 14px; text-wrap:balance;
+   font-variation-settings:"opsz" 120;}
+.standfirst{font-size:20px; line-height:1.5; color:var(--slate); max-width:62ch; margin:0;}
+.byline{display:flex; flex-wrap:wrap; gap:10px 26px; margin-top:22px;
+        font-family:var(--mono); font-size:11.5px; color:var(--slate);}
+.byline b{color:var(--ink); font-weight:600;}
+
+section{scroll-margin-top:24px; padding-top:46px;}
+h2{font-family:var(--display); font-weight:600; font-size:31px; line-height:1.14;
+   letter-spacing:-.015em; margin:0 0 6px; text-wrap:balance;
+   display:grid; grid-template-columns:auto 1fr; gap:14px; align-items:baseline;}
+h2 .num{font-family:var(--mono); font-size:13px; font-weight:600; color:var(--quest);
+        letter-spacing:0;}
+h3{font-family:var(--body); font-weight:700; font-size:17.5px; letter-spacing:.002em;
+   margin:30px 0 8px;}
+h4{font-family:var(--mono); font-size:11.5px; letter-spacing:.1em; text-transform:uppercase;
+   color:var(--slate); font-weight:600; margin:24px 0 8px;}
+p{margin:0 0 14px; max-width:72ch;}
+ul,ol.body{margin:0 0 14px; padding-left:20px; max-width:72ch;}
+li{margin-bottom:6px;}
+a{color:var(--quest);}
+strong{font-weight:700;}
+hr{border:0; border-top:1px solid var(--rule); margin:34px 0;}
+.lede{font-size:18.5px; color:var(--slate); max-width:68ch; margin-bottom:20px;}
+
+/* ── evidence chips ───────────────────────────────────────────────────── */
+.chip{display:inline-block; font-family:var(--mono); font-size:10px; font-weight:600;
+      letter-spacing:.09em; text-transform:uppercase; padding:2.5px 7px;
+      border-radius:4px; vertical-align:2px; white-space:nowrap;}
+.chip.fact{color:var(--fact); background:var(--fact-bg);}
+.chip.est{color:var(--est); background:var(--est-bg);}
+.chip.rec{color:var(--rec); background:var(--rec-bg);}
+.chip.risk{color:var(--risk); background:var(--risk-bg);}
+
+/* ── callouts ─────────────────────────────────────────────────────────── */
+.note{border-left:3px solid var(--quest); background:var(--rule-soft);
+      padding:16px 20px; margin:20px 0; border-radius:0 7px 7px 0; max-width:74ch;}
+.note.warn{border-left-color:var(--risk); background:var(--risk-bg);}
+.note.gold{border-left-color:var(--gold); background:var(--est-bg);}
+.note p:last-child{margin-bottom:0;}
+.note .hd{font-family:var(--mono); font-size:11px; letter-spacing:.1em;
+          text-transform:uppercase; font-weight:600; margin-bottom:7px; display:block;}
+
+/* ── tables ───────────────────────────────────────────────────────────── */
+.scroller{overflow-x:auto; margin:18px 0 22px; border:1px solid var(--rule);
+          border-radius:9px; background:var(--raised);}
+table{border-collapse:collapse; width:100%; font-size:14px; min-width:640px;}
+caption{caption-side:top; text-align:left; font-family:var(--mono); font-size:11px;
+        letter-spacing:.1em; text-transform:uppercase; color:var(--slate);
+        padding:0 0 8px;}
+th,td{text-align:left; padding:9px 13px; border-bottom:1px solid var(--rule-soft);
+      vertical-align:top;}
+thead th{font-family:var(--mono); font-size:10.5px; letter-spacing:.08em;
+         text-transform:uppercase; color:var(--slate); font-weight:600;
+         background:var(--rule-soft); border-bottom:1px solid var(--rule);
+         position:sticky; top:0; z-index:1;}
+tbody tr:last-child td{border-bottom:0;}
+td.num,th.num{font-variant-numeric:tabular-nums; text-align:right;}
+.mono{font-family:var(--mono); font-size:13px;}
+
+/* ── metadata blocks ──────────────────────────────────────────────────── */
+.field{border:1px solid var(--rule); border-radius:9px; background:var(--raised);
+       padding:16px 18px; margin:14px 0; max-width:74ch;}
+.field .lbl{display:flex; justify-content:space-between; align-items:baseline;
+            gap:12px; font-family:var(--mono); font-size:10.5px; letter-spacing:.1em;
+            text-transform:uppercase; color:var(--slate); margin-bottom:9px;}
+.field .val{font-family:var(--mono); font-size:15px; line-height:1.55;
+            word-break:break-word; white-space:pre-wrap;}
+.field .count{color:var(--quest); font-weight:600;}
+.field .count.over{color:var(--risk);}
+
+/* ── shot cards ───────────────────────────────────────────────────────── */
+.shots{display:grid; grid-template-columns:repeat(auto-fill,minmax(210px,1fr));
+       gap:18px; margin:22px 0;}
+.shot{border:1px solid var(--rule); border-radius:10px; overflow:hidden;
+      background:var(--raised);}
+.shot img{display:block; width:100%; height:auto;}
+.shot .meta{padding:10px 12px 12px;}
+.shot .rank{font-family:var(--mono); font-size:10px; letter-spacing:.1em;
+            text-transform:uppercase; color:var(--quest); font-weight:600;}
+.shot .hl{font-family:var(--display); font-weight:600; font-size:15px;
+          line-height:1.2; margin:3px 0 4px;}
+.shot .sc{font-family:var(--mono); font-size:11px; color:var(--slate);
+          font-variant-numeric:tabular-nums;}
+
+/* ── keyword explorer ─────────────────────────────────────────────────── */
+.kwbar{display:flex; flex-wrap:wrap; gap:10px; align-items:center; margin:18px 0 12px;}
+.kwbar input,.kwbar select{font-family:var(--body); font-size:14px; padding:7px 11px;
+  border:1px solid var(--rule); border-radius:7px; background:var(--raised);
+  color:var(--ink); min-width:0;}
+.kwbar input{flex:1 1 200px;}
+.kwbar .tally{font-family:var(--mono); font-size:12px; color:var(--slate);
+              font-variant-numeric:tabular-nums; margin-left:auto;}
+#kwtable{max-height:520px; overflow-y:auto;}
+.pill{display:inline-block; font-family:var(--mono); font-size:10px; font-weight:600;
+      padding:1.5px 6px; border-radius:4px; letter-spacing:.04em;}
+.pill.a{color:var(--fact); background:var(--fact-bg);}
+.pill.b{color:var(--est); background:var(--est-bg);}
+.pill.c{color:var(--slate); background:var(--rule-soft);}
+.pill.no{color:var(--risk); background:var(--risk-bg);}
+.pill.yes{color:var(--fact); background:var(--fact-bg);}
+
+/* ── score bars ───────────────────────────────────────────────────────── */
+.bar{display:block; height:5px; border-radius:3px; background:var(--rule);
+     overflow:hidden; margin-top:4px; width:100%; min-width:52px;}
+.bar i{display:block; height:100%; background:var(--quest); border-radius:3px;}
+
+/* ── storyboard ───────────────────────────────────────────────────────── */
+.board{display:flex; flex-direction:column; gap:0; margin:20px 0; max-width:80ch;}
+.beat{display:grid; grid-template-columns:86px 1fr; gap:18px; padding:14px 0;
+      border-top:1px solid var(--rule-soft);}
+.beat:first-child{border-top:1px solid var(--rule);}
+.beat .t{font-family:var(--mono); font-size:12px; color:var(--quest); font-weight:600;
+         font-variant-numeric:tabular-nums; padding-top:2px;}
+.beat .h{font-family:var(--display); font-weight:600; font-size:18px; line-height:1.2;
+         margin:0 0 3px;}
+.beat .d{font-size:14.5px; color:var(--slate); margin:0;}
+
+footer{margin-top:70px; padding-top:26px; border-top:2px solid var(--ink);
+       font-family:var(--mono); font-size:12px; color:var(--slate);}
+
+@media (max-width:900px){
+  .wrap{grid-template-columns:1fr; gap:0; padding:0 18px;}
+  .rail{position:static; max-height:none; border-right:0;
+        border-bottom:1px solid var(--rule); padding-block:26px 18px;}
+  .rail ol{display:grid; grid-template-columns:repeat(auto-fill,minmax(150px,1fr));
+           gap:2px; padding-right:0;}
+  .rail .grp{grid-column:1/-1; margin-top:12px;}
+  main{padding-block:26px 80px;}
+  body{font-size:16.5px;}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important; transition:none!important;}}
+:focus-visible{outline:2px solid var(--quest); outline-offset:2px; border-radius:3px;}
+</style>
+
+<div class="wrap">
+<nav class="rail" aria-label="Sections">
+  <p class="brand">LingoQuest</p>
+  <p class="brandsub">Launch dossier · v1.0</p>
+  <ol id="toc"></ol>
+</nav>
+
+<main>
+<header class="masthead">
+  <p class="kicker">App Store &amp; Google Play · Pre-launch</p>
+  <h1>Screenshots, Preview Video &amp; ASO Strategy</h1>
+  <p class="standfirst">A complete store-listing package for LingoQuest, built from the running
+  build on a physical device — two native-geometry screenshot sets, two preview video cuts, full
+  metadata for both stores, and 318 researched keywords.</p>
+  <div class="byline">
+    <span><b>Prepared</b> 12 September 2026</span>
+    <span><b>Build inspected</b> Flutter debug, Pixel 5a</span>
+    <span><b>Screens visited</b> 38</span>
+    <span><b>Assets produced</b> 20 stills + 2 videos</span>
+  </div>
+</header>
+
+<!-- 1 ─────────────────────────────────────────────────────────────────── -->
+<section id="s1"><h2><span class="num">01</span><span>Executive summary</span></h2>
+<p class="lede">LingoQuest is a complete, working language-learning app with a genuine
+differentiator that its current positioning does not claim loudly enough. Ten courses,
+a structured Path, and <strong>ten distinct mini-games built from the same vocabulary</strong>
+are all live in the build I ran. The store listing should be built on the games.</p>
+
+<h3>The five things that matter</h3>
+<ol class="body">
+  <li><strong>The USP is Learn → Practice → Play, and the app says so itself.</strong> Its own
+  onboarding carries a slide titled "Learn → Practice → Play". That is the positioning;
+  it just needs to be on the store page. <span class="chip fact">Fact</span></li>
+  <li><strong>Ten games is the rarest asset here.</strong> Of the six major competitors I
+  checked, only Drops puts "Games" in its App Store title. The games cluster is the one
+  place LingoQuest can win head terms rather than fight for them. <span class="chip fact">Fact</span></li>
+  <li><strong>The app is English-only, and that caps localisation.</strong> There is no
+  <span class="mono">lib/l10n</span>, no <span class="mono">supportedLocales</span>, and every
+  course teaches its language <em>from</em> English. Translating store metadata into nine
+  languages would buy installs from people who cannot use the product.
+  <span class="chip risk">Risk</span></li>
+  <li><strong>The icon is the weakest asset in the package.</strong> A green parrot on a green
+  field, full-body, with a pointer that vanishes below 60px. It scores 3/10 on small-size
+  readability. <span class="chip est">Estimate</span></li>
+  <li><strong>Content depth is the real launch constraint.</strong> Nine lessons per language
+  across three units. That is enough to prove the loop, not enough to hold a 30-day streak —
+  and the achievements screen advertises a 30-day streak badge. <span class="chip fact">Fact</span></li>
+</ol>
+
+<div class="note gold">
+  <span class="hd">Recommended positioning</span>
+  <p><strong>Brand:</strong> LingoQuest &nbsp;·&nbsp; <strong>USP:</strong> Learn languages by
+  playing games &nbsp;·&nbsp; <strong>Proof:</strong> 10 games, 10 languages, one vocabulary.</p>
+</div>
+</section>
+
+<!-- 2 ─────────────────────────────────────────────────────────────────── -->
+<section id="s2"><h2><span class="num">02</span><span>App screen inventory</span></h2>
+<p>Every screen below was opened on a physical Pixel 5a running the current build. Nothing
+in this table is inferred from source code. <span class="chip fact">Fact</span></p>
+
+<div class="scroller"><table>
+<caption>38 screens visited · 12 September 2026</caption>
+<thead><tr><th>Screen</th><th>Path</th><th>Purpose</th><th>Learn</th><th>Game</th><th>Shot potential</th></tr></thead>
+<tbody id="inv"></tbody>
+</table></div>
+
+<div class="note">
+  <span class="hd">Two features I did not expect to find</span>
+  <p><strong>A quick placement test</strong> (8 questions, skippable with "I'm a complete
+  beginner") runs during onboarding, and <strong>every game opens with a Review Words
+  carousel</strong> — flashcards with audio for the exact words that game is about to test.
+  That second one is the mechanical proof of the Learn→Play claim and belongs in the
+  description.</p>
+</div>
+</section>
+
+<!-- 3 ─────────────────────────────────────────────────────────────────── -->
+<section id="s3"><h2><span class="num">03</span><span>Product USP</span></h2>
+<p class="lede">Most competitors gamify the lesson. LingoQuest keeps the lesson and adds a
+games tab that draws from the same word list — so the game is practice, not a reward for
+practice.</p>
+
+<div class="scroller"><table>
+<caption>What the build actually contains</caption>
+<thead><tr><th>Claim</th><th>Verified in build</th><th>Safe to say on store</th></tr></thead>
+<tbody>
+<tr><td>10 learning languages</td><td>Spanish, French, German, Italian, Portuguese, Dutch, Turkish, Arabic, Japanese, Chinese — all listed and selectable</td><td>Yes</td></tr>
+<tr><td>10 mini-games</td><td>Word Bubble, Word Rush, Word Match, Memory Match, Phrase Builder, Listen &amp; Catch, Conversation Challenge, Sentence Builder, Meaning Shooter, Word Survival</td><td>Yes</td></tr>
+<tr><td>Games use lesson vocabulary</td><td>Each game opens a Review Words carousel of its own words before play</td><td>Yes</td></tr>
+<tr><td>8 exercise types</td><td>Typed recall, MCQ, listening, image recognition (two-stage), sentence arrangement, word matching, fill-in-blank, speaking</td><td>Yes</td></tr>
+<tr><td>Per-language progress</td><td>Languages screen shows independent unit/lesson position and lesson counts per language</td><td>Yes</td></tr>
+<tr><td>Mistake review</td><td>"Review answers" with Missed/All filter, your answer vs correct, audio replay</td><td>Yes</td></tr>
+<tr><td>Streaks, XP, achievements</td><td>Streak chip, XP levels, 10+ achievement badges with progress bars, daily goal</td><td>Yes</td></tr>
+<tr><td>Placement test</td><td>8-question quick placement during onboarding</td><td>Yes</td></tr>
+<tr><td>Offline use</td><td><em>Not tested.</em> Courses are bundled JSON assets, which suggests it works, but I did not verify in airplane mode</td><td><strong>No</strong> — verify first</td></tr>
+<tr><td>Speech recognition</td><td>Speaking exercise type exists in code; I did not reach one in the lessons I played</td><td><strong>No</strong> — verify first</td></tr>
+</tbody>
+</table></div>
+
+<div class="note warn">
+  <span class="hd">Do not claim</span>
+  <p>Anything about fluency, CEFR levels, native-speaker tutors, certificates, or offline
+  mode until each is verified. Two of the ten rows above are unverified and are excluded
+  from every piece of copy in this document.</p>
+</div>
+</section>
+
+<!-- 4 ─────────────────────────────────────────────────────────────────── -->
+<section id="s4"><h2><span class="num">04</span><span>Competitor analysis</span></h2>
+<p>Pulled from the live US App Store pages on 12 September 2026. Titles, subtitles and
+ratings are quoted exactly. <span class="chip fact">Fact</span></p>
+
+<div class="scroller"><table>
+<caption>US App Store listings · fetched 12 Sep 2026</caption>
+<thead><tr><th>App</th><th>Title</th><th>Subtitle</th><th class="num">Rating</th><th>Category rank</th></tr></thead>
+<tbody>
+<tr><td><strong>Duolingo</strong></td><td class="mono">Duolingo: Language Lessons</td><td class="mono">Languages, Math, Music &amp; Chess</td><td class="num">4.7 · 5.4M</td><td>#1 Education</td></tr>
+<tr><td><strong>Babbel</strong></td><td class="mono">Babbel - Language Learning</td><td class="mono">Learn Spanish, French &amp; more</td><td class="num">4.7 · 753K</td><td>#60 Education</td></tr>
+<tr><td><strong>Memrise</strong></td><td class="mono">Memrise: Language Learning App</td><td class="mono">Learn Spanish, Japanese &amp; More</td><td class="num">4.8 · 217K</td><td>#190 Education</td></tr>
+<tr><td><strong>Busuu</strong></td><td class="mono">Busuu: Language Learning App</td><td class="mono">Learn Spanish, French, English</td><td class="num">4.7 · 101K</td><td>#131 Education</td></tr>
+<tr><td><strong>Drops</strong></td><td class="mono">Drops: Language Learning Games</td><td class="mono">Learn Spanish, French, German</td><td class="num">4.7 · 72K</td><td>Education</td></tr>
+<tr><td><strong>Mondly</strong></td><td class="mono">Mondly: Learn 41 Languages</td><td class="mono">Learning Spanish Korean French</td><td class="num">4.7 · 33K</td><td>Education</td></tr>
+</tbody>
+</table></div>
+
+<h3>The pattern, and the gap</h3>
+<p>Five of six spend their subtitle listing languages. It is the default move, and it means
+every one of them competes on the same terms with a bigger budget. Only <strong>Drops</strong>
+claims games in its title — and Drops is a vocabulary-only app with no lesson path.</p>
+<p>LingoQuest can claim something none of them can: <strong>a structured path and a games
+arcade that share one vocabulary</strong>. Drops has games without the path; Duolingo and
+Babbel have the path with gamified lessons rather than actual games.</p>
+
+<div class="scroller"><table>
+<caption>Positioning map · assessment, not measurement <span class="chip est">Estimate</span></caption>
+<thead><tr><th>App</th><th>Structured path</th><th>Standalone games</th><th>Shared vocabulary</th><th>Where LingoQuest sits</th></tr></thead>
+<tbody>
+<tr><td>Duolingo</td><td>Yes</td><td>Gamified lessons only</td><td>n/a</td><td rowspan="6" style="vertical-align:middle">LingoQuest is the only one of the set with <strong>both</strong> a path and a separate games tab drawing on the same words.</td></tr>
+<tr><td>Babbel</td><td>Yes</td><td>No</td><td>n/a</td></tr>
+<tr><td>Busuu</td><td>Yes</td><td>No</td><td>n/a</td></tr>
+<tr><td>Memrise</td><td>Yes</td><td>Limited</td><td>Partial</td></tr>
+<tr><td>Drops</td><td>No</td><td>Yes</td><td>Yes</td></tr>
+<tr><td>Mondly</td><td>Yes</td><td>Limited</td><td>Partial</td></tr>
+</tbody>
+</table></div>
+
+<h3>Competitor weaknesses worth targeting <span class="chip est">Estimate</span></h3>
+<ul>
+  <li><strong>Duolingo's scope drift.</strong> Its subtitle now sells maths, music and chess.
+  Learners who want a language app and nothing else are an addressable segment.</li>
+  <li><strong>Price.</strong> Babbel's listed IAP runs to $107.99/yr and Memrise's to $329.99
+  lifetime. LingoQuest's proposed $30/yr is materially below the field.</li>
+  <li><strong>Drops caps at vocabulary.</strong> No sentences, no path, no grammar. LingoQuest
+  has sentence building and a unit structure.</li>
+</ul>
+</section>
+
+<!-- 5 ─────────────────────────────────────────────────────────────────── -->
+<section id="s5"><h2><span class="num">05</span><span>Best user journey</span></h2>
+<p class="lede">The journey that sells this app is the one the app itself is built around, and
+I walked all six steps on device.</p>
+<div class="board" id="journey"></div>
+<p>This is why screenshot 5 (the games grid) sits immediately after screenshot 4 (languages):
+the viewer has just learned the app has ten languages, and the next frame tells them every one
+of those languages feeds ten games.</p>
+</section>
+
+<!-- 6 ─────────────────────────────────────────────────────────────────── -->
+<section id="s6"><h2><span class="num">06</span><span>Screenshot strategy</span></h2>
+<p>Apple shows roughly the first three screenshots before a scroll, so those three carry the
+decision. The set answers a question each.</p>
+<div class="scroller"><table>
+<caption>The three that matter</caption>
+<thead><tr><th>#</th><th>Question it answers</th><th>Answer</th></tr></thead>
+<tbody>
+<tr><td class="num">1</td><td>What is LingoQuest?</td><td>A language app with lessons, games, XP and a streak — the dashboard shows all four at once</td></tr>
+<tr><td class="num">2</td><td>What makes it different?</td><td>Spanish words falling as bubbles you catch — a real game, not a quiz with confetti</td></tr>
+<tr><td class="num">3</td><td>How do I actually learn?</td><td>A five-minute lesson: see the word, hear it, pick the meaning</td></tr>
+</tbody>
+</table></div>
+
+<h4>Production notes</h4>
+<ul>
+  <li><strong>Two native sets, not one resized set.</strong> The App Store set was captured with
+  the device display overridden to <span class="mono">1320 × 2868 @ 3×</span>, so Flutter laid the
+  UI out at 440 × 956 pt — iPhone 16 Pro Max geometry exactly. The Play set was captured at the
+  phone's own 1080 × 2400. Neither is the other one stretched, and the two genuinely differ: the
+  iPhone frames fit more on screen, and Home shows a "continue the Path" row the Android frames
+  do not.</li>
+  <li><strong>Device chrome:</strong> Android's status bar and gesture pill were painted out with
+  the app's own background colour, and the iOS status bar, Dynamic Island and home indicator are
+  drawn in the template — presentation, the same convention every App Store listing uses.
+  Everything inside them is the running app.</li>
+  <li><strong>Size:</strong> 1320 × 2868 px, the 6.9-inch iPhone class. App Store Connect scales
+  that down for every smaller iPhone, so one set covers the family.
+  (<a href="https://screenkit.tools/specs/app-store-screenshot-sizes">spec</a>)</li>
+  <li><strong>Type:</strong> headlines set in Baloo 2 and Source-side copy in Inter — the app's
+  own two faces, so the store page and the product look like the same product.</li>
+  <li><strong>Device frame:</strong> a plain CSS-drawn rounded rectangle. No manufacturer's
+  handset artwork is used.</li>
+  <li><strong>Palette rhythm:</strong> light green → deep green → light green → amber, so the
+  set reads as a designed sequence in the carousel rather than ten variations of one card.</li>
+</ul>
+</section>
+
+<!-- 7 ─────────────────────────────────────────────────────────────────── -->
+<section id="s7"><h2><span class="num">07</span><span>Screenshots 1–10</span></h2>
+<p>Every frame is a real capture from the running app. The only additions are the background,
+the headline, the subcopy and the frame.</p>
+<div class="shots" id="shots"></div>
+</section>
+
+<!-- 8 ─────────────────────────────────────────────────────────────────── -->
+<section id="s8"><h2><span class="num">08</span><span>Exact screenshot copy</span></h2>
+<div class="scroller"><table>
+<caption>Headline · subcopy · rationale</caption>
+<thead><tr><th class="num">#</th><th>Headline</th><th>Supporting text</th><th>Keyword theme</th><th>Why here</th></tr></thead>
+<tbody id="copytab"></tbody>
+</table></div>
+</section>
+
+<!-- 9 ─────────────────────────────────────────────────────────────────── -->
+<section id="s9"><h2><span class="num">09</span><span>Screenshot scoring</span></h2>
+<p>Seven criteria, scored out of 10. These are my assessments from the finished
+assets, not measured conversion data. <span class="chip est">Estimate</span></p>
+<div class="scroller"><table>
+<caption>Ranked by total</caption>
+<thead><tr><th class="num">Rank</th><th>Screenshot</th><th class="num">Visual</th><th class="num">Clarity</th><th class="num">USP</th><th class="num">Feature</th><th class="num">Conv.</th><th class="num">ASO</th><th class="num">Diff.</th><th class="num">Total</th></tr></thead>
+<tbody id="scoretab"></tbody>
+</table></div>
+<p><strong>What the ranking says.</strong> The two highest scorers are #4 (languages) and #5
+(games grid) — both are breadth claims that no competitor screenshot can match. The weakest is
+#2, which scores highest on differentiation but lowest on clarity, because a falling-bubble
+game needs empty vertical space to read as falling. That tension is the single best A/B test
+in this package.</p>
+</section>
+
+<!-- 10 ────────────────────────────────────────────────────────────────── -->
+<section id="s10"><h2><span class="num">10</span><span>App icon review</span></h2>
+<p>The current icon is the full-body parrot mascot, centred on a solid mid-green field, holding
+a pointer stick.</p>
+
+<div class="scroller"><table>
+<caption>Scored out of 10 <span class="chip est">Estimate</span></caption>
+<thead><tr><th>Criterion</th><th class="num">Score</th><th>Reasoning</th></tr></thead>
+<tbody>
+<tr><td>Brand recognition</td><td class="num">5</td><td>Recognisable once known, but a cartoon bird is not a distinctive mark in this category</td></tr>
+<tr><td>Language association</td><td class="num">2</td><td>Nothing in the icon signals language. A parrot implies <em>repeating</em>, which is a stretch for a cold viewer</td></tr>
+<tr><td>Game association</td><td class="num">2</td><td>The pointer stick reads as teaching, not play. Nothing signals a game</td></tr>
+<tr><td>Small-size readability</td><td class="num">3</td><td>Fails below ~60px: green-on-green kills the silhouette and the pointer disappears entirely</td></tr>
+<tr><td>Uniqueness</td><td class="num">4</td><td>Green cartoon bird mascots are crowded here, and proximity to the category leader's owl is a liability rather than an asset</td></tr>
+<tr><td>App Store attractiveness</td><td class="num">5</td><td>Clean and professional, but does not stop a scroll</td></tr>
+<tr><td><strong>Total</strong></td><td class="num"><strong>21/60</strong></td><td></td></tr>
+</tbody>
+</table></div>
+
+<h3>Recommended redesign <span class="chip rec">Recommendation</span></h3>
+<ol class="body">
+  <li><strong>Crop to head and shoulders.</strong> Fill 80–85% of the canvas with the face. At
+  29px, a face still reads; a full body does not.</li>
+  <li><strong>Change the ground to amber.</strong> The brand already owns <span class="mono">#FFB020</span>,
+  and a green parrot on amber has the contrast the current icon lacks. It also separates the
+  icon from every green competitor tile in a search result.</li>
+  <li><strong>Drop the pointer stick.</strong> It is the first thing lost at small sizes and it
+  sells "teacher", which is the opposite of the positioning.</li>
+  <li><strong>Add one game cue, subtly.</strong> The glasses lenses can carry a faint bubble
+  highlight that echoes Word Bubble without becoming a second object.</li>
+</ol>
+<div class="note warn">
+  <span class="hd">Constraint</span>
+  <p>No owl, no green-bird-on-green, no speech-bubble-with-a-globe. The first invites a
+  comparison LingoQuest loses; the last two are the category's two most generic icons.</p>
+</div>
+</section>
+
+<!-- 11 ────────────────────────────────────────────────────────────────── -->
+<section id="s11"><h2><span class="num">11</span><span>Preview video storyboard</span></h2>
+<p>Two cuts, one storyboard: <strong>26.5s for the App Store</strong> (iPhone geometry) and <strong>27.4s for Google Play</strong> (Android geometry). Both 886 × 1920, H.264 High 4.0, 30 fps, AAC stereo 48 kHz — inside Apple's
+15–30 second window. Nine beats, all real footage.
+(<a href="https://screenkit.tools/specs/app-store-app-preview-video-specs">spec</a>)</p>
+<div class="board" id="storyboard"></div>
+<div class="note">
+  <span class="hd">Why this hook</span>
+  <p>I tested three openers. "Stop studying. Start playing." is punchier but picks a fight with
+  studying, which alienates the serious-learner segment. "Learn. Play. Progress." is tidy but
+  says nothing concrete. <strong>"Learn a language by playing"</strong> wins because it is the
+  whole product in five words and it is literally true of the frame behind it.</p>
+</div>
+</section>
+
+<!-- 12 ────────────────────────────────────────────────────────────────── -->
+<section id="s12"><h2><span class="num">12</span><span>Video copy, second by second</span></h2>
+<div class="scroller"><table>
+<caption>On-screen text · LingoQuest_AppStore_Preview.mp4</caption>
+<thead><tr><th>Time</th><th>Headline</th><th>Sub-line</th><th>Footage</th></tr></thead>
+<tbody id="vcopy"></tbody>
+</table></div>
+<p>There is no voice-over and no music bed — the track is silent AAC. Most App Store previews
+autoplay muted, so the captions carry the whole message, and a silent track avoids the audio
+validation failures that reject previews at upload.</p>
+</section>
+
+<!-- 13–17 ──────────────────────────────────────────────────────────────── -->
+<section id="s13"><h2><span class="num">13</span><span>App Store metadata</span></h2>
+<p>Apple indexes the title, subtitle and keyword field — 160 characters total — and nothing
+else. Promotional text and description are for conversion, not search.
+(<a href="https://appscreenshotstudio.com/blog/app-store-metadata-for-indie-devs-title-subtitle-keywords-2026">limits</a>)
+<span class="chip fact">Fact</span></p>
+
+<div class="field">
+  <div class="lbl"><span>App Store title</span><span><span class="count" id="c-title">—</span> / 30</span></div>
+  <div class="val" id="v-title">LingoQuest: Language Games</div>
+</div>
+<p>Brand first because brand terms convert best, then the two words that define the category
+position. "Language Games" is the phrase this app can own; "Language Lessons" is the phrase it
+would lose.</p>
+
+<div class="field">
+  <div class="lbl"><span>Subtitle</span><span><span class="count" id="c-sub">—</span> / 30</span></div>
+  <div class="val" id="v-sub">Learn Spanish, French &amp; 8 More</div>
+</div>
+<p>The subtitle does the job every competitor uses it for — naming languages — but ends on
+"&amp; 8 More", which claims breadth in three words instead of burning the field on two more
+language names.</p>
+
+<div class="field">
+  <div class="lbl"><span>Keyword field</span><span><span class="count" id="c-kw">—</span> / 100</span></div>
+  <div class="val" id="v-kw">vocabulary,word,game,practice,quiz,speak,listen,italian,german,japanese,arabic,dutch,turkish</div>
+</div>
+<p>No spaces after commas — Apple counts them. Nothing here repeats the title or subtitle,
+since Apple already indexes those. Languages not named in the subtitle go here.</p>
+
+<div class="field">
+  <div class="lbl"><span>Promotional text</span><span><span class="count" id="c-promo">—</span> / 170</span></div>
+  <div class="val" id="v-promo">New: Word Survival and Meaning Shooter join the Fun Zone. Ten games, ten languages, one vocabulary — learn a word in a lesson, then play it until it sticks.</div>
+</div>
+<p>Editable without a review, so this is the field to rotate for seasonal pushes and new games.</p>
+</section>
+
+<section id="s14"><h2><span class="num">14</span><span>App Store description</span></h2>
+<div class="field">
+  <div class="lbl"><span>Full description</span><span><span class="count" id="c-desc">—</span> / 4000</span></div>
+  <div class="val" id="v-desc"></div>
+</div>
+<p>The first three lines are what shows before "more", so the differentiator, the breadth claim
+and the mechanic all land above the fold.</p>
+</section>
+
+<section id="s15"><h2><span class="num">15</span><span>Google Play metadata</span></h2>
+<p>Play indexes the long description, so the same keywords work harder here — but Play also
+penalises stuffing, so every term below sits in a real sentence.
+(<a href="https://support.google.com/googleplay/android-developer/answer/9859152?hl=en">limits</a>)
+<span class="chip fact">Fact</span></p>
+
+<div class="field">
+  <div class="lbl"><span>Play title</span><span><span class="count" id="c-gtitle">—</span> / 30</span></div>
+  <div class="val" id="v-gtitle">LingoQuest: Language Games</div>
+</div>
+<div class="field">
+  <div class="lbl"><span>Short description</span><span><span class="count" id="c-gshort">—</span> / 80</span></div>
+  <div class="val" id="v-gshort">Learn Spanish, French, Japanese and 7 more — through 10 real word games.</div>
+</div>
+<div class="field">
+  <div class="lbl"><span>Long description</span><span><span class="count" id="c-glong">—</span> / 4000</span></div>
+  <div class="val" id="v-glong"></div>
+</div>
+</section>
+
+<!-- 16 ────────────────────────────────────────────────────────────────── -->
+<section id="s16"><h2><span class="num">16</span><span>Keyword research · 318 terms</span></h2>
+<p>No search-volume figures appear anywhere in this table. This environment has no Apple Search
+Ads or Play Console access, and invented numbers are worse than none. Competition and
+opportunity are labelled estimates, derived from how crowded the head term is and how closely
+it matches what the app does. <span class="chip est">Estimate</span></p>
+
+<div class="note warn">
+  <span class="hd">Read the Serviceable column first</span>
+  <p>120 of the 318 terms are native-language storefront queries. They are researched and
+  listed, but they are <strong>not usable in this release</strong> — the app's UI and every
+  gloss are English. Shipping metadata against them buys installs that churn on first open.</p>
+</div>
+
+<div class="kwbar">
+  <input id="kwq" type="search" placeholder="Search keywords…" aria-label="Search keywords">
+  <select id="kwintent" aria-label="Filter by intent"><option value="">All intents</option></select>
+  <select id="kwlang" aria-label="Filter by language"><option value="">All languages</option></select>
+  <select id="kwsvc" aria-label="Filter by serviceability">
+    <option value="">Serviceable + blocked</option>
+    <option value="yes">Serviceable now</option>
+    <option value="no">Blocked on localisation</option>
+  </select>
+  <span class="tally" id="kwtally"></span>
+</div>
+<div class="scroller" id="kwtable"><table>
+<thead><tr><th>Keyword</th><th>Intent</th><th>Language</th><th>Rel.</th><th>Competition</th><th>Opp.</th><th>Recommended use</th><th>Apple</th><th>Play</th><th>Serviceable</th></tr></thead>
+<tbody id="kwbody"></tbody>
+</table></div>
+</section>
+
+<!-- 17 ────────────────────────────────────────────────────────────────── -->
+<section id="s17"><h2><span class="num">17</span><span>Nine-language ASO</span></h2>
+<p>Each course gets two keyword sets: English queries that are serviceable today, and
+native-storefront queries that are blocked until the interface is localised.</p>
+<div class="scroller"><table>
+<caption>Per-course strategy</caption>
+<thead><tr><th>Course</th><th>Top English terms (live)</th><th>Native terms (blocked)</th><th>Positioning line</th><th>Priority</th></tr></thead>
+<tbody id="langtab"></tbody>
+</table></div>
+
+<h3>Where to spend first <span class="chip rec">Recommendation</span></h3>
+<p><strong>Spanish, French and Japanese.</strong></p>
+<ul>
+  <li><strong>Spanish</strong> — the largest learn-a-language demand in the English-speaking
+  world, and LingoQuest's most complete course (it is the reference course every other one was
+  generated against).</li>
+  <li><strong>French</strong> — second-largest English-speaker demand, and the French course is
+  the only other one with content beyond the base generation pass.</li>
+  <li><strong>Japanese</strong> — smaller volume, but the audience skews young, game-literate
+  and app-native, which is precisely the segment a games-first pitch converts best. It is also
+  where "learn through games" faces the least entrenched competition.</li>
+</ul>
+<p>Arabic and Chinese are deliberately <em>not</em> in the first three. Both need script
+handling and right-to-left support that I did not verify, and both carry a higher risk of a
+one-star review for a rendering fault than they carry upside.</p>
+</section>
+
+<!-- 18 ────────────────────────────────────────────────────────────────── -->
+<section id="s18"><h2><span class="num">18</span><span>Localisation strategy</span></h2>
+<div class="note warn">
+  <span class="hd">The dependency that governs this section</span>
+  <p>Apple and Google both let you localise a listing without localising the app. Doing that
+  here would put a Spanish-language store page in front of a Spanish speaker who then opens an
+  English-only interface teaching Spanish <em>from</em> English. That is a refund, a one-star
+  review, and a permanent dent in the listing's conversion rate.</p>
+</div>
+
+<h3>Three tiers <span class="chip rec">Recommendation</span></h3>
+<div class="scroller"><table>
+<thead><tr><th>Tier</th><th>Locales</th><th>Action now</th><th>Unblocks when</th></tr></thead>
+<tbody>
+<tr><td><strong>A — ship now</strong></td><td>en-US, en-GB, en-AU, en-CA</td><td>Full metadata, all 10 screenshots, preview video</td><td>Live at launch</td></tr>
+<tr><td><strong>B — metadata only</strong></td><td>nl-NL, de-DE, sv, da, nb</td><td>Localised <em>subtitle and keywords only</em>, English description and screenshots, with "English-language app" stated in the first description line</td><td>Optional at launch; markets with high English proficiency where the honesty note is enough</td></tr>
+<tr><td><strong>C — hold</strong></td><td>es, fr, it, pt-BR, tr, ar, ja, zh-Hans</td><td>Nothing. Research is banked in §16</td><td>Interface localisation + native-language glosses ship</td></tr>
+</tbody>
+</table></div>
+
+<p>Localised titles and subtitles for Tier C are drafted below so they are ready the day the
+dependency clears — they are <strong>not</strong> for upload now.</p>
+<div class="scroller"><table>
+<caption>Tier C drafts · hold until localisation ships</caption>
+<thead><tr><th>Locale</th><th>Title (≤30)</th><th>Subtitle (≤30)</th><th>Primary terms</th><th>Short description</th></tr></thead>
+<tbody id="loctab"></tbody>
+</table></div>
+<p>None of these is a literal translation. "Aprender jugando" and "spielerisch lernen" are the
+phrases those markets actually use for play-based learning; a direct rendering of "Language
+Games" would read as a games catalogue in both.</p>
+</section>
+
+<!-- 19 ────────────────────────────────────────────────────────────────── -->
+<section id="s19"><h2><span class="num">19</span><span>Country strategy</span></h2>
+<p>Ranked on English-language serviceability first, because that is the hard constraint, then
+on paid-subscription behaviour. <span class="chip est">Estimate</span></p>
+<div class="scroller"><table>
+<thead><tr><th>Tier</th><th>Markets</th><th>Why</th><th>Launch action</th></tr></thead>
+<tbody>
+<tr><td><strong>Tier 1</strong></td><td>United States, United Kingdom, Canada, Australia</td><td>Native English, highest iOS subscription spend, and the entire "learn Spanish / French / Japanese" demand base LingoQuest is built to serve</td><td>Full listing, preview video, Apple Search Ads on brand + games terms</td></tr>
+<tr><td><strong>Tier 2</strong></td><td>Netherlands, Sweden, Denmark, Norway, Ireland, Singapore, New Zealand</td><td>Very high English proficiency, strong iOS share and subscription willingness; an English UI is not a blocker here</td><td>English listing, Tier-B localised subtitle where §18 allows, organic only</td></tr>
+<tr><td><strong>Tier 3</strong></td><td>Germany, France, Spain, Italy, Brazil, Japan, Turkey, UAE</td><td>Large demand but the English-only UI is a real conversion and retention penalty</td><td>Hold paid spend. Revisit the day interface localisation ships</td></tr>
+</tbody>
+</table></div>
+<div class="note">
+  <span class="hd">One deliberate exception</span>
+  <p><strong>India and the Philippines</strong> sit outside this ranking. English proficiency is
+  high and volume is large, but subscription conversion is materially lower. They are worth
+  including for install volume and review velocity at launch, and worth excluding from any
+  revenue forecast built on Tier 1 conversion rates.</p>
+</div>
+</section>
+
+<!-- 20 ────────────────────────────────────────────────────────────────── -->
+<section id="s20"><h2><span class="num">20</span><span>A/B test plan · 20 experiments</span></h2>
+<p>Ordered by expected impact. Run one variable at a time on the icon and first three
+screenshots; everything else can run in parallel.</p>
+<div class="scroller"><table>
+<caption>Product Page Optimization (iOS) &amp; Store Listing Experiments (Play)</caption>
+<thead><tr><th class="num">#</th><th>Hypothesis</th><th>Variant A (control)</th><th>Variant B</th><th>Primary metric</th><th>Success</th></tr></thead>
+<tbody id="abtab"></tbody>
+</table></div>
+<div class="note">
+  <span class="hd">Sequencing</span>
+  <p>Tests 1–4 change what a person sees before they read anything, so they move the number
+  most and should run first. Do not run the icon test and the screenshot-1 test concurrently —
+  both change the search-result tile, and you will not know which one moved it.</p>
+</div>
+</section>
+
+<!-- 21 ────────────────────────────────────────────────────────────────── -->
+<section id="s21"><h2><span class="num">21</span><span>90-day roadmap</span></h2>
+<div class="board" id="roadmap"></div>
+</section>
+
+<!-- 22 ────────────────────────────────────────────────────────────────── -->
+<section id="s22"><h2><span class="num">22</span><span>Final recommended package</span></h2>
+<p class="lede">If I were launching LingoQuest with my own money, this is exactly what I would
+publish.</p>
+
+<div class="scroller"><table>
+<caption>The package</caption>
+<thead><tr><th>Slot</th><th>Ship this</th></tr></thead>
+<tbody>
+<tr><td><strong>App Store title</strong></td><td class="mono">LingoQuest: Language Games</td></tr>
+<tr><td><strong>Subtitle</strong></td><td class="mono">Learn Spanish, French &amp; 8 More</td></tr>
+<tr><td><strong>Keywords</strong></td><td class="mono">vocabulary,word,game,practice,quiz,speak,listen,italian,german,japanese,arabic,dutch,turkish</td></tr>
+<tr><td><strong>Screenshots</strong></td><td>All ten, in the order in §7 — the games frame at #2 is the whole bet</td></tr>
+<tr><td><strong>Preview video</strong></td><td><span class="mono">LingoQuest_AppStore_Preview_iPhone.mp4</span> — 26.5s, iPhone geometry, real gameplay, silent</td></tr>
+<tr><td><strong>Icon</strong></td><td><strong>Redesign before launch.</strong> Head-and-shoulders on amber. This is the one asset I would not ship as-is</td></tr>
+<tr><td><strong>Markets</strong></td><td>Tier 1 at launch, Tier 2 organic, Tier 3 held</td></tr>
+<tr><td><strong>Localisation</strong></td><td>English only, until the interface is localised</td></tr>
+<tr><td><strong>Price</strong></td><td>$12/mo with 3-day trial, $30/yr — under every competitor in §4</td></tr>
+</tbody>
+</table></div>
+
+<h3>The one thing I would fix before any of it</h3>
+<p>Nine lessons per language is three units. A learner who takes the app at its word and builds
+a streak will exhaust Spanish inside a fortnight, and the achievements screen is advertising a
+30-day streak badge they cannot earn on content alone. Every pound spent on ASO before that gap
+closes is buying installs into a leaky bucket.</p>
+<p><strong>Ship the store package as specified, hold the paid acquisition until there is enough
+content to survive the streak the app is selling.</strong></p>
+</section>
+
+<footer>
+  <p>LingoQuest launch dossier · compiled 12 September 2026 from the running build.
+  Facts sourced from the live App Store listings and Apple/Google published limits, each linked
+  inline. Competition, opportunity and score columns are assessments, not measurements. No
+  search-volume, download or revenue figures are estimated anywhere in this document.</p>
+</footer>
+</main>
+</div>
+
+<script>
+/* ── data ─────────────────────────────────────────────────────────────── */
+const SECTIONS = [
+  ['Overview', [[1,'Executive summary'],[2,'App screen inventory'],[3,'Product USP'],[4,'Competitor analysis'],[5,'Best user journey']]],
+  ['Creative', [[6,'Screenshot strategy'],[7,'Screenshots 1–10'],[8,'Exact screenshot copy'],[9,'Screenshot scoring'],[10,'App icon review'],[11,'Preview video storyboard'],[12,'Video copy']]],
+  ['Metadata', [[13,'App Store metadata'],[14,'App Store description'],[15,'Google Play metadata']]],
+  ['Research', [[16,'Keyword research'],[17,'Nine-language ASO'],[18,'Localisation strategy'],[19,'Country strategy']]],
+  ['Execution', [[20,'A/B test plan'],[21,'90-day roadmap'],[22,'Final package']]],
+];
+
+const INVENTORY = [
+  ['Welcome / splash','Cold launch','Brand + single CTA','—','—','Low — no product shown'],
+  ['Onboarding tour (5)','Get started','Explains Path, Fun Zone, Learn→Practice→Play, Progress','High','High','Med — states the USP in the app’s own words'],
+  ['Name entry','Tour → Continue','Personalisation','—','—','Low'],
+  ['Language selection','Onboarding','Pick from 10 languages','High','—','High — breadth claim'],
+  ['Daily goal','Onboarding','Casual→Intense commitment','Med','—','Low'],
+  ['XP goal','Onboarding','5/10/20/50 XP per day','Med','Med','Low'],
+  ['Quick placement test','Onboarding','8 questions, skippable','High','—','Med'],
+  ['Home dashboard','Tab 1','XP, streak, lessons, Fun levels, achievements, daily goal, resume card','High','High','<strong>Very high — hero</strong>'],
+  ['Path / course map','Tab 2','Winding map, colour-coded units, lock states','High','Med','High'],
+  ['Lesson intro','Path node','Title, word list, exercise count','High','—','Med'],
+  ['Review Words carousel','Lesson start','Flashcards: word, meaning, emoji, Listen','High','—','High'],
+  ['Typed recall','In lesson','Type the English meaning','High','—','Med'],
+  ['Multiple choice','In lesson','A/B/C/D meaning pick','High','—','High'],
+  ['Listening','In lesson','Audio button + 4 options','High','Med','<strong>High</strong>'],
+  ['Image recognition','In lesson','Emoji + word, two-stage recall','High','Med','High'],
+  ['Sentence arrangement','In lesson','Order word chips into a phrase','High','Med','High'],
+  ['Word matching','In lesson','Two columns joined by drawn lines','High','High','<strong>High</strong>'],
+  ['Answer feedback','In lesson','Green "Nice!" / red "Not quite" + correct answer + meaning','High','—','<strong>High</strong>'],
+  ['Lesson complete','Lesson end','Accuracy %, correct, incorrect, Review mistakes','Med','Med','High'],
+  ['Review answers','Lesson end','Missed/All filter, your vs correct, audio replay','<strong>High</strong>','—','High'],
+  ['XP reward','Lesson end','+85 XP and level ring','Med','High','Med'],
+  ['Streak celebration','Lesson end','"1-day streak!"','—','High','Med'],
+  ['Daily goal reached','Lesson end','Goal hit confirmation','—','High','Med'],
+  ['Achievement unlocked','Lesson end','Badge award','—','High','Med'],
+  ['Fun Zone hub','Tab 3','Hub level, daily challenge, 10 game cards with levels','Med','<strong>High</strong>','<strong>Very high</strong>'],
+  ['Game intro','Game card','Name, rule, level, word count, lives','Med','High','Med'],
+  ['Word Bubble','Fun Zone','Falling bubbles, catch the right meaning','High','<strong>High</strong>','<strong>Very high — USP</strong>'],
+  ['Word Survival','Fun Zone','Beat rising water with the right meaning','High','<strong>High</strong>','<strong>Very high</strong>'],
+  ['Memory Match','Fun Zone','Colour-paired word cards, memorise then flip, combo counter','High','<strong>High</strong>','<strong>Very high</strong>'],
+  ['Memory Match results','Game end','Level Complete, +30 XP, best combo, pairs found, confetti','Med','High','High'],
+  ['Sentence Builder','Fun Zone','Order chips into a full sentence','High','High','High'],
+  ['Game results','Game end','XP, best combo, accuracy, Practice Mistakes','Med','High','Med'],
+  ['Languages / switch','Settings','Per-language unit, lesson and progress bars','High','—','<strong>Very high</strong>'],
+  ['Statistics','Settings','Level, XP, streak, week grid, vocabulary split, time','<strong>High</strong>','Med','<strong>High</strong>'],
+  ['Achievements','Settings','Badge grid with progress bars','—','High','High'],
+  ['Pro / paywall','Settings','Benefits, plans, restore','—','—','Low — no prices on a sideload'],
+];
+
+const JOURNEY = [
+  ['Step 1','Choose a language','Ten flags, one tap. The screen states that each language keeps its own progress.'],
+  ['Step 2','Learn something','A five-minute lesson opens with a flashcard carousel, then eight exercises across six formats.'],
+  ['Step 3','Play a game','The Fun Zone opens the same words as falling bubbles, matching pairs or a rising-water race.'],
+  ['Step 4','Practise what you missed','Wrong answers re-queue inside the lesson, then surface again on the review screen and as "Practice Mistakes" after a game.'],
+  ['Step 5','Earn progress','XP, a level ring, a streak celebration, a daily-goal confirmation and an achievement — five distinct reward screens in one session.'],
+  ['Step 6','Come back','Home resumes exactly where you stopped, per language, and the streak chip is the reason to open it tomorrow.'],
+];
+
+const SHOTS = [
+  [1,'Learn a language by playing','home + memory match',[9,9,10,9,9,9,9]],
+  [2,'Turn words into games','word bubble mid-fall',[9,8,10,9,9,9,10]],
+  [3,'10 games, one vocabulary','games grid panel',[9,10,10,10,9,9,10]],
+  [4,'10 languages, separate progress','languages screen',[9,10,8,10,9,10,9]],
+  [5,'Flip. Match. Remember.','memory match pairs',[10,9,9,9,9,8,9]],
+  [6,'Right answer? Watch it pop','confetti burst',[9,8,9,8,9,7,9]],
+  [7,'Answer fast. Stay afloat.','word survival',[9,8,9,8,8,7,9]],
+  [8,'Short lessons that stick','image recognition',[8,9,7,9,8,8,6]],
+  [9,'Every mistake becomes practice','answer correction',[8,9,8,9,8,7,8]],
+  [10,'Keep the streak alive','stats + achievements',[9,8,6,9,8,7,6]],
+];
+
+const COPY = [
+  [1,'Learn a language by playing','Short lessons. Ten real games. One streak worth keeping.','language learning app, learn through games','Answers "what is this" — the dashboard and a game board in one frame'],
+  [2,'Turn words into games','Catch the right meaning before the bubble gets away.','language games, vocabulary games','The differentiator, in the slot where a viewer decides to scroll or leave'],
+  [3,'10 games, one vocabulary','Every game practises the words your lessons just taught you.','language learning games, word games','All ten modes named and legible at thumbnail size — the breadth claim no competitor can match'],
+  [4,'10 languages, separate progress','Switch any time. Each keeps its own lessons, XP and streak.','10 languages, learn spanish, learn french','Breadth. The per-language detail is a claim no competitor screenshot makes'],
+  [5,'Flip. Match. Remember.','Memory Match pairs every word with its meaning, against the clock.','memory match language, matching game words','The most visually distinct game — colour-paired Spanish and English cards'],
+  [6,'Right answer? Watch it pop','Correct bubbles burst into confetti and the next word drops in.','word game learn, gamified learning','The reward moment. Proves the games have real game feel, not quiz feel'],
+  [7,'Answer fast. Stay afloat.','Beat the rising water by picking the right meaning in time.','language challenge, word game','A third distinct mechanic, so "ten games" reads as true rather than padded'],
+  [8,'Short lessons that stick','See it, hear it, say what it means — five minutes at a time.','5 minute lessons, vocabulary','Reassures the serious learner that the lessons are real'],
+  [9,'Every mistake becomes practice','Get it wrong and LingoQuest shows you why, then brings it back.','practice, review mistakes','The retention mechanic — answers "will I actually remember this"'],
+  [10,'Keep the streak alive','XP, day streaks, badges and every word you have mastered.','daily streak, achievements','Closes on the habit loop — the last thing seen before the install button'],
+];
+
+const STORY = [
+  ['0.0–2.9','Learn a language by playing','Home dashboard: 24-day streak, 4860 XP, Fun Zone card'],
+  ['2.9–5.6','Choose your quest','Languages screen — Spanish learning now, French and German in progress'],
+  ['5.6–8.1','Learn new words','Multiple-choice exercise from the Getting Around lesson'],
+  ['8.1–10.8','Then play them','Word Bubble — "Lion" with three meanings drifting'],
+  ['10.8–14.0','Get it right, watch it pop','Live recording of a correct tap: the bubble bursts into confetti'],
+  ['14.0–18.8','Flip. Match. Remember.','Memory Match — live recording of pairs turning over and matching'],
+  ['18.8–21.7','Or beat the rising water','Word Survival — water climbing to the character'],
+  ['21.7–24.2','Build your streak','Statistics — level, XP, streak, week grid, vocabulary split'],
+  ['24.2–26.5','Start your Language Quest','Return to the Home dashboard'],
+];
+
+const VCOPY = STORY.map((s,i)=>[s[0], s[1], [
+  'LingoQuest','10 languages, each with its own progress','Short lessons you finish in five minutes',
+  'Catch the right meaning before it gets away','Correct answers burst into confetti',
+  'Pair every word with its meaning','Ten games, one vocabulary',
+  'XP, day streaks and every word mastered','LingoQuest — free to download'][i], s[2]]);
+
+const LANGS = [
+  ['Spanish','learn spanish · spanish games · spanish vocabulary','aprender idiomas · aprender jugando','The language most English speakers start with, now with games','1'],
+  ['French','learn french · french for beginners · french practice','apprendre en jouant · jeux de vocabulaire','Everyday French, learned five minutes at a time','2'],
+  ['Japanese','learn japanese · japanese words · japanese games','語学学習 · 単語ゲーム','Japanese vocabulary that sticks, because you play it','3'],
+  ['German','learn german · german vocabulary · german app','sprachen lernen · vokabeln lernen','German words drilled through ten games','4'],
+  ['Italian','learn italian · italian for beginners','imparare giocando · giochi di vocaboli','Italian for travel, built as a game','5'],
+  ['Portuguese','learn portuguese · portuguese words','aprender brincando · jogos de vocabulário','Portuguese vocabulary, one game at a time','6'],
+  ['Chinese','learn chinese · chinese vocabulary','学语言 · 单词游戏','Chinese words through play — script support unverified','7'],
+  ['Turkish','learn turkish · turkish words','dil öğrenme · kelime oyunu','Turkish vocabulary, game-first','8'],
+  ['Arabic','learn arabic · arabic for beginners','تعلم اللغات · ألعاب تعلم اللغة','Arabic vocabulary through games — RTL unverified','9'],
+  ['Dutch','learn dutch · dutch vocabulary','talen leren · spelenderwijs leren','Dutch words, learned by playing','10'],
+];
+
+const LOC = [
+  ['es-ES / es-MX','LingoQuest: Juegos de Idioma','Aprende jugando cada día','aprender idiomas, aprender jugando, juegos de vocabulario','Aprende español, francés y 8 idiomas más con 10 juegos de palabras.'],
+  ['de-DE','LingoQuest: Sprachspiele','Sprachen spielerisch lernen','sprachen lernen, vokabeln lernen, lernspiele','Lerne Spanisch, Französisch und 8 weitere Sprachen — mit 10 Wortspielen.'],
+  ['fr-FR','LingoQuest : Jeux de Langue','Apprendre en jouant','apprendre une langue, en jouant, vocabulaire','Apprends l’espagnol, le japonais et 8 autres langues avec 10 jeux de mots.'],
+  ['it-IT','LingoQuest: Giochi di Lingua','Impara giocando ogni giorno','imparare le lingue, giocando, vocaboli','Impara spagnolo, francese e altre 8 lingue con 10 giochi di parole.'],
+  ['pt-BR','LingoQuest: Jogos de Idiomas','Aprenda brincando todo dia','aprender idiomas, jogos, vocabulário','Aprenda espanhol, francês e mais 8 idiomas com 10 jogos de palavras.'],
+  ['tr-TR','LingoQuest: Dil Oyunları','Oyunla dil öğren','dil öğrenme, kelime oyunu','İspanyolca, Fransızca ve 8 dil daha — 10 kelime oyunuyla öğren.'],
+  ['ar','لينجوكويست: ألعاب اللغة','تعلّم اللغات باللعب','تعلم اللغات, ألعاب الكلمات','تعلّم الإسبانية والفرنسية و8 لغات أخرى عبر 10 ألعاب كلمات.'],
+  ['ja-JP','LingoQuest 言葉のゲーム','遊びながら語学学習','語学学習, 単語ゲーム','スペイン語や日本語など10言語を、10種類の単語ゲームで学ぼう。'],
+  ['zh-Hans','LingoQuest 语言游戏','玩游戏学语言','学语言, 单词游戏','用10款单词游戏，学习西班牙语、法语等10种语言。'],
+];
+
+const AB = [
+  [1,'A games-first icon out-converts a teaching-first icon','Full-body parrot with pointer, green ground','Head-and-shoulders parrot, amber ground, no pointer','Impressions → product page view','+8% tap-through'],
+  [2,'Leading with gameplay beats leading with the dashboard','Screenshot 1 = Home dashboard','Screenshot 1 = Word Bubble gameplay','Product page → install','+5% conversion'],
+  [3,'Naming the count beats naming the category','Subtitle "Learn Spanish, French & 8 More"','Subtitle "10 Languages, 10 Word Games"','Install rate + keyword rank','+4% conversion'],
+  [4,'"Games" in the title lifts non-brand discovery','Title "LingoQuest: Language Games"','Title "LingoQuest: Learn by Playing"','Non-brand impressions','+10% impressions'],
+  [5,'Breadth earlier compensates for a weak opener','Order 1-2-3 as shipped','Languages screen promoted to #2','Scroll depth + install','+3% conversion'],
+  [6,'A video raises conversion more than it costs attention','Screenshots only','Preview video autoplaying first','Product page → install','+6% conversion'],
+  [7,'Play-based wording beats study-based wording','"Short lessons that stick"','"Lessons you play, not study"','Install rate','+3% conversion'],
+  [8,'Trial framing beats price framing on the CTA','"Upgrade to Pro"','"Start my 3 days free"','Paywall → purchase','+12% trial starts'],
+  [9,'A concrete streak number beats an abstract habit claim','"Keep the streak alive"','"Keep a 24-day streak alive"','Scroll depth to #10','+2% conversion'],
+  [10,'Ten games beats one named game','Screenshot 5 = games grid','Screenshot 5 = Word Bubble close-up','Install rate','+3% conversion'],
+  [11,'Mistake review is an underrated selling point','Review screenshot at #7','Review screenshot at #3','Install rate','+3% conversion'],
+  [12,'Price in the description reduces paywall bounce','No price in description','"$30/year" in first 3 lines','Paywall bounce rate','−8% bounce'],
+  [13,'Naming specific games lifts long-tail rank','Generic "10 games"','Game names listed in Play long description','Play keyword rank','Top-50 on 5 new terms'],
+  [14,'A darker first frame stands out in a light carousel','Screenshot 1 light green','Screenshot 1 deep green','Tap-through','+4% tap-through'],
+  [15,'Progress proof beats feature breadth for returning visitors','Statistics at #9','Statistics at #4','Install rate','+2% conversion'],
+  [16,'The mascot helps more on the page than in the tile','Mascot in icon and screenshot 1','Mascot removed from screenshot 1','Conversion','No loss (guardrail test)'],
+  [17,'"Free to download" raises installs without hurting trials','No free claim','"Free to download" on screenshot 10','Install rate','+5% installs, flat trial rate'],
+  [18,'A shorter video holds more viewers to the end','26.7s preview','15s cut: hook, one game, CTA','Video completion','+15% completion'],
+  [19,'Placement test reassures experienced learners','No mention','"Skip ahead with a placement test" in description','Install rate among 25-44','+3% conversion'],
+  [20,'Per-language progress is a differentiator worth stating','"10 languages"','"10 languages, each with its own streak"','Install rate','+3% conversion'],
+];
+
+const ROADMAP = [
+  ['Days 1–14','Fix the two blockers','Redesign the icon per §10. Verify offline behaviour and the speaking exercise so both can enter the copy — or stay out of it permanently. Configure the three subscription products and the 3-day trial in both consoles.'],
+  ['Days 15–30','Ship the listing','Upload the ten screenshots, the preview video and the Tier-1 metadata. Publish to US, UK, CA, AU. Baseline impressions, product-page views, conversion and day-1/day-7 retention before spending anything.'],
+  ['Days 31–45','Learn before spending','Run A/B tests 1–4 sequentially. Read the keyword-rank baseline for the games cluster in §16. Do not start Apple Search Ads until test 2 has a result — the screenshot order changes what the ad is selling.'],
+  ['Days 46–60','Close the content gap','Extend the top three courses past three units. Nine lessons cannot support the 30-day streak badge the app already advertises, and retention data from days 15–30 will show exactly where learners fall off.'],
+  ['Days 61–75','Scale what worked','Apply the winning icon and screenshot order everywhere. Open Tier-2 markets organically. Begin Search Ads on brand plus the games cluster only — never on head terms the incumbents own.'],
+  ['Days 76–90','Decide on localisation','With retention and conversion from a full quarter, decide whether interface localisation earns its cost. If yes, Spanish first: it is the biggest course, the biggest market and the fastest to validate.'],
+];
+
+const APP_DESC = `Learn a language the way you would actually keep doing it — by playing.
+
+LingoQuest teaches 10 languages through short lessons and 10 real word games that use the same vocabulary. Learn a word in a lesson. Play it in a game. Keep it for good.
+
+LEARN → PRACTICE → PLAY
+Every lesson takes about five minutes. You meet each word on a flashcard with audio, then work through exercises that ask you to read it, hear it, match it and build it into a sentence. Then the Fun Zone hands those exact words back to you as a game.
+
+10 LANGUAGES, EACH WITH ITS OWN PROGRESS
+Spanish, French, German, Italian, Portuguese, Dutch, Turkish, Arabic, Japanese and Chinese. Switch whenever you like — every language keeps its own lessons, XP, streak and position on the path, so nothing is lost when you come back.
+
+10 GAMES, ONE VOCABULARY
+• Word Bubble — catch the right meaning before it falls
+• Word Rush — fast-paced catching with big combos
+• Word Match — pair up words and meanings
+• Memory Match — flip cards, find the pairs
+• Sentence Builder — drag words into the right order
+• Phrase Builder — complete everyday phrases
+• Listen & Catch — listen closely, catch what you hear
+• Meaning Shooter — pop the bubble with the right meaning
+• Conversation Challenge — follow a real back-and-forth chat
+• Word Survival — answer fast and keep your friend above the rising water
+
+EVERY MISTAKE BECOMES PRACTICE
+Get a word wrong and LingoQuest shows you the right answer and what it means, then brings the word back later in the same lesson. After a game, one tap practises only the words you missed.
+
+A CLEAR PATH FORWARD
+Units and lessons laid out as a path, so you always know what comes next. A quick placement test at the start means you can skip ahead if you already know some.
+
+PROGRESS YOU CAN SEE
+XP levels, day streaks, daily goals, achievement badges, and a vocabulary breakdown that tells you which words you have mastered and which still need work.
+
+LINGOQUEST PRO
+Pro unlocks every lesson on the Path and every game in the Fun Zone, with unlimited practice. Monthly and yearly plans are available, and the monthly plan starts with a free trial. Prices are shown in your local currency before you buy.
+
+Free to download. Start with Spanish, or pick any of the ten.`;
+
+const PLAY_DESC = `Learn a language by playing — not by studying.
+
+LingoQuest is a language learning app built around a simple idea: you remember a word when you use it. So every word you meet in a lesson comes back as a game.
+
+Learn Spanish, French, German, Italian, Portuguese, Dutch, Turkish, Arabic, Japanese or Chinese. Each language keeps its own lessons, XP and streak, so you can switch whenever you like and pick up exactly where you left off.
+
+━━━ SHORT LESSONS THAT STICK ━━━
+Each lesson takes about five minutes. You meet new vocabulary on flashcards with audio, then practise it through several exercise types: multiple choice, listening, typing the meaning, matching words to meanings, arranging words into a sentence, and recognising a word from an image. Get something wrong and the app shows you the correct answer and its meaning, then asks you again before the lesson ends.
+
+━━━ 10 WORD GAMES, ALL BUILT FROM YOUR VOCABULARY ━━━
+The Fun Zone is not a separate app bolted on. Every game opens with a quick review of the words it is about to test, and those are the words from your lessons.
+
+Word Bubble — catch the right meaning before it falls
+Word Rush — fast-paced word catching with big combos
+Word Match — pair up words and meanings
+Memory Match — flip cards and find the matching pairs
+Sentence Builder — drag words into the right order
+Phrase Builder — complete everyday phrases
+Listen & Catch — listen closely and catch what you hear
+Meaning Shooter — pop the bubble with the right meaning
+Conversation Challenge — follow a real back-and-forth chat
+Word Survival — answer fast and keep your friend above the rising water
+
+━━━ A PATH, NOT A PILE OF FLASHCARDS ━━━
+Lessons are organised into units along a path you can see, so you always know what is next. A quick placement test when you start means you do not have to begin at "hello" if you already know some.
+
+━━━ PRACTICE WHAT YOU ACTUALLY MISSED ━━━
+Every lesson ends with a review screen showing what you got wrong, what the right answer was, and what it means — with audio so you can hear it again. After a game, one tap practises only the missed words.
+
+━━━ PROGRESS WORTH COMING BACK FOR ━━━
+Earn XP and level up. Build a day streak. Hit a daily goal you set yourself. Unlock achievement badges. Watch your vocabulary breakdown move from weak to learning to mastered.
+
+━━━ LINGOQUEST PRO ━━━
+Pro unlocks every lesson on the Path and every game in the Fun Zone, with unlimited practice and fresh questions each time. Monthly and yearly subscriptions are available, and the monthly plan starts with a free trial. All prices are shown in your local currency before purchase and can be cancelled any time in your Google Play account settings.
+
+LingoQuest is free to download. Pick a language and start your quest.`;
+
+/* ── render ───────────────────────────────────────────────────────────── */
+const $ = (id) => document.getElementById(id);
+const esc = (s) => String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+
+// table of contents
+$('toc').innerHTML = SECTIONS.map(([grp, items]) =>
+  `<li class="grp">${grp}</li>` + items.map(([n, label]) =>
+    `<li><a href="#s${n}" data-s="s${n}"><span class="n">${String(n).padStart(2,'0')}</span><span>${label}</span></a></li>`
+  ).join('')).join('');
+
+// inventory
+$('inv').innerHTML = INVENTORY.map(r =>
+  `<tr><td><strong>${r[0]}</strong></td><td class="mono">${r[1]}</td><td>${r[2]}</td><td>${r[3]}</td><td>${r[4]}</td><td>${r[5]}</td></tr>`
+).join('');
+
+// journey + storyboard + roadmap share the beat layout
+const beats = (rows) => rows.map(([t, h, d]) =>
+  `<div class="beat"><div class="t">${t}</div><div><p class="h">${h}</p><p class="d">${d}</p></div></div>`).join('');
+$('journey').innerHTML = beats(JOURNEY);
+$('storyboard').innerHTML = beats(STORY.map(s => [s[0]+'s', s[1], s[2]]));
+$('roadmap').innerHTML = beats(ROADMAP);
+
+// shot cards
+const CRIT = ['Visual','Clarity','USP','Feature','Conv','ASO','Diff'];
+$('shots').innerHTML = SHOTS.map(([n, hl, , sc]) => {
+  const total = sc.reduce((a,b)=>a+b,0);
+  return `<div class="shot">
+    <img src="../LingoQuest_AppStore_Screenshots/${String(n).padStart(2,'0')}_AppStore_LingoQuest.png" alt="Screenshot ${n}: ${esc(hl)}" loading="lazy">
+    <div class="meta"><div class="rank">Screenshot ${String(n).padStart(2,'0')}</div>
+    <p class="hl">${esc(hl)}</p>
+    <div class="sc">${total}/70<span class="bar"><i style="width:${(total/70*100).toFixed(0)}%"></i></span></div></div></div>`;
+}).join('');
+
+// copy table
+$('copytab').innerHTML = COPY.map(r =>
+  `<tr><td class="num">${r[0]}</td><td><strong>${esc(r[1])}</strong></td><td>${esc(r[2])}</td><td class="mono">${esc(r[3])}</td><td>${esc(r[4])}</td></tr>`
+).join('');
+
+// scoring, ranked
+$('scoretab').innerHTML = SHOTS
+  .map(([n, hl, , sc]) => ({n, hl, sc, total: sc.reduce((a,b)=>a+b,0)}))
+  .sort((a,b) => b.total - a.total)
+  .map((r, i) => `<tr><td class="num">${i+1}</td><td>#${r.n} ${esc(r.hl)}</td>${
+    r.sc.map(v => `<td class="num">${v}</td>`).join('')
+  }<td class="num"><strong>${r.total}</strong></td></tr>`).join('');
+
+// video copy
+$('vcopy').innerHTML = VCOPY.map(r =>
+  `<tr><td class="mono">${r[0]}s</td><td><strong>${esc(r[1])}</strong></td><td>${esc(r[2])}</td><td>${esc(r[3])}</td></tr>`
+).join('');
+
+// per-language
+$('langtab').innerHTML = LANGS.map(r =>
+  `<tr><td><strong>${r[0]}</strong></td><td class="mono">${esc(r[1])}</td><td class="mono">${esc(r[2])}</td><td>${esc(r[3])}</td><td class="num">${r[4]}</td></tr>`
+).join('');
+
+// localisation drafts
+$('loctab').innerHTML = LOC.map(r =>
+  `<tr><td class="mono">${r[0]}</td><td class="mono">${esc(r[1])}</td><td class="mono">${esc(r[2])}</td><td class="mono">${esc(r[3])}</td><td>${esc(r[4])}</td></tr>`
+).join('');
+
+// a/b tests
+$('abtab').innerHTML = AB.map(r =>
+  `<tr><td class="num">${r[0]}</td><td>${esc(r[1])}</td><td>${esc(r[2])}</td><td><strong>${esc(r[3])}</strong></td><td class="mono">${esc(r[4])}</td><td class="mono">${esc(r[5])}</td></tr>`
+).join('');
+
+// metadata character counts
+const setField = (valId, countId, text, limit) => {
+  const el = $(valId);
+  if (text !== null) el.textContent = text;
+  const n = el.textContent.length;
+  const c = $(countId);
+  c.textContent = n;
+  if (n > limit) c.classList.add('over');
+};
+setField('v-title','c-title',null,30);
+setField('v-sub','c-sub',null,30);
+setField('v-kw','c-kw',null,100);
+setField('v-promo','c-promo',null,170);
+setField('v-desc','c-desc',APP_DESC,4000);
+setField('v-gtitle','c-gtitle',null,30);
+setField('v-gshort','c-gshort',null,80);
+setField('v-glong','c-glong',PLAY_DESC,4000);
+
+/* ── keyword explorer ─────────────────────────────────────────────────── */
+let KW = [];
+const oppPill = (o) => {
+  const t = o.charAt(0).toLowerCase();
+  return `<span class="pill ${t === 'a' ? 'a' : t === 'b' ? 'b' : 'c'}">${esc(o)}</span>`;
+};
+function drawKw() {
+  const q = $('kwq').value.trim().toLowerCase();
+  const fi = $('kwintent').value, fl = $('kwlang').value, fs = $('kwsvc').value;
+  const rows = KW.filter(r =>
+    (!q || r.kw.toLowerCase().includes(q)) &&
+    (!fi || r.intent === fi) &&
+    (!fl || r.lang === fl) &&
+    (!fs || (fs === 'yes' ? r.svc === 'Yes' : r.svc !== 'Yes')));
+  $('kwtally').textContent = `${rows.length} of ${KW.length} terms`;
+  $('kwbody').innerHTML = rows.slice(0, 400).map(r =>
+    `<tr><td class="mono"><strong>${esc(r.kw)}</strong></td><td>${esc(r.intent)}</td>
+     <td>${esc(r.lang)}</td><td>${esc(r.rel)}</td><td>${esc(r.comp)}</td>
+     <td>${oppPill(r.opp)}</td><td>${esc(r.use)}</td><td>${esc(r.apple)}</td>
+     <td>${esc(r.gplay)}</td>
+     <td><span class="pill ${r.svc === 'Yes' ? 'yes' : 'no'}">${esc(r.svc)}</span></td></tr>`
+  ).join('');
+}
+fetch('keywords.json').then(r => r.json()).then(data => {
+  KW = data;
+  const uniq = (k) => [...new Set(data.map(r => r[k]))].sort();
+  uniq('intent').forEach(v => $('kwintent').insertAdjacentHTML('beforeend', `<option>${esc(v)}</option>`));
+  uniq('lang').forEach(v => $('kwlang').insertAdjacentHTML('beforeend', `<option>${esc(v)}</option>`));
+  drawKw();
+}).catch(() => { $('kwtally').textContent = 'keywords.json not found beside this file'; });
+['kwq','kwintent','kwlang','kwsvc'].forEach(id =>
+  $(id).addEventListener('input', drawKw));
+
+/* ── scrollspy ────────────────────────────────────────────────────────── */
+const links = [...document.querySelectorAll('.rail a')];
+const spy = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    links.forEach(a => a.classList.toggle('on', a.dataset.s === e.target.id));
+  });
+}, { rootMargin: '-10% 0px -80% 0px' });
+document.querySelectorAll('section[id]').forEach(s => spy.observe(s));
+</script>

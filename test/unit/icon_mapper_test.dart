@@ -2,8 +2,8 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter_test/flutter_test.dart';
-import 'package:lernova/core/utils/icon_mapper.dart';
-import 'package:lernova/data/models/course.dart';
+import 'package:lingoquest/core/utils/icon_mapper.dart';
+import 'package:lingoquest/data/models/course.dart';
 
 Course _loadCourse(String path) {
   final json = jsonDecode(File(path).readAsStringSync()) as Map<String, dynamic>;

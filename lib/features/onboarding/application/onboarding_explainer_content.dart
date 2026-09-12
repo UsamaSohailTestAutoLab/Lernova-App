@@ -16,7 +16,7 @@ class OnboardingExplainerSlide {
   });
 }
 
-/// The 5-screen "how Lernova works" explainer shown once, between the
+/// The 5-screen "how LingoQuest works" explainer shown once, between the
 /// Welcome screen's "Get started" and account creation.
 const onboardingExplainerSlides = [
   OnboardingExplainerSlide(

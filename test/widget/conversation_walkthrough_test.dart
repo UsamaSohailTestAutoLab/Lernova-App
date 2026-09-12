@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:lernova/core/theme/app_theme.dart';
-import 'package:lernova/data/models/fun/conversation.dart';
-import 'package:lernova/features/fun/presentation/widgets/conversation_walkthrough.dart';
+import 'package:lingoquest/core/theme/app_theme.dart';
+import 'package:lingoquest/data/models/fun/conversation.dart';
+import 'package:lingoquest/features/fun/presentation/widgets/conversation_walkthrough.dart';
 
 const _conversation = Conversation(
   id: 'es_conv_meeting',

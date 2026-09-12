@@ -6,7 +6,7 @@ import '../../../core/routing/app_routes.dart';
 import '../../../core/theme/app_colors.dart';
 import '../../../core/widgets/app_metric.dart';
 import '../../../core/widgets/celebration_scaffold.dart';
-import '../../../core/widgets/lernova_parrot.dart';
+import '../../../core/widgets/lingoquest_parrot.dart';
 import '../../exercises/application/lesson_session_controller.dart';
 import '../application/lesson_nav_args.dart';
 import 'lesson_review_screen.dart';
@@ -17,7 +17,7 @@ import 'lesson_review_screen.dart';
 ///  * finished with mistakes — "Lesson complete!"
 ///  * ran out of hearts — "Out of hearts", with **Play again** as the
 ///    primary action. This replaces the old out-of-hearts screen
-///    entirely: there is no timer, no ad, no gem refill and nothing to
+///    entirely: there is no timer, no ad and nothing to
 ///    buy, just the results and a way back in.
 ///
 /// Every outcome offers **Review mistakes** whenever there are any.
@@ -96,8 +96,8 @@ class LessonCompleteScreen extends ConsumerWidget {
           : null,
       hero: CelebrationHero.mascot,
       mascotMood: outOfHearts
-          ? LernovaParrotMood.sad
-          : (isPerfect ? LernovaParrotMood.celebrate : LernovaParrotMood.happy),
+          ? LingoQuestParrotMood.sad
+          : (isPerfect ? LingoQuestParrotMood.celebrate : LingoQuestParrotMood.happy),
       intensity: outOfHearts
           ? CelebrationIntensity.none
           : (isPerfect ? CelebrationIntensity.full : CelebrationIntensity.medium),

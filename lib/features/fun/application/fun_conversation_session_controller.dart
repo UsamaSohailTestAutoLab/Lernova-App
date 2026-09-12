@@ -24,7 +24,6 @@ class FunConversationState {
   final int combo;
   final int bestCombo;
   final int xpEarned;
-  final int coinsEarned;
   final int correctCount;
   final int wrongCount;
   final Map<String, int> vocabDeltas;
@@ -49,7 +48,6 @@ class FunConversationState {
     required this.combo,
     required this.bestCombo,
     required this.xpEarned,
-    required this.coinsEarned,
     required this.correctCount,
     required this.wrongCount,
     required this.vocabDeltas,
@@ -74,7 +72,6 @@ class FunConversationState {
     int? combo,
     int? bestCombo,
     int? xpEarned,
-    int? coinsEarned,
     int? correctCount,
     int? wrongCount,
     Map<String, int>? vocabDeltas,
@@ -95,7 +92,6 @@ class FunConversationState {
       combo: combo ?? this.combo,
       bestCombo: bestCombo ?? this.bestCombo,
       xpEarned: xpEarned ?? this.xpEarned,
-      coinsEarned: coinsEarned ?? this.coinsEarned,
       correctCount: correctCount ?? this.correctCount,
       wrongCount: wrongCount ?? this.wrongCount,
       vocabDeltas: vocabDeltas ?? this.vocabDeltas,
@@ -151,7 +147,6 @@ class FunConversationSessionController extends Notifier<FunConversationState?> {
       combo: 0,
       bestCombo: 0,
       xpEarned: 0,
-      coinsEarned: 0,
       correctCount: 0,
       wrongCount: 0,
       vocabDeltas: const {},
@@ -195,7 +190,6 @@ class FunConversationSessionController extends Notifier<FunConversationState?> {
         combo: combo,
         bestCombo: bestCombo,
         xpEarned: s.xpEarned + 5 * FallingWordSessionController.comboMultiplier(combo),
-        coinsEarned: s.coinsEarned + 2,
         correctCount: s.correctCount + 1,
         vocabDeltas: vocabDeltas,
       );
@@ -250,7 +244,6 @@ class FunConversationSessionController extends Notifier<FunConversationState?> {
 
     final result = ref.read(progressProvider.notifier).awardFunSession(
           xpEarned: s.xpEarned,
-          coinsEarned: s.coinsEarned,
           vocabDeltas: s.vocabDeltas,
           isPerfectRound: s.isPerfectRound,
           isSpeedRound: false,

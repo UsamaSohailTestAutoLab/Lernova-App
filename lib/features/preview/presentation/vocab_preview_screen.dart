@@ -4,7 +4,7 @@ import 'package:go_router/go_router.dart';
 
 import '../../../core/theme/app_spacing.dart';
 import '../../../core/widgets/app_buttons.dart';
-import '../../../core/widgets/lernova_parrot.dart';
+import '../../../core/widgets/lingoquest_parrot.dart';
 import '../../../core/widgets/swipe_carousel.dart';
 import '../../../data/models/vocab_preview_nav_args.dart';
 import '../../progress/application/progress_controller.dart';
@@ -76,7 +76,7 @@ class _VocabPreviewScreenState extends ConsumerState<VocabPreviewScreen> {
           ),
           child: Column(
             children: [
-              LernovaParrot(size: 72, mood: LernovaParrotMood.curious),
+              LingoQuestParrot(size: 76, mood: LingoQuestParrotMood.teaching),
               const SizedBox(height: AppSpacing.sm),
               Text(
                 'Review Words',

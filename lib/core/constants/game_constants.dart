@@ -16,9 +16,5 @@ class GameConstants {
 
   static const int mistakeReviewClearThreshold = 2;
 
-  static const int streakFreezeGemCost = 200;
-  static const int mascotOutfitGemCost = 500;
 
-  static const int gemsPerAchievement = 50;
-  static const int gemsPerPerfectLesson = 10;
 }

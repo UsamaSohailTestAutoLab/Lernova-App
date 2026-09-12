@@ -20,7 +20,6 @@ class AppIcons {
   static const IconData goal = Icons.track_changes_rounded;
 
   static const IconData hearts = Icons.favorite_rounded;
-  static const IconData gems = Icons.diamond_rounded;
   static const IconData league = Icons.shield_rounded;
   static const IconData lock = Icons.lock_rounded;
   static const IconData achievement = Icons.emoji_events_rounded;

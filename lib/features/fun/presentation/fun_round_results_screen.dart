@@ -10,7 +10,7 @@ import '../../../core/theme/app_colors.dart';
 import '../../../core/theme/app_decor.dart';
 import '../../../core/theme/app_spacing.dart';
 import '../../../core/widgets/app_buttons.dart';
-import '../../../core/widgets/lernova_parrot.dart';
+import '../../../core/widgets/lingoquest_parrot.dart';
 import '../../../data/models/vocab_preview_item.dart';
 import '../../../data/repositories/fun_content_providers.dart';
 import '../../preview/application/retry_preview.dart';
@@ -154,11 +154,11 @@ class _FunRoundResultsScreenState extends ConsumerState<FunRoundResultsScreen> {
               child: Column(
                 children: [
                   const Spacer(),
-                  LernovaParrot(
+                  LingoQuestParrot(
                     size: 130,
                     mood: session.failed
-                        ? LernovaParrotMood.sad
-                        : LernovaParrotMood.celebrate,
+                        ? LingoQuestParrotMood.sad
+                        : LingoQuestParrotMood.celebrate,
                   ),
                   const SizedBox(height: AppSpacing.lg),
                   Text(
@@ -180,11 +180,6 @@ class _FunRoundResultsScreenState extends ConsumerState<FunRoundResultsScreen> {
                     alignment: WrapAlignment.center,
                     children: [
                       _Stat(label: 'XP', value: '+${result.xpEarned}', color: AppColors.accent),
-                      _Stat(
-                        label: 'Coins',
-                        value: '+${session.coinsEarned}',
-                        color: AppColors.gem,
-                      ),
                       _Stat(
                         label: 'Best combo',
                         value: '${session.bestCombo}',
@@ -261,7 +256,7 @@ class _FunRoundResultsScreenState extends ConsumerState<FunRoundResultsScreen> {
               AppColors.primary,
               AppColors.accent,
               AppColors.success,
-              AppColors.gem,
+              AppColors.teal,
             ],
           ),
         ],

@@ -10,8 +10,8 @@ class AppSettings {
 
   const AppSettings({
     this.themeMode = AppThemeMode.system,
-    this.notificationsEnabled = true,
-    this.dailyReminderEnabled = true,
+    this.notificationsEnabled = false,
+    this.dailyReminderEnabled = false,
     this.soundEnabled = true,
     this.hapticsEnabled = true,
     this.reminderTime = '18:00',
@@ -50,8 +50,8 @@ class AppSettings {
       themeMode: AppThemeMode.values.byName(
         json['themeMode'] as String? ?? 'system',
       ),
-      notificationsEnabled: json['notificationsEnabled'] as bool? ?? true,
-      dailyReminderEnabled: json['dailyReminderEnabled'] as bool? ?? true,
+      notificationsEnabled: json['notificationsEnabled'] as bool? ?? false,
+      dailyReminderEnabled: json['dailyReminderEnabled'] as bool? ?? false,
       soundEnabled: json['soundEnabled'] as bool? ?? true,
       hapticsEnabled: json['hapticsEnabled'] as bool? ?? true,
       reminderTime: json['reminderTime'] as String? ?? '18:00',

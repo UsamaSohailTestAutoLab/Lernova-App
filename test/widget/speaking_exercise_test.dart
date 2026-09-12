@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:lernova/core/services/service_providers.dart';
-import 'package:lernova/core/services/stt_service.dart';
-import 'package:lernova/data/models/exercise.dart';
-import 'package:lernova/features/exercises/application/lesson_session_controller.dart';
-import 'package:lernova/features/exercises/presentation/speaking_exercise.dart';
+import 'package:lingoquest/core/services/service_providers.dart';
+import 'package:lingoquest/core/services/stt_service.dart';
+import 'package:lingoquest/data/models/exercise.dart';
+import 'package:lingoquest/features/exercises/application/lesson_session_controller.dart';
+import 'package:lingoquest/features/exercises/presentation/speaking_exercise.dart';
 
 const _payload = SpeakingPayload(
   prompt: 'Say this phrase out loud',

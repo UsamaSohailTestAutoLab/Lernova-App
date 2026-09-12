@@ -2,17 +2,17 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'package:lernova/core/constants/app_enums.dart';
-import 'package:lernova/core/services/local_storage_service.dart';
-import 'package:lernova/core/services/service_providers.dart';
-import 'package:lernova/data/models/course.dart';
-import 'package:lernova/data/models/course_unit.dart';
-import 'package:lernova/data/models/exercise.dart';
-import 'package:lernova/data/models/last_activity.dart';
-import 'package:lernova/data/models/lesson.dart';
-import 'package:lernova/data/models/user_progress.dart';
-import 'package:lernova/features/exercises/application/lesson_session_controller.dart';
-import 'package:lernova/features/progress/application/progress_controller.dart';
+import 'package:lingoquest/core/constants/app_enums.dart';
+import 'package:lingoquest/core/services/local_storage_service.dart';
+import 'package:lingoquest/core/services/service_providers.dart';
+import 'package:lingoquest/data/models/course.dart';
+import 'package:lingoquest/data/models/course_unit.dart';
+import 'package:lingoquest/data/models/exercise.dart';
+import 'package:lingoquest/data/models/last_activity.dart';
+import 'package:lingoquest/data/models/lesson.dart';
+import 'package:lingoquest/data/models/user_progress.dart';
+import 'package:lingoquest/features/exercises/application/lesson_session_controller.dart';
+import 'package:lingoquest/features/progress/application/progress_controller.dart';
 
 Exercise _mc(String id) => Exercise(
       id: id,

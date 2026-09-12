@@ -1,9 +1,9 @@
 import 'package:flutter/widgets.dart' show TextDirection;
 import 'package:flutter_test/flutter_test.dart';
-import 'package:lernova/data/models/course.dart';
-import 'package:lernova/data/models/course_unit.dart';
-import 'package:lernova/data/models/lesson.dart';
-import 'package:lernova/features/course/application/path_layout.dart';
+import 'package:lingoquest/data/models/course.dart';
+import 'package:lingoquest/data/models/course_unit.dart';
+import 'package:lingoquest/data/models/lesson.dart';
+import 'package:lingoquest/features/course/application/path_layout.dart';
 
 Course _buildCourse() {
   Lesson lesson(String id) => Lesson(id: id, title: id, subtitle: '', exercises: const []);

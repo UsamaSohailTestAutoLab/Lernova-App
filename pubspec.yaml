@@ -1,5 +1,5 @@
-name: lernova
-description: "Lernova - an original language learning experience."
+name: lingoquest
+description: "LingoQuest - an original language learning experience."
 publish_to: 'none'
 
 version: 1.0.0+1
@@ -20,6 +20,21 @@ dependencies:
   intl: ^0.20.2
   speech_to_text: ^7.4.0
   in_app_purchase: ^3.3.0
+  # The store-specific packages are direct dependencies only so the Pro
+  # screen can read a plan's introductory offer: the shared
+  # ProductDetails carries a price but not a free trial, and that fact
+  # lives on the platform product underneath it.
+  in_app_purchase_android: ^0.5.3
+  in_app_purchase_storekit: ^0.4.12
+  permission_handler: ^13.0.2
+  # Wraps SKStoreReviewController on iOS and the Play In-App Review API
+  # on Android. Apple requires the system prompt — a custom rate-us
+  # dialog is a guideline violation — so this is the only way to ask.
+  in_app_review: ^2.0.10
+  # Opens the store account pages. Auto-renewable subscriptions have to
+  # give the buyer a way to manage and cancel, and both stores expose
+  # that only as a URL.
+  url_launcher: ^6.3.1
 
 dev_dependencies:
   flutter_test:

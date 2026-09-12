@@ -5,6 +5,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../../data/models/app_settings.dart';
 import '../../data/models/app_user.dart';
 import '../../data/models/fun_progress.dart';
+import '../../data/models/review_prompt_state.dart';
 import '../../data/models/user_progress.dart';
 
 /// Single choke point for all local persistence. Device-wide data (the
@@ -15,6 +16,15 @@ import '../../data/models/user_progress.dart';
 /// accounts on one device never see each other's data. A future
 /// backend-backed repository can mirror this same per-account shape
 /// over the network without any UI change.
+///
+/// **The `lernova.` key prefix is deliberate and must not be renamed.**
+/// It predates the rename to LingoQuest, and it is the literal string
+/// every installed copy of the app already has its data filed under.
+/// Changing it does not migrate anything — it points the app at keys
+/// that have never been written, so every existing learner opens a
+/// blank app with their progress, streak, settings and Pro entitlement
+/// apparently gone. The prefix is storage plumbing, not branding, and
+/// nobody ever sees it.
 class LocalStorageService {
   static const _keyActiveAccountId = 'lernova.active_account_id';
 
@@ -196,6 +206,35 @@ class LocalStorageService {
     final id = _activeAccountId;
     if (id == null) return false;
     return _prefs.getBool('lernova.onboarding_complete.$id') ?? false;
+  }
+
+  // Review prompt bookkeeping (per active account). Separate from
+  // UserProgress on purpose: this is a fact about the install's
+  // relationship with the store, not about anyone's learning, and it
+  // must survive a language switch, which parks and restores progress.
+  Future<void> saveReviewPromptState(ReviewPromptState state) {
+    final id = _activeAccountId;
+    if (id == null) return Future.value();
+    return _prefs.setString(
+      'lernova.review_prompt.$id',
+      jsonEncode(state.toJson()),
+    );
+  }
+
+  ReviewPromptState loadReviewPromptState() {
+    final id = _activeAccountId;
+    if (id == null) return ReviewPromptState.fresh;
+    final raw = _prefs.getString('lernova.review_prompt.$id');
+    if (raw == null) return ReviewPromptState.fresh;
+    try {
+      return ReviewPromptState.fromJson(
+        jsonDecode(raw) as Map<String, dynamic>,
+      );
+    } catch (_) {
+      // A corrupt blob must not cost the learner their prompt budget,
+      // and must never crash a launch. Start over from fresh.
+      return ReviewPromptState.fresh;
+    }
   }
 
   /// One-time upgrade from the oldest, un-namespaced key scheme: copy

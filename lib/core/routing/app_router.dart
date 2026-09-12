@@ -38,7 +38,6 @@ import '../../features/onboarding/presentation/splash_screen.dart';
 import '../../features/onboarding/presentation/welcome_screen.dart';
 import '../../features/preview/presentation/vocab_preview_screen.dart';
 import '../../features/progress/presentation/statistics_screen.dart';
-import '../../features/rewards/presentation/shop_screen.dart';
 import '../../features/settings/presentation/account_settings_screen.dart';
 import '../../features/settings/presentation/notification_settings_screen.dart';
 import '../../features/settings/presentation/premium_screen.dart';
@@ -112,7 +111,6 @@ final routerProvider = Provider<GoRouter>((ref) {
         builder: (context, state) => const AchievementsScreen(),
       ),
       GoRoute(path: AppRoutes.statistics, builder: (context, state) => const StatisticsScreen()),
-      GoRoute(path: AppRoutes.shop, builder: (context, state) => const ShopScreen()),
       GoRoute(path: AppRoutes.premium, builder: (context, state) => const PremiumScreen()),
       GoRoute(
         path: AppRoutes.languages,

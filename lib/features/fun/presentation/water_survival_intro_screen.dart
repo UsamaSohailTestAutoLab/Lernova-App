@@ -7,7 +7,7 @@ import '../../../core/theme/app_colors.dart';
 import '../../../core/theme/app_decor.dart';
 import '../../../core/theme/app_spacing.dart';
 import '../../../core/widgets/app_buttons.dart';
-import '../../../core/widgets/lernova_parrot.dart';
+import '../../../core/widgets/lingoquest_parrot.dart';
 import '../../progress/application/progress_controller.dart';
 import 'widgets/realistic_water.dart';
 
@@ -76,7 +76,7 @@ class _WaterSurvivalIntroScreenState extends ConsumerState<WaterSurvivalIntroScr
                 padding: const EdgeInsets.symmetric(horizontal: AppSpacing.xl),
                 children: [
                   const Center(
-                    child: LernovaParrot(size: 104, mood: LernovaParrotMood.curious),
+                    child: LingoQuestParrot(size: 104, mood: LingoQuestParrotMood.curious),
                   ),
                   const SizedBox(height: AppSpacing.md),
                   Text(
@@ -157,7 +157,7 @@ class _RisingWaterDemo extends StatelessWidget {
             ),
             const Positioned(
               bottom: 8,
-              child: LernovaParrot(size: 96, mood: LernovaParrotMood.happy),
+              child: LingoQuestParrot(size: 96, mood: LingoQuestParrotMood.happy),
             ),
             AnimatedBuilder(
               animation: animation,

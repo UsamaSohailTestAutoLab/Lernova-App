@@ -4,13 +4,13 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'package:lernova/core/services/local_storage_service.dart';
-import 'package:lernova/core/services/service_providers.dart';
-import 'package:lernova/core/theme/app_theme.dart';
-import 'package:lernova/data/models/vocab_preview_item.dart';
-import 'package:lernova/data/models/vocab_preview_nav_args.dart';
-import 'package:lernova/features/preview/presentation/vocab_preview_screen.dart';
-import 'package:lernova/features/progress/application/progress_controller.dart';
+import 'package:lingoquest/core/services/local_storage_service.dart';
+import 'package:lingoquest/core/services/service_providers.dart';
+import 'package:lingoquest/core/theme/app_theme.dart';
+import 'package:lingoquest/data/models/vocab_preview_item.dart';
+import 'package:lingoquest/data/models/vocab_preview_nav_args.dart';
+import 'package:lingoquest/features/preview/presentation/vocab_preview_screen.dart';
+import 'package:lingoquest/features/progress/application/progress_controller.dart';
 
 const _items = [
   VocabPreviewItem(id: 'w1', word: 'Hola', meaning: 'Hello', emoji: '👋'),

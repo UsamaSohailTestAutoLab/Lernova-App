@@ -44,7 +44,6 @@ class AppRoutes {
 
   static const achievements = '/achievements';
   static const statistics = '/statistics';
-  static const shop = '/shop';
 
   static const languages = '/languages';
 

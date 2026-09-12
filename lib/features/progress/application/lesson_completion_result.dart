@@ -6,7 +6,6 @@ import '../../../core/constants/app_enums.dart';
 /// recomputes gamification math itself.
 class LessonCompletionResult {
   final int xpEarned;
-  final int gemsEarned;
   final int newTotalXp;
   final bool leveledUp;
   final int newLevel;
@@ -20,7 +19,6 @@ class LessonCompletionResult {
 
   const LessonCompletionResult({
     required this.xpEarned,
-    required this.gemsEarned,
     required this.newTotalXp,
     required this.leveledUp,
     required this.newLevel,

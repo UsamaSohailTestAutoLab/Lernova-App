@@ -7,7 +7,7 @@ import '../../../core/routing/app_routes.dart';
 import '../../../core/theme/app_colors.dart';
 import '../../../core/theme/app_spacing.dart';
 import '../../../core/widgets/app_card.dart';
-import '../../../core/widgets/lernova_parrot.dart';
+import '../../../core/widgets/lingoquest_parrot.dart';
 import '../../onboarding/application/user_controller.dart';
 import '../application/fun_game_nav_args.dart';
 import '../application/fun_progress_controller.dart';
@@ -45,7 +45,7 @@ class FunHubScreen extends ConsumerWidget {
             tint: AppColors.primary,
             child: Row(
               children: [
-                const LernovaParrot(size: 64, mood: LernovaParrotMood.curious),
+                const LingoQuestParrot(size: 64, mood: LingoQuestParrotMood.curious),
                 const SizedBox(width: AppSpacing.md),
                 Expanded(
                   child: Column(

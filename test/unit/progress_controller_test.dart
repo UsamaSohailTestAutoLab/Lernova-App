@@ -2,14 +2,14 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'package:lernova/core/constants/app_enums.dart';
-import 'package:lernova/core/services/local_storage_service.dart';
-import 'package:lernova/core/services/service_providers.dart';
-import 'package:lernova/data/models/course.dart';
-import 'package:lernova/data/models/course_unit.dart';
-import 'package:lernova/data/models/exercise.dart';
-import 'package:lernova/data/models/lesson.dart';
-import 'package:lernova/features/progress/application/progress_controller.dart';
+import 'package:lingoquest/core/constants/app_enums.dart';
+import 'package:lingoquest/core/services/local_storage_service.dart';
+import 'package:lingoquest/core/services/service_providers.dart';
+import 'package:lingoquest/data/models/course.dart';
+import 'package:lingoquest/data/models/course_unit.dart';
+import 'package:lingoquest/data/models/exercise.dart';
+import 'package:lingoquest/data/models/lesson.dart';
+import 'package:lingoquest/features/progress/application/progress_controller.dart';
 
 Exercise _exercise(String id, String vocabId) => Exercise(
       id: id,
@@ -68,7 +68,6 @@ void main() {
     // 30 from exercises + 10 completion bonus + 20 perfect bonus = 60.
     expect(result.xpEarned, 60);
     expect(container.read(progressProvider).totalXp, 60);
-    expect(result.gemsEarned, greaterThanOrEqualTo(10)); // perfect-lesson gem bonus
   });
 
   test('lesson completion marks the lesson done and does not unlock unit 1 yet', () {
@@ -182,13 +181,11 @@ void main() {
   });
 
   group('awardFunSession', () {
-    test('applies XP, coins and vocab deltas into the shared progress state', () {
+    test('applies XP and vocab deltas into the shared progress state', () {
       final controller = container.read(progressProvider.notifier);
-      final gemsBefore = container.read(progressProvider).gems;
 
       final result = controller.awardFunSession(
         xpEarned: 25,
-        coinsEarned: 6,
         vocabDeltas: {'es_hola': 1, 'es_adios': -1},
         isPerfectRound: false,
         isSpeedRound: false,
@@ -198,7 +195,6 @@ void main() {
       expect(result.xpEarned, 25);
       expect(progress.totalXp, 25);
       expect(progress.dailyXp, 25);
-      expect(progress.gems, gemsBefore + 6);
       expect(progress.vocabStrength['es_hola'], 1);
       expect(progress.vocabStrength['es_adios'], -1);
     });
@@ -207,12 +203,10 @@ void main() {
       final controller = container.read(progressProvider.notifier);
       final result = controller.awardFunSession(
         xpEarned: 10,
-        coinsEarned: 2,
         vocabDeltas: const {},
         isPerfectRound: true,
         isSpeedRound: false,
       );
-      expect(result.gemsEarned, greaterThan(2)); // coins + perfect bonus
       expect(result.newAchievements, contains(AchievementId.perfectRound));
     });
 
@@ -221,7 +215,6 @@ void main() {
       final before = container.read(progressProvider).completedLessonIds;
       controller.awardFunSession(
         xpEarned: 5,
-        coinsEarned: 1,
         vocabDeltas: const {},
         isPerfectRound: false,
         isSpeedRound: false,

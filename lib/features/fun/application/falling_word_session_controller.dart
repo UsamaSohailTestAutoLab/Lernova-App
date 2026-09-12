@@ -18,7 +18,6 @@ class FallingWordSessionState {
   final int combo;
   final int bestCombo;
   final int xpEarned;
-  final int coinsEarned;
   final int correctCount;
   final int mistakeCount;
   final Map<String, int> vocabDeltas;
@@ -43,7 +42,6 @@ class FallingWordSessionState {
     required this.combo,
     required this.bestCombo,
     required this.xpEarned,
-    required this.coinsEarned,
     required this.correctCount,
     required this.mistakeCount,
     required this.vocabDeltas,
@@ -73,7 +71,6 @@ class FallingWordSessionState {
     int? combo,
     int? bestCombo,
     int? xpEarned,
-    int? coinsEarned,
     int? correctCount,
     int? mistakeCount,
     Map<String, int>? vocabDeltas,
@@ -98,7 +95,6 @@ class FallingWordSessionState {
       combo: combo ?? this.combo,
       bestCombo: bestCombo ?? this.bestCombo,
       xpEarned: xpEarned ?? this.xpEarned,
-      coinsEarned: coinsEarned ?? this.coinsEarned,
       correctCount: correctCount ?? this.correctCount,
       mistakeCount: mistakeCount ?? this.mistakeCount,
       vocabDeltas: vocabDeltas ?? this.vocabDeltas,
@@ -123,7 +119,7 @@ class FallingWordSessionState {
 /// blocks progress behind [pendingRecall] — the player must actively
 /// recall the correct meaning (see [RecallInterstitial]) before the
 /// round advances, rather than the round just moving on past a mistake.
-/// Combo, lives, XP/coins and per-word mastery deltas are tracked here;
+/// Combo, lives, XP and per-word mastery deltas are tracked here;
 /// applying them to the shared [ProgressController]/[FunProgressController]
 /// only happens once, in [finishAndApply].
 class FallingWordSessionController extends Notifier<FallingWordSessionState?> {
@@ -145,7 +141,6 @@ class FallingWordSessionController extends Notifier<FallingWordSessionState?> {
       combo: 0,
       bestCombo: 0,
       xpEarned: 0,
-      coinsEarned: 0,
       correctCount: 0,
       mistakeCount: 0,
       vocabDeltas: const {},
@@ -213,7 +208,6 @@ class FallingWordSessionController extends Notifier<FallingWordSessionState?> {
         combo: combo,
         bestCombo: bestCombo,
         xpEarned: s.xpEarned + 5 * multiplier,
-        coinsEarned: s.coinsEarned + 2,
         correctCount: s.correctCount + 1,
         vocabDeltas: vocabDeltas,
         consecutiveFastAnswers: consecutiveFast,
@@ -303,7 +297,6 @@ class FallingWordSessionController extends Notifier<FallingWordSessionState?> {
 
     final result = ref.read(progressProvider.notifier).awardFunSession(
           xpEarned: s.xpEarned,
-          coinsEarned: s.coinsEarned,
           vocabDeltas: s.vocabDeltas,
           isPerfectRound: s.isPerfectRound,
           isSpeedRound: s.speedAchieved,

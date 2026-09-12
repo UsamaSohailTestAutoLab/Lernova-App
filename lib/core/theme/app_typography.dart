@@ -38,7 +38,7 @@ class AppTypography {
         height: 1.15,
       ),
       // Was undefined and silently fell back to Roboto (notably on the
-      // Lernova wordmark) — now a real style between displayMedium and
+      // LingoQuest wordmark) — now a real style between displayMedium and
       // headlineLarge.
       displaySmall: TextStyle(
         fontFamily: _display,

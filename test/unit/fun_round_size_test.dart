@@ -3,11 +3,11 @@ import 'dart:io';
 import 'dart:math';
 
 import 'package:flutter_test/flutter_test.dart';
-import 'package:lernova/core/constants/app_enums.dart';
-import 'package:lernova/data/models/fun/phrase.dart';
-import 'package:lernova/data/models/fun/vocab_word.dart';
-import 'package:lernova/features/fun/application/fun_level_catalog.dart';
-import 'package:lernova/features/fun/application/fun_question_generator.dart';
+import 'package:lingoquest/core/constants/app_enums.dart';
+import 'package:lingoquest/data/models/fun/phrase.dart';
+import 'package:lingoquest/data/models/fun/vocab_word.dart';
+import 'package:lingoquest/features/fun/application/fun_level_catalog.dart';
+import 'package:lingoquest/features/fun/application/fun_question_generator.dart';
 
 List<T> _load<T>(String path, T Function(Map<String, dynamic>) fromJson) =>
     (jsonDecode(File(path).readAsStringSync()) as List)

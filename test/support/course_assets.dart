@@ -1,9 +1,9 @@
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:lernova/data/models/course.dart';
-import 'package:lernova/data/models/fun/phrase.dart';
-import 'package:lernova/data/models/fun/vocab_word.dart';
+import 'package:lingoquest/data/models/course.dart';
+import 'package:lingoquest/data/models/fun/phrase.dart';
+import 'package:lingoquest/data/models/fun/vocab_word.dart';
 
 /// One language's shipped content, loaded straight off disk.
 class CourseAssets {

@@ -4,7 +4,7 @@ import 'package:go_router/go_router.dart';
 import '../../../core/routing/app_routes.dart';
 import '../../../core/theme/app_spacing.dart';
 import '../../../core/widgets/app_buttons.dart';
-import '../../../core/widgets/lernova_parrot.dart';
+import '../../../core/widgets/lingoquest_parrot.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});
@@ -19,9 +19,9 @@ class WelcomeScreen extends StatelessWidget {
           child: Column(
             children: [
               const Spacer(),
-              const LernovaParrot(
+              const LingoQuestParrot(
                 size: 132,
-                mood: LernovaParrotMood.celebrate,
+                mood: LingoQuestParrotMood.celebrate,
                 showWordmark: true,
               ),
               const SizedBox(height: AppSpacing.xl),

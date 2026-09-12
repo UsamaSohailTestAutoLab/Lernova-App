@@ -8,7 +8,7 @@ import '../../data/models/user_progress.dart';
 /// This is a **safety net, not a gate.** Hearts are a per-attempt life
 /// budget that is restored in full whenever a lesson starts (see
 /// `ProgressController.refillHeartsForSession`), so no learner ever waits
-/// on this clock — the app shows no heart timer, offers no ad, no gem
+/// on this clock — the app shows no heart timer, offers no ad, no
 /// refill and no paywall. Regeneration stays only so a partially-spent
 /// budget heals for anyone who leaves mid-attempt and comes back.
 ///

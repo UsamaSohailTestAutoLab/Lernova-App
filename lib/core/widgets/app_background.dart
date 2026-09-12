@@ -6,7 +6,7 @@ import '../theme/app_motion.dart';
 /// - [plain] — the base color only, no bloom. For screens that are
 ///   themselves full-bleed (splash) or content-dense (Settings lists).
 /// - [brand] — a soft green bloom top-trailing, a warm accent bloom
-///   bottom-leading. The default "this is Lernova" backdrop.
+///   bottom-leading. The default "this is LingoQuest" backdrop.
 /// - [journey] — a stronger, taller brand bloom for the Path screen.
 /// - [celebration] — a centered, larger bloom for result/reward screens.
 /// - [focus] — a single quiet bloom, low contrast, for the lesson player

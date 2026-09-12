@@ -126,15 +126,3 @@ IconData unitIconFor({String? iconKey, required String unitId, required String t
   return _iconVarietyPool[unitId.hashCode.abs() % _iconVarietyPool.length];
 }
 
-IconData shopIconFor(String name) {
-  switch (name) {
-    case 'favorite':
-      return Icons.favorite_rounded;
-    case 'ac_unit':
-      return Icons.ac_unit_rounded;
-    case 'auto_awesome':
-      return Icons.auto_awesome_rounded;
-    default:
-      return Icons.card_giftcard_rounded;
-  }
-}

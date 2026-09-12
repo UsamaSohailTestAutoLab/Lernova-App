@@ -1,7 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:lernova/data/models/user_progress.dart';
-import 'package:lernova/features/home/application/motivation_messages.dart';
+import 'package:lingoquest/data/models/user_progress.dart';
+import 'package:lingoquest/features/home/application/motivation_messages.dart';
 
 UserProgress _progress({
   int dailyXp = 0,

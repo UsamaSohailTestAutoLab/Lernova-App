@@ -2,11 +2,11 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'package:lernova/core/constants/app_enums.dart';
-import 'package:lernova/core/services/local_storage_service.dart';
-import 'package:lernova/core/services/service_providers.dart';
-import 'package:lernova/core/utils/fun_daily_challenge_logic.dart';
-import 'package:lernova/features/fun/application/fun_progress_controller.dart';
+import 'package:lingoquest/core/constants/app_enums.dart';
+import 'package:lingoquest/core/services/local_storage_service.dart';
+import 'package:lingoquest/core/services/service_providers.dart';
+import 'package:lingoquest/core/utils/fun_daily_challenge_logic.dart';
+import 'package:lingoquest/features/fun/application/fun_progress_controller.dart';
 
 void main() {
   late ProviderContainer container;

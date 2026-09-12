@@ -6,17 +6,17 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'package:lernova/core/services/local_storage_service.dart';
-import 'package:lernova/core/services/service_providers.dart';
-import 'package:lernova/core/theme/app_theme.dart';
-import 'package:lernova/data/models/app_user.dart';
-import 'package:lernova/data/models/user_progress.dart';
-import 'package:lernova/data/repositories/content_providers.dart';
-import 'package:lernova/features/fun/application/fun_progress_controller.dart';
-import 'package:lernova/features/languages/application/language_switch_controller.dart';
-import 'package:lernova/features/languages/presentation/language_switch_screen.dart';
-import 'package:lernova/features/onboarding/application/user_controller.dart';
-import 'package:lernova/features/progress/application/progress_controller.dart';
+import 'package:lingoquest/core/services/local_storage_service.dart';
+import 'package:lingoquest/core/services/service_providers.dart';
+import 'package:lingoquest/core/theme/app_theme.dart';
+import 'package:lingoquest/data/models/app_user.dart';
+import 'package:lingoquest/data/models/user_progress.dart';
+import 'package:lingoquest/data/repositories/content_providers.dart';
+import 'package:lingoquest/features/fun/application/fun_progress_controller.dart';
+import 'package:lingoquest/features/languages/application/language_switch_controller.dart';
+import 'package:lingoquest/features/languages/presentation/language_switch_screen.dart';
+import 'package:lingoquest/features/onboarding/application/user_controller.dart';
+import 'package:lingoquest/features/progress/application/progress_controller.dart';
 
 /// Spanish, three lessons in and partway through Unit 2 — the state the
 /// learner must find waiting for them when they come back.
@@ -24,7 +24,6 @@ UserProgress _spanishInProgress() =>
     UserProgress.initial(weekId: '2026-W37').copyWith(
       activeLanguageId: 'es',
       totalXp: 900,
-      gems: 250,
       streakCount: 7,
       unlockedUnitIndex: 1,
       completedLessonIds: {'es_u1_l1', 'es_u1_l2', 'es_u1_l3'},
@@ -183,8 +182,8 @@ void main() {
     expect(progress.totalXp, 0, reason: 'French has earned nothing yet');
     expect(progress.streakCount, 0);
 
-    // ...and the account's wallet is untouched.
-    expect(progress.gems, 250);
+    // ...and the account's hearts are untouched.
+    expect(progress.hearts, greaterThan(0));
   });
 
   testWidgets('Fun levels are kept per language too', (tester) async {

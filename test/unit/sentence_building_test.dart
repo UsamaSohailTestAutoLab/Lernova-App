@@ -1,10 +1,10 @@
 import 'dart:math';
 
 import 'package:flutter_test/flutter_test.dart';
-import 'package:lernova/core/constants/app_enums.dart';
-import 'package:lernova/data/models/course.dart';
-import 'package:lernova/data/models/exercise.dart';
-import 'package:lernova/features/lessons/application/lesson_variant_generator.dart';
+import 'package:lingoquest/core/constants/app_enums.dart';
+import 'package:lingoquest/data/models/course.dart';
+import 'package:lingoquest/data/models/exercise.dart';
+import 'package:lingoquest/features/lessons/application/lesson_variant_generator.dart';
 
 import '../support/course_assets.dart';
 

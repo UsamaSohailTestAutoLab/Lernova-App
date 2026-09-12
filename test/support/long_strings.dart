@@ -1,4 +1,4 @@
-/// Text samples for the scripts Lernova's interface is meant to support,
+/// Text samples for the scripts LingoQuest's interface is meant to support,
 /// used to prove question/answer surfaces don't overflow, clip or break
 /// on anything longer or taller than English.
 ///

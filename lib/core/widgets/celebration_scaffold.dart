@@ -7,11 +7,11 @@ import 'app_background.dart';
 import 'app_buttons.dart';
 import 'app_metric.dart';
 import 'gamification_indicators.dart';
-import 'lernova_parrot.dart';
+import 'lingoquest_parrot.dart';
 
 /// - [ring] — a [ProgressRing] with a center label (level-up, daily goal).
 /// - [badge] — a large icon in a soft radial glow (achievement unlock).
-/// - [mascot] — [LernovaParrot] (lesson/round complete) — the same
+/// - [mascot] — [LingoQuestParrot] (lesson/round complete) — the same
 ///   character shown on the level's own start screen, so finishing a
 ///   level and starting one read as the same app.
 /// - [count] — a counting-up number (XP reward).
@@ -40,7 +40,7 @@ class CelebrationScaffold extends StatefulWidget {
   final double? ringProgress;
   final String? ringCenterLabel;
   final IconData? badgeIcon;
-  final LernovaParrotMood mascotMood;
+  final LingoQuestParrotMood mascotMood;
 
   /// An optional way back out of the screen, drawn as an arrow in the
   /// top-left. Celebrations do not want one — there is nothing to go
@@ -65,7 +65,7 @@ class CelebrationScaffold extends StatefulWidget {
     this.ringProgress,
     this.ringCenterLabel,
     this.badgeIcon,
-    this.mascotMood = LernovaParrotMood.celebrate,
+    this.mascotMood = LingoQuestParrotMood.celebrate,
     this.onBack,
   });
 
@@ -108,7 +108,7 @@ class _CelebrationScaffoldState extends State<CelebrationScaffold> {
     final theme = Theme.of(context);
     switch (widget.hero) {
       case CelebrationHero.mascot:
-        return LernovaParrot(size: 130, mood: widget.mascotMood);
+        return LingoQuestParrot(size: 130, mood: widget.mascotMood);
       case CelebrationHero.badge:
         return Container(
           width: 96,
@@ -228,7 +228,7 @@ class _CelebrationScaffoldState extends State<CelebrationScaffold> {
                 maxBlastForce: 18,
                 minBlastForce: 6,
                 gravity: 0.25,
-                colors: const [AppColors.primary, AppColors.accent, AppColors.success, AppColors.gem],
+                colors: const [AppColors.primary, AppColors.accent, AppColors.success, AppColors.teal],
               ),
           ],
         ),

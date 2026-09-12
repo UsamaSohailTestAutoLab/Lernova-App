@@ -1,7 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:lernova/core/constants/app_enums.dart';
-import 'package:lernova/core/utils/achievement_logic.dart';
-import 'package:lernova/data/models/user_progress.dart';
+import 'package:lingoquest/core/constants/app_enums.dart';
+import 'package:lingoquest/core/utils/achievement_logic.dart';
+import 'package:lingoquest/data/models/user_progress.dart';
 
 void main() {
   UserProgress progress({

@@ -4,7 +4,7 @@ import '../theme/app_colors.dart';
 import '../theme/app_spacing.dart';
 import 'app_pill.dart';
 
-/// Small pill showing an icon + value, used for hearts/gems/XP/streak
+/// Small pill showing an icon + value, used for hearts/XP/streak
 /// readouts in app bars and dashboard headers. A thin delegate onto
 /// [AppPill].
 class StatChip extends StatelessWidget {
@@ -55,23 +55,6 @@ class HeartsChip extends StatelessWidget {
       emoji: '❤️',
       color: AppColors.heart,
       value: '$hearts',
-      onTap: onTap,
-    );
-  }
-}
-
-class GemsChip extends StatelessWidget {
-  final int gems;
-  final VoidCallback? onTap;
-  const GemsChip({super.key, required this.gems, this.onTap});
-
-  @override
-  Widget build(BuildContext context) {
-    return StatChip(
-      icon: Icons.diamond_rounded,
-      emoji: '💎',
-      color: AppColors.gem,
-      value: '$gems',
       onTap: onTap,
     );
   }

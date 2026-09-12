@@ -24,7 +24,6 @@ class FunWordMatchState {
   final int combo;
   final int bestCombo;
   final int xpEarned;
-  final int coinsEarned;
   final int correctPairs;
   final int wrongAttempts;
   final Map<String, int> vocabDeltas;
@@ -47,7 +46,6 @@ class FunWordMatchState {
     required this.combo,
     required this.bestCombo,
     required this.xpEarned,
-    required this.coinsEarned,
     required this.correctPairs,
     required this.wrongAttempts,
     required this.vocabDeltas,
@@ -73,7 +71,6 @@ class FunWordMatchState {
     int? combo,
     int? bestCombo,
     int? xpEarned,
-    int? coinsEarned,
     int? correctPairs,
     int? wrongAttempts,
     Map<String, int>? vocabDeltas,
@@ -97,7 +94,6 @@ class FunWordMatchState {
       combo: combo ?? this.combo,
       bestCombo: bestCombo ?? this.bestCombo,
       xpEarned: xpEarned ?? this.xpEarned,
-      coinsEarned: coinsEarned ?? this.coinsEarned,
       correctPairs: correctPairs ?? this.correctPairs,
       wrongAttempts: wrongAttempts ?? this.wrongAttempts,
       vocabDeltas: vocabDeltas ?? this.vocabDeltas,
@@ -145,7 +141,6 @@ class FunWordMatchSessionController extends Notifier<FunWordMatchState?> {
       combo: 0,
       bestCombo: 0,
       xpEarned: 0,
-      coinsEarned: 0,
       correctPairs: 0,
       wrongAttempts: 0,
       vocabDeltas: const {},
@@ -192,7 +187,6 @@ class FunWordMatchSessionController extends Notifier<FunWordMatchState?> {
           combo: combo,
           bestCombo: bestCombo,
           xpEarned: s.xpEarned + 5 * multiplier,
-          coinsEarned: s.coinsEarned + 2,
           correctPairs: s.correctPairs + 1,
           vocabDeltas: vocabDeltas,
           isComplete: true,
@@ -208,7 +202,6 @@ class FunWordMatchSessionController extends Notifier<FunWordMatchState?> {
           combo: combo,
           bestCombo: bestCombo,
           xpEarned: s.xpEarned + 5 * multiplier,
-          coinsEarned: s.coinsEarned + 2,
           correctPairs: s.correctPairs + 1,
           vocabDeltas: vocabDeltas,
         );
@@ -218,7 +211,6 @@ class FunWordMatchSessionController extends Notifier<FunWordMatchState?> {
           combo: combo,
           bestCombo: bestCombo,
           xpEarned: s.xpEarned + 5 * multiplier,
-          coinsEarned: s.coinsEarned + 2,
           correctPairs: s.correctPairs + 1,
           vocabDeltas: vocabDeltas,
         );
@@ -278,7 +270,6 @@ class FunWordMatchSessionController extends Notifier<FunWordMatchState?> {
 
     final result = ref.read(progressProvider.notifier).awardFunSession(
           xpEarned: s.xpEarned,
-          coinsEarned: s.coinsEarned,
           vocabDeltas: s.vocabDeltas,
           isPerfectRound: s.isPerfectRound,
           isSpeedRound: false,

@@ -33,7 +33,7 @@ Pure logic and controllers, no widget pumping. Controller tests use a real `Prov
 
 ## Widget tests (`test/widget/`)
 
-Drive the *real* app (`LernovaApp`) through Flutter's own testing framework — real navigation via `go_router`, real form validation, real taps through the actual render tree. These catch things unit tests structurally can't, and have: see "Bugs these tests actually caught" below.
+Drive the *real* app (`LingoQuestApp`) through Flutter's own testing framework — real navigation via `go_router`, real form validation, real taps through the actual render tree. These catch things unit tests structurally can't, and have: see "Bugs these tests actually caught" below.
 
 | File | Covers |
 |---|---|

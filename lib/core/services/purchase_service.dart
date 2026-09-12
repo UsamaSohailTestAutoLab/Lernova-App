@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:in_app_purchase/in_app_purchase.dart';
 
-/// The store product ids Lernova sells.
+/// The store product ids LingoQuest sells.
 ///
 /// These must match the subscription ids configured in App Store Connect
 /// and the Google Play Console exactly. Nothing about a plan — its name,
@@ -17,6 +17,20 @@ class ProProducts {
   static const yearly = 'com.yearly.learning';
 
   static const all = {weekly, monthly, yearly};
+
+  /// The plan's name, for telling a subscriber what they are on.
+  ///
+  /// Derived from the id rather than the store's localized title,
+  /// because that title is translated and usually carries the app name —
+  /// it is display text, not data. Null for an entitlement whose product
+  /// was never recorded, which is possible for one restored by an older
+  /// build; callers say "Active" rather than guessing a plan.
+  static String? planLabel(String? productId) => switch (productId) {
+        weekly => 'Weekly',
+        monthly => 'Monthly',
+        yearly => 'Yearly',
+        _ => null,
+      };
 }
 
 /// What happened to a purchase attempt, in terms the UI can render.

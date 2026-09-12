@@ -1,10 +1,10 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:lernova/core/constants/app_enums.dart';
-import 'package:lernova/data/models/course.dart';
-import 'package:lernova/data/models/course_unit.dart';
-import 'package:lernova/data/models/lesson.dart';
-import 'package:lernova/data/models/user_progress.dart';
-import 'package:lernova/features/course/application/course_progress.dart';
+import 'package:lingoquest/core/constants/app_enums.dart';
+import 'package:lingoquest/data/models/course.dart';
+import 'package:lingoquest/data/models/course_unit.dart';
+import 'package:lingoquest/data/models/lesson.dart';
+import 'package:lingoquest/data/models/user_progress.dart';
+import 'package:lingoquest/features/course/application/course_progress.dart';
 
 Course _buildCourse() {
   Lesson lesson(String id) => Lesson(id: id, title: id, subtitle: '', exercises: const []);

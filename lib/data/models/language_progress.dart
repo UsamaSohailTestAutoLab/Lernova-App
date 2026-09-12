@@ -17,7 +17,7 @@ import 'last_activity.dart';
 /// a 7-day streak, come back to Unit 2 Lesson 3 with 900 XP and a 7-day
 /// streak.
 ///
-/// What stays on the account: gems (a wallet), hearts (a per-session
+/// What stays on the account: hearts (a per-session
 /// attempt budget), the Pro entitlement (a purchase), and the daily XP
 /// target (a setting the learner chose once).
 class LanguageProgress {

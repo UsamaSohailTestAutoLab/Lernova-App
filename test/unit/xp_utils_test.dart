@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:lernova/core/utils/xp_utils.dart';
+import 'package:lingoquest/core/utils/xp_utils.dart';
 
 void main() {
   group('XpUtils', () {

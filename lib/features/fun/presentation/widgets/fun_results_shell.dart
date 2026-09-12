@@ -5,7 +5,7 @@ import '../../../../core/theme/app_colors.dart';
 import '../../../../core/theme/app_decor.dart';
 import '../../../../core/theme/app_spacing.dart';
 import '../../../../core/widgets/app_buttons.dart';
-import '../../../../core/widgets/lernova_parrot.dart';
+import '../../../../core/widgets/lingoquest_parrot.dart';
 
 /// One stat shown in a [FunResultsShell]'s stat row.
 class FunResultStat {
@@ -71,9 +71,9 @@ class FunResultsShell extends StatelessWidget {
                   const Spacer(),
                   // The same parrot that opens a level, so finishing one
                   // and starting one read as the same app.
-                  LernovaParrot(
+                  LingoQuestParrot(
                     size: 130,
-                    mood: success ? LernovaParrotMood.celebrate : LernovaParrotMood.sad,
+                    mood: success ? LingoQuestParrotMood.celebrate : LingoQuestParrotMood.sad,
                   ),
                   const SizedBox(height: AppSpacing.lg),
                   Text(
@@ -161,7 +161,7 @@ class FunResultsShell extends StatelessWidget {
                 AppColors.primary,
                 AppColors.accent,
                 AppColors.success,
-                AppColors.gem,
+                AppColors.teal,
               ],
             ),
         ],

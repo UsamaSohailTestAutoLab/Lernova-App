@@ -160,8 +160,8 @@ class AppDecor extends ThemeExtension<AppDecor> {
     if (base == AppColors.info) {
       return isDark ? AppColors.infoLightDark : AppColors.infoLight;
     }
-    if (base == AppColors.gem) {
-      return isDark ? AppColors.gemLightDark : AppColors.gemLight;
+    if (base == AppColors.teal) {
+      return isDark ? AppColors.tealLightDark : AppColors.tealLight;
     }
     if (base == AppColors.violet) {
       return isDark ? AppColors.violetLightDark : AppColors.violetLight;

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:lernova/core/theme/app_theme.dart';
-import 'package:lernova/features/exercises/application/exercise_labels.dart';
-import 'package:lernova/features/exercises/application/lesson_session_controller.dart';
-import 'package:lernova/features/exercises/presentation/widgets/answer_feedback_bar.dart';
+import 'package:lingoquest/core/theme/app_theme.dart';
+import 'package:lingoquest/features/exercises/application/exercise_labels.dart';
+import 'package:lingoquest/features/exercises/application/lesson_session_controller.dart';
+import 'package:lingoquest/features/exercises/presentation/widgets/answer_feedback_bar.dart';
 
 Future<void> _pump(
   WidgetTester tester, {

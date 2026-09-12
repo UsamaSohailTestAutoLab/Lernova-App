@@ -9,6 +9,7 @@ import '../../data/repositories/leaderboard_repository.dart';
 import 'local_storage_service.dart';
 import 'stt_service.dart';
 import 'tts_service.dart';
+import 'notification_permission_service.dart';
 
 /// Overridden in `main()` once [LocalStorageService.create] resolves, so
 /// every other provider can depend on it synchronously.
@@ -26,6 +27,11 @@ final leaderboardRepositoryProvider = Provider<LeaderboardRepository>((ref) {
 
 final funContentRepositoryProvider = Provider<FunContentRepository>((ref) {
   return LocalFunContentRepository();
+});
+
+final notificationPermissionServiceProvider =
+    Provider<NotificationPermissionService>((ref) {
+  return const NotificationPermissionService();
 });
 
 final ttsServiceProvider = Provider<TtsService>((ref) {

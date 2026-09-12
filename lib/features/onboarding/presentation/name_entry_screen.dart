@@ -4,7 +4,7 @@ import 'package:go_router/go_router.dart';
 
 import '../../../core/routing/app_routes.dart';
 import '../../../core/theme/app_spacing.dart';
-import '../../../core/widgets/lernova_parrot.dart';
+import '../../../core/widgets/lingoquest_parrot.dart';
 import '../application/onboarding_controller.dart';
 import '../application/user_controller.dart';
 import 'onboarding_step_scaffold.dart';
@@ -82,7 +82,7 @@ class _NameEntryScreenState extends ConsumerState<NameEntryScreen> {
     return OnboardingStepScaffold(
       stepProgress: widget.standalone ? 1 : 0.2,
       title: "What's your name?",
-      subtitle: 'So Lernova can greet you properly.',
+      subtitle: 'So LingoQuest can greet you properly.',
       ctaLabel: widget.standalone ? 'Save' : 'Continue',
       // Kept tappable while empty so pressing it explains *why* nothing
       // happened, instead of leaving a dead button with no reason given.
@@ -91,7 +91,7 @@ class _NameEntryScreenState extends ConsumerState<NameEntryScreen> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const Center(
-            child: LernovaParrot(size: 110, mood: LernovaParrotMood.happy),
+            child: LingoQuestParrot(size: 110, mood: LingoQuestParrotMood.happy),
           ),
           const SizedBox(height: AppSpacing.xl),
           TextField(

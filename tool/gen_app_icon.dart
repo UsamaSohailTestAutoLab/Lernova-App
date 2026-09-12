@@ -1,5 +1,5 @@
 // Regenerates the Android launcher icon from the original, code-drawn
-// Lernova parrot mascot (see lib/core/widgets/lernova_parrot.dart) —
+// LingoQuest parrot mascot (see lib/core/widgets/lingoquest_parrot.dart) —
 // no external image tooling, no image asset, nothing traced from any
 // other app's icon.
 //
@@ -35,8 +35,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:lernova/core/theme/app_colors.dart';
-import 'package:lernova/core/widgets/lernova_parrot.dart';
+import 'package:lingoquest/core/theme/app_colors.dart';
+import 'package:lingoquest/core/widgets/lingoquest_parrot.dart';
 
 /// Legacy flat-icon pixel sizes per density (API <26 fallback).
 const _legacyTargets = {
@@ -93,9 +93,9 @@ void main() {
                   alignment: Alignment.center,
                   padding: const EdgeInsets.all(_legacyBaseSize * 0.14),
                   child: const FittedBox(
-                    child: LernovaParrot(
+                    child: LingoQuestParrot(
                       size: _legacyBaseSize,
-                      mood: LernovaParrotMood.celebrate,
+                      mood: LingoQuestParrotMood.celebrate,
                     ),
                   ),
                 ),
@@ -111,9 +111,9 @@ void main() {
                   alignment: Alignment.center,
                   padding: const EdgeInsets.all(_safeZonePadding),
                   child: const FittedBox(
-                    child: LernovaParrot(
+                    child: LingoQuestParrot(
                       size: _adaptiveBaseSize,
-                      mood: LernovaParrotMood.celebrate,
+                      mood: LingoQuestParrotMood.celebrate,
                     ),
                   ),
                 ),

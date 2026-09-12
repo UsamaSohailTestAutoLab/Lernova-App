@@ -1,4 +1,4 @@
-# Lernova
+# LingoQuest
 
 A fully functional, original language-learning app built in Flutter — inspired by the *UX patterns* of apps like Duolingo (short lessons, streaks, XP, hearts, gamified progress), but with its own identity: original branding, color system, mascot, copy, and content. No third-party assets or copyrighted material are used anywhere in the app.
 
@@ -54,6 +54,7 @@ Business logic never lives in a widget's `build()` — every controller is a Riv
 - [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) — layering, state management pattern, persistence model, how content flows from JSON asset to screen.
 - [`docs/GAMIFICATION.md`](docs/GAMIFICATION.md) — every XP/hearts/streak/league/achievement formula, in one place.
 - [`docs/FUN_TAB.md`](docs/FUN_TAB.md) — the Fun tab: game modes, the question-generation engine, difficulty scaling, and the Level 1 "water survival" rework.
+- [`docs/REVIEW_PROMPT.md`](docs/REVIEW_PROMPT.md) — the store review prompt: the App Store rules it honours, when it is allowed to ask, and why the Settings row opens the listing instead.
 - [`docs/TESTING.md`](docs/TESTING.md) — what's covered, test conventions, how to run subsets.
 
 ## Known, deliberate tradeoffs

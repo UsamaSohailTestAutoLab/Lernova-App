@@ -5,12 +5,12 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:in_app_purchase/in_app_purchase.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'package:lernova/core/services/local_storage_service.dart';
-import 'package:lernova/core/services/purchase_service.dart';
-import 'package:lernova/core/services/service_providers.dart';
-import 'package:lernova/data/models/pro_entitlement.dart';
-import 'package:lernova/features/progress/application/progress_controller.dart';
-import 'package:lernova/features/settings/application/purchase_controller.dart';
+import 'package:lingoquest/core/services/local_storage_service.dart';
+import 'package:lingoquest/core/services/purchase_service.dart';
+import 'package:lingoquest/core/services/service_providers.dart';
+import 'package:lingoquest/data/models/pro_entitlement.dart';
+import 'package:lingoquest/features/progress/application/progress_controller.dart';
+import 'package:lingoquest/features/settings/application/purchase_controller.dart';
 
 /// A stand-in store. Lets every outcome the real stores can return be
 /// driven deterministically, with no Play/StoreKit connection.
@@ -23,7 +23,7 @@ class FakePurchaseService implements PurchaseService {
   List<ProductDetails> catalogue = [
     ProductDetails(
       id: ProProducts.monthly,
-      title: 'Lernova Pro (Monthly)',
+      title: 'LingoQuest Pro (Monthly)',
       description: 'A month of Pro',
       price: r'$6.99',
       rawPrice: 6.99,
@@ -31,7 +31,7 @@ class FakePurchaseService implements PurchaseService {
     ),
     ProductDetails(
       id: ProProducts.weekly,
-      title: 'Lernova Pro (Weekly)',
+      title: 'LingoQuest Pro (Weekly)',
       description: 'A week of Pro',
       price: r'$2.99',
       rawPrice: 2.99,
@@ -39,7 +39,7 @@ class FakePurchaseService implements PurchaseService {
     ),
     ProductDetails(
       id: ProProducts.yearly,
-      title: 'Lernova Pro (Yearly)',
+      title: 'LingoQuest Pro (Yearly)',
       description: 'A year of Pro',
       price: r'$59.99',
       rawPrice: 59.99,

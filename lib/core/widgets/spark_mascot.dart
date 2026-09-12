@@ -7,7 +7,7 @@ import '../theme/app_motion.dart';
 
 enum SparkMood { happy, celebrate, sad, sleepy, thinking }
 
-/// Lernova's original mascot: an abstract geometric "spark" — a rounded
+/// LingoQuest's original mascot: an abstract geometric "spark" — a rounded
 /// four-point star with a simple face. Entirely custom-painted (no
 /// image assets, no owl/bird silhouette) so it carries no resemblance
 /// to any existing brand's character.

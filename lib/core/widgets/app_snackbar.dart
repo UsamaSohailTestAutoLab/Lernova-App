@@ -9,6 +9,11 @@ class AppSnackBar {
     BuildContext context,
     String message, {
     bool isError = false,
+    /// An optional way to act on the message. Used where the app cannot
+    /// fix something itself — a permission the OS now only lets the
+    /// learner change in system settings, for instance.
+    String? actionLabel,
+    VoidCallback? onAction,
   }) {
     ScaffoldMessenger.of(context)
       ..hideCurrentSnackBar()
@@ -25,6 +30,9 @@ class AppSnackBar {
               Expanded(child: Text(message)),
             ],
           ),
+          action: actionLabel == null || onAction == null
+              ? null
+              : SnackBarAction(label: actionLabel, onPressed: onAction),
         ),
       );
   }

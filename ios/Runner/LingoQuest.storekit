@@ -1,0 +1,145 @@
+{
+  "identifier": "A1B2C3D4-0000-4000-8000-LINGOQUESTPRO1",
+  "nonRenewingSubscriptions": [],
+  "products": [],
+  "settings": {
+    "_applicationInternalID": "lernova",
+    "_developerTeamID": "",
+    "_failTransactionsEnabled": false,
+    "_lastSynchronizedDate": 0,
+    "_locale": "en_US",
+    "_storefront": "USA",
+    "_storeKitErrors": [
+      {
+        "current": null,
+        "enabled": false,
+        "name": "Load Products"
+      },
+      {
+        "current": null,
+        "enabled": false,
+        "name": "Purchase"
+      },
+      {
+        "current": null,
+        "enabled": false,
+        "name": "Verification"
+      },
+      {
+        "current": null,
+        "enabled": false,
+        "name": "App Store Sync"
+      },
+      {
+        "current": null,
+        "enabled": false,
+        "name": "Subscription Status"
+      },
+      {
+        "current": null,
+        "enabled": false,
+        "name": "App Transaction"
+      },
+      {
+        "current": null,
+        "enabled": false,
+        "name": "Manage Subscriptions Sheet"
+      },
+      {
+        "current": null,
+        "enabled": false,
+        "name": "Refund Request Sheet"
+      },
+      {
+        "current": null,
+        "enabled": false,
+        "name": "Offer Code Redeem Sheet"
+      }
+    ]
+  },
+  "subscriptionGroups": [
+    {
+      "id": "21500001",
+      "localizations": [],
+      "name": "LingoQuest Pro",
+      "subscriptions": [
+        {
+          "adHocOffers": [],
+          "codeOffers": [],
+          "displayPrice": "2.99",
+          "familyShareable": false,
+          "groupNumber": 1,
+          "internalID": "21500002",
+          "introductoryOffer": null,
+          "localizations": [
+            {
+              "description": "Every lesson and every game, week to week.",
+              "displayName": "LingoQuest Pro — Weekly",
+              "locale": "en_US"
+            }
+          ],
+          "productID": "com.weekly.learning",
+          "recurringSubscriptionPeriod": "P1W",
+          "referralOffer": null,
+          "subscriptionGroupID": "21500001",
+          "type": "RecurringSubscription",
+          "winbackOffers": []
+        },
+        {
+          "adHocOffers": [],
+          "codeOffers": [],
+          "displayPrice": "12.00",
+          "familyShareable": false,
+          "groupNumber": 1,
+          "internalID": "21500003",
+          "introductoryOffer": {
+            "displayPrice": "0.00",
+            "internalID": "21500010",
+            "numberOfPeriods": 1,
+            "paymentMode": "free",
+            "subscriptionPeriod": "P3D"
+          },
+          "localizations": [
+            {
+              "description": "Every lesson and every game, month to month.",
+              "displayName": "LingoQuest Pro — Monthly",
+              "locale": "en_US"
+            }
+          ],
+          "productID": "com.monthly.learning",
+          "recurringSubscriptionPeriod": "P1M",
+          "referralOffer": null,
+          "subscriptionGroupID": "21500001",
+          "type": "RecurringSubscription",
+          "winbackOffers": []
+        },
+        {
+          "adHocOffers": [],
+          "codeOffers": [],
+          "displayPrice": "30.00",
+          "familyShareable": false,
+          "groupNumber": 1,
+          "internalID": "21500004",
+          "introductoryOffer": null,
+          "localizations": [
+            {
+              "description": "Every lesson and every game, all year.",
+              "displayName": "LingoQuest Pro — Yearly",
+              "locale": "en_US"
+            }
+          ],
+          "productID": "com.yearly.learning",
+          "recurringSubscriptionPeriod": "P1Y",
+          "referralOffer": null,
+          "subscriptionGroupID": "21500001",
+          "type": "RecurringSubscription",
+          "winbackOffers": []
+        }
+      ]
+    }
+  ],
+  "version": {
+    "major": 4,
+    "minor": 0
+  }
+}

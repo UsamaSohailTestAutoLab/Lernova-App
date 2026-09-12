@@ -97,8 +97,8 @@ class ProgressController extends Notifier<UserProgress> {
   /// Saves the current language's progress and loads the target's,
   /// creating a blank one the first time a language is opened.
   ///
-  /// Account-level state (XP, gems, hearts, streak, achievements,
-  /// league) is untouched — see [UserProgress.switchLanguage].
+  /// Account-level state (hearts, the Pro entitlement and the daily
+  /// target) is untouched — see [UserProgress.switchLanguage].
   void switchLanguage({required String from, required String to}) {
     if (from == to && state.activeLanguageId == to) return;
     final now = DateTime.now();
@@ -168,29 +168,12 @@ class ProgressController extends Notifier<UserProgress> {
   /// session, which is what makes hearts a per-attempt life system rather
   /// than a timed resource: running out ends *that attempt*, and the
   /// learner can immediately play again. There is deliberately no timer,
-  /// no ad, no gem refill and no paywall attached to hearts.
+  /// no ad and no paywall attached to hearts.
   void refillHeartsForSession() {
     if (state.hearts >= GameConstants.maxHearts && state.lastHeartLostAt == null) {
       return;
     }
     _persist(state.copyWith(hearts: GameConstants.maxHearts, clearLastHeartLostAt: true));
-  }
-
-  bool spendGemsForStreakFreeze() {
-    if (state.gems < GameConstants.streakFreezeGemCost) return false;
-    _persist(
-      state.copyWith(
-        gems: state.gems - GameConstants.streakFreezeGemCost,
-        streakFreezeAvailable: true,
-      ),
-    );
-    return true;
-  }
-
-  bool spendGemsForMascotOutfit() {
-    if (state.gems < GameConstants.mascotOutfitGemCost) return false;
-    _persist(state.copyWith(gems: state.gems - GameConstants.mascotOutfitGemCost));
-    return true;
   }
 
   void setDailyGoalXp(int xp) {
@@ -329,33 +312,24 @@ class ProgressController extends Notifier<UserProgress> {
       final isCourseCompleteNow = CourseProgress.isCourseComplete(course, next);
       courseJustCompleted = !wasCourseCompleteBefore && isCourseCompleteNow;
 
-      if (isPerfect) {
-        next = next.copyWith(gems: next.gems + GameConstants.gemsPerPerfectLesson);
-      }
     }
-
-    final gemsEarnedSoFar = isPerfect && creditsLesson
-        ? GameConstants.gemsPerPerfectLesson
-        : 0;
 
     return _finalizeAward(
       before: before,
       next: next,
       totalXpEarned: totalXpEarned,
-      gemsEarnedSoFar: gemsEarnedSoFar,
       isPerfectLesson: isPerfect && creditsLesson,
       unitJustCompleted: unitJustCompleted,
       courseJustCompleted: courseJustCompleted,
     );
   }
 
-  /// Applies the outcome of a finished Fun-game round: XP/coins go into
+  /// Applies the outcome of a finished Fun-game round: XP goes into
   /// the same totals lessons use, and [vocabDeltas] (vocabId -> +1/-1)
   /// update the same `vocabStrength` map lessons read and write — Fun
   /// and lessons are one shared mastery system, not two.
   LessonCompletionResult awardFunSession({
     required int xpEarned,
-    required int coinsEarned,
     required Map<String, int> vocabDeltas,
     required bool isPerfectRound,
     required bool isSpeedRound,
@@ -366,7 +340,6 @@ class ProgressController extends Notifier<UserProgress> {
       totalXp: before.totalXp + xpEarned,
       dailyXp: before.dailyXp + xpEarned,
       weeklyXp: before.weeklyXp + xpEarned,
-      gems: before.gems + coinsEarned,
     );
 
     final vocabStrength = Map<String, int>.from(next.vocabStrength);
@@ -375,17 +348,10 @@ class ProgressController extends Notifier<UserProgress> {
     });
     next = next.copyWith(vocabStrength: vocabStrength);
 
-    var gemsEarnedSoFar = coinsEarned;
-    if (isPerfectRound) {
-      gemsEarnedSoFar += GameConstants.gemsPerPerfectLesson;
-      next = next.copyWith(gems: next.gems + GameConstants.gemsPerPerfectLesson);
-    }
-
     return _finalizeAward(
       before: before,
       next: next,
       totalXpEarned: xpEarned,
-      gemsEarnedSoFar: gemsEarnedSoFar,
       isPerfectFunRound: isPerfectRound,
       isSpeedRound: isSpeedRound,
     );
@@ -399,7 +365,6 @@ class ProgressController extends Notifier<UserProgress> {
     required UserProgress before,
     required UserProgress next,
     required int totalXpEarned,
-    required int gemsEarnedSoFar,
     bool isPerfectLesson = false,
     bool unitJustCompleted = false,
     bool courseJustCompleted = false,
@@ -424,15 +389,12 @@ class ProgressController extends Notifier<UserProgress> {
       isPerfectFunRound: isPerfectFunRound,
       isSpeedRound: isSpeedRound,
     );
-    var gemsEarned = gemsEarnedSoFar;
     if (newAchievements.isNotEmpty) {
-      gemsEarned += newAchievements.length * GameConstants.gemsPerAchievement;
       next = next.copyWith(
         unlockedAchievementIds: {
           ...next.unlockedAchievementIds,
           ...newAchievements.map((a) => a.name),
         },
-        gems: next.gems + newAchievements.length * GameConstants.gemsPerAchievement,
       );
     }
 
@@ -442,7 +404,6 @@ class ProgressController extends Notifier<UserProgress> {
 
     return LessonCompletionResult(
       xpEarned: totalXpEarned,
-      gemsEarned: gemsEarned,
       newTotalXp: next.totalXp,
       leveledUp: newLevel > oldLevel,
       newLevel: newLevel,

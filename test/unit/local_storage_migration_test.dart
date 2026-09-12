@@ -3,9 +3,9 @@ import 'dart:convert';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'package:lernova/core/services/local_storage_service.dart';
-import 'package:lernova/data/models/app_user.dart';
-import 'package:lernova/data/models/user_progress.dart';
+import 'package:lingoquest/core/services/local_storage_service.dart';
+import 'package:lingoquest/data/models/app_user.dart';
+import 'package:lingoquest/data/models/user_progress.dart';
 
 AppUser _user(String id) => AppUser(
       id: id,

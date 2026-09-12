@@ -8,7 +8,7 @@ import '../../../core/widgets/app_buttons.dart';
 import '../../../core/widgets/swipe_carousel.dart';
 import '../application/onboarding_explainer_content.dart';
 
-/// A one-time "how Lernova works" walkthrough shown between Welcome's
+/// A one-time "how LingoQuest works" walkthrough shown between Welcome's
 /// "Get started" and account creation for new users — also reachable
 /// again later from Settings for anyone who wants a refresher.
 class OnboardingExplainerScreen extends StatelessWidget {

@@ -1,6 +1,6 @@
 /// Fun-tab-only progress: per-game-mode level/combo/star tallies and the
 /// daily word challenge. Deliberately separate from [UserProgress] (which
-/// owns XP/streak/vocab-mastery/gems — Fun reuses those directly) since
+/// owns XP/streak/vocab-mastery — Fun reuses those directly) since
 /// this is purely "how far has this player gotten in each mini-game."
 class FunProgress {
   final Map<String, int> gameLevels;

@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:lernova/core/utils/hearts_logic.dart';
-import 'package:lernova/data/models/user_progress.dart';
+import 'package:lingoquest/core/utils/hearts_logic.dart';
+import 'package:lingoquest/data/models/user_progress.dart';
 
 UserProgress _progress({
   int hearts = 5,

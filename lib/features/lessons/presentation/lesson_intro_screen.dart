@@ -14,6 +14,7 @@ import '../../../data/models/exercise.dart';
 import '../../../data/models/vocab_preview_item.dart';
 import '../../../data/models/vocab_preview_nav_args.dart';
 import '../../../data/repositories/fun_content_providers.dart';
+import '../../access/application/entitlements.dart';
 import '../../exercises/application/lesson_session_controller.dart';
 import '../../preview/application/vocab_preview_builder.dart';
 import '../../progress/application/progress_controller.dart';
@@ -61,6 +62,32 @@ class LessonIntroScreen extends ConsumerWidget {
     }
 
     final args = extra as LessonNavArgs;
+
+    // The path screen sends Pro-locked nodes to the paywall instead of
+    // here, so this is the backstop for every other way in — Home's
+    // continue card, a deep link, popping back after cancelling a
+    // purchase. A review session skips the check: it is assembled from
+    // lessons already finished, not a new one being opened.
+    if (Entitlements.resolveLessonAccess(
+          course: args.course,
+          unitIndex: args.unitIndex,
+          lessonIndex: args.lessonIndex,
+          progress: ref.watch(progressProvider),
+        ) ==
+        LessonAccess.requiresPro) {
+      return Scaffold(
+        appBar: AppBar(),
+        body: EmptyStateView(
+          icon: Icons.workspace_premium_rounded,
+          title: '"${args.lesson.title}" needs Pro',
+          message: 'Pro opens the whole path, every Fun game, and '
+              'unlimited practice.',
+          actionLabel: 'See Pro',
+          onAction: () => context.push(AppRoutes.premium),
+        ),
+      );
+    }
+
     return _LessonIntroBody(args: args);
   }
 }

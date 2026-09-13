@@ -9,6 +9,7 @@ import '../../../core/widgets/state_views.dart';
 import '../../../data/models/course.dart';
 import '../../../data/models/user_progress.dart';
 import '../../../data/repositories/content_providers.dart';
+import '../../access/application/entitlements.dart';
 import '../../lessons/application/lesson_nav_args.dart';
 import '../../onboarding/application/user_controller.dart';
 import '../../progress/application/progress_controller.dart';
@@ -152,7 +153,13 @@ class _PathListState extends ConsumerState<_PathList> {
               lessonIndex: node.lessonIndex,
               progress: progress,
             );
-            final playable = CourseProgress.isLessonPlayable(state);
+            final access = Entitlements.resolveLessonAccess(
+              course: widget.course,
+              unitIndex: node.unitIndex,
+              lessonIndex: node.lessonIndex,
+              progress: progress,
+            );
+            final requiresPro = access == LessonAccess.requiresPro;
             final dx = geometry.dxFor(node.lessonIndex);
             final incomingDx = node.lessonIndex == 0 ? 0.0 : geometry.dxFor(node.lessonIndex - 1);
 
@@ -163,20 +170,26 @@ class _PathListState extends ConsumerState<_PathList> {
               incomingDx: incomingDx,
               nodeSize: geometry.nodeSize,
               currentNodeSize: geometry.currentNodeSize,
-              lockedMessage: playable
-                  ? null
-                  : _lockedMessageFor(widget.course, node.unitIndex, node.lessonIndex, progress),
-              onTap: playable
-                  ? () => context.push(
-                        AppRoutes.lessonIntro,
-                        extra: LessonNavArgs(
-                          course: widget.course,
-                          unitIndex: node.unitIndex,
-                          lessonIndex: node.lessonIndex,
-                          lesson: lesson,
-                        ),
-                      )
+              requiresPro: requiresPro,
+              // A Pro node has no locked message: it is tappable, and
+              // what it opens explains itself better than a snackbar.
+              lockedMessage: access == LessonAccess.locked
+                  ? _lockedMessageFor(widget.course, node.unitIndex, node.lessonIndex, progress)
                   : null,
+              onTap: switch (access) {
+                LessonAccess.open => () => context.push(
+                      AppRoutes.lessonIntro,
+                      extra: LessonNavArgs(
+                        course: widget.course,
+                        unitIndex: node.unitIndex,
+                        lessonIndex: node.lessonIndex,
+                        lesson: lesson,
+                      ),
+                    ),
+                LessonAccess.requiresPro => () =>
+                    context.push(AppRoutes.premium),
+                LessonAccess.locked => null,
+              },
             );
           },
         );

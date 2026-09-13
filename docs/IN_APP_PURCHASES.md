@@ -150,6 +150,92 @@ Setting $12 there does not set $12 in the App Store.
 The file's `_storeKitErrors` block can also force failures (load, purchase,
 verification) to exercise the error paths by hand.
 
+## What the free tier is
+
+One Path lesson and one Fun level:
+
+| | Free | Pro |
+| --- | --- | --- |
+| Path | "Say Hello" — unit 1, lesson 1 | Every lesson in every unit |
+| Fun Zone | Word Bubble, level 1 | All ten games, every level |
+
+The rule lives in `lib/features/access/application/entitlements.dart` and
+nowhere else. It is held as a *position* — unit 0, lesson 0 — rather
+than the id `es_u1_l1`, so it means "the opening lesson" in all ten
+languages and adding an eleventh needs no entry anywhere.
+
+### Why it is not in CourseProgress
+
+`CourseProgress` answers how far the learner has progressed.
+`Entitlements` answers what they have paid for. They are independent —
+a lesson can be earned and still be behind the subscription — and
+keeping them apart is what lets `CourseProgress` stay pure progression
+logic with its own 272-line test file that knows nothing about money.
+
+`resolveLessonAccess` composes the two and returns one of three
+answers: `open`, `locked` (an earlier lesson comes first), or
+`requiresPro`.
+
+### Everything past the free lesson says "Pro", not "finish the one before"
+
+To somebody who has not paid, lesson 3 reports `requiresPro` even
+though progression has not reached it either. That is deliberate. The
+progression rule would be technically true and useless — they cannot
+get to lesson 2 either — and walking down the path collecting a
+different excuse at each node is worse than naming the one barrier that
+is actually there.
+
+For the same reason a Pro node is drawn as a gold medal rather than a
+grey padlock, and does not shake when tapped. It is an offer, not a
+wall: tapping it opens the paywall. All Pro nodes draw identically,
+whether or not progression has reached them, because one subscription
+opens the lot and grading them into "nearly yours" and "far off" would
+invent a distinction the learner cannot act on.
+
+### Where the paywall opens
+
+Six places, because a gate that only one screen enforces is a gate with
+a way around it:
+
+| Surface | What a free learner gets |
+| --- | --- |
+| Path node | Gold medal; tap opens the Pro screen |
+| Lesson intro | A Pro prompt naming the lesson — the backstop for deep links and back-navigation |
+| Home continue card | The button reads "Unlock with Pro" and goes to the Pro screen |
+| Fun hub card | "Unlock with Pro" on nine of ten games; tap opens the Pro screen |
+| Fun game intro | A Pro prompt naming the level |
+| "Next Level" after a Fun round | Opens the Pro screen instead of starting the round |
+
+The Fun cards stay lit rather than greyed out. Dimming nine of ten
+tiles makes the Fun tab look broken rather than paid.
+
+### Fun access reads the level they are on, not the one they cleared
+
+Clearing Word Bubble level 1 moves the learner to level 2, which is
+where the free tier ends — so the paywall arrives the moment the free
+level is finished, with no separate "have they finished it yet" flag to
+keep in step.
+
+**A consequence worth knowing:** because the hub always plays the
+learner's *current* level and that level is now 2, a free account that
+has cleared Word Bubble once has nothing left to play. If the free tier
+should instead let them replay level 1 forever, that is a change to
+`resolveFunAccess` plus a level picker on the hub — it is not the
+current behaviour.
+
+### Cancelling
+
+Access is recomputed on every build from `UserProgress.isPremium`,
+which `ProgressController.applyEntitlement` keeps in step with the
+store. Nothing is persisted as "unlocked", so a lapsed subscription
+closes the path back up on its own with no migration to run. A
+subscriber who cancels keeps their completed-lesson history; they just
+stop being able to open anything past Say Hello.
+
+Note that paying opens the whole course at once rather than one lesson
+at a time: `CourseProgress` treats `isPremium` as a read-time
+override on the sequential rule, so a subscriber can jump ahead.
+
 ## After they subscribe
 
 Every surface that was selling Pro has to stop. A subscriber who is still

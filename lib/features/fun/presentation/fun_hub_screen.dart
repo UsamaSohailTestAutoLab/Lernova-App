@@ -8,7 +8,9 @@ import '../../../core/theme/app_colors.dart';
 import '../../../core/theme/app_spacing.dart';
 import '../../../core/widgets/app_card.dart';
 import '../../../core/widgets/lingoquest_parrot.dart';
+import '../../access/application/entitlements.dart';
 import '../../onboarding/application/user_controller.dart';
+import '../../progress/application/progress_controller.dart';
 import '../application/fun_game_nav_args.dart';
 import '../application/fun_progress_controller.dart';
 import 'widgets/daily_challenge_card.dart';
@@ -21,6 +23,7 @@ class FunHubScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final user = ref.watch(userProvider);
     final funProgress = ref.watch(funProgressProvider);
+    final progress = ref.watch(progressProvider);
     final theme = Theme.of(context);
 
     final overallLevel = FunGameMode.values
@@ -78,16 +81,35 @@ class FunHubScreen extends ConsumerWidget {
             childAspectRatio: 0.95,
             children: [
               for (final mode in FunGameMode.values)
-                GameModeCard(
-                  mode: mode,
-                  level: funProgress.levelFor(mode.name),
-                  unlocked: overallLevel >= mode.unlockLevel,
-                  onTap: user.selectedLanguageId == null
-                      ? null
-                      : () => context.push(
-                            AppRoutes.funGameIntro,
-                            extra: FunGameNavArgs(mode: mode),
-                          ),
+                Builder(
+                  builder: (context) {
+                    final level = funProgress.levelFor(mode.name);
+                    final requiresPro = Entitlements.resolveFunAccess(
+                          mode: mode,
+                          level: level,
+                          progress: progress,
+                        ) ==
+                        FunAccess.requiresPro;
+
+                    return GameModeCard(
+                      mode: mode,
+                      level: level,
+                      unlocked: overallLevel >= mode.unlockLevel,
+                      requiresPro: requiresPro,
+                      onTap: user.selectedLanguageId == null
+                          ? null
+                          // A Pro card is tappable on purpose. The whole
+                          // grid being dead to the touch reads as a
+                          // broken screen; opening the paywall at least
+                          // answers why it is locked.
+                          : requiresPro
+                              ? () => context.push(AppRoutes.premium)
+                              : () => context.push(
+                                    AppRoutes.funGameIntro,
+                                    extra: FunGameNavArgs(mode: mode),
+                                  ),
+                    );
+                  },
                 ),
             ],
           ),

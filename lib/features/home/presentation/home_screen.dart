@@ -22,6 +22,7 @@ import '../../../data/models/course.dart';
 import '../../../data/models/last_activity.dart';
 import '../../../data/models/user_progress.dart';
 import '../../../data/repositories/content_providers.dart';
+import '../../access/application/entitlements.dart';
 import '../../achievements/application/achievement_providers.dart';
 import '../../languages/application/language_switch_controller.dart';
 import '../../course/application/course_progress.dart';
@@ -560,7 +561,14 @@ class _DailyGoalCard extends StatelessWidget {
   }
 }
 
-class _ContinueLearningCard extends StatelessWidget {
+/// Home's primary call to action.
+///
+/// [findCurrentLesson] keeps pointing at the next lesson in order even
+/// when that lesson is behind the subscription — deliberately, because
+/// skipping past Pro-locked lessons to find a playable one would march
+/// the learner through the course out of sequence. So the card still
+/// names the right lesson; only what the button does changes.
+class _ContinueLearningCard extends ConsumerWidget {
   final Course course;
   final int unitIndex;
   final int lessonIndex;
@@ -572,8 +580,16 @@ class _ContinueLearningCard extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final lesson = course.units[unitIndex].lessons[lessonIndex];
+    final requiresPro = Entitlements.resolveLessonAccess(
+          course: course,
+          unitIndex: unitIndex,
+          lessonIndex: lessonIndex,
+          progress: ref.watch(progressProvider),
+        ) ==
+        LessonAccess.requiresPro;
+
     return AppCard(
       color: Theme.of(context).colorScheme.primary,
       borderColor: Colors.transparent,
@@ -593,18 +609,20 @@ class _ContinueLearningCard extends StatelessWidget {
           ),
           const SizedBox(height: AppSpacing.md),
           PrimaryButton(
-            label: 'Continue learning',
+            label: requiresPro ? 'Unlock with Pro' : 'Continue learning',
             backgroundColor: Colors.white,
             foregroundColor: Theme.of(context).colorScheme.primary,
-            onPressed: () => context.push(
-              AppRoutes.lessonIntro,
-              extra: LessonNavArgs(
-                course: course,
-                unitIndex: unitIndex,
-                lessonIndex: lessonIndex,
-                lesson: lesson,
-              ),
-            ),
+            onPressed: requiresPro
+                ? () => context.push(AppRoutes.premium)
+                : () => context.push(
+                      AppRoutes.lessonIntro,
+                      extra: LessonNavArgs(
+                        course: course,
+                        unitIndex: unitIndex,
+                        lessonIndex: lessonIndex,
+                        lesson: lesson,
+                      ),
+                    ),
           ),
         ],
       ),

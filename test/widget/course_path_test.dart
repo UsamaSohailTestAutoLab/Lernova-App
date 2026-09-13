@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -12,7 +13,7 @@ import 'package:lingoquest/main.dart';
 
 void main() {
   testWidgets(
-    'Path tab: renders lesson nodes, marks the current one, and blocks locked taps',
+    'Path tab: renders lesson nodes, opens the free one, and sells the rest',
     (tester) async {
       final now = DateTime.now();
       final user = AppUser(
@@ -52,21 +53,31 @@ void main() {
       // A fresh account's very first lesson is the "current" node.
       expect(find.text('Say Hello'), findsOneWidget);
 
-      // A locked node (nothing completed yet) must not navigate anywhere
-      // when tapped — no crash, no route change, just haptic + a snackbar.
-      // warnIfMissed: false — the node sits under nested Transforms (the
-      // dx offset + the locked-tap shake), which makes flutter_test's own
-      // "did we really hit that RenderParagraph" sanity check unreliable
-      // even though the tap correctly reaches the node's GestureDetector
-      // (proven below: tapping the current node does navigate).
+      // Everything past "Say Hello" is behind the subscription, so a tap
+      // opens the paywall rather than a lesson. warnIfMissed: false — the
+      // node sits under nested Transforms (the dx offset, and the shake a
+      // progression-locked node still uses), which makes flutter_test's
+      // own "did we really hit that RenderParagraph" check unreliable
+      // even though the tap does reach the node's GestureDetector.
       await tester.tap(find.text('Yes, No, Sorry'), warnIfMissed: false);
-      await tester.pump(const Duration(milliseconds: 400));
+      // Bounded pumps, not pumpAndSettle: the Pro screen's mascot
+      // animates continuously and would never settle.
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 600));
+      expect(find.textContaining('Learn without limits'), findsOneWidget);
+
+      // Back to the path.
+      await tester.tap(find.byType(BackButton).first);
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 600));
       expect(find.text('Your path'), findsOneWidget);
 
-      // The playable current lesson does open.
+      // The one free lesson opens the lesson itself.
       await tester.tap(find.text('Say Hello'));
-      await tester.pumpAndSettle();
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 600));
       expect(find.text('Your path'), findsNothing);
+      expect(find.textContaining('Learn without limits'), findsNothing);
     },
   );
 }

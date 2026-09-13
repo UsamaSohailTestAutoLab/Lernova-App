@@ -34,6 +34,15 @@ class PathNode extends StatefulWidget {
   /// Shown as haptic + shake + a snackbar when a locked node is tapped.
   final String? lockedMessage;
 
+  /// Earned, but behind the subscription.
+  ///
+  /// Drawn as a gold medal rather than a grey padlock, and it does not
+  /// shake when tapped — this node opens the paywall, so it is an offer,
+  /// not a wall. Treating it like a progression lock would tell the
+  /// learner to go finish something, which is not what stands in the
+  /// way.
+  final bool requiresPro;
+
   const PathNode({
     super.key,
     required this.lesson,
@@ -42,6 +51,7 @@ class PathNode extends StatefulWidget {
     required this.dx,
     required this.nodeSize,
     required this.currentNodeSize,
+    this.requiresPro = false,
     this.onTap,
     this.lockedMessage,
   });
@@ -80,11 +90,22 @@ class _PathNodeState extends State<PathNode> with SingleTickerProviderStateMixin
     final decor = context.decor;
     final surfaceColors = context.surfaceColors;
 
-    final isCurrent = widget.state == LessonNodeState.current;
-    final isLocked = widget.state == LessonNodeState.locked;
+    // A Pro node is never "current": the pulsing treatment invites a tap
+    // that starts a lesson, and this one does not start anything.
+    final isCurrent =
+        widget.state == LessonNodeState.current && !widget.requiresPro;
+    // Every Pro node draws the same, whether or not progression has
+    // reached it. To somebody who has not paid they are all equally
+    // available — one subscription opens the lot — so grading them into
+    // "nearly yours" and "far off" would be inventing a distinction the
+    // learner cannot act on.
+    final isLocked =
+        widget.state == LessonNodeState.locked && !widget.requiresPro;
     final size = isCurrent ? widget.currentNodeSize : widget.nodeSize;
 
-    final (color, icon) = switch (widget.state) {
+    final (color, icon) = widget.requiresPro
+        ? (AppColors.accent, AppIcons.pro)
+        : switch (widget.state) {
       LessonNodeState.locked => (theme.colorScheme.outlineVariant, AppIcons.lock),
       LessonNodeState.current => (
           AppColors.primary,
@@ -104,20 +125,22 @@ class _PathNodeState extends State<PathNode> with SingleTickerProviderStateMixin
             subtitle: widget.lesson.subtitle,
           ),
         ),
-      LessonNodeState.completed => (AppColors.success, Icons.check_rounded),
-      LessonNodeState.perfect => (AppColors.accent, AppIcons.perfect),
-    };
+            LessonNodeState.completed => (AppColors.success, Icons.check_rounded),
+            LessonNodeState.perfect => (AppColors.accent, AppIcons.perfect),
+          };
 
     final trailFilled = widget.state == LessonNodeState.completed ||
         widget.state == LessonNodeState.perfect;
 
-    final stateLabel = switch (widget.state) {
-      LessonNodeState.locked => 'locked',
-      LessonNodeState.current => 'current lesson',
-      LessonNodeState.unlocked => 'unlocked',
-      LessonNodeState.completed => 'completed',
-      LessonNodeState.perfect => 'completed perfectly',
-    };
+    final stateLabel = widget.requiresPro
+        ? 'locked, unlock with Pro'
+        : switch (widget.state) {
+            LessonNodeState.locked => 'locked',
+            LessonNodeState.current => 'current lesson',
+            LessonNodeState.unlocked => 'unlocked',
+            LessonNodeState.completed => 'completed',
+            LessonNodeState.perfect => 'completed perfectly',
+          };
 
     const contentWidth = 112.0;
 

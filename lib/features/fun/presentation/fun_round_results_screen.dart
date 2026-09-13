@@ -13,6 +13,7 @@ import '../../../core/widgets/app_buttons.dart';
 import '../../../core/widgets/lingoquest_parrot.dart';
 import '../../../data/models/vocab_preview_item.dart';
 import '../../../data/repositories/fun_content_providers.dart';
+import '../../access/application/entitlements.dart';
 import '../../preview/application/retry_preview.dart';
 import '../../preview/application/vocab_preview_builder.dart';
 import '../../onboarding/application/user_controller.dart';
@@ -65,6 +66,20 @@ class _FunRoundResultsScreenState extends ConsumerState<FunRoundResultsScreen> {
     final languageId = ref.read(userProvider).selectedLanguageId;
     if (languageId == null) return;
     final level = ref.read(funProgressProvider).levelFor(session.mode.name);
+
+    // Clearing the free level moves the learner to the next one, which
+    // is where the free tier ends — so "Next Level" is the exact tap
+    // that should meet the paywall.
+    if (Entitlements.resolveFunAccess(
+          mode: session.mode,
+          level: level,
+          progress: ref.read(progressProvider),
+        ) ==
+        FunAccess.requiresPro) {
+      if (mounted) context.push(AppRoutes.premium);
+      return;
+    }
+
     final levelConfig = FunLevelCatalog.configFor(level, mode: session.mode);
 
     final words = await ref.read(funVocabWordsProvider(languageId).future);

@@ -14,6 +14,7 @@ import '../../../data/models/last_activity.dart';
 import '../../../data/models/vocab_preview_item.dart';
 import '../../../data/models/vocab_preview_nav_args.dart';
 import '../../../data/repositories/fun_content_providers.dart';
+import '../../access/application/entitlements.dart';
 import '../../onboarding/application/user_controller.dart';
 import '../../preview/application/vocab_preview_builder.dart';
 import '../../progress/application/progress_controller.dart';
@@ -54,6 +55,34 @@ class FunGameIntroScreen extends ConsumerWidget {
     final conversationsAsync = ref.watch(funConversationsProvider(languageId));
     final funProgress = ref.watch(funProgressProvider);
     final level = funProgress.levelFor(mode.name);
+
+    // The hub routes Pro modes straight to the paywall, so reaching here
+    // means something else did the navigating — the results screen, a
+    // back gesture, a deep link. Checked again rather than assumed: this
+    // is the last point before a round starts, and a gate that only one
+    // screen enforces is a gate with a way around it.
+    if (Entitlements.resolveFunAccess(
+          mode: mode,
+          level: level,
+          progress: ref.watch(progressProvider),
+        ) ==
+        FunAccess.requiresPro) {
+      return Scaffold(
+        appBar: AppBar(title: Text(mode.title)),
+        body: EmptyStateView(
+          icon: Icons.workspace_premium_rounded,
+          title: 'Level $level needs Pro',
+          message: Entitlements.isFunLevelFree(mode, 1)
+              ? 'You have finished the free level of ${mode.title}. '
+                  'Pro opens every level of every game.'
+              : '${mode.title} is part of LingoQuest Pro, along with every '
+                  'other game and the whole learning path.',
+          actionLabel: 'See Pro',
+          onAction: () => context.push(AppRoutes.premium),
+        ),
+      );
+    }
+
     final levelConfig = FunLevelCatalog.configFor(level, mode: mode);
     final startingLives = switch (mode) {
       FunGameMode.memoryMatch => 5,

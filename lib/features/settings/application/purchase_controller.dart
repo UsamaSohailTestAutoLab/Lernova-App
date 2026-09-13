@@ -15,6 +15,14 @@ import '../../progress/application/progress_controller.dart';
 final subscriptionManagerProvider =
     Provider<SubscriptionManager>((ref) => SubscriptionManager());
 
+/// How long the store gets to replay entitlements on launch before
+/// silence is taken to mean "no longer active".
+///
+/// A provider rather than a constant so a test can collapse it and
+/// assert on the outcome instead of waiting out a real five seconds.
+final entitlementVerifyWindowProvider =
+    Provider<Duration>((ref) => const Duration(seconds: 5));
+
 final purchaseServiceProvider = Provider<PurchaseService>((ref) {
   final service = PurchaseService();
   ref.onDispose(service.dispose);
@@ -103,16 +111,120 @@ class PurchaseState {
 class PurchaseController extends Notifier<PurchaseState> {
   StreamSubscription<PurchaseUpdate>? _sub;
 
+  /// True while the launch reconciliation is running.
+  ///
+  /// It uses the same restore machinery as the button, so without this
+  /// every cold start would pop "Your Pro subscription is back."
+  bool _verifying = false;
+
+  /// Product ids the store replayed during the current verification.
+  final Set<String> _replayed = {};
+
+  /// Completes when the store has answered, the window has run out, or
+  /// the controller was disposed — whichever happens first.
+  Completer<void>? _verifyDone;
+  Timer? _verifyTimer;
+  bool _disposed = false;
+
   @override
   PurchaseState build() {
     final service = ref.watch(purchaseServiceProvider);
     service.listen();
     _sub = service.updates.listen(_onUpdate);
-    ref.onDispose(() => _sub?.cancel());
+    ref.onDispose(() {
+      _disposed = true;
+      _sub?.cancel();
+      // The verification window is a real timer. Left running it would
+      // outlive the provider, and its callback would then write an
+      // entitlement through a disposed ref.
+      _finishVerifyWait();
+    });
     // Kicked off here so the screen has prices by the time it paints.
     Future.microtask(loadProducts);
+    Future.microtask(verifyEntitlement);
     return const PurchaseState();
   }
+
+  void _finishVerifyWait() {
+    _verifyTimer?.cancel();
+    _verifyTimer = null;
+    final done = _verifyDone;
+    _verifyDone = null;
+    if (done != null && !done.isCompleted) done.complete();
+  }
+
+  /// Asks the store whether the cached entitlement is still real.
+  ///
+  /// The cached [ProEntitlement] exists so a member does not watch their
+  /// content lock and unlock on every cold start. It is not the
+  /// authority — the store is — and this is what keeps the two honest:
+  ///
+  /// * **iOS** — with StoreKit 2 (the plugin's default), restoring maps
+  ///   to `Transaction.currentEntitlements`, which yields *only* what is
+  ///   currently active. An expired or refunded subscription simply does
+  ///   not come back. It shows no password prompt, which is what makes
+  ///   it safe to run unattended on every launch.
+  /// * **Android** — `queryPurchases` likewise returns only purchases
+  ///   that are currently owned.
+  ///
+  /// Three rules keep this from ever wrongly removing access:
+  ///
+  /// 1. It runs only when something is cached as active. There is
+  ///    nothing to verify otherwise, and a silent restore for a free
+  ///    learner would be a pointless store round-trip.
+  /// 2. If the store cannot be reached, it does nothing. "I could not
+  ///    ask" is not "the answer is no", and treating an offline launch
+  ///    as an expiry would lock a paying member out on a plane.
+  /// 3. A developer entitlement is left alone, since no store will ever
+  ///    replay it.
+  Future<void> verifyEntitlement() async {
+    final cached = ref.read(progressProvider).proEntitlement;
+    if (!cached.isActive) return;
+    if (cached.source == ProSource.debug) return;
+
+    final service = ref.read(purchaseServiceProvider);
+    if (!await service.isAvailable()) return;
+
+    _verifying = true;
+    _replayed.clear();
+    try {
+      final done = Completer<void>();
+      _verifyDone = done;
+      // The store answers asynchronously on the purchase stream. The
+      // wait ends as soon as it replays one of our products — usually
+      // well inside the window — and the window is only the ceiling on
+      // how long silence is given before it counts as an answer.
+      _verifyTimer = Timer(
+        ref.read(entitlementVerifyWindowProvider),
+        _finishVerifyWait,
+      );
+
+      await service.restore();
+      await done.future;
+      if (_disposed) return;
+
+      final stillOwned = _replayed.any(ProProducts.all.contains);
+      final notifier = ref.read(progressProvider.notifier);
+      if (stillOwned) {
+        notifier.applyEntitlement(
+          cached.copyWith(lastVerifiedAt: DateTime.now()),
+        );
+      } else {
+        // The store knows this account and did not replay the
+        // subscription: it has lapsed. Access closes on the next build,
+        // with nothing to migrate — every gate reads this entitlement.
+        notifier.applyEntitlement(cached.expire());
+      }
+    } catch (_) {
+      // Reaching the store failed after all. Keep the cache; rule 2.
+    } finally {
+      _finishVerifyWait();
+      _verifying = false;
+      _replayed.clear();
+    }
+  }
+
+
 
   Future<void> loadProducts() async {
     final service = ref.read(purchaseServiceProvider);
@@ -220,14 +332,19 @@ class PurchaseController extends Notifier<PurchaseState> {
       case PurchaseOutcome.purchased:
       case PurchaseOutcome.restored:
         final restored = update.outcome == PurchaseOutcome.restored;
+        final id = update.productId;
+        if (id != null) {
+          _replayed.add(id);
+          // Confirmed — no reason to hold the window open.
+          if (_verifying && ProProducts.all.contains(id)) _finishVerifyWait();
+        }
+
         ref.read(progressProvider.notifier).applyEntitlement(
-              ProEntitlement(
-                isActive: true,
-                productId: update.productId,
-                purchasedAt: update.transactionDate ?? DateTime.now(),
-                source: restored ? ProSource.restored : ProSource.store,
-              ),
+              _entitlementFor(update, restored: restored),
             );
+        // A launch check is not something the learner asked for, so it
+        // reports nothing and leaves the screen's phase alone.
+        if (_verifying) return;
         state = state.copyWith(
           phase: PurchasePhase.ready,
           message: restored ? 'Your Pro subscription is back.' : 'Welcome to Pro!',
@@ -235,6 +352,7 @@ class PurchaseController extends Notifier<PurchaseState> {
         );
 
       case PurchaseOutcome.pending:
+        if (_verifying) return;
         // Approval or a slow payment method. Nothing is granted until
         // the store says it cleared, which arrives as another update.
         state = state.copyWith(
@@ -245,16 +363,63 @@ class PurchaseController extends Notifier<PurchaseState> {
         );
 
       case PurchaseOutcome.canceled:
+        if (_verifying) return;
         // Backing out is not a failure — no error styling.
         state = state.copyWith(phase: PurchasePhase.ready, clearMessage: true);
 
       case PurchaseOutcome.error:
+        if (_verifying) return;
         state = state.copyWith(
           phase: PurchasePhase.ready,
           message: _friendlyError(update.message),
           isError: true,
         );
     }
+  }
+
+  /// Builds the entitlement to record for a completed transaction.
+  ///
+  /// The only judgement here is trial-versus-paid, and it is a
+  /// judgement: neither store reports, through `in_app_purchase`,
+  /// whether a given transaction consumed an introductory offer. What is
+  /// known is the offer the store advertised for that product when the
+  /// catalogue was loaded, and when the transaction happened — so a
+  /// purchase of a product carrying a free trial is recorded as
+  /// [EntitlementStatus.trialActive] until that trial's length is up.
+  ///
+  /// This is safe precisely because nothing gates on it: trial and paid
+  /// grant identical access (see [EntitlementStatus.grantsAccess]), so a
+  /// wrong guess mislabels a row in Settings and never opens or closes a
+  /// lesson. Whether access continues at all stays the store's call,
+  /// answered by [verifyEntitlement].
+  ProEntitlement _entitlementFor(
+    PurchaseUpdate update, {
+    required bool restored,
+  }) {
+    final boughtAt = update.transactionDate ?? DateTime.now();
+    final product = _productById(update.productId);
+    final trial = product == null ? null : freeTrialOf(product);
+    final trialEnd = trial?.endFrom(boughtAt);
+    final inTrial = trialEnd != null && trialEnd.isAfter(DateTime.now());
+
+    return ProEntitlement(
+      status: inTrial
+          ? EntitlementStatus.trialActive
+          : EntitlementStatus.subscribedActive,
+      productId: update.productId,
+      purchasedAt: boughtAt,
+      source: restored ? ProSource.restored : ProSource.store,
+      trialEndsAt: inTrial ? trialEnd : null,
+      lastVerifiedAt: DateTime.now(),
+    );
+  }
+
+  ProductDetails? _productById(String? id) {
+    if (id == null) return null;
+    for (final p in state.products) {
+      if (p.id == id) return p;
+    }
+    return null;
   }
 
   /// Store errors are written for developers. Learners get something

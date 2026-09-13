@@ -94,7 +94,15 @@ class FunHubScreen extends ConsumerWidget {
                     return GameModeCard(
                       mode: mode,
                       level: level,
-                      unlocked: overallLevel >= mode.unlockLevel,
+                      // Not `overallLevel >= mode.unlockLevel`: that
+                      // ladder does not apply to a member, and applying
+                      // it anyway left paid accounts with eight of ten
+                      // games locked.
+                      unlocked: Entitlements.isFunModeUnlockedByLevel(
+                        mode: mode,
+                        overallLevel: overallLevel,
+                        progress: progress,
+                      ),
                       requiresPro: requiresPro,
                       onTap: user.selectedLanguageId == null
                           ? null

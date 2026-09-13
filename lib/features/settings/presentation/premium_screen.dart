@@ -23,9 +23,21 @@ import '../application/purchase_controller.dart';
 /// opens the Fun Zone's higher levels. Nothing aspirational goes on this
 /// list — an unimplemented promise on a paid screen is a refund request.
 const _proBenefits = [
-  (Icons.route_rounded, 'Every lesson on the Path'),
-  (Icons.sports_esports_rounded, 'Every game in the Fun Zone'),
-  (Icons.replay_rounded, 'Unlimited practice, fresh questions'),
+  (
+    Icons.route_rounded,
+    'Every lesson on the Path',
+    'All units, all lessons, in every language you learn.',
+  ),
+  (
+    Icons.sports_esports_rounded,
+    'Every game in the Fun Zone',
+    'All ten games, at every level — no ladder to climb first.',
+  ),
+  (
+    Icons.replay_rounded,
+    'Unlimited practice',
+    'Replay anything, with the questions reshuffled each time.',
+  ),
 ];
 
 /// The Pro screen shows everything at once — no scrolling.
@@ -314,6 +326,9 @@ class _MemberStats extends StatelessWidget {
 }
 
 /// What somebody who has not paid sees.
+/// Below this screen height the Pro screen drops its strapline.
+const double _straplineMinScreenHeight = 740;
+
 class _SalesBody extends ConsumerWidget {
   final PurchaseState purchase;
   const _SalesBody({required this.purchase});
@@ -326,21 +341,38 @@ class _SalesBody extends ConsumerWidget {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         const _HeroBand(isPro: false),
-        const SizedBox(height: AppSpacing.sm),
-        // One gap either side of the benefits card, so spare height on a
-        // tall phone is shared rather than pooling into a single hole
-        // between two blocks.
-        const _FlexGap(),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: AppSpacing.xl),
-          child: const _BenefitsCard(),
+        // The strapline is the first thing to go on a short phone: the
+        // hero headline already carries the pitch, and the plan cards
+        // have to stay above the fold.
+        if (MediaQuery.sizeOf(context).height >= _straplineMinScreenHeight) ...[
+          const SizedBox(height: AppSpacing.lg),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: AppSpacing.xl),
+            child: Text(
+              'One subscription. Every lesson, every game, no limits.',
+              style: theme.textTheme.bodyMedium?.copyWith(
+                color: theme.colorScheme.onSurfaceVariant,
+                height: 1.3,
+              ),
+            ),
+          ),
+          const SizedBox(height: AppSpacing.md),
+        ] else
+          const SizedBox(height: AppSpacing.md),
+        const Padding(
+          padding: EdgeInsets.symmetric(horizontal: AppSpacing.xl),
+          child: _BenefitsCard(),
         ),
+        // One gap, and it sits *below* the reading matter rather than
+        // between the hero and the benefits. Two gaps split the slack on
+        // a tall phone and opened a hole in the middle of the page; one
+        // collects it above the plans, where empty space reads as
+        // breathing room in front of the thing being bought.
         const _FlexGap(),
-        const SizedBox(height: AppSpacing.md),
         Padding(
           padding: const EdgeInsets.fromLTRB(
             AppSpacing.xl,
-            0,
+            AppSpacing.lg,
             AppSpacing.xl,
             AppSpacing.sm,
           ),
@@ -511,14 +543,25 @@ class _HeroBand extends StatelessWidget {
 class _BenefitsCard extends StatelessWidget {
   const _BenefitsCard();
 
+  /// Below this screen height the supporting line under each benefit is
+  /// dropped and the rows close up.
+  ///
+  /// The whole screen is built not to scroll, so on a 667pt phone the
+  /// choice is between the detail lines and the plan cards being
+  /// reachable. The titles alone still say what Pro includes; a price
+  /// the learner has to scroll to find does not.
+  static const double _detailMinScreenHeight = 740;
+
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final detailed =
+        MediaQuery.sizeOf(context).height >= _detailMinScreenHeight;
 
     return Container(
-      padding: const EdgeInsets.symmetric(
+      padding: EdgeInsets.symmetric(
         horizontal: AppSpacing.lg,
-        vertical: AppSpacing.sm,
+        vertical: detailed ? AppSpacing.md : AppSpacing.xs,
       ),
       decoration: BoxDecoration(
         color: theme.colorScheme.surface,
@@ -529,12 +572,18 @@ class _BenefitsCard extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           for (var i = 0; i < _proBenefits.length; i++) ...[
-            if (i > 0) const SizedBox(height: AppSpacing.sm),
+            if (i > 0) ...[
+              SizedBox(height: detailed ? AppSpacing.sm : AppSpacing.xs),
+              if (detailed)
+                Divider(height: 1, color: theme.colorScheme.outlineVariant),
+              SizedBox(height: detailed ? AppSpacing.sm : AppSpacing.xs),
+            ],
             Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
-                  width: 24,
-                  height: 24,
+                  width: detailed ? 30 : 24,
+                  height: detailed ? 30 : 24,
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
                     color: context.decor.tint(AppColors.primary),
@@ -543,15 +592,31 @@ class _BenefitsCard extends StatelessWidget {
                   child: Icon(
                     _proBenefits[i].$1,
                     color: AppColors.primary,
-                    size: 15,
+                    size: detailed ? 17 : 15,
                   ),
                 ),
                 const SizedBox(width: AppSpacing.md),
                 Expanded(
-                  child: Text(
-                    _proBenefits[i].$2,
-                    style: theme.textTheme.titleSmall
-                        ?.copyWith(fontWeight: FontWeight.w600),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Text(
+                        _proBenefits[i].$2,
+                        style: theme.textTheme.titleSmall
+                            ?.copyWith(fontWeight: FontWeight.w700),
+                      ),
+                      if (detailed) ...[
+                        const SizedBox(height: 1),
+                        Text(
+                          _proBenefits[i].$3,
+                          style: theme.textTheme.bodySmall?.copyWith(
+                            color: theme.colorScheme.onSurfaceVariant,
+                            height: 1.25,
+                          ),
+                        ),
+                      ],
+                    ],
                   ),
                 ),
               ],

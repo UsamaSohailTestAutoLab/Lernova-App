@@ -10,6 +10,7 @@ import '../../../core/theme/app_spacing.dart';
 import '../../../core/widgets/app_snackbar.dart';
 import '../../../core/widgets/lingoquest_parrot.dart';
 import '../../../data/models/app_settings.dart';
+import '../../../data/models/pro_entitlement.dart';
 import '../../fun/application/fun_progress_controller.dart';
 import '../../languages/application/language_switch_controller.dart';
 import '../../progress/application/progress_controller.dart';
@@ -83,16 +84,20 @@ class SettingsScreen extends ConsumerWidget {
                 );
               }
 
-              final plan = ProProducts.planLabel(entitlement.productId);
               return Column(
                 children: [
                   ListTile(
-                    leading: const Icon(Icons.verified_rounded,
-                        color: AppColors.success),
-                    title: const Text('LingoQuest Pro'),
-                    subtitle: Text(
-                      plan == null ? 'Active' : 'Active · $plan plan',
+                    leading: Icon(
+                      entitlement.isTrial
+                          ? Icons.hourglass_top_rounded
+                          : Icons.verified_rounded,
+                      color: AppColors.success,
                     ),
+                    title: const Text('LingoQuest Pro'),
+                    // Subscription *status*, which both stores expect an
+                    // app selling a subscription to show somewhere. Not
+                    // an upsell: there is nothing here to buy.
+                    subtitle: Text(_statusLine(entitlement)),
                     trailing: const Icon(Icons.chevron_right_rounded),
                     onTap: () => context.push(AppRoutes.premium),
                   ),
@@ -333,23 +338,39 @@ class SettingsScreen extends ConsumerWidget {
                             ],
                           ),
                         ),
-                        if (progress.isPremium) ...[
-                          const SizedBox(height: AppSpacing.sm),
-                          OutlinedButton.icon(
-                            icon: const Icon(Icons.lock_reset_rounded,
-                                color: AppColors.info),
-                            label: const Text('Clear Pro entitlement'),
-                            onPressed: () {
-                              ref
-                                  .read(progressProvider.notifier)
-                                  .setPremium(false);
-                              AppSnackBar.show(
-                                context,
-                                'Pro cleared. The paywall is back on.',
-                              );
-                            },
+                        const SizedBox(height: AppSpacing.sm),
+                        // Both directions, because testing the paywall
+                        // means going back and forth across it, and a
+                        // sandbox purchase is a slow way to do that.
+                        //
+                        // A granted entitlement is recorded as
+                        // [ProSource.debug], which launch verification
+                        // deliberately skips — no store will ever replay
+                        // it, so checking would revoke it every time the
+                        // app started.
+                        OutlinedButton.icon(
+                          icon: Icon(
+                            progress.isPremium
+                                ? Icons.lock_reset_rounded
+                                : Icons.workspace_premium_rounded,
+                            color: AppColors.info,
                           ),
-                        ],
+                          label: Text(
+                            progress.isPremium
+                                ? 'Clear Pro entitlement'
+                                : 'Grant Pro entitlement',
+                          ),
+                          onPressed: () {
+                            final on = !progress.isPremium;
+                            ref.read(progressProvider.notifier).setPremium(on);
+                            AppSnackBar.show(
+                              context,
+                              on
+                                  ? 'Pro granted. Everything is unlocked.'
+                                  : 'Pro cleared. The paywall is back on.',
+                            );
+                          },
+                        ),
                       ],
                     );
                   },
@@ -389,6 +410,30 @@ class SettingsScreen extends ConsumerWidget {
         AppThemeMode.light => 'Light',
         AppThemeMode.dark => 'Dark',
       };
+}
+
+/// One line describing where a member stands.
+///
+/// Trial-versus-paid is inferred rather than reported by the store (see
+/// [ProEntitlement.isTrial]), which is exactly why it appears here and
+/// nowhere that grants access: being wrong costs a word in Settings.
+String _statusLine(ProEntitlement entitlement) {
+  final plan = ProProducts.planLabel(entitlement.productId);
+  final planSuffix = plan == null ? '' : ' · $plan plan';
+
+  if (entitlement.isTrial) {
+    final endsAt = entitlement.trialEndsAt;
+    final daysLeft = endsAt == null
+        ? null
+        : endsAt.difference(DateTime.now()).inHours / 24.0;
+    if (daysLeft != null && daysLeft > 0) {
+      final days = daysLeft.ceil();
+      return 'Free trial · $days day${days == 1 ? '' : 's'} left$planSuffix';
+    }
+    return 'Free trial$planSuffix';
+  }
+
+  return 'Active$planSuffix';
 }
 
 class _SectionHeader extends StatelessWidget {

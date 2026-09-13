@@ -150,6 +150,78 @@ Setting $12 there does not set $12 in the App Store.
 The file's `_storeKitErrors` block can also force failures (load, purchase,
 verification) to exercise the error paths by hand.
 
+## Entitlement states
+
+One enum, and every premium gate in the app asks it the same question.
+
+| State | Access | How it is reached |
+| --- | --- | --- |
+| `notSubscribed` | none | never bought, or the store has no record |
+| `trialActive` | **full** | bought a plan carrying an introductory free trial |
+| `subscribedActive` | **full** | bought, or past the trial |
+| `expired` | none | the store stopped replaying the subscription |
+
+The one question anything gates on is `EntitlementStatus.grantsAccess`,
+which is true for exactly the two active states. A trial member and a
+paying member are indistinguishable everywhere access is decided —
+that is the point of splitting the states rather than the permissions.
+
+### Trial versus paid is an inference, and is treated as one
+
+Neither store reports, through `in_app_purchase`, whether a given
+transaction consumed an introductory offer. What is known is the offer
+the store advertised for that product and when the transaction
+happened, so a purchase of a trial-bearing plan is recorded as
+`trialActive` until that offer's length is up.
+
+That guess is safe **only** because nothing gates on it. It labels a
+row in Settings ("Free trial · 2 days left"). Whether access continues
+at all stays the store's call. If the inference is wrong, somebody
+sees the wrong word in Settings; nobody gains or loses a lesson.
+
+## The store is the authority; the cache is a cache
+
+The entitlement is persisted so a member does not watch their content
+lock and unlock on every cold start. It is not the truth. On every
+launch `PurchaseController.verifyEntitlement` asks the store whether
+the cached subscription is still real:
+
+- **iOS** — with StoreKit 2 (this plugin's default since 0.4.x),
+  restoring maps to `Transaction.currentEntitlements`, which yields
+  *only* what is currently active. An expired, refunded or cancelled
+  subscription simply does not come back, and no password prompt is
+  shown — which is what makes it safe to run unattended.
+- **Android** — `queryPurchases` likewise returns only what is owned.
+
+Three rules stop it ever wrongly removing access:
+
+1. It runs only when something is cached as active.
+2. **If the store cannot be reached, nothing changes.** "I could not
+   ask" is not "the answer is no"; treating an offline launch as an
+   expiry would lock a paying member out on a plane.
+3. A `ProSource.debug` entitlement is skipped, since no store will
+   ever replay it.
+
+The wait ends as soon as the store replays one of our products, and
+`entitlementVerifyWindowProvider` (5s) is only the ceiling on how long
+silence is given before it counts as an answer. Nothing is announced to
+the learner — it runs on every cold start, and "Your Pro subscription
+is back" each time would be noise for something nobody asked for.
+
+**This is the whole expiry mechanism.** There is no local timer and no
+artificial expiry date. Access is recomputed from the entitlement on
+every build, so a lapsed subscription closes the app back up with
+nothing to migrate.
+
+### The limit, stated plainly
+
+With no backend there is no receipt verification, so a local
+entitlement is spoofable on a rooted or jailbroken device. What this
+design buys is correctness against the *store* — expiry, cancellation,
+refunds and reinstalls all resolve correctly — not resistance to a
+determined attacker with root. Closing that needs a server that
+validates receipts with Apple and Google.
+
 ## What the free tier is
 
 One Path lesson and one Fun level:

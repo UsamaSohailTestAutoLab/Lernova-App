@@ -54,7 +54,7 @@ UserProgress _progress({required bool pro, String? productId}) {
   return base.copyWith(
     isPremium: true,
     proEntitlement: ProEntitlement(
-      isActive: true,
+      status: EntitlementStatus.subscribedActive,
       productId: productId,
       purchasedAt: DateTime(2026, 9, 1),
       source: ProSource.store,
@@ -99,7 +99,10 @@ Future<void> _pump(
     ProviderScope(
       overrides: [
         localStorageServiceProvider.overrideWithValue(storage),
-        purchaseServiceProvider.overrideWithValue(FakeStore()),
+        purchaseServiceProvider.overrideWithValue(
+          FakeStore(owned: pro ? {productId ?? ProProducts.monthly} : const {}),
+        ),
+        entitlementVerifyWindowProvider.overrideWithValue(Duration.zero),
       ],
       child: MaterialApp(theme: AppTheme.light(), home: screen),
     ),

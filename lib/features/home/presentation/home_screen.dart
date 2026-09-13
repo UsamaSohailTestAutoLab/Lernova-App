@@ -77,10 +77,16 @@ class HomeScreen extends ConsumerWidget {
           // in every app that teaches more than one language: it says
           // what you are learning *and* is the way to change it.
           _LanguageFlagButton(),
-          Padding(
-            padding: const EdgeInsets.only(right: AppSpacing.lg),
-            child: _ProTag(isPremium: progress.isPremium),
-          ),
+          // The upsell, and only the upsell. A member has nothing to
+          // buy here, so the slot is empty for them rather than holding
+          // a badge — see [_ProTag].
+          if (!progress.isPremium)
+            const Padding(
+              padding: EdgeInsets.only(right: AppSpacing.lg),
+              child: _ProTag(),
+            )
+          else
+            const SizedBox(width: AppSpacing.sm),
         ],
       ),
       body: SafeArea(
@@ -372,21 +378,21 @@ class _LanguageFlagButton extends ConsumerWidget {
   }
 }
 
-/// The Pro pill in the app bar.
+/// The Pro pill in the app bar. Shown only to somebody who has not paid.
 ///
-/// It is two different things wearing one shape. For somebody who has
-/// not bought Pro it is the only upsell on the screen, and it glows to
-/// earn the tap. For a subscriber it is a membership badge — still a way
-/// into the Pro screen, where the plan and the manage link live, but
-/// quiet, because pitching a subscription to the person already paying
-/// for it is how you make them look for the cancel button.
+/// It used to render for members too, as a quiet green "membership
+/// badge". That was a mistake twice over: a badge that opens a
+/// subscription page is an upsell shape whatever colour it is, and it
+/// spent the app bar's most valuable slot reminding a paying member
+/// that a subscription exists — which is how you make them go looking
+/// for the cancel button. A member reaches their plan through Settings,
+/// where subscription management belongs.
 class _ProTag extends StatelessWidget {
-  final bool isPremium;
-  const _ProTag({required this.isPremium});
+  const _ProTag();
 
   @override
   Widget build(BuildContext context) {
-    final base = isPremium ? AppColors.success : AppColors.primary;
+    const base = AppColors.primary;
     return DecoratedBox(
       decoration: BoxDecoration(
         gradient: LinearGradient(
@@ -395,16 +401,13 @@ class _ProTag extends StatelessWidget {
           colors: [Color.lerp(base, Colors.white, 0.22)!, base],
         ),
         borderRadius: BorderRadius.circular(AppRadius.pill),
-        // The glow is the upsell's, not the member's.
-        boxShadow: isPremium
-            ? null
-            : [
-                BoxShadow(
-                  color: base.withValues(alpha: 0.45),
-                  blurRadius: 14,
-                  offset: const Offset(0, 4),
-                ),
-              ],
+        boxShadow: [
+          BoxShadow(
+            color: base.withValues(alpha: 0.45),
+            blurRadius: 14,
+            offset: const Offset(0, 4),
+          ),
+        ],
       ),
       child: Material(
         color: Colors.transparent,
@@ -420,11 +423,7 @@ class _ProTag extends StatelessWidget {
             child: Row(
               mainAxisSize: MainAxisSize.min,
               children: [
-                Icon(
-                  isPremium ? Icons.verified_rounded : Icons.bolt_rounded,
-                  size: 16,
-                  color: Colors.white,
-                ),
+                const Icon(Icons.bolt_rounded, size: 16, color: Colors.white),
                 const SizedBox(width: 4),
                 Text(
                   'PRO',

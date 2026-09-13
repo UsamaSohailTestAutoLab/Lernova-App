@@ -55,7 +55,7 @@ UserProgress _progress({
   if (!pro) return base;
   return base.copyWith(
     isPremium: true,
-    proEntitlement: const ProEntitlement(isActive: true, source: ProSource.store),
+    proEntitlement: const ProEntitlement(status: EntitlementStatus.subscribedActive, source: ProSource.store),
   );
 }
 
@@ -190,6 +190,45 @@ void main() {
   });
 
   group('the Fun Zone, with a subscription', () {
+    test('the Fun level ladder no longer applies', () {
+      // Pro is sold as "every game in the Fun Zone". Keeping the ladder
+      // for members is what left a paid account at Fun level 2 looking
+      // at eight padlocks: only Word Bubble and Word Rush unlock at
+      // level 1.
+      for (final mode in FunGameMode.values) {
+        expect(
+          Entitlements.isFunModeUnlockedByLevel(
+            mode: mode,
+            overallLevel: 2,
+            progress: _progress(pro: true),
+          ),
+          isTrue,
+          reason: '${mode.title} (unlocks at ${mode.unlockLevel}) must open',
+        );
+      }
+    });
+
+    test('the ladder still applies to everybody else', () {
+      // It is not dead code: it is what orders the free Fun Zone, and
+      // taking entitlement out of the question must not take it away.
+      expect(
+        Entitlements.isFunModeUnlockedByLevel(
+          mode: FunGameMode.wordSurvival,
+          overallLevel: 2,
+          progress: _progress(),
+        ),
+        isFalse,
+      );
+      expect(
+        Entitlements.isFunModeUnlockedByLevel(
+          mode: FunGameMode.fallingWords,
+          overallLevel: 2,
+          progress: _progress(),
+        ),
+        isTrue,
+      );
+    });
+
     test('every game at every level opens', () {
       for (final mode in FunGameMode.values) {
         for (final level in [1, 2, 7, 40]) {

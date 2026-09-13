@@ -241,7 +241,7 @@ void main() {
 
     test('an existing subscriber is not sold the same thing twice', () async {
       container.read(progressProvider.notifier).applyEntitlement(
-            const ProEntitlement(isActive: true, source: ProSource.store),
+            const ProEntitlement(status: EntitlementStatus.subscribedActive, source: ProSource.store),
           );
 
       await controller().buySelected();

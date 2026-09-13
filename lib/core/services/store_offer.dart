@@ -36,6 +36,22 @@ class FreeTrial {
 
   /// "Free for 3 days, then …" — the sentence under the CTA.
   String get sentence => 'Free for $label';
+
+  /// When this trial would end, counting from [start].
+  ///
+  /// Months and years are added as calendar units rather than a fixed
+  /// number of days, so a month-long trial starting on the 31st lands
+  /// where a person would expect. Used only to label a member as being
+  /// inside a trial; the store, not this arithmetic, decides whether
+  /// access continues.
+  DateTime endFrom(DateTime start) => switch (unit) {
+        TrialUnit.day => start.add(Duration(days: count)),
+        TrialUnit.week => start.add(Duration(days: 7 * count)),
+        TrialUnit.month =>
+          DateTime(start.year, start.month + count, start.day, start.hour, start.minute),
+        TrialUnit.year =>
+          DateTime(start.year + count, start.month, start.day, start.hour, start.minute),
+      };
 }
 
 enum TrialUnit { day, week, month, year }

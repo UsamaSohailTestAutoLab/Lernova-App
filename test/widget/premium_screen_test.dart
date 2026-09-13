@@ -40,7 +40,7 @@ Future<void> _pumpSubscribed(WidgetTester tester) async {
     totalLessonsCompleted: 128,
     isPremium: true,
     proEntitlement: ProEntitlement(
-      isActive: true,
+      status: EntitlementStatus.subscribedActive,
       productId: ProProducts.monthly,
       purchasedAt: DateTime(2026, 9, 1),
       source: ProSource.store,
@@ -62,7 +62,10 @@ Future<void> _pumpSubscribed(WidgetTester tester) async {
     ProviderScope(
       overrides: [
         localStorageServiceProvider.overrideWithValue(storage),
-        purchaseServiceProvider.overrideWithValue(FakeStore()),
+        purchaseServiceProvider.overrideWithValue(
+          FakeStore(owned: {ProProducts.monthly}),
+        ),
+        entitlementVerifyWindowProvider.overrideWithValue(Duration.zero),
       ],
       child: MaterialApp(
         theme: AppTheme.light(),
@@ -86,6 +89,7 @@ Future<void> _pump(WidgetTester tester, FakeStore store) async {
       overrides: [
         localStorageServiceProvider.overrideWithValue(storage),
         purchaseServiceProvider.overrideWithValue(store),
+        entitlementVerifyWindowProvider.overrideWithValue(Duration.zero),
       ],
       child: MaterialApp(
         theme: AppTheme.light(),

@@ -87,6 +87,24 @@ class Entitlements {
     return LessonAccess.requiresPro;
   }
 
+  /// Whether the Fun level ladder still applies to this learner.
+  ///
+  /// It does not, for a member. Pro is sold as "every game in the Fun
+  /// Zone", and that has to mean every game — so an active entitlement
+  /// clears the ladder as well as the paywall.
+  ///
+  /// Leaving the ladder in place for subscribers is what made a paid
+  /// account see only Word Bubble and Word Rush: those two are the only
+  /// modes whose [FunGameModeX.unlockLevel] is 1, so a member who had
+  /// not ground their Fun level up to 10 still met a lock on eight of
+  /// the ten games they had just paid for.
+  static bool isFunModeUnlockedByLevel({
+    required FunGameMode mode,
+    required int overallLevel,
+    required UserProgress progress,
+  }) =>
+      progress.isPremium || overallLevel >= mode.unlockLevel;
+
   /// Whether this Fun mode, at the level the learner has reached in it,
   /// can be played.
   ///
@@ -100,6 +118,7 @@ class Entitlements {
     required int level,
     required UserProgress progress,
   }) {
+    // Every game, every level. See [isFunModeUnlockedByLevel].
     if (progress.isPremium) return FunAccess.open;
     return isFunLevelFree(mode, level) ? FunAccess.open : FunAccess.requiresPro;
   }

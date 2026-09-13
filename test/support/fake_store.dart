@@ -18,13 +18,32 @@ class FakeStore implements PurchaseService {
   final _controller = StreamController<PurchaseUpdate>.broadcast();
   bool monthlyHasTrial;
 
-  FakeStore({this.monthlyHasTrial = true});
+  /// What this store account currently owns.
+  ///
+  /// Both real stores replay only *active* entitlements when asked to
+  /// restore — iOS through `Transaction.currentEntitlements`, Play
+  /// through `queryPurchases` — which is what makes restore usable as
+  /// the authority on whether a subscription is still live. A fake that
+  /// replayed nothing would make every launch look like an expiry, so
+  /// it models the same rule: empty means "this account owns nothing
+  /// any more", which is exactly the expired case.
+  final Set<String> owned;
+
+  /// Whether the store can be reached at all. False is the offline case,
+  /// where nothing may be concluded about the entitlement.
+  bool available;
+
+  FakeStore({
+    this.monthlyHasTrial = true,
+    Set<String> owned = const {},
+    this.available = true,
+  }) : owned = {...owned};
 
   @override
   Stream<PurchaseUpdate> get updates => _controller.stream;
 
   @override
-  Future<bool> isAvailable() async => true;
+  Future<bool> isAvailable() async => available;
 
   @override
   void listen() {}
@@ -43,10 +62,29 @@ class FakeStore implements PurchaseService {
       ];
 
   @override
-  Future<void> buy(ProductDetails product) async {}
+  Future<void> buy(ProductDetails product) async {
+    owned.add(product.id);
+    _controller.add(PurchaseUpdate(
+      outcome: PurchaseOutcome.purchased,
+      productId: product.id,
+      transactionDate: DateTime(2026, 9, 13),
+    ));
+  }
 
   @override
-  Future<void> restore() async {}
+  Future<void> restore() async {
+    for (final id in owned) {
+      _controller.add(PurchaseUpdate(
+        outcome: PurchaseOutcome.restored,
+        productId: id,
+        transactionDate: DateTime(2026, 9, 13),
+      ));
+    }
+  }
+
+  /// Emits an arbitrary update, for the outcomes a test drives directly
+  /// (pending, canceled, error).
+  void emit(PurchaseUpdate update) => _controller.add(update);
 
   @override
   void dispose() => _controller.close();

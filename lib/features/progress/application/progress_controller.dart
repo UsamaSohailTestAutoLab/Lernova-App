@@ -190,16 +190,34 @@ class ProgressController extends Notifier<UserProgress> {
     _persist(state.copyWith(
       isPremium: value,
       proEntitlement: value
-          ? ProEntitlement(isActive: true, purchasedAt: DateTime.now(), source: ProSource.debug)
+          ? ProEntitlement(
+              status: EntitlementStatus.subscribedActive,
+              purchasedAt: DateTime.now(),
+              source: ProSource.debug,
+            )
           : ProEntitlement.none,
     ));
   }
 
   /// Records a store-granted entitlement, or clears it.
   ///
-  /// The single place a real purchase becomes Pro access. [isPremium]
-  /// stays in sync so every existing read of it keeps working.
+  /// The single place a real purchase, a restore, or a reconciliation
+  /// becomes Pro access. `isPremium` is written from
+  /// [ProEntitlement.isActive] and never decided separately, so the two
+  /// cannot drift — it survives only because a lot of existing code
+  /// reads it, and it is now strictly a mirror of the entitlement.
+  ///
+  /// A no-op when nothing changed, so a reconciliation that confirms
+  /// what is already cached does not write to disk or rebuild the tree
+  /// on every launch.
   void applyEntitlement(ProEntitlement entitlement) {
+    final current = state.proEntitlement;
+    final unchanged = current.status == entitlement.status &&
+        current.productId == entitlement.productId &&
+        current.source == entitlement.source &&
+        current.trialEndsAt == entitlement.trialEndsAt;
+    if (unchanged && state.isPremium == entitlement.isActive) return;
+
     _persist(state.copyWith(
       isPremium: entitlement.isActive,
       proEntitlement: entitlement,

@@ -1,12 +1,14 @@
 import 'dart:convert';
 
 import 'package:flutter/services.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:lingoquest/core/constants/app_enums.dart';
 import 'package:lingoquest/core/services/local_storage_service.dart';
+import 'package:lingoquest/core/services/purchase_service.dart';
 import 'package:lingoquest/core/services/service_providers.dart';
 import 'package:lingoquest/data/models/app_user.dart';
 import 'package:lingoquest/data/models/fun_progress.dart';
@@ -84,7 +86,7 @@ Future<void> _boot(
     progress = progress.copyWith(
       isPremium: true,
       proEntitlement: const ProEntitlement(
-        isActive: true,
+        status: EntitlementStatus.subscribedActive,
         source: ProSource.store,
       ),
     );
@@ -131,7 +133,10 @@ Future<void> _boot(
     ProviderScope(
       overrides: [
         localStorageServiceProvider.overrideWithValue(storage),
-        purchaseServiceProvider.overrideWithValue(FakeStore()),
+        purchaseServiceProvider.overrideWithValue(
+          FakeStore(owned: pro ? {ProProducts.monthly} : const {}),
+        ),
+        entitlementVerifyWindowProvider.overrideWithValue(Duration.zero),
       ],
       child: const LingoQuestApp(),
     ),
@@ -261,6 +266,66 @@ void main() {
 
       expect(find.text('Unlock with Pro'), findsNothing);
     });
+
+    testWidgets('a subscriber gets every game, not just the level-1 two',
+        (tester) async {
+      // The regression this exists for. The hub used to AND the Pro gate
+      // with `overallLevel >= mode.unlockLevel`, and only Word Bubble
+      // and Word Rush unlock at level 1 — so a paying member at Fun
+      // level 2 saw eight of the ten games they had just bought still
+      // wearing a padlock.
+      await _boot(
+        tester,
+        pro: true,
+        funLevels: {FunGameMode.fallingWords.name: 2},
+      );
+
+      await tester.tap(find.text('Fun'));
+      await _pumpUntil(tester, find.text('Word Bubble'));
+
+      expect(find.byIcon(Icons.lock_rounded), findsNothing);
+      expect(find.text('Unlock with Pro'), findsNothing);
+
+      // Every mode's own blurb is showing, which only happens on a card
+      // that is neither level-locked nor Pro-locked.
+      for (final mode in FunGameMode.values) {
+        await tester.scrollUntilVisible(
+          find.text(mode.title),
+          200,
+          scrollable: find.byType(Scrollable).first,
+        );
+        expect(
+          find.text(mode.blurb),
+          findsOneWidget,
+          reason: '${mode.title} must be playable for a subscriber',
+        );
+      }
+    });
+
+    testWidgets('a subscriber can actually open a high-tier game',
+        (tester) async {
+      // Word Survival unlocks at Fun level 10. A member at level 2 must
+      // still be able to start it.
+      await _boot(
+        tester,
+        pro: true,
+        funLevels: {FunGameMode.fallingWords.name: 2},
+      );
+
+      await tester.tap(find.text('Fun'));
+      await _pumpUntil(tester, find.text('Word Bubble'));
+
+      await tester.scrollUntilVisible(
+        find.text('Word Survival'),
+        200,
+        scrollable: find.byType(Scrollable).first,
+      );
+      await tester.tap(find.text('Word Survival'));
+      await _pumpAWhile(tester);
+
+      expect(_paywall, findsNothing);
+      expect(find.textContaining('needs Pro'), findsNothing);
+    });
   });
 
   group('Home', () {
@@ -284,6 +349,27 @@ void main() {
       await _pumpUntil(tester, find.text('Continue learning'));
 
       expect(find.text('Unlock with Pro'), findsNothing);
+    });
+
+    testWidgets('the Pro pill is the free learner\'s, and nobody else\'s',
+        (tester) async {
+      await _boot(tester);
+      await _pumpUntil(tester, find.text('PRO'));
+
+      // A free learner gets the one upsell in the app bar.
+      expect(find.text('PRO'), findsOneWidget);
+    });
+
+    testWidgets('a subscriber has no Pro pill in the app bar', (tester) async {
+      // Not a quiet green badge either. A badge that opens a
+      // subscription page is an upsell shape whatever colour it is, and
+      // it spends the app bar's best slot reminding somebody who already
+      // pays that a subscription exists.
+      await _boot(tester, pro: true);
+      await _pumpUntil(tester, find.text('Settings'));
+
+      expect(find.text('PRO'), findsNothing);
+      expect(find.byIcon(Icons.bolt_rounded), findsNothing);
     });
   });
 }

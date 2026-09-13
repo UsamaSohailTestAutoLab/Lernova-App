@@ -27,7 +27,7 @@ UserProgress _progress({required bool pro, String? productId}) {
   return base.copyWith(
     isPremium: true,
     proEntitlement: ProEntitlement(
-      isActive: true,
+      status: EntitlementStatus.subscribedActive,
       productId: productId,
       purchasedAt: DateTime(2026, 9, 1),
       source: ProSource.store,
@@ -69,7 +69,15 @@ Future<ProviderContainer> _pump(
       localStorageServiceProvider.overrideWithValue(storage),
       // Without this the real billing plugin is constructed and reaches
       // for a channel no test binding answers.
-      purchaseServiceProvider.overrideWithValue(FakeStore()),
+      purchaseServiceProvider.overrideWithValue(
+        // A subscriber's store still owns the plan. Handing back an
+        // empty store would be the *expired* case, and launch
+        // verification would correctly revoke the entitlement under a
+        // test that is about what an active member sees.
+        FakeStore(owned: pro ? {productId ?? ProProducts.monthly} : const {}),
+      ),
+      // No reason for a widget test to sit out the real window.
+        entitlementVerifyWindowProvider.overrideWithValue(Duration.zero),
     ],
   );
   addTearDown(container.dispose);

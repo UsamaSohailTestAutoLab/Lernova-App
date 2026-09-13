@@ -49,12 +49,14 @@ p{font-family:'Inter',sans-serif;font-size:30px;line-height:1.3;color:#9ADB8B;
 // `clip` segments are real gameplay recordings, trimmed to their most
 // legible stretch.
 const SEGMENTS = [
-  { id: 's1', kind: 'still', src: `${RAW}/98_home_seeded.png`, dur: 2.9,
+  { id: 's1', kind: 'still', src: `${RAW}/98_home_seeded.png`, dur: 2.6,
     head: 'Learn a language<br>by playing', sub: 'LingoQuest' },
-  { id: 's2', kind: 'still', src: `${RAW}/114_language_switch.png`, dur: 2.7,
+  { id: 's2', kind: 'still', src: `${RAW}/114_language_switch.png`, dur: 2.4,
     head: 'Choose your quest', sub: '10 languages, each with its own progress' },
   { id: 's3', kind: 'still', src: `${RAW}/39_ex_image.png`, dur: 2.5,
     head: 'Learn new words', sub: 'Short lessons you finish in five minutes' },
+  { id: 's3b', kind: 'still', src: `${RAW}/fun_grid_phone.png`, dur: 2.2,
+    head: 'Ten games,<br>one vocabulary', sub: 'Every game practises what the lesson just taught' },
   { id: 's4', kind: 'clip', src: `${VID}/wb2.mp4`, start: 1.0, dur: 3.3,
     head: 'Then play them', sub: 'Catch the right meaning before it gets away' },
   { id: 's5', kind: 'clip', src: `${VID}/burst2.mp4`, start: 1.7, dur: 3.2,
@@ -63,9 +65,9 @@ const SEGMENTS = [
     head: 'Flip. Match.<br>Remember.', sub: 'Pair every word with its meaning' },
   { id: 's7', kind: 'clip', src: `${VID}/survival.mp4`, start: 7.0, dur: 2.9,
     head: 'Or beat the<br>rising water', sub: 'Ten games, one vocabulary' },
-  { id: 's8', kind: 'still', src: `${RAW}/108_statistics.png`, dur: 2.5,
+  { id: 's8', kind: 'still', src: `${RAW}/108_statistics.png`, dur: 2.3,
     head: 'Build your streak', sub: 'XP, day streaks and every word mastered' },
-  { id: 's9', kind: 'still', src: `${RAW}/98_home_seeded.png`, dur: 2.3,
+  { id: 's9', kind: 'still', src: `${RAW}/98_home_seeded.png`, dur: 2.1,
     head: 'Start your<br>Language Quest', sub: 'LingoQuest — free to download' },
 ];
 

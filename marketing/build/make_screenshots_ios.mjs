@@ -155,9 +155,12 @@ const phone = (file, cls, style) => `
 
 const stage = (s) => {
   if (s.kind === 'grid') {
-    return `<div class="grid">${GAMES.map(([e, n]) =>
-      `<div class="tile"><span class="e">${e}</span><span class="n">${n}</span></div>`
-    ).join('')}</div>
+    // The app's real cards, rendered by
+    // test/widget/marketing_fun_grid.dart. This used to be ten
+    // hand-made tiles imitating the UI, which is a thing that has to
+    // be redrawn every time the UI moves and quietly goes stale when
+    // it is not.
+    return `<div class="grid"><img src="file:///C:/Duolingo/marketing/raw_ios/fun_grid_all.png" alt=""></div>
     <img class="mascot" src="file:///C:/Duolingo/assets/images/lingoquest_parrot_celebrate.png" alt="">`;
   }
   if (s.kind === 'duo') {
@@ -218,8 +221,10 @@ const page = (s) => `<!doctype html>
   .home-ind{position:absolute;bottom:15px;left:50%;transform:translateX(-50%);
      width:268px;height:9px;border-radius:6px;background:rgba(12,20,9,.34);}
 
-  .grid{position:relative;z-index:2;margin-top:92px;display:grid;
-     grid-template-columns:repeat(2,1fr);gap:28px;width:1120px;}
+  .grid{position:relative;z-index:2;margin-top:64px;width:1090px;flex:none;
+     border-radius:44px;overflow:hidden;
+     box-shadow:0 24px 54px rgba(16,40,10,.18);}
+  .grid img{display:block;width:1090px;height:auto;}
   .tile{background:rgba(255,255,255,.92);border:2px solid rgba(31,107,22,.13);
      border-radius:34px;padding:44px 30px;display:flex;align-items:center;gap:24px;
      box-shadow:0 12px 28px rgba(16,40,10,.08);}

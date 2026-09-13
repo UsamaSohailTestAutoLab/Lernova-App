@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 import '../../../core/constants/app_enums.dart';
 import '../../../core/routing/app_routes.dart';
 import '../../../core/theme/app_colors.dart';
+import '../../../core/theme/app_decor.dart';
 import '../../../core/theme/app_spacing.dart';
 import '../../../core/widgets/app_snackbar.dart';
 import '../../../core/widgets/lingoquest_parrot.dart';
@@ -280,6 +281,80 @@ class SettingsScreen extends ConsumerWidget {
                   style: Theme.of(context).textTheme.bodySmall,
                 ),
                 const SizedBox(height: AppSpacing.md),
+                // What the paywall is actually reading.
+                //
+                // A local entitlement outlives the build that granted it
+                // — the old mock "purchase" button set this and it is
+                // still in storage — so "why is everything unlocked?" is
+                // usually this flag, not the gate. Worth being able to
+                // see and clear rather than guess at.
+                Consumer(
+                  builder: (context, ref, _) {
+                    final progress = ref.watch(progressProvider);
+                    final entitlement = progress.proEntitlement;
+                    final source = entitlement.isActive
+                        ? entitlement.source.name
+                        : 'none';
+                    return Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        Container(
+                          padding: const EdgeInsets.all(AppSpacing.md),
+                          decoration: BoxDecoration(
+                            color: context.decor.tint(
+                              progress.isPremium
+                                  ? AppColors.accent
+                                  : AppColors.info,
+                            ),
+                            borderRadius: BorderRadius.circular(AppRadius.md),
+                          ),
+                          child: Row(
+                            children: [
+                              Icon(
+                                progress.isPremium
+                                    ? Icons.workspace_premium_rounded
+                                    : Icons.lock_outline_rounded,
+                                size: 18,
+                                color: progress.isPremium
+                                    ? AppColors.accent
+                                    : AppColors.info,
+                              ),
+                              const SizedBox(width: AppSpacing.sm),
+                              Expanded(
+                                child: Text(
+                                  progress.isPremium
+                                      ? 'Pro is ACTIVE (source: $source) — '
+                                          'the paywall is off for this account.'
+                                      : 'Pro is OFF — free tier: Say Hello, '
+                                          'and Word Bubble level 1.',
+                                  style: Theme.of(context).textTheme.bodySmall,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        if (progress.isPremium) ...[
+                          const SizedBox(height: AppSpacing.sm),
+                          OutlinedButton.icon(
+                            icon: const Icon(Icons.lock_reset_rounded,
+                                color: AppColors.info),
+                            label: const Text('Clear Pro entitlement'),
+                            onPressed: () {
+                              ref
+                                  .read(progressProvider.notifier)
+                                  .setPremium(false);
+                              AppSnackBar.show(
+                                context,
+                                'Pro cleared. The paywall is back on.',
+                              );
+                            },
+                          ),
+                        ],
+                      ],
+                    );
+                  },
+                ),
+                const SizedBox(height: AppSpacing.sm),
                 OutlinedButton.icon(
                   icon: const Icon(Icons.lock_open_rounded, color: AppColors.info),
                   label: const Text('Unlock all Path units & lessons'),

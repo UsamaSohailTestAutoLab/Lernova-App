@@ -48,8 +48,7 @@ class GameModeCard extends StatelessWidget {
               Text(mode.emoji, style: const TextStyle(fontSize: 28)),
               const Spacer(),
               if (requiresPro)
-                const Icon(Icons.workspace_premium_rounded,
-                    size: 18, color: AppColors.accent)
+                const Icon(Icons.lock_rounded, size: 18, color: AppColors.accent)
               else if (!playable)
                 const Icon(Icons.lock_rounded, size: 18, color: AppColors.leagueSilver)
               else

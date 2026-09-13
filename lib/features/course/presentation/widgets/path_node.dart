@@ -104,7 +104,7 @@ class _PathNodeState extends State<PathNode> with SingleTickerProviderStateMixin
     final size = isCurrent ? widget.currentNodeSize : widget.nodeSize;
 
     final (color, icon) = widget.requiresPro
-        ? (AppColors.accent, AppIcons.pro)
+        ? (AppColors.accent, AppIcons.lock)
         : switch (widget.state) {
       LessonNodeState.locked => (theme.colorScheme.outlineVariant, AppIcons.lock),
       LessonNodeState.current => (

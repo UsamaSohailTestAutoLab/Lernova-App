@@ -3,6 +3,8 @@ import 'dart:async';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:in_app_purchase/in_app_purchase.dart';
 
+import '../../../core/analytics/analytics.dart';
+import '../../../core/analytics/analytics_providers.dart';
 import '../../../core/services/purchase_service.dart';
 import '../../../core/services/subscription_manager.dart';
 import '../../../core/services/store_offer.dart';
@@ -261,6 +263,18 @@ class PurchaseController extends Notifier<PurchaseState> {
   void selectPlan(String productId) {
     if (state.isBusy) return;
     state = state.copyWith(selectedProductId: productId, clearMessage: true);
+    ref.read(analyticsProvider).planSelected(
+          plan: ProProducts.planLabel(productId) ?? productId,
+          hasFreeTrial: _hasTrial(productId),
+        );
+  }
+
+  /// Whether the store is currently advertising a free trial on this
+  /// plan. Read from the loaded product rather than assumed, the same
+  /// rule the Pro screen's badge follows.
+  bool _hasTrial(String? productId) {
+    final product = _productById(productId);
+    return product != null && freeTrialOf(product) != null;
   }
 
   /// Opens the store's purchase sheet for the selected plan.
@@ -288,9 +302,17 @@ class PurchaseController extends Notifier<PurchaseState> {
     }
 
     state = state.copyWith(phase: PurchasePhase.working, clearMessage: true);
+    ref.read(analyticsProvider).purchaseStarted(
+          plan: ProProducts.planLabel(product.id) ?? product.id,
+          hasFreeTrial: freeTrialOf(product) != null,
+        );
     try {
       await ref.read(purchaseServiceProvider).buy(product);
     } catch (e) {
+      ref.read(analyticsProvider).purchaseFailed(
+            plan: ProProducts.planLabel(product.id),
+            reason: 'store',
+          );
       state = state.copyWith(
         phase: PurchasePhase.ready,
         message: "That didn't go through. Please try again.",
@@ -302,6 +324,7 @@ class PurchaseController extends Notifier<PurchaseState> {
   Future<void> restore() async {
     if (state.isBusy) return;
     state = state.copyWith(phase: PurchasePhase.working, clearMessage: true);
+    ref.read(analyticsProvider).restoreStarted();
     try {
       await ref.read(purchaseServiceProvider).restore();
       // The store answers on the purchase stream. If it replays nothing,
@@ -339,12 +362,19 @@ class PurchaseController extends Notifier<PurchaseState> {
           if (_verifying && ProProducts.all.contains(id)) _finishVerifyWait();
         }
 
-        ref.read(progressProvider.notifier).applyEntitlement(
-              _entitlementFor(update, restored: restored),
-            );
+        final entitlement = _entitlementFor(update, restored: restored);
+        ref.read(progressProvider.notifier).applyEntitlement(entitlement);
+        final analytics = ref.read(analyticsProvider);
+        analytics.setSubscriptionStatus(entitlement.status);
         // A launch check is not something the learner asked for, so it
-        // reports nothing and leaves the screen's phase alone.
+        // reports nothing — not to the screen, and not to analytics,
+        // where it would inflate conversions with one event per cold
+        // start for every existing subscriber.
         if (_verifying) return;
+        analytics.purchaseSuccess(
+          plan: ProProducts.planLabel(update.productId) ?? 'unknown',
+          restored: restored,
+        );
         state = state.copyWith(
           phase: PurchasePhase.ready,
           message: restored ? 'Your Pro subscription is back.' : 'Welcome to Pro!',
@@ -364,11 +394,18 @@ class PurchaseController extends Notifier<PurchaseState> {
 
       case PurchaseOutcome.canceled:
         if (_verifying) return;
+        ref.read(analyticsProvider).purchaseCanceled(
+              plan: ProProducts.planLabel(update.productId),
+            );
         // Backing out is not a failure — no error styling.
         state = state.copyWith(phase: PurchasePhase.ready, clearMessage: true);
 
       case PurchaseOutcome.error:
         if (_verifying) return;
+        ref.read(analyticsProvider).purchaseFailed(
+              plan: ProProducts.planLabel(update.productId),
+              reason: _failureReason(update.message),
+            );
         state = state.copyWith(
           phase: PurchasePhase.ready,
           message: _friendlyError(update.message),
@@ -420,6 +457,19 @@ class PurchaseController extends Notifier<PurchaseState> {
       if (p.id == id) return p;
     }
     return null;
+  }
+
+  /// One of a handful of reason codes, for the failure breakdown.
+  ///
+  /// The store's own message is unbounded text written for developers
+  /// and differs by device, locale and SDK version — sending it would
+  /// make the metric uncountable, one bucket per phrasing.
+  static String _failureReason(String? raw) {
+    final text = (raw ?? '').toLowerCase();
+    if (text.contains('network') || text.contains('connect')) return 'network';
+    if (text.contains('already') || text.contains('owned')) return 'already_owned';
+    if (text.isEmpty) return 'unknown';
+    return 'store';
   }
 
   /// Store errors are written for developers. Learners get something

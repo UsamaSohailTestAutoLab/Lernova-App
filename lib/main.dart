@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import 'core/analytics/analytics_providers.dart';
+import 'core/analytics/analytics_service.dart';
 import 'core/routing/app_router.dart';
 import 'core/services/local_storage_service.dart';
 import 'core/services/service_providers.dart';
@@ -29,9 +31,18 @@ void main() async {
 
   final storage = await LocalStorageService.create();
 
+  // Analytics are optional infrastructure. A build with no Firebase
+  // project configured gets a no-op recorder and runs exactly as it
+  // does today — a missing google-services.json must never be the
+  // reason the app fails to launch. See docs/ANALYTICS.md.
+  final analytics = await initAnalytics();
+
   runApp(
     ProviderScope(
-      overrides: [localStorageServiceProvider.overrideWithValue(storage)],
+      overrides: [
+        localStorageServiceProvider.overrideWithValue(storage),
+        analyticsProvider.overrideWithValue(analytics),
+      ],
       child: const LingoQuestApp(),
     ),
   );

@@ -2,6 +2,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../data/models/vocab_preview_nav_args.dart';
+import '../analytics/analytics_providers.dart';
 import '../../features/achievements/presentation/achievements_screen.dart';
 import '../../features/course/presentation/course_path_screen.dart';
 import '../../features/fun/application/fun_game_nav_args.dart';
@@ -48,6 +49,10 @@ import 'app_shell.dart';
 final routerProvider = Provider<GoRouter>((ref) {
   return GoRouter(
     initialLocation: AppRoutes.splash,
+    // Screen views and durations come from route changes rather than
+    // widget builds — a Riverpod screen rebuilds many times a second
+    // while nothing about which screen is open has changed.
+    observers: [ref.watch(screenTrackerProvider)],
     routes: [
       GoRoute(path: AppRoutes.splash, builder: (context, state) => const SplashScreen()),
       GoRoute(path: AppRoutes.welcome, builder: (context, state) => const WelcomeScreen()),

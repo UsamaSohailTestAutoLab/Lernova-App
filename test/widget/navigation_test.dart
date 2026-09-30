@@ -86,13 +86,13 @@ void main() {
     // The brand header at the top: one mascot design across the app.
     expect(find.byType(LingoQuestParrot), findsOneWidget);
 
-    // The rest sit further down the list.
+    // The rest sit further down the list. Only the rows that are on
+    // every platform — see the platform-specific group below for EULA
+    // and More Apps, which are not.
     for (final item in [
       'Support',
-      'More Apps',
       'Privacy Policy',
       'Terms of Use',
-      'EULA',
     ]) {
       await tester.scrollUntilVisible(find.text(item), 200, scrollable: _settingsList());
       expect(find.text(item), findsOneWidget);

@@ -1,13 +1,14 @@
 import 'package:in_app_review/in_app_review.dart';
 
-/// The App Store id for LingoQuest, used to deep-link the write-review
-/// page from Settings.
+import 'store_links.dart';
+
+/// The App Store id for LingoQuest.
 ///
-/// Deliberately null until the app is created in App Store Connect —
-/// that number is assigned by Apple and cannot be guessed. With it unset
-/// the Settings row tells the learner the link is not ready rather than
-/// opening a wrong or dead listing.
-const String? kAppStoreId = null;
+/// Kept as an alias so existing callers keep working; the value lives in
+/// [StoreLinks.appStoreId] alongside the Play equivalents, because the
+/// two stores' identifiers are the same kind of fact and drifting them
+/// apart is how one platform ends up pointing at the other's shop.
+const String? kAppStoreId = StoreLinks.appStoreId;
 
 /// The one place the app asks a store for a review.
 ///
@@ -45,12 +46,30 @@ class ReviewService {
   /// anything was displayed, because the platform does not say.
   Future<void> requestReview() => _inAppReview.requestReview();
 
-  /// Opens the store listing's write-review page.
+  /// Opens this build's own store listing, on the write-review page.
   ///
-  /// This is the explicit path: the learner tapped a button asking for
-  /// it. On iOS it needs [kAppStoreId]; without one there is nothing to
-  /// open, so this reports false and the caller says so.
+  /// The explicit path: the learner tapped a button asking for it, so
+  /// something must open.
+  ///
+  /// The platforms differ in what they need, and conflating them is what
+  /// sent Android users to the App Store:
+  ///
+  ///  * **Android** needs nothing. The plugin addresses Play by the
+  ///    application id, which is known at build time. It always works.
+  ///  * **iOS** needs [kAppStoreId], which Apple assigns and which
+  ///    cannot be guessed. Without it there is nothing to open, so this
+  ///    reports false and the caller says so rather than opening a
+  ///    listing that 404s.
+  ///
+  /// The platform comes from [StoreLinks.isAndroid], which reads
+  /// `defaultTargetPlatform` rather than `dart:io`'s `Platform`. The
+  /// latter reports the *host* in a widget test — Windows here — so a
+  /// test of the Android branch would silently exercise the iOS one.
   Future<bool> openStoreListing() async {
+    if (StoreLinks.isAndroid) {
+      await _inAppReview.openStoreListing();
+      return true;
+    }
     if (kAppStoreId == null) return false;
     await _inAppReview.openStoreListing(appStoreId: kAppStoreId);
     return true;

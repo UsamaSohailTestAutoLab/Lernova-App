@@ -50,5 +50,23 @@
             <action android:name="android.intent.action.PROCESS_TEXT"/>
             <data android:mimeType="text/plain"/>
         </intent>
+        <!--
+            From Android 11 (API 30) an app cannot see which other apps
+            can handle an intent unless it declares the intent here, and
+            url_launcher's canLaunchUrl answers "no" for anything
+            undeclared. Without these two, every link in Settings >
+            About silently did nothing on a modern phone: the browser
+            was installed, the app simply could not be told so.
+        -->
+        <!-- Privacy Policy, Terms, EULA, More Apps, Rate. -->
+        <intent>
+            <action android:name="android.intent.action.VIEW"/>
+            <data android:scheme="https"/>
+        </intent>
+        <!-- Support. -->
+        <intent>
+            <action android:name="android.intent.action.VIEW"/>
+            <data android:scheme="mailto"/>
+        </intent>
     </queries>
 </manifest>

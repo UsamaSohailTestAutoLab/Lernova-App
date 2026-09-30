@@ -267,6 +267,90 @@ void main() {
     });
   });
 
+
+  group('the daily-goal moment', () {
+    test('asks once the same bars are cleared', () async {
+      await becomeEligible();
+
+      final outcome = await controller.maybeAskAfterDailyGoal(
+        totalLessonsCompleted: 5,
+        now: day0.add(const Duration(days: 4)),
+      );
+
+      expect(outcome, ReviewPromptOutcome.asked);
+      expect(reviews.requestCount, 1);
+    });
+
+    test('a learner two lessons in is not asked', () async {
+      // Crossing the daily goal is easy — a single short lesson can do
+      // it on day one. It is a *trigger*, not evidence of engagement,
+      // so the same lesson bar applies.
+      final outcome = await controller.maybeAskAfterDailyGoal(
+        totalLessonsCompleted: 2,
+        now: day0,
+      );
+
+      expect(outcome, ReviewPromptOutcome.notEnoughLessons);
+      expect(reviews.requestCount, 0);
+    });
+
+    test('shares one budget with the post-lesson ask', () async {
+      // The defect this pins: Home asked through its own
+      // SharedPreferences flag and its own InAppReview instance, so the
+      // two paths each believed they had a full allowance. Between them
+      // they could spend more of the platform's three-per-year than
+      // either one was permitted.
+      await becomeEligible();
+      final first = await controller.maybeAskAfterDailyGoal(
+        totalLessonsCompleted: 5,
+        now: day0.add(const Duration(days: 4)),
+      );
+      expect(first, ReviewPromptOutcome.asked);
+
+      final second = await controller.maybeAskAfterLesson(
+        result: _result(),
+        totalLessonsCompleted: 6,
+        now: day0.add(const Duration(days: 5)),
+      );
+
+      expect(second, ReviewPromptOutcome.alreadyAskedRecently);
+      expect(reviews.requestCount, 1);
+      expect(controller.state.asksMade, 1);
+    });
+
+    test('respects the 120-day spacing across sessions', () async {
+      await becomeEligible();
+      await controller.maybeAskAfterDailyGoal(
+        totalLessonsCompleted: 5,
+        now: day0.add(const Duration(days: 4)),
+      );
+
+      // A fresh run of the app clears the per-session cap but not the
+      // persisted one.
+      final next = ReviewPromptController(storage, reviews);
+      final outcome = await next.maybeAskAfterDailyGoal(
+        totalLessonsCompleted: 9,
+        now: day0.add(const Duration(days: 40)),
+      );
+
+      expect(outcome, ReviewPromptOutcome.alreadyAskedRecently);
+      expect(reviews.requestCount, 1);
+    });
+
+    test('never spends a slot when the store cannot show anything',
+        () async {
+      await becomeEligible();
+      reviews.available = false;
+
+      final outcome = await controller.maybeAskAfterDailyGoal(
+        totalLessonsCompleted: 5,
+        now: day0.add(const Duration(days: 4)),
+      );
+
+      expect(outcome, ReviewPromptOutcome.storeUnavailable);
+      expect(controller.state.asksMade, 0);
+    });
+  });
   test('no App Store id is hard-coded', () {
     // Apple assigns this number; guessing one would deep-link the wrong
     // listing. It stays null until the app exists in App Store Connect.

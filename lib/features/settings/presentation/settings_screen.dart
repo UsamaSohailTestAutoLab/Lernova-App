@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -15,6 +16,8 @@ import '../../progress/application/progress_controller.dart';
 import '../../../core/services/purchase_service.dart';
 import '../application/purchase_controller.dart';
 import '../application/settings_controller.dart';
+import '../../../core/services/store_links.dart';
+import '../../reviews/application/review_prompt_controller.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class SettingsScreen extends ConsumerWidget {
@@ -223,7 +226,11 @@ class SettingsScreen extends ConsumerWidget {
           ListTile(
             leading: const Icon(Icons.star_outline_rounded),
             title: const Text('Rate LingoQuest'),
-            subtitle: const Text('Leave a review on the App Store'),
+            subtitle: Text(
+              defaultTargetPlatform == TargetPlatform.android
+                  ? 'Leave a review on Google Play'
+                  : 'Leave a review on the App Store',
+            ),
             trailing: const Icon(Icons.open_in_new_rounded),
             // Opens the write-review page rather than requesting the
             // system prompt. iOS may show nothing at all in response to
@@ -231,119 +238,99 @@ class SettingsScreen extends ConsumerWidget {
             // off entirely — and a button that silently does nothing is
             // a bug report waiting to happen. Someone who taps this has
             // asked for the page, so they get the page.
-            // https://apps.apple.com/us/developer/usama-sohail/id1888780840
-           onTap: () async {
-            final uri = Uri.parse(
-              'https://apps.apple.com/app/id1888780840?action=write-review',
-            );
-
-            if (await canLaunchUrl(uri)) {
-              await launchUrl(
-                uri,
-                mode: LaunchMode.externalApplication,
+            //
+            // Routed through ReviewService rather than a hard-coded URL.
+            // That is what makes an Android build open Play: the plugin
+            // addresses each store the way that store expects — by
+            // application id on Android, by numeric id on iOS — and a
+            // URL written once is a URL written for whichever platform
+            // the author had in mind. This row used to hold an App Store
+            // link built from the *developer* id, which opened "The page
+            // you're looking for can't be found" on both platforms.
+            onTap: () async {
+              final opened =
+                  await ref.read(reviewPromptProvider).openStoreListing();
+              if (opened || !context.mounted) return;
+              // iOS before the app exists in App Store Connect: there is
+              // genuinely no listing to open yet.
+              AppSnackBar.show(
+                context,
+                'The store listing is not available yet.',
               );
-            }
-          },
+            },
           ),
 ListTile(
   leading: const Icon(Icons.support_agent_rounded),
   title: const Text('Support'),
   subtitle: const Text('Contact us for help or feedback'),
   trailing: const Icon(Icons.email_outlined),
-  onTap: () async {
-    final Uri emailUri = Uri(
+  onTap: () => _open(
+    context,
+    Uri(
       scheme: 'mailto',
       path: 'usamaa.sohaiil@icloud.com',
-      queryParameters: {
-        'subject': 'LingoQuest Support',
-      },
-    );
-
-    if (await canLaunchUrl(emailUri)) {
-      await launchUrl(emailUri);
-    } else {
-      if (!context.mounted) return;
-
-      AppSnackBar.show(
-        context,
-        'Unable to open your email app.',
-      );
-    }
-  },
+      queryParameters: {'subject': 'LingoQuest Support'},
+    ),
+    // Not externalApplication: a mailto: has no browser to hand off to,
+    // and forcing that mode fails on a device whose mail client is not
+    // registered as an external handler.
+    external: false,
+    whenUnavailable: 'No email app is set up on this device.',
+  ),
 ),
 
-ListTile(
-  leading: const Icon(Icons.apps_rounded),
-  title: const Text('More Apps'),
-  subtitle: const Text('Explore our other apps'),
-  trailing: const Icon(Icons.open_in_new_rounded),
-  onTap: () async {
-    final Uri url = Uri.parse(
-      'https://apps.apple.com/us/developer/usama-sohail/id1888780840',
-    );
-
-    if (await canLaunchUrl(url)) {
-      await launchUrl(
-        url,
-        mode: LaunchMode.externalApplication,
-      );
-    }
-  },
-),
+// Hidden rather than pointed at the wrong shop. On Android this needs
+// the Play publisher name, which is not set yet — see
+// StoreLinks.playDeveloperName. A row that opens a 404 is worse than
+// one that is not there.
+if (StoreLinks.hasDeveloperPage)
+  ListTile(
+    leading: const Icon(Icons.apps_rounded),
+    title: const Text('More Apps'),
+    subtitle: const Text('Explore our other apps'),
+    trailing: const Icon(Icons.open_in_new_rounded),
+    onTap: () => _open(
+      context,
+      StoreLinks.developerPage!,
+      whenUnavailable: 'Could not open the store.',
+    ),
+  ),
 
 
             ListTile(
               leading: const Icon(Icons.privacy_tip_outlined),
               title: const Text('Privacy Policy'),
               trailing: const Icon(Icons.open_in_new_rounded),
-              onTap: () async {
-                final Uri url = Uri.parse(
+              onTap: () => _open(
+                context,
+                Uri.parse(
                   'https://www.termsfeed.com/live/7b4e0d1f-580d-4260-9010-91d45f926bc1',
-                );
-
-                if (await canLaunchUrl(url)) {
-                  await launchUrl(
-                    url,
-                    mode: LaunchMode.externalApplication,
-                  );
-                }
-              },
+                ),
+              ),
             ),
 ListTile(
   leading: const Icon(Icons.description_outlined),
   title: const Text('Terms of Use'),
   trailing: const Icon(Icons.open_in_new_rounded),
-  onTap: () async {
-    final Uri url = Uri.parse(
+  onTap: () => _open(
+    context,
+    Uri.parse(
       'https://www.termsfeed.com/live/bc5a80c1-42f4-4167-9cc0-2e7fc82324be',
-    );
-
-    if (await canLaunchUrl(url)) {
-      await launchUrl(
-        url,
-        mode: LaunchMode.externalApplication,
-      );
-    }
-  },
+    ),
+  ),
 ),
 
-ListTile(
-  leading: const Icon(Icons.gavel_rounded),
-  title: const Text('EULA'),
-  trailing: const Icon(Icons.open_in_new_rounded),
-  onTap: () async {
-    final Uri url = Uri.parse(
-      'https://www.apple.com/legal/internet-services/itunes/dev/stdeula/',
-    );
-
-    if (await canLaunchUrl(url)) {
-      await launchUrl(
-        url,
-        mode: LaunchMode.externalApplication,
-      );
-    }
-  },
-),
+// iOS only. Apple's Licensed Application End User Licence Agreement is
+// a term of *its* distribution agreement; showing it in a Play build
+// hands an Android user a contract that has nothing to do with how they
+// got the app.
+if (StoreLinks.showsAppleEula)
+  ListTile(
+    leading: const Icon(Icons.gavel_rounded),
+    title: const Text('EULA'),
+    trailing: const Icon(Icons.open_in_new_rounded),
+    onTap: () => _open(context, Uri.parse(StoreLinks.appleEulaUrl)),
+  ),
           // const _SectionHeader('Developer (testing only)'),
           // Padding(
           //   padding: const EdgeInsets.symmetric(horizontal: AppSpacing.lg),
@@ -480,6 +467,37 @@ ListTile(
         AppThemeMode.light => 'Light',
         AppThemeMode.dark => 'Dark',
       };
+}
+
+/// Opens [uri], and says so when it cannot.
+///
+/// Every link in Settings > About used to be its own copy of
+/// "if (await canLaunchUrl(x)) launchUrl(x)" — which does nothing at all
+/// when the check fails, on a screen made entirely of links. That is the
+/// failure the Rate row's own comment warns about, and it was happening
+/// to all six: `canLaunchUrl` returns false on Android 11+ for any
+/// scheme the manifest has not declared in `<queries>`, so on a modern
+/// phone the browser was installed and the app could not be told so.
+///
+/// The manifest declares them now. This is the other half: if a launch
+/// still fails, the learner is told, rather than tapping a dead row and
+/// concluding the app is broken.
+Future<void> _open(
+  BuildContext context,
+  Uri uri, {
+  bool external = true,
+  String whenUnavailable = 'Could not open that link.',
+}) async {
+  try {
+    final opened = await launchUrl(
+      uri,
+      mode: external ? LaunchMode.externalApplication : LaunchMode.platformDefault,
+    );
+    if (opened || !context.mounted) return;
+  } catch (_) {
+    if (!context.mounted) return;
+  }
+  AppSnackBar.show(context, whenUnavailable);
 }
 
 /// One line describing where a member stands.

@@ -99,6 +99,33 @@ class ReviewPromptController {
     // written, so a bad session cannot even start the clock.
     if (result.outOfHearts) return ReviewPromptOutcome.lessonEndedBadly;
 
+    return _askIfEligible(at, totalLessonsCompleted);
+  }
+
+  /// Evaluates and, if everything lines up, asks after the learner has
+  /// just met their daily goal.
+  ///
+  /// The other good moment: a goal met is a small win, and it lands on
+  /// Home rather than inside a lesson. It shares every rule above —
+  /// same soak period, same 120-day spacing, same lifetime budget, same
+  /// once-per-session cap — because they are one budget, not two.
+  ///
+  /// Home used to do this itself: its own `SharedPreferences` flag and a
+  /// direct `InAppReview.instance` call, which walked straight past all
+  /// of it. The daily goal is reachable on day one, so that path fired
+  /// first in practice, spent one of the platform's three yearly
+  /// prompts, and left this controller still believing it had asked
+  /// nobody.
+  Future<ReviewPromptOutcome> maybeAskAfterDailyGoal({
+    required int totalLessonsCompleted,
+    DateTime? now,
+  }) =>
+      _askIfEligible(now ?? DateTime.now(), totalLessonsCompleted);
+
+  Future<ReviewPromptOutcome> _askIfEligible(
+    DateTime at,
+    int totalLessonsCompleted,
+  ) async {
     if (totalLessonsCompleted < minLessonsCompleted) {
       return ReviewPromptOutcome.notEnoughLessons;
     }

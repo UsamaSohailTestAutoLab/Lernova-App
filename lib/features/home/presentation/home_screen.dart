@@ -3,8 +3,6 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:in_app_review/in_app_review.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../core/routing/app_routes.dart';
 import '../../../core/theme/app_colors.dart';
@@ -33,6 +31,7 @@ import '../../fun/application/fun_progress_controller.dart';
 import '../../lessons/application/lesson_nav_args.dart';
 import '../../onboarding/application/user_controller.dart';
 import '../../progress/application/progress_controller.dart';
+import '../../reviews/application/review_prompt_controller.dart';
 import '../../rewards/application/mistake_review_providers.dart';
 import '../application/motivation_messages.dart';
 
@@ -210,16 +209,17 @@ FunGameMode? _funModeFor(String? name) {
   return null;
 }
 
-/// Asks the OS to show the native App Store / Play Store review sheet
-/// the first time — and only the first time — the learner crosses their
-/// daily goal. Renders nothing; it exists purely to sit in the widget
+/// Notices the moment the learner crosses their daily goal and offers
+/// it to [ReviewPromptController] as a candidate moment to ask for a
+/// store review. Renders nothing; it exists purely to sit in the widget
 /// tree and listen.
 ///
-/// Deliberately once-ever rather than throttled: a flag in
-/// [SharedPreferences] is set as soon as the request fires, and every
-/// build after that is a no-op. Both stores already rate-limit how
-/// often the dialog can actually appear regardless of what we do here,
-/// so this just keeps LingoQuest itself from ever asking twice.
+/// Crossing the goal is only the *trigger*. Whether anything is asked
+/// is the controller's decision, and it says no far more often than
+/// yes — the learner needs lessons behind them, a soak period since
+/// first eligibility, and room in a lifetime budget of three. Both
+/// stores then rate-limit the sheet again on top of that, so an ask
+/// that passes every rule here may still display nothing at all.
 class _ReviewPromptTrigger extends ConsumerStatefulWidget {
   const _ReviewPromptTrigger();
 
@@ -228,8 +228,6 @@ class _ReviewPromptTrigger extends ConsumerStatefulWidget {
 }
 
 class _ReviewPromptTriggerState extends ConsumerState<_ReviewPromptTrigger> {
-  static const _kAskedKey = 'review_prompt_asked';
-
   @override
   Widget build(BuildContext context) {
     ref.listen<UserProgress>(progressProvider, (previous, next) {
@@ -239,23 +237,25 @@ class _ReviewPromptTriggerState extends ConsumerState<_ReviewPromptTrigger> {
       // otherwise re-opening Home later the same day would refire this
       // on every rebuild.
       if (!wasMet && isMet) {
-        _maybeAsk();
+        _maybeAsk(next);
       }
     });
     return const SizedBox.shrink();
   }
 
-  Future<void> _maybeAsk() async {
-    final prefs = await SharedPreferences.getInstance();
-    if (prefs.getBool(_kAskedKey) ?? false) return;
-
-    final review = InAppReview.instance;
-    if (!await review.isAvailable()) return;
-
-    // Set the flag before requesting: if the app is killed mid-dialog
-    // we'd rather under-ask (never again) than risk asking twice.
-    await prefs.setBool(_kAskedKey, true);
-    await review.requestReview();
+  /// Routed through [ReviewPromptController] rather than calling
+  /// `InAppReview` here.
+  ///
+  /// This used to keep its own `review_prompt_asked` flag and ask the
+  /// plugin directly, which meant two independent parts of the app were
+  /// each spending from one platform budget without either knowing. The
+  /// controller owns the rules — lessons completed, the soak period,
+  /// the 120-day spacing, the lifetime cap, one ask per session — and
+  /// they only work if every ask goes through it.
+  Future<void> _maybeAsk(UserProgress progress) async {
+    await ref.read(reviewPromptProvider).maybeAskAfterDailyGoal(
+          totalLessonsCompleted: progress.completedLessonIds.length,
+        );
   }
 }
 

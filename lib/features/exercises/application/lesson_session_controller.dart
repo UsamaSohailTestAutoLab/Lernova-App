@@ -9,6 +9,8 @@ import '../../../data/models/exercise.dart';
 import '../../../data/models/last_activity.dart';
 import '../../../data/models/lesson.dart';
 import '../../progress/application/lesson_completion_result.dart';
+import '../../../core/analytics/analytics.dart';
+import '../../../core/analytics/analytics_providers.dart';
 import '../../progress/application/progress_controller.dart';
 import 'exercise_labels.dart';
 import 'exercise_validator.dart';
@@ -148,6 +150,18 @@ class LessonSessionController extends Notifier<LessonSessionState?> {
     required Lesson lesson,
     bool isReviewSession = false,
   }) {
+    // Recorded here rather than on the intro screen: this is the moment
+    // a lesson is actually under way, and it is the only path into one,
+    // so a start can neither be missed nor counted twice by a rebuild.
+    ref.read(analyticsProvider).lessonStarted(
+          language: course.languageId,
+          lessonId: lesson.id,
+          unitIndex: unitIndex,
+          lessonIndex: _lessonIndexIn(course, unitIndex, lesson.id),
+          exerciseCount: lesson.exercises.length,
+          isReview: isReviewSession,
+        );
+
     // Hearts are this attempt's life budget, so every attempt starts with
     // a full one. That is what makes running out a "play again" moment
     // instead of a wait-or-pay wall.
@@ -342,13 +356,56 @@ class LessonSessionController extends Notifier<LessonSessionState?> {
           countsAsLessonCompletion: !s.endedEarly,
         );
 
+    final analytics = ref.read(analyticsProvider);
+    final answered = s.lesson.exercises.length;
+    final correct = answered - s.retriedIds.length;
+    if (s.endedEarly) {
+      // Out of hearts. A different outcome from finishing, and from
+      // walking away: this one is about difficulty.
+      analytics.lessonFailed(
+        language: s.course.languageId,
+        lessonId: s.lesson.id,
+        lastExerciseIndex: answered - s.queue.length,
+        totalQuestions: answered,
+      );
+    } else {
+      analytics.lessonCompleted(
+        language: s.course.languageId,
+        lessonId: s.lesson.id,
+        correctAnswers: correct < 0 ? 0 : correct,
+        totalQuestions: answered,
+        xpEarned: s.xpEarned,
+        isPerfect: s.isPerfect,
+        duration: Duration(seconds: timeSpent),
+        isReview: s.isReviewSession,
+      );
+    }
+
     state = s.copyWith(result: result);
     return result;
   }
 
   void reset() {
+    final s = state;
+    // A session with a result finished — `reset` is simply the flow
+    // clearing up after it. One without a result is being thrown away
+    // with the lesson unfinished, which is the definition of an
+    // abandonment and the only place it can be observed.
+    if (s != null && s.result == null) {
+      final total = s.lesson.exercises.length;
+      final reached = total - s.queue.length;
+      ref.read(analyticsProvider).lessonAbandoned(
+            language: s.course.languageId,
+            lessonId: s.lesson.id,
+            lastExerciseIndex: reached < 0 ? 0 : reached,
+            totalQuestions: total,
+            lastExerciseType: s.queue.isEmpty ? null : s.queue.first.type,
+            duration: DateTime.now().difference(s.startedAt),
+          );
+    }
     state = null;
   }
+
 }
 
 final lessonSessionProvider =

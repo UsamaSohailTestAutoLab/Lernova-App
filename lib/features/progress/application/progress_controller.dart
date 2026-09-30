@@ -1,5 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../core/analytics/analytics.dart';
+import '../../../core/analytics/analytics_providers.dart';
 import '../../../core/constants/game_constants.dart';
 import '../../../core/services/service_providers.dart';
 import '../../../core/utils/achievement_logic.dart';
@@ -22,6 +24,13 @@ import 'lesson_completion_result.dart';
 /// live behind this one controller so every screen reads a single
 /// consistent, persisted truth.
 class ProgressController extends Notifier<UserProgress> {
+  /// The last values pushed to analytics, so unchanged ones are not
+  /// re-sent. `_persist` runs on every XP tick; setting the same two
+  /// user properties each time would be a platform-channel call per
+  /// answered question for no new information.
+  EntitlementStatus? _reportedStatus;
+  String? _reportedBucket;
+
   @override
   UserProgress build() {
     final storage = ref.read(localStorageServiceProvider);
@@ -65,6 +74,28 @@ class ProgressController extends Notifier<UserProgress> {
   void _persist(UserProgress next) {
     state = next;
     ref.read(localStorageServiceProvider).saveProgress(next);
+    _reportProperties(next);
+  }
+
+  /// Keeps the analytics user properties in step with progress.
+  ///
+  /// These are what make every other metric splittable — retention by
+  /// free versus paying, lesson completion by how far in somebody is.
+  /// Both are coarse on purpose: a status out of a four-value enum, and
+  /// a lesson count bucketed rather than exact, because a
+  /// high-cardinality user property is a dimension no report can
+  /// usefully group by.
+  void _reportProperties(UserProgress progress) {
+    final status = progress.proEntitlement.status;
+    final bucket = lessonBucket(progress.totalLessonsCompleted);
+    if (status == _reportedStatus && bucket == _reportedBucket) return;
+
+    _reportedStatus = status;
+    _reportedBucket = bucket;
+
+    final analytics = ref.read(analyticsProvider);
+    analytics.setSubscriptionStatus(status);
+    analytics.setLessonsCompleted(progress.totalLessonsCompleted);
   }
 
   void initializeForOnboarding({

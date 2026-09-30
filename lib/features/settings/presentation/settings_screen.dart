@@ -18,6 +18,7 @@ import '../../../core/services/purchase_service.dart';
 import '../../reviews/application/review_prompt_controller.dart';
 import '../application/purchase_controller.dart';
 import '../application/settings_controller.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class SettingsScreen extends ConsumerWidget {
   const SettingsScreen({super.key});
@@ -47,10 +48,20 @@ class SettingsScreen extends ConsumerWidget {
           // fastest way to make a subscriber feel unseen, so the whole
           // group swaps: the upsell becomes a membership row, restore
           // gives way to the store's manage page.
+          //
+          // Branches on `progress.isPremium` — the same flag the rest of
+          // the app (PremiumScreen, the debug tools below) treats as the
+          // single source of truth for "does this learner have Pro?".
+          // `entitlement.isActive` is read only for display details
+          // (trial countdown, plan name) once we already know which
+          // branch we're in, never to decide the branch itself — two
+          // flags deciding the same on/off state is how they end up
+          // disagreeing.
           Consumer(
             builder: (context, ref, _) {
-              final entitlement = ref.watch(progressProvider).proEntitlement;
-              if (!entitlement.isActive) {
+              final progress = ref.watch(progressProvider);
+              final entitlement = progress.proEntitlement;
+              if (!progress.isPremium) {
                 return Column(
                   children: [
                     ListTile(
@@ -58,7 +69,7 @@ class SettingsScreen extends ConsumerWidget {
                           color: AppColors.accent),
                       title: const Text('Upgrade to Pro'),
                       subtitle: const Text(
-                          'Unlock every level on the Path and in the Fun Zone'),
+                          'Unlock every level on the  klkjPath and in the Fun Zone'),
                       trailing: const Icon(Icons.chevron_right_rounded),
                       onTap: () => context.push(AppRoutes.premium),
                     ),
@@ -99,7 +110,6 @@ class SettingsScreen extends ConsumerWidget {
                     // an upsell: there is nothing here to buy.
                     subtitle: Text(_statusLine(entitlement)),
                     trailing: const Icon(Icons.chevron_right_rounded),
-                    onTap: () => context.push(AppRoutes.premium),
                   ),
                   ListTile(
                     leading: const Icon(Icons.open_in_new_rounded),
@@ -179,17 +189,7 @@ class SettingsScreen extends ConsumerWidget {
                   .map((m) => DropdownMenuItem(value: m, child: Text(_themeLabel(m))))
                   .toList(),
             ),
-          ),
-          SwitchListTile(
-            title: const Text('Sound effects'),
-            value: settings.soundEnabled,
-            onChanged: (v) => ref.read(settingsProvider.notifier).toggleSound(v),
-          ),
-          SwitchListTile(
-            title: const Text('Haptic feedback'),
-            value: settings.hapticsEnabled,
-            onChanged: (v) => ref.read(settingsProvider.notifier).toggleHaptics(v),
-          ),
+          ),          
           const _SectionHeader('Learning'),
           ListTile(
             title: const Text('Daily XP goal'),
@@ -234,171 +234,244 @@ class SettingsScreen extends ConsumerWidget {
             // off entirely — and a button that silently does nothing is
             // a bug report waiting to happen. Someone who taps this has
             // asked for the page, so they get the page.
-            onTap: () async {
-              final opened =
-                  await ref.read(reviewPromptProvider).openStoreListing();
-              if (!context.mounted || opened) return;
-              AppSnackBar.show(
-                context,
-                'The store listing goes live when LingoQuest ships.',
+            // https://apps.apple.com/us/developer/usama-sohail/id1888780840
+           onTap: () async {
+            final uri = Uri.parse(
+              'https://apps.apple.com/app/id1888780840?action=write-review',
+            );
+
+            if (await canLaunchUrl(uri)) {
+              await launchUrl(
+                uri,
+                mode: LaunchMode.externalApplication,
               );
-            },
+            }
+          },
           ),
-          ListTile(
-            leading: const Icon(Icons.support_agent_rounded),
-            title: const Text('Support'),
-            trailing: const Icon(Icons.open_in_new_rounded),
-            onTap: () => AppSnackBar.show(context, 'Support is coming soon.'),
-          ),
-          ListTile(
-            leading: const Icon(Icons.apps_rounded),
-            title: const Text('More Apps'),
-            trailing: const Icon(Icons.open_in_new_rounded),
-            onTap: () => AppSnackBar.show(context, 'More apps are coming soon.'),
-          ),
-          ListTile(
-            leading: const Icon(Icons.privacy_tip_outlined),
-            title: const Text('Privacy Policy'),
-            trailing: const Icon(Icons.open_in_new_rounded),
-            onTap: () => AppSnackBar.show(context, 'Privacy Policy is coming soon.'),
-          ),
-          ListTile(
-            leading: const Icon(Icons.description_outlined),
-            title: const Text('Terms of Use'),
-            trailing: const Icon(Icons.open_in_new_rounded),
-            onTap: () => AppSnackBar.show(context, 'Terms of Use are coming soon.'),
-          ),
-          ListTile(
-            leading: const Icon(Icons.gavel_rounded),
-            title: const Text('EULA'),
-            trailing: const Icon(Icons.open_in_new_rounded),
-            onTap: () => AppSnackBar.show(context, 'The EULA is coming soon.'),
-          ),
-          const _SectionHeader('Developer (testing only)'),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: AppSpacing.lg),
-            child: Column(
-              children: [
-                Text(
-                  'These bypass real progression to make testing faster. '
-                  "They don't change the actual unlock rules — a fresh "
-                  'install still progresses normally.',
-                  style: Theme.of(context).textTheme.bodySmall,
-                ),
-                const SizedBox(height: AppSpacing.md),
-                // What the paywall is actually reading.
-                //
-                // A local entitlement outlives the build that granted it
-                // — the old mock "purchase" button set this and it is
-                // still in storage — so "why is everything unlocked?" is
-                // usually this flag, not the gate. Worth being able to
-                // see and clear rather than guess at.
-                Consumer(
-                  builder: (context, ref, _) {
-                    final progress = ref.watch(progressProvider);
-                    final entitlement = progress.proEntitlement;
-                    final source = entitlement.isActive
-                        ? entitlement.source.name
-                        : 'none';
-                    return Column(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: [
-                        Container(
-                          padding: const EdgeInsets.all(AppSpacing.md),
-                          decoration: BoxDecoration(
-                            color: context.decor.tint(
-                              progress.isPremium
-                                  ? AppColors.accent
-                                  : AppColors.info,
-                            ),
-                            borderRadius: BorderRadius.circular(AppRadius.md),
-                          ),
-                          child: Row(
-                            children: [
-                              Icon(
-                                progress.isPremium
-                                    ? Icons.workspace_premium_rounded
-                                    : Icons.lock_outline_rounded,
-                                size: 18,
-                                color: progress.isPremium
-                                    ? AppColors.accent
-                                    : AppColors.info,
-                              ),
-                              const SizedBox(width: AppSpacing.sm),
-                              Expanded(
-                                child: Text(
-                                  progress.isPremium
-                                      ? 'Pro is ACTIVE (source: $source) — '
-                                          'the paywall is off for this account.'
-                                      : 'Pro is OFF — free tier: Say Hello, '
-                                          'and Word Bubble level 1.',
-                                  style: Theme.of(context).textTheme.bodySmall,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        const SizedBox(height: AppSpacing.sm),
-                        // Both directions, because testing the paywall
-                        // means going back and forth across it, and a
-                        // sandbox purchase is a slow way to do that.
-                        //
-                        // A granted entitlement is recorded as
-                        // [ProSource.debug], which launch verification
-                        // deliberately skips — no store will ever replay
-                        // it, so checking would revoke it every time the
-                        // app started.
-                        OutlinedButton.icon(
-                          icon: Icon(
-                            progress.isPremium
-                                ? Icons.lock_reset_rounded
-                                : Icons.workspace_premium_rounded,
-                            color: AppColors.info,
-                          ),
-                          label: Text(
-                            progress.isPremium
-                                ? 'Clear Pro entitlement'
-                                : 'Grant Pro entitlement',
-                          ),
-                          onPressed: () {
-                            final on = !progress.isPremium;
-                            ref.read(progressProvider.notifier).setPremium(on);
-                            AppSnackBar.show(
-                              context,
-                              on
-                                  ? 'Pro granted. Everything is unlocked.'
-                                  : 'Pro cleared. The paywall is back on.',
-                            );
-                          },
-                        ),
-                      ],
-                    );
-                  },
-                ),
-                const SizedBox(height: AppSpacing.sm),
-                OutlinedButton.icon(
-                  icon: const Icon(Icons.lock_open_rounded, color: AppColors.info),
-                  label: const Text('Unlock all Path units & lessons'),
-                  onPressed: () {
-                    ref.read(progressProvider.notifier).debugUnlockAllPathLevels();
-                    AppSnackBar.show(context, 'Every Path unit and lesson is now open.');
-                  },
-                ),
-                const SizedBox(height: AppSpacing.sm),
-                OutlinedButton.icon(
-                  icon: const Icon(Icons.lock_open_rounded, color: AppColors.info),
-                  label: const Text('Jump Fun difficulty to level 20'),
-                  onPressed: () {
-                    ref.read(funProgressProvider.notifier).debugUnlockAllFunLevels();
-                    AppSnackBar.show(
-                      context,
-                      'Word Bubble & Word Rush are now level 20 (max question variety).',
-                    );
-                  },
-                ),
-              ],
+ListTile(
+  leading: const Icon(Icons.support_agent_rounded),
+  title: const Text('Support'),
+  subtitle: const Text('Contact us for help or feedback'),
+  trailing: const Icon(Icons.email_outlined),
+  onTap: () async {
+    final Uri emailUri = Uri(
+      scheme: 'mailto',
+      path: 'usamaa.sohaiil@icloud.com',
+      queryParameters: {
+        'subject': 'LingoQuest Support',
+      },
+    );
+
+    if (await canLaunchUrl(emailUri)) {
+      await launchUrl(emailUri);
+    } else {
+      if (!context.mounted) return;
+
+      AppSnackBar.show(
+        context,
+        'Unable to open your email app.',
+      );
+    }
+  },
+),
+
+ListTile(
+  leading: const Icon(Icons.apps_rounded),
+  title: const Text('More Apps'),
+  subtitle: const Text('Explore our other apps'),
+  trailing: const Icon(Icons.open_in_new_rounded),
+  onTap: () async {
+    final Uri url = Uri.parse(
+      'https://apps.apple.com/us/developer/usama-sohail/id1888780840',
+    );
+
+    if (await canLaunchUrl(url)) {
+      await launchUrl(
+        url,
+        mode: LaunchMode.externalApplication,
+      );
+    }
+  },
+),
+
+
+            ListTile(
+              leading: const Icon(Icons.privacy_tip_outlined),
+              title: const Text('Privacy Policy'),
+              trailing: const Icon(Icons.open_in_new_rounded),
+              onTap: () async {
+                final Uri url = Uri.parse(
+                  'https://www.termsfeed.com/live/7b4e0d1f-580d-4260-9010-91d45f926bc1',
+                );
+
+                if (await canLaunchUrl(url)) {
+                  await launchUrl(
+                    url,
+                    mode: LaunchMode.externalApplication,
+                  );
+                }
+              },
             ),
-          ),
+ListTile(
+  leading: const Icon(Icons.description_outlined),
+  title: const Text('Terms of Use'),
+  trailing: const Icon(Icons.open_in_new_rounded),
+  onTap: () async {
+    final Uri url = Uri.parse(
+      'https://www.termsfeed.com/live/bc5a80c1-42f4-4167-9cc0-2e7fc82324be',
+    );
+
+    if (await canLaunchUrl(url)) {
+      await launchUrl(
+        url,
+        mode: LaunchMode.externalApplication,
+      );
+    }
+  },
+),
+
+ListTile(
+  leading: const Icon(Icons.gavel_rounded),
+  title: const Text('EULA'),
+  trailing: const Icon(Icons.open_in_new_rounded),
+  onTap: () async {
+    final Uri url = Uri.parse(
+      'https://www.apple.com/legal/internet-services/itunes/dev/stdeula/',
+    );
+
+    if (await canLaunchUrl(url)) {
+      await launchUrl(
+        url,
+        mode: LaunchMode.externalApplication,
+      );
+    }
+  },
+),
+          // const _SectionHeader('Developer (testing only)'),
+          // Padding(
+          //   padding: const EdgeInsets.symmetric(horizontal: AppSpacing.lg),
+          //   child: Column(
+          //     children: [
+          //       Text(
+          //         'These bypass real progression to make testing faster. '
+          //         "They don't change the actual unlock rules — a fresh "
+          //         'install still progresses normally.',
+          //         style: Theme.of(context).textTheme.bodySmall,
+          //       ),
+          //       const SizedBox(height: AppSpacing.md),
+          //       // What the paywall is actually reading.
+          //       //
+          //       // A local entitlement outlives the build that granted it
+          //       // — the old mock "purchase" button set this and it is
+          //       // still in storage — so "why is everything unlocked?" is
+          //       // usually this flag, not the gate. Worth being able to
+          //       // see and clear rather than guess at.
+          //       Consumer(
+          //         builder: (context, ref, _) {
+          //           final progress = ref.watch(progressProvider);
+          //           final entitlement = progress.proEntitlement;
+          //           final source = entitlement.isActive
+          //               ? entitlement.source.name
+          //               : 'none';
+          //           return Column(
+          //             crossAxisAlignment: CrossAxisAlignment.stretch,
+          //             children: [
+          //               Container(
+          //                 padding: const EdgeInsets.all(AppSpacing.md),
+          //                 decoration: BoxDecoration(
+          //                   color: context.decor.tint(
+          //                     progress.isPremium
+          //                         ? AppColors.accent
+          //                         : AppColors.info,
+          //                   ),
+          //                   borderRadius: BorderRadius.circular(AppRadius.md),
+          //                 ),
+          //                 child: Row(
+          //                   children: [
+          //                     Icon(
+          //                       progress.isPremium
+          //                           ? Icons.workspace_premium_rounded
+          //                           : Icons.lock_outline_rounded,
+          //                       size: 18,
+          //                       color: progress.isPremium
+          //                           ? AppColors.accent
+          //                           : AppColors.info,
+          //                     ),
+          //                     const SizedBox(width: AppSpacing.sm),
+          //                     Expanded(
+          //                       child: Text(
+          //                         progress.isPremium
+          //                             ? 'Pro is ACTIVE (source: $source) — '
+          //                                 'the paywall is off for this account.'
+          //                             : 'Pro is OFF — free tier: Say Hello, '
+          //                                 'and Word Bubble level 1.',
+          //                         style: Theme.of(context).textTheme.bodySmall,
+          //                       ),
+          //                     ),
+          //                   ],
+          //                 ),
+          //               ),
+          //               const SizedBox(height: AppSpacing.sm),
+          //               // Both directions, because testing the paywall
+          //               // means going back and forth across it, and a
+          //               // sandbox purchase is a slow way to do that.
+          //               //
+          //               // A granted entitlement is recorded as
+          //               // [ProSource.debug], which launch verification
+          //               // deliberately skips — no store will ever replay
+          //               // it, so checking would revoke it every time the
+          //               // app started.
+          //               OutlinedButton.icon(
+          //                 icon: Icon(
+          //                   progress.isPremium
+          //                       ? Icons.lock_reset_rounded
+          //                       : Icons.workspace_premium_rounded,
+          //                   color: AppColors.info,
+          //                 ),
+          //                 label: Text(
+          //                   progress.isPremium
+          //                       ? 'Clear Pro entitlement'
+          //                       : 'Grant Pro entitlement',
+          //                 ),
+          //                 onPressed: () {
+          //                   final on = !progress.isPremium;
+          //                   ref.read(progressProvider.notifier).setPremium(on);
+          //                   AppSnackBar.show(
+          //                     context,
+          //                     on
+          //                         ? 'Pro granted. Everything is unlocked.'
+          //                         : 'Pro cleared. The paywall is back on.',
+          //                   );
+          //                 },
+          //               ),
+          //             ],
+          //           );
+          //         },
+          //       ),
+          //       const SizedBox(height: AppSpacing.sm),
+          //       OutlinedButton.icon(
+          //         icon: const Icon(Icons.lock_open_rounded, color: AppColors.info),
+          //         label: const Text('Unlock all Path units & lessons'),
+          //         onPressed: () {
+          //           ref.read(progressProvider.notifier).debugUnlockAllPathLevels();
+          //           AppSnackBar.show(context, 'Every Path unit and lesson is now open.');
+          //         },
+          //       ),
+          //       const SizedBox(height: AppSpacing.sm),
+          //       OutlinedButton.icon(
+          //         icon: const Icon(Icons.lock_open_rounded, color: AppColors.info),
+          //         label: const Text('Jump Fun difficulty to level 20'),
+          //         onPressed: () {
+          //           ref.read(funProgressProvider.notifier).debugUnlockAllFunLevels();
+          //           AppSnackBar.show(
+          //             context,
+          //             'Word Bubble & Word Rush are now level 20 (max question variety).',
+          //           );
+          //         },
+          //       ),
+          //     ],
+          //   ),
+          // ),
           const SizedBox(height: AppSpacing.xl),
         ],
       ),

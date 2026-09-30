@@ -382,7 +382,11 @@ class _SalesBody extends ConsumerWidget {
             children: [
               _PlanSection(state: purchase),
               const SizedBox(height: AppSpacing.md),
-              _Cta(state: purchase),
+              // isPro is always false here — _SalesBody is only ever
+              // built for a non-premium learner (see _Body above). The
+              // flag is still threaded through explicitly so _Cta stays
+              // safe to reuse even if that ever changes.
+              _Cta(state: purchase, isPro: false),
               const SizedBox(height: AppSpacing.xs),
               TextButton(
                 style: TextButton.styleFrom(
@@ -867,12 +871,25 @@ class _Badge extends StatelessWidget {
   }
 }
 
+/// The purchase call-to-action.
+///
+/// [isPro] is a defensive guard, not the primary control: the primary
+/// control is that this widget is only ever constructed from
+/// [_SalesBody], which itself is only reached when the learner is not
+/// premium (see [_Body]). The flag exists so that if [_Cta] is ever
+/// reused somewhere that split doesn't hold, it still can't render an
+/// "Upgrade to Pro" button — or fire a purchase — for someone who
+/// already has Pro.
 class _Cta extends ConsumerWidget {
   final PurchaseState state;
-  const _Cta({required this.state});
+  final bool isPro;
+  const _Cta({required this.state, required this.isPro});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    // Nothing to sell somebody who already owns it.
+    if (isPro) return const SizedBox.shrink();
+
     final pending = state.phase == PurchasePhase.pending;
     final selected = state.selectedProduct;
     final trial = selected == null ? null : freeTrialOf(selected);

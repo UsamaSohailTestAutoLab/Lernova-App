@@ -3,6 +3,8 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:in_app_review/in_app_review.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../core/routing/app_routes.dart';
 import '../../../core/theme/app_colors.dart';
@@ -134,6 +136,10 @@ class _HomeContent extends ConsumerWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          // Invisible — just listens for the daily goal being crossed
+          // and, the first time that ever happens, asks the OS to show
+          // the native store-review dialog. See [_ReviewPromptTrigger].
+          const _ReviewPromptTrigger(),
           _GreetingHeader(
             name: user.name,
             courseTitle: course.title,
@@ -202,6 +208,55 @@ FunGameMode? _funModeFor(String? name) {
     if (mode.name == name) return mode;
   }
   return null;
+}
+
+/// Asks the OS to show the native App Store / Play Store review sheet
+/// the first time — and only the first time — the learner crosses their
+/// daily goal. Renders nothing; it exists purely to sit in the widget
+/// tree and listen.
+///
+/// Deliberately once-ever rather than throttled: a flag in
+/// [SharedPreferences] is set as soon as the request fires, and every
+/// build after that is a no-op. Both stores already rate-limit how
+/// often the dialog can actually appear regardless of what we do here,
+/// so this just keeps LingoQuest itself from ever asking twice.
+class _ReviewPromptTrigger extends ConsumerStatefulWidget {
+  const _ReviewPromptTrigger();
+
+  @override
+  ConsumerState<_ReviewPromptTrigger> createState() => _ReviewPromptTriggerState();
+}
+
+class _ReviewPromptTriggerState extends ConsumerState<_ReviewPromptTrigger> {
+  static const _kAskedKey = 'review_prompt_asked';
+
+  @override
+  Widget build(BuildContext context) {
+    ref.listen<UserProgress>(progressProvider, (previous, next) {
+      final wasMet = previous != null && DailyGoalLogic.isGoalMet(previous);
+      final isMet = DailyGoalLogic.isGoalMet(next);
+      // Only the moment of crossing counts, not "is currently met" —
+      // otherwise re-opening Home later the same day would refire this
+      // on every rebuild.
+      if (!wasMet && isMet) {
+        _maybeAsk();
+      }
+    });
+    return const SizedBox.shrink();
+  }
+
+  Future<void> _maybeAsk() async {
+    final prefs = await SharedPreferences.getInstance();
+    if (prefs.getBool(_kAskedKey) ?? false) return;
+
+    final review = InAppReview.instance;
+    if (!await review.isAvailable()) return;
+
+    // Set the flag before requesting: if the app is killed mid-dialog
+    // we'd rather under-ask (never again) than risk asking twice.
+    await prefs.setBool(_kAskedKey, true);
+    await review.requestReview();
+  }
 }
 
 /// A friendly hello at the top of Home: the LingoQuest parrot beside the

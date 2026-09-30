@@ -456,6 +456,36 @@ if (StoreLinks.showsAppleEula)
           //     ],
           //   ),
           // ),
+          // Debug builds only, and stripped from release by the compiler
+          // because kDebugMode is a const.
+          //
+          // The real prompt needs three lessons, a three-day wait, and
+          // then the moment a daily goal is crossed — so without this
+          // there is no way to answer "does the rating sheet work" other
+          // than waiting three days and hoping to catch it.
+          if (kDebugMode) ...[
+            const SizedBox(height: AppSpacing.lg),
+            ListTile(
+              leading: const Icon(Icons.bug_report_rounded, color: AppColors.info),
+              title: const Text('Debug: request the rating prompt'),
+              subtitle: const Text('Skips the eligibility rules and the budget'),
+              onTap: () async {
+                final reached =
+                    await ref.read(reviewPromptProvider).debugAskNow();
+                if (!context.mounted) return;
+                AppSnackBar.show(
+                  context,
+                  reached
+                      // Deliberately not "the prompt appeared" — neither
+                      // store reports that, and Play shows nothing at all
+                      // for a build it did not install.
+                      ? 'Request sent. Whether a sheet appears is the '
+                          "store's decision."
+                      : 'The store says the review flow is unavailable here.',
+                );
+              },
+            ),
+          ],
           const SizedBox(height: AppSpacing.xl),
         ],
       ),

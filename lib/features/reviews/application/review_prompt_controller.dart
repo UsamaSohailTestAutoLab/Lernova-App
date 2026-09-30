@@ -1,3 +1,5 @@
+import 'package:flutter/foundation.dart' show kDebugMode;
+
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../core/services/local_storage_service.dart';
@@ -175,6 +177,28 @@ class ReviewPromptController {
   /// prompt, because a button that may silently do nothing is a broken
   /// button. Returns false when no App Store id is configured yet.
   Future<bool> openStoreListing() => _reviews.openStoreListing();
+
+  /// Requests the system prompt immediately, skipping every rule above.
+  ///
+  /// For verifying the wiring only, and gated on [kDebugMode] at its one
+  /// call site in Settings. It exists because the rules make the real
+  /// prompt almost impossible to observe deliberately: three lessons, a
+  /// three-day wait, and then the exact moment a daily goal is crossed.
+  /// Waiting three days to find out whether a store dialog appears is
+  /// not a workable way to check a release.
+  ///
+  /// It does not touch [asksMade] or [lastAskedAt] — a debug ask must not
+  /// consume the real budget, or testing the prompt would be what stops
+  /// the app asking a genuine learner later.
+  ///
+  /// Returns what the store said about itself. On Android false means
+  /// Play reports the review flow unavailable; true means the request
+  /// went through, which is **not** the same as the sheet appearing.
+  Future<bool> debugAskNow() async {
+    if (!await _reviews.isAvailable()) return false;
+    await _reviews.requestReview();
+    return true;
+  }
 }
 
 final reviewPromptProvider = Provider<ReviewPromptController>((ref) {

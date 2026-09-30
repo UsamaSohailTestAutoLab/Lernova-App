@@ -137,25 +137,29 @@ extension Analytics on AnalyticsService {
         AnalyticsParam.gameLevel: level,
       });
 
+  /// A round finished.
+  ///
+  /// Takes accuracy as a fraction rather than a correct/total pair,
+  /// because that is what the app actually knows here: every mode
+  /// funnels its result through one method, and what reaches that is
+  /// the accuracy the round was scored on. Asking callers for a count
+  /// they do not hold would mean each game inventing one.
   Future<void> gameRoundCompleted({
     required String language,
     required FunGameMode mode,
     required int level,
-    required int correctAnswers,
-    required int totalQuestions,
+    required double accuracy,
     required int score,
-    required Duration duration,
+    Duration? duration,
   }) =>
       logEvent(AnalyticsEvent.gameRoundCompleted, {
         AnalyticsParam.language: language,
         AnalyticsParam.gameMode: mode.name,
         AnalyticsParam.gameLevel: level,
-        AnalyticsParam.correctAnswers: correctAnswers,
-        AnalyticsParam.totalQuestions: totalQuestions,
         AnalyticsParam.completionPercent:
-            percent(correctAnswers, totalQuestions),
+            (accuracy * 100).round().clamp(0, 100),
         AnalyticsParam.score: score,
-        AnalyticsParam.durationSeconds: duration.inSeconds,
+        AnalyticsParam.durationSeconds: duration?.inSeconds,
       });
 
   Future<void> gameRoundFailed({

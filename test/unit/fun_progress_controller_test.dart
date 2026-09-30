@@ -1,5 +1,9 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
+
+import 'package:lingoquest/core/analytics/analytics_events.dart';
+import 'package:lingoquest/core/analytics/analytics_providers.dart';
+import 'package:lingoquest/core/analytics/analytics_service.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:lingoquest/core/constants/app_enums.dart';
@@ -10,6 +14,8 @@ import 'package:lingoquest/features/fun/application/fun_progress_controller.dart
 
 void main() {
   late ProviderContainer container;
+
+  group("analytics", _analyticsTests);
 
   setUp(() async {
     SharedPreferences.setMockInitialValues({});
@@ -159,5 +165,63 @@ void main() {
       expect(justCompleted, isFalse);
       expect(container.read(funProgressProvider).dailyChallengeCompletedToday, isFalse);
     });
+  });
+}
+
+/// The analytics a finished round records.
+///
+/// Split out from the rest of this file because it needs its own
+/// container, with a recorder in place of the no-op the app ships.
+void _analyticsTests() {
+  late ProviderContainer container;
+  late RecordingAnalytics analytics;
+
+  setUp(() async {
+    SharedPreferences.setMockInitialValues({});
+    final storage = await LocalStorageService.create();
+    analytics = RecordingAnalytics();
+    container = ProviderContainer(
+      overrides: [
+        localStorageServiceProvider.overrideWithValue(storage),
+        analyticsProvider.overrideWithValue(analytics),
+      ],
+    );
+    addTearDown(container.dispose);
+  });
+
+  test('a finished round is recorded once', () {
+    container.read(funProgressProvider.notifier).recordRoundResult(
+          mode: FunGameMode.fallingWords,
+          accuracy: 0.8,
+          comboAchieved: 4,
+          starsEarned: 2,
+        );
+
+    expect(analytics.countOf(AnalyticsEvent.gameRoundCompleted), 1);
+    final p = analytics.paramsFor(AnalyticsEvent.gameRoundCompleted).single;
+    expect(p[AnalyticsParam.gameMode], 'fallingWords');
+    expect(p[AnalyticsParam.completionPercent], 80);
+    expect(p[AnalyticsParam.score], 2);
+  });
+
+  test('it reports the level played, not the one just unlocked', () {
+    final notifier = container.read(funProgressProvider.notifier);
+    // An accuracy this high promotes the mode, so the level afterwards
+    // is 2. The round itself was played at 1, and reporting 2 would make
+    // every game look as though it were being won a level early.
+    final leveledUp = notifier.recordRoundResult(
+      mode: FunGameMode.fallingWords,
+      accuracy: 1.0,
+      comboAchieved: 6,
+      starsEarned: 3,
+    );
+
+    expect(leveledUp, isTrue);
+    expect(container.read(funProgressProvider).levelFor('fallingWords'), 2);
+    expect(
+      analytics.paramsFor(AnalyticsEvent.gameRoundCompleted)
+          .single[AnalyticsParam.gameLevel],
+      1,
+    );
   });
 }

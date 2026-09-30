@@ -1,5 +1,8 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../core/analytics/analytics.dart';
+import '../../../core/analytics/analytics_providers.dart';
+
 import '../../../core/constants/app_enums.dart';
 import '../../../core/services/service_providers.dart';
 import '../../../core/utils/fun_daily_challenge_logic.dart';
@@ -47,6 +50,7 @@ class FunProgressController extends Notifier<FunProgress> {
     required int starsEarned,
   }) {
     final key = mode.name;
+    final levelPlayed = state.levelFor(key);
     final leveledUp = accuracy >= _levelUpAccuracyThreshold;
 
     final levels = Map<String, int>.from(state.gameLevels);
@@ -61,6 +65,19 @@ class FunProgressController extends Notifier<FunProgress> {
     stars[key] = state.starsFor(key) + starsEarned;
 
     _persist(state.copyWith(gameLevels: levels, gameBestCombo: combos, gameStars: stars));
+
+    // The level the round was *played* at, captured before the
+    // promotion above — a completion reported against the new level
+    // would make every game look as though it were being won a level
+    // early.
+    ref.read(analyticsProvider).gameRoundCompleted(
+          language: _languageId ?? 'unknown',
+          mode: mode,
+          level: levelPlayed,
+          accuracy: accuracy,
+          score: starsEarned,
+        );
+
     return leveledUp;
   }
 

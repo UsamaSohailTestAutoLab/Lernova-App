@@ -1,5 +1,8 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../core/analytics/analytics.dart';
+import '../../../core/analytics/analytics_providers.dart';
+
 import '../../../core/constants/app_enums.dart';
 import '../../../core/services/service_providers.dart';
 import '../../../data/repositories/content_providers.dart';
@@ -52,23 +55,49 @@ class OnboardingController extends Notifier<OnboardingSelections> {
   @override
   OnboardingSelections build() => const OnboardingSelections();
 
+  /// Fires once, on the first thing the learner does in first-run.
+  ///
+  /// Guarded rather than emitted from the welcome screen's `build`,
+  /// which runs again on every rebuild and would report a dozen starts
+  /// for one install.
+  void _noteStarted() {
+    if (_startedNoted) return;
+    _startedNoted = true;
+    ref.read(analyticsProvider).onboardingStarted();
+  }
+
+  bool _startedNoted = false;
+
   void setFullName(String name) {
+    _noteStarted();
+    ref.read(analyticsProvider).onboardingStep('name');
     state = state.copyWith(fullName: name.trim());
   }
 
   void setLanguage(String languageId) {
+    _noteStarted();
+    final analytics = ref.read(analyticsProvider);
+    analytics.onboardingStep('language');
+    analytics.languageSelected(languageId, source: 'onboarding');
+    // Set immediately rather than at the end of the flow: somebody who
+    // abandons onboarding halfway still had a language in mind, and
+    // that is exactly the cohort worth being able to see.
+    analytics.setLanguage(languageId);
     state = state.copyWith(languageId: languageId);
   }
 
   void setLearningGoal(LearningGoal goal) {
+    ref.read(analyticsProvider).onboardingStep('goal');
     state = state.copyWith(learningGoal: goal);
   }
 
   void setDailyGoal(DailyGoalXp goal) {
+    ref.read(analyticsProvider).onboardingStep('daily_goal');
     state = state.copyWith(dailyGoal: goal);
   }
 
   void setPlacementResult(int unlockedUnitIndex) {
+    ref.read(analyticsProvider).onboardingStep('placement_taken');
     state = state.copyWith(
       placementUnlockedUnitIndex: unlockedUnitIndex,
       placementCompleted: true,
@@ -76,6 +105,7 @@ class OnboardingController extends Notifier<OnboardingSelections> {
   }
 
   void skipPlacement() {
+    ref.read(analyticsProvider).onboardingStep('placement_skipped');
     state = state.copyWith(placementUnlockedUnitIndex: 0, placementCompleted: true);
   }
 
@@ -110,6 +140,9 @@ class OnboardingController extends Notifier<OnboardingSelections> {
         );
 
     await ref.read(localStorageServiceProvider).setOnboardingComplete(true);
+    final analytics = ref.read(analyticsProvider);
+    analytics.onboardingCompleted(language: state.languageId ?? 'unknown');
+    analytics.setOnboardingComplete(true);
     ref.invalidate(isOnboardingCompleteProvider);
   }
 }

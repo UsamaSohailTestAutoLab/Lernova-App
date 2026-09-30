@@ -79,9 +79,22 @@ here — a duplicate would double every session count in the console.
 | Event | Fires when | Parameters |
 | --- | --- | --- |
 | `onboarding_started` | The first-run flow begins | — |
-| `onboarding_step_completed` | One step of it is finished | `step` |
+| `onboarding_step_completed` | One step of it is finished | `step` — `name`, `language`, `goal`, `daily_goal`, `placement_taken`, `placement_skipped` |
 | `onboarding_completed` | The learner reaches Home for the first time | `language` |
 | `language_selected` | A course is chosen | `language`, `source_screen` |
+
+Recorded from `OnboardingController`, one call per setter, so the
+funnel falls out of the flow itself rather than needing an event
+planted on each screen — and a screen reordered later keeps reporting
+the step it actually is.
+
+`onboarding_started` is guarded to fire once. Emitting it from the
+welcome screen's `build` would report a dozen starts for one install.
+
+`selected_language` is set the moment a course is picked, not when the
+flow finishes: somebody who abandons onboarding halfway still had a
+language in mind, and that is exactly the cohort worth being able to
+see.
 
 ### The learning path
 
@@ -117,12 +130,25 @@ lesson_completed
 | Event | Fires when | Parameters |
 | --- | --- | --- |
 | `game_round_started` | A round begins | `language`, `game_mode`, `game_level` |
-| `game_round_completed` | A round is finished | `language`, `game_mode`, `game_level`, `correct_answers`, `total_questions`, `completion_percent`, `score`, `duration_seconds` |
+| `game_round_completed` | A round is finished | `language`, `game_mode`, `game_level`, `completion_percent`, `score` |
 | `game_round_failed` | Lives run out | `language`, `game_mode`, `game_level`, `correct_answers`, `total_questions` |
 
 Named for what the app has. There is no "quiz" in LingoQuest; the
-nearest thing is a timed round of one of the ten games, and these carry
-the fields a quiz report would want.
+nearest thing is a timed round of one of the ten games.
+
+Recorded in `FunProgressController.recordRoundResult`, which every one
+of the ten modes funnels through — so a new game gets its analytics
+without a call being added to its own controller.
+
+`completion_percent` comes from the accuracy the round was scored on,
+rather than a correct/total pair, because accuracy is what actually
+reaches that method. Asking for a count it does not hold would mean
+each game inventing one.
+
+`game_level` is the level the round was **played** at, captured before
+the promotion a high-accuracy round triggers. Reporting the new level
+would make every game look as though it were being won a level early —
+pinned by a test in `fun_progress_controller_test.dart`.
 
 ### Subscription
 

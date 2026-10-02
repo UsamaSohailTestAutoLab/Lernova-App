@@ -29,7 +29,63 @@ affordances were Android's too.
 **There is no way to fix this in post.** The screenshots have to be
 rendered by iOS.
 
-## Producing the iPhone set
+## Capturing on a real iPhone
+
+The simplest route, and it needs no Mac. Drop the PNGs into
+`marketing/raw_ios_device/` under the names in the table below, then
+run the compositor.
+
+### Which iPhone
+
+It has to be a **Pro Max or Plus**, because the 6.9" slot only takes
+two sizes and only those handsets produce them:
+
+| Handset | Capture size |
+|---|---|
+| iPhone 16 Pro Max, 17 Pro Max | 1320×2868 |
+| iPhone 14/15 Pro Max, 15/16 Plus | 1290×2796 |
+
+Either is accepted as-is; the compositor reads the size off the
+captures and builds the canvas to match. A smaller iPhone cannot be
+enlarged to fit — that is the same mistake as the Pixel captures, and
+the script refuses it.
+
+All ten must come from the **same** phone.
+
+### Before capturing
+
+- **Light mode.** The layout assumes light screens.
+- **Sign out of nothing, delete nothing** — the state matters. The
+  listing shows a lived-in account: 4860 XP, a 24-day streak, 10
+  achievements. A fresh install shows zeroes and sells nothing.
+- Battery above ~40% and full signal; the real status bar is kept, and
+  Apple does not require the 9:41 convention on device captures.
+
+### The ten screens
+
+| File | Screen |
+|---|---|
+| `home.png` | Home tab, scrolled to the top |
+| `wb_fall.png` | Word Bubble mid-round, bubbles falling |
+| `funhub.png` | Fun tab, the game grid |
+| `languages.png` | Settings → Language, picker open |
+| `memory_pairs.png` | Memory Match, memorise phase, timer visible |
+| `wb_burst3.png` | Word Bubble as a correct bubble pops |
+| `sv3.png` | Word Survival level 3, water partway up |
+| `lesson_mcq.png` | A Path lesson, multiple-choice question |
+| `lesson_correction.png` | A Path lesson, correction bar after a wrong answer |
+| `statistics.png` | Profile / statistics, streak and achievements |
+
+### Getting them off the phone
+
+**Do not send them through WhatsApp, Telegram or Messenger.** Those
+resample images on the way through, and a 1320×2868 capture arrives
+smaller. That silently reintroduces the wrong-size problem.
+
+AirDrop, iCloud Drive, Google Drive, or email **as an attachment**, all
+of which preserve the original file.
+
+## Producing the iPhone set (simulator route)
 
 ### 1. Capture on a 6.9" simulator
 

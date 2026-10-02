@@ -44,12 +44,12 @@ const BUILD = `${ROOT}/build`;
 
 const TARGETS = {
   iphone: {
+    // Set from the captures themselves — see ACCEPTED_69 below.
     w: 1320, h: 2868,
     src: `${ROOT}/raw_ios_device`,
     out: `${ROOT}/LingoQuest_AppStore_Screenshots_iPhone`,
-    // Apple checks this to the pixel and rejects anything else.
-    strictSize: { w: 1320, h: 2868 },
-    note: 'iPhone 6.9" — iPhone 16/17 Pro Max',
+    adaptive: true,
+    note: 'iPhone 6.9"',
   },
   ipad: {
     w: 2064, h: 2752,
@@ -73,6 +73,22 @@ const TARGETS = {
     note: 'Google Play — 9:16, no exact-size rule',
   },
 };
+
+// The two sizes App Store Connect takes for the 6.9" slot, which is the
+// one a new submission must fill. Which you get depends on the handset:
+//
+//   1320x2868  iPhone 16 Pro Max, 17 Pro Max
+//   1290x2796  iPhone 14 Pro Max, 15 Pro Max, 15 Plus, 16 Plus
+//
+// Both are accepted as they are. The canvas is built to match whichever
+// the captures are, because the alternative — scaling one to the other
+// — resamples every pixel for no reason, and scaling *up* from a
+// smaller iPhone would be the same class of mistake as the Pixel
+// captures: making the numbers right and the image wrong.
+const ACCEPTED_69 = [
+  { w: 1320, h: 2868 },
+  { w: 1290, h: 2796 },
+];
 
 // --- grounds ---------------------------------------------------------
 //
@@ -284,20 +300,41 @@ const build = (name) => {
     return 1;
   }
 
-  if (cfg.strictSize) {
-    const bad = SHOTS
-      .map((s) => ({ shot: s.shot, ...pngSize(`${cfg.resolvedSrc}/${s.shot}`) }))
-      .filter((s) => s.w !== cfg.strictSize.w || s.h !== cfg.strictSize.h);
-    if (bad.length) {
+  if (cfg.adaptive) {
+    const sizes = SHOTS.map((s) => ({
+      shot: s.shot, ...pngSize(`${cfg.resolvedSrc}/${s.shot}`),
+    }));
+
+    // Every capture has to come off the same handset. A mixed set would
+    // otherwise build at one size and letterbox or crop the rest.
+    const distinct = [...new Set(sizes.map((s) => `${s.w}x${s.h}`))];
+    if (distinct.length > 1) {
       console.error(
-        `\n[${name}] captures must be exactly ` +
-        `${cfg.strictSize.w}x${cfg.strictSize.h}:\n` +
-        bad.map((s) => `  ${s.shot}: ${s.w}x${s.h}`).join('\n') +
-        '\n\nResizing one to fit would put back the very problem this\n' +
-        'pipeline exists to remove. Recapture on the right simulator.\n',
+        `\n[${name}] the captures are not all the same size:\n` +
+        sizes.map((s) => `  ${s.shot}: ${s.w}x${s.h}`).join('\n') +
+        '\n\nThey must all come from one device. A set that mixes two\n' +
+        'phones cannot be built without scaling some of them.\n',
       );
       return 1;
     }
+
+    const got = sizes[0];
+    const match = ACCEPTED_69.find((a) => a.w === got.w && a.h === got.h);
+    if (!match) {
+      console.error(
+        `\n[${name}] captures are ${got.w}x${got.h}, which App Store\n` +
+        'Connect does not take for the 6.9" slot. It accepts:\n' +
+        ACCEPTED_69.map((a) => `  ${a.w}x${a.h}`).join('\n') +
+        '\n\nThat means a Pro Max or Plus: 16/17 Pro Max give 1320x2868,\n' +
+        '14/15 Pro Max and 15/16 Plus give 1290x2796. A smaller iPhone\n' +
+        'cannot be enlarged to either — that is how the rejected set was\n' +
+        'made. Use the simulator instead (capture_ios.sh).\n',
+      );
+      return 1;
+    }
+    cfg.w = match.w;
+    cfg.h = match.h;
+    console.log(`  captures are ${got.w}x${got.h} — building at that size`);
   }
 
   console.log(`\n[${name}] ${cfg.note}`);

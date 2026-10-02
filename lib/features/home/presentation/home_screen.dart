@@ -254,7 +254,14 @@ class _ReviewPromptTriggerState extends ConsumerState<_ReviewPromptTrigger> {
   /// they only work if every ask goes through it.
   Future<void> _maybeAsk(UserProgress progress) async {
     await ref.read(reviewPromptProvider).maybeAskAfterDailyGoal(
-          totalLessonsCompleted: progress.completedLessonIds.length,
+          // totalLessonsCompleted, not completedLessonIds.length. The
+          // two are not the same number and the difference is fatal
+          // here: the id list holds *distinct* lessons ever finished,
+          // and the free tier unlocks exactly one Path lesson. So for
+          // every free learner that length is pinned at 1, below the
+          // three-lesson bar, and this path could never ask anyone —
+          // no matter how much they played.
+          totalLessonsCompleted: progress.totalLessonsCompleted,
         );
   }
 }

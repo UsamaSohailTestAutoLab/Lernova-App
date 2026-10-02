@@ -1,4 +1,4 @@
-import 'package:flutter/foundation.dart' show kDebugMode;
+import 'package:flutter/foundation.dart' show debugPrint, kDebugMode;
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -9,6 +9,23 @@ import '../../../data/models/review_prompt_state.dart';
 import '../../progress/application/lesson_completion_result.dart';
 
 final reviewServiceProvider = Provider<ReviewService>((ref) => ReviewService());
+
+/// Turns on the review diagnostics in a build that is not a debug build.
+///
+///     flutter build appbundle --dart-define=REVIEW_DEBUG=true
+///
+/// A Play install — including an internal test — is a release build, so
+/// `kDebugMode` is false and everything that helps diagnose this
+/// disappears exactly where it is most needed: the decision log, and
+/// the Settings row that fires the prompt on demand. Without them the
+/// only available observation is "nothing happened", which is also what
+/// six different refusals look like.
+///
+/// Off unless asked for, so a store build carries neither.
+const kReviewDebug = bool.fromEnvironment('REVIEW_DEBUG');
+
+/// Whether to log review decisions and show the manual trigger.
+bool get reviewDiagnosticsOn => kDebugMode || kReviewDebug;
 
 /// Why the app did or did not ask for a review.
 ///
@@ -60,10 +77,44 @@ class ReviewPromptController {
   /// enough of the app to have a view worth asking for.
   static const minLessonsCompleted = 3;
 
-  /// Days between first eligibility and the earliest ask. Long enough
-  /// that the prompt lands on someone who came back, not someone still
-  /// in their first sitting.
-  static const minDaysSinceFirstEligible = 3;
+  /// Days to wait between first eligibility and the earliest ask.
+  ///
+  /// Zero: the ask happens at the first qualifying moment.
+  ///
+  /// This was three. The intent was that the prompt should land on
+  /// someone who came back rather than someone still in their first
+  /// sitting, which is sound in general and wrong here, for two
+  /// reasons.
+  ///
+  /// The arithmetic never worked. The first qualifying lesson only
+  /// *starts* the clock, so the earliest possible ask was three days
+  /// and one lesson later. A learner who finishes three lessons and
+  /// does not return for three days is not the learner worth asking,
+  /// and the one who does return gets asked on a day they may not have
+  /// had a good session.
+  ///
+  /// And [minLessonsCompleted] already does this job better. Three
+  /// completed lessons is evidence of engagement; a date is a proxy for
+  /// it. Keeping both meant the weaker test set the schedule.
+  ///
+  /// What actually stops this becoming nagging is unchanged and is
+  /// where it belongs: [maxAsksEver] three times ever,
+  /// [minDaysBetweenAsks] 120 days apart, one per session, never after
+  /// a lesson the learner lost, and both stores rate-limiting on top.
+  static const defaultMinDaysSinceFirstEligible = 0;
+
+  /// Days to wait before the first ask.
+  ///
+  /// Injected rather than fixed so a debug build can set it to zero.
+  /// Otherwise the feature cannot be exercised at all without waiting
+  /// three days — and `flutter install` wipes app storage, so the clock
+  /// restarts on every deploy and the three days never elapse.
+  ///
+  /// The default is the shipping value, so a test that does not mention
+  /// this gets the real policy. Tying it to [kDebugMode] inside the
+  /// class looked simpler and was wrong: tests run in debug, so the
+  /// policy that ships would have been the one policy never tested.
+  final int minDaysSinceFirstEligible;
 
   /// Days between one ask and the next. Comfortably wider than needed:
   /// three asks at this spacing cannot exceed iOS's yearly allowance
@@ -80,7 +131,11 @@ class ReviewPromptController {
   /// rules above.
   bool _askedThisSession = false;
 
-  ReviewPromptController(this._storage, this._reviews);
+  ReviewPromptController(
+    this._storage,
+    this._reviews, {
+    this.minDaysSinceFirstEligible = defaultMinDaysSinceFirstEligible,
+  });
 
   ReviewPromptState get state => _storage.loadReviewPromptState();
 
@@ -124,43 +179,77 @@ class ReviewPromptController {
   }) =>
       _askIfEligible(now ?? DateTime.now(), totalLessonsCompleted);
 
+  /// Reports every decision to the log in debug builds.
+  ///
+  /// "The prompt didn't appear" has at least six causes here and three
+  /// more inside the store, and none of them announce themselves. This
+  /// turns that into one line naming the reason.
+  ///
+  /// Note what [ReviewPromptOutcome.asked] does and does not mean: the
+  /// request reached the store. Neither store reports whether a sheet
+  /// was drawn, and on Android the Play In-App Review API returns a
+  /// no-op flow for any app Play did not install — so a sideloaded
+  /// build logs `asked` and shows nothing, correctly.
+  ReviewPromptOutcome _log(ReviewPromptOutcome outcome, [String? detail]) {
+    if (reviewDiagnosticsOn) {
+      debugPrint('[review] $outcome${detail == null ? '' : ' — $detail'}');
+    }
+    return outcome;
+  }
+
   Future<ReviewPromptOutcome> _askIfEligible(
     DateTime at,
     int totalLessonsCompleted,
   ) async {
     if (totalLessonsCompleted < minLessonsCompleted) {
-      return ReviewPromptOutcome.notEnoughLessons;
+      return _log(ReviewPromptOutcome.notEnoughLessons,
+          '$totalLessonsCompleted of $minLessonsCompleted lessons done');
     }
 
     var current = state;
 
-    // First time they reach the bar, note the date and stop. The wait
-    // is measured from genuine engagement, not from install.
+    // First time they reach the bar, note the date. The wait is
+    // measured from genuine engagement, not from install.
+    //
+    // Stopping here is only right when there is a wait to serve. With
+    // the soak at zero — debug builds — returning early would mean the
+    // prompt could never fire on the lesson that first qualifies, which
+    // is exactly the moment under test.
     if (current.firstEligibleCheckAt == null) {
       current = current.copyWith(firstEligibleCheckAt: at);
       await _storage.saveReviewPromptState(current);
-      return ReviewPromptOutcome.tooSoonAfterInstall;
+      if (minDaysSinceFirstEligible > 0) {
+        return _log(ReviewPromptOutcome.tooSoonAfterInstall,
+            'clock started; earliest ask in $minDaysSinceFirstEligible days');
+      }
     }
 
-    if (at.difference(current.firstEligibleCheckAt!).inDays <
-        minDaysSinceFirstEligible) {
-      return ReviewPromptOutcome.tooSoonAfterInstall;
+    final waited = at.difference(current.firstEligibleCheckAt!).inDays;
+    if (waited < minDaysSinceFirstEligible) {
+      return _log(ReviewPromptOutcome.tooSoonAfterInstall,
+          'waited ${waited}d of ${minDaysSinceFirstEligible}d');
     }
 
-    if (current.asksMade >= maxAsksEver) return ReviewPromptOutcome.budgetSpent;
+    if (current.asksMade >= maxAsksEver) {
+      return _log(ReviewPromptOutcome.budgetSpent,
+          '${current.asksMade} of $maxAsksEver spent');
+    }
 
     final last = current.lastAskedAt;
     if (last != null && at.difference(last).inDays < minDaysBetweenAsks) {
-      return ReviewPromptOutcome.alreadyAskedRecently;
+      return _log(ReviewPromptOutcome.alreadyAskedRecently,
+          'last ask ${at.difference(last).inDays}d ago, '
+          'need ${minDaysBetweenAsks}d');
     }
 
     if (_askedThisSession) {
-      return ReviewPromptOutcome.alreadyAskedThisSession;
+      return _log(ReviewPromptOutcome.alreadyAskedThisSession);
     }
 
     // Asked last, so an unavailable store does not spend a slot.
     if (!await _reviews.isAvailable()) {
-      return ReviewPromptOutcome.storeUnavailable;
+      return _log(ReviewPromptOutcome.storeUnavailable,
+          'the store reports no review flow here');
     }
 
     await _reviews.requestReview();
@@ -168,7 +257,8 @@ class ReviewPromptController {
     await _storage.saveReviewPromptState(
       current.copyWith(asksMade: current.asksMade + 1, lastAskedAt: at),
     );
-    return ReviewPromptOutcome.asked;
+    return _log(ReviewPromptOutcome.asked,
+        'request sent — the store decides whether a sheet is drawn');
   }
 
   /// The deliberate path: the learner tapped "Rate LingoQuest".
@@ -180,7 +270,7 @@ class ReviewPromptController {
 
   /// Requests the system prompt immediately, skipping every rule above.
   ///
-  /// For verifying the wiring only, and gated on [kDebugMode] at its one
+  /// For verifying the wiring only, and gated on [reviewDiagnosticsOn] at its one
   /// call site in Settings. It exists because the rules make the real
   /// prompt almost impossible to observe deliberately: three lessons, a
   /// three-day wait, and then the exact moment a daily goal is crossed.

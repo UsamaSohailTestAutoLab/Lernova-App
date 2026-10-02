@@ -456,14 +456,15 @@ if (StoreLinks.showsAppleEula)
           //     ],
           //   ),
           // ),
-          // Debug builds only, and stripped from release by the compiler
-          // because kDebugMode is a const.
+          // Debug builds, plus any build made with
+          // --dart-define=REVIEW_DEBUG=true. Both are compile-time
+          // consts, so a normal store build drops this entirely.
           //
-          // The real prompt needs three lessons, a three-day wait, and
-          // then the moment a daily goal is crossed — so without this
-          // there is no way to answer "does the rating sheet work" other
-          // than waiting three days and hoping to catch it.
-          if (kDebugMode) ...[
+          // The flag exists because a Play install — including an
+          // internal test — is a release build, and that is exactly
+          // where this is needed: on the device where the prompt is
+          // not appearing and there is nothing to see but its absence.
+          if (reviewDiagnosticsOn) ...[
             const SizedBox(height: AppSpacing.lg),
             ListTile(
               leading: const Icon(Icons.bug_report_rounded, color: AppColors.info),

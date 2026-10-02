@@ -55,7 +55,16 @@ void main() {
     SharedPreferences.setMockInitialValues({});
     storage = await LocalStorageService.create();
     reviews = FakeReviewService();
-    controller = ReviewPromptController(storage, reviews);
+    controller = ReviewPromptController(
+      storage,
+      reviews,
+      // Explicit, not the shipping default, which is now 0. These tests
+      // are about what happens around the ask — the budget, the
+      // spacing, the once-per-session cap — and a soak gives them a
+      // state to arrange from. The default itself is covered in "the
+      // soak period" below.
+      minDaysSinceFirstEligible: 3,
+    );
   }
 
   setUp(boot);
@@ -351,6 +360,83 @@ void main() {
       expect(controller.state.asksMade, 0);
     });
   });
+
+  group('the soak period', () {
+    test('ships with no soak, so the first qualifying lesson asks', () async {
+      // The policy this pins: a learner who has done the lessons is
+      // asked at that moment, not three days later.
+      //
+      // The old default of 3 could not do what it was written for. The
+      // first qualifying lesson only *started* the clock, so the
+      // earliest ask was three days and one lesson away — and a Play
+      // install is a release build, where there is no way to observe
+      // any of this. It is also redundant: minLessonsCompleted already
+      // tests engagement directly, and a date only proxies it.
+      expect(ReviewPromptController.defaultMinDaysSinceFirstEligible, 0);
+
+      final shipping = ReviewPromptController(storage, reviews);
+      final outcome = await shipping.maybeAskAfterLesson(
+        result: _result(),
+        totalLessonsCompleted: 3,
+        now: day0,
+      );
+
+      expect(outcome, ReviewPromptOutcome.asked);
+      expect(reviews.requestCount, 1);
+      // The budget is still spent and recorded, so dropping the soak
+      // does not make this askable twice.
+      expect(shipping.state.asksMade, 1);
+    });
+
+    test('no soak does not weaken the lesson bar', () async {
+      final shipping = ReviewPromptController(storage, reviews);
+
+      expect(
+        await shipping.maybeAskAfterLesson(
+          result: _result(),
+          totalLessonsCompleted: 2,
+          now: day0,
+        ),
+        ReviewPromptOutcome.notEnoughLessons,
+      );
+      expect(reviews.requestCount, 0);
+    });
+
+    test('no soak still refuses after a lesson lost on hearts', () async {
+      // The guard that matters most is unrelated to the clock: never
+      // ask someone the moment they failed.
+      final shipping = ReviewPromptController(storage, reviews);
+
+      expect(
+        await shipping.maybeAskAfterLesson(
+          result: _result(outOfHearts: true),
+          totalLessonsCompleted: 9,
+          now: day0,
+        ),
+        ReviewPromptOutcome.lessonEndedBadly,
+      );
+      expect(reviews.requestCount, 0);
+    });
+
+    test('a soak, when set, still holds the ask back', () async {
+      // The mechanism is retained, not deleted, so the wait can be put
+      // back by changing one number.
+      final patient =
+          ReviewPromptController(storage, reviews, minDaysSinceFirstEligible: 3);
+
+      expect(
+        await patient.maybeAskAfterLesson(
+          result: _result(),
+          totalLessonsCompleted: 5,
+          now: day0,
+        ),
+        ReviewPromptOutcome.tooSoonAfterInstall,
+      );
+      expect(reviews.requestCount, 0);
+      expect(patient.state.firstEligibleCheckAt, day0);
+    });
+  });
+
   test('no App Store id is hard-coded', () {
     // Apple assigns this number; guessing one would deep-link the wrong
     // listing. It stays null until the app exists in App Store Connect.

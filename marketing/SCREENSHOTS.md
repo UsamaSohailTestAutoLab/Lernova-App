@@ -55,7 +55,7 @@ only; the rest need either a local run or an `integration_test` driver.
 ### 2. Composite
 
 ```bash
-node marketing/build/make_screenshots_ios.mjs
+node marketing/build/make_store_screenshots.mjs iphone
 ```
 
 Writes `marketing/LingoQuest_AppStore_Screenshots_iPhone/`.
@@ -69,6 +69,29 @@ caption above it.
 It refuses to run if `marketing/raw_ios_device/` is missing a screen or
 holds anything that is not exactly 1320×2868, so the Android set cannot
 quietly come back.
+
+## One set, both stores
+
+The rule is asymmetric:
+
+- iOS-rendered screenshots on **Google Play** — fine. Google has no rule
+  about which platform a screenshot came from.
+- Android-rendered screenshots on the **App Store** — rejected. This is
+  what happened.
+
+So capture once on iOS and use those pixels for both listings. The
+`play` target reads the same `raw_ios_device/` directory for exactly
+that reason, and falls back to the Android captures — saying so out
+loud — only while the iOS ones do not exist.
+
+```bash
+node marketing/build/make_store_screenshots.mjs all     # iphone, ipad, play
+```
+
+One script builds all three targets from one shot list and one
+template. There used to be three near-identical copies, which is how
+the iPhone one drifted into drawing a fake device body while the others
+did not.
 
 ## Do not use these
 

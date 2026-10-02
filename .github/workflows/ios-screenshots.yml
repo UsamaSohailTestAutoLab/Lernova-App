@@ -1,0 +1,99 @@
+# Captures App Store screenshot sources on a hosted macOS runner.
+#
+# The point of this workflow is that the screenshots must be rendered by
+# iOS. The first submission was rejected — "phone style not correct, you
+# are using other phone style screenshot" — because the set had been
+# captured on a Pixel 5a with the display forced to iPhone geometry.
+# That fixes the pixel dimensions and nothing else: the emoji were still
+# Google's, and Apple's reviewers recognise their own on sight.
+#
+# Run it from the Actions tab. It boots a 6.9" simulator, installs the
+# app, captures each screen and uploads the PNGs as an artifact. Unzip
+# that into marketing/raw_ios_device/ and run make_screenshots_ios.mjs.
+name: ios-screenshots
+
+on:
+  workflow_dispatch:
+    inputs:
+      device:
+        description: 'Simulator (must render 1320x2868)'
+        default: 'iPhone 17 Pro Max'
+        type: string
+
+jobs:
+  capture:
+    # Hosted macOS, so no Mac of your own is needed to produce these.
+    runs-on: macos-15
+    timeout-minutes: 45
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+
+      - run: flutter --version
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: Boot the simulator
+        id: sim
+        run: |
+          set -euo pipefail
+          DEVICE="${{ inputs.device }}"
+          if ! xcrun simctl list devices available | grep -q "$DEVICE"; then
+            echo "::warning::'$DEVICE' unavailable; falling back to iPhone 16 Pro Max"
+            DEVICE="iPhone 16 Pro Max"
+          fi
+          UDID="$(xcrun simctl list devices available \
+                  | grep "$DEVICE (" | head -1 \
+                  | sed -E 's/.*\(([0-9A-F-]{36})\).*/\1/')"
+          [ -n "$UDID" ] || { echo "No 6.9\" simulator on this runner"; exit 1; }
+          echo "udid=$UDID" >> "$GITHUB_OUTPUT"
+          xcrun simctl boot "$UDID" || true
+          xcrun simctl bootstatus "$UDID" -b
+          # Apple's screenshot convention. A simulator setting, so the
+          # status bar in the capture is still the real one.
+          xcrun simctl status_bar "$UDID" override \
+            --time "9:41" \
+            --dataNetwork wifi --wifiMode active --wifiBars 3 \
+            --cellularMode active --cellularBars 4 \
+            --batteryState charged --batteryLevel 100
+
+      - name: Build for the simulator
+        run: flutter build ios --simulator --debug
+
+      - name: Install and launch
+        run: |
+          set -euo pipefail
+          UDID="${{ steps.sim.outputs.udid }}"
+          APP=build/ios/iphonesimulator/Runner.app
+          xcrun simctl install "$UDID" "$APP"
+          BUNDLE_ID="$(/usr/libexec/PlistBuddy -c 'Print :CFBundleIdentifier' "$APP/Info.plist")"
+          echo "BUNDLE_ID=$BUNDLE_ID" >> "$GITHUB_ENV"
+          xcrun simctl launch "$UDID" "$BUNDLE_ID"
+          # The splash and first frame need a moment before anything is
+          # worth photographing.
+          sleep 12
+
+      - name: Capture the launch screen
+        run: |
+          set -euo pipefail
+          mkdir -p marketing/raw_ios_device
+          xcrun simctl io "${{ steps.sim.outputs.udid }}" screenshot \
+            --type=png marketing/raw_ios_device/home.png
+          sips -g pixelWidth -g pixelHeight marketing/raw_ios_device/home.png
+
+      # Nothing here can navigate the app — that needs a human or a
+      # driver test. This step proves the toolchain end to end and hands
+      # back one real iOS frame; capture the rest locally with
+      # capture_ios.sh, or extend this with an integration_test driver.
+      - name: Upload
+        uses: actions/upload-artifact@v4
+        with:
+          name: ios-screenshots-raw
+          path: marketing/raw_ios_device/*.png
+          if-no-files-found: error

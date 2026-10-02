@@ -1,24 +1,47 @@
 // Builds the iPhone App Store screenshot set.
 //
-// How these differ from the Play set: the app was captured with the
-// device display overridden to 1320x2868 at 3x, so Flutter laid the UI
-// out at 440x956pt — iPhone 16 Pro Max geometry exactly, not an Android
-// screenshot stretched to fit. Android's status bar and gesture pill
-// were then painted out (see clean_ios.mjs), and this template draws the
-// iOS status bar, Dynamic Island and home indicator over the cleared
-// bands.
+// WHY THIS WAS REWRITTEN
 //
-// Those three elements are presentation, not capture — the same
-// convention every App Store listing uses, and disclosed in the README.
-// Everything inside them is the real running app.
-import { writeFileSync, mkdirSync, existsSync } from 'node:fs';
+// The first submission was rejected: "phone style not correct, you are
+// using other phone style screenshot."
+//
+// The reviewer was right. The old pipeline captured the app on a Pixel
+// 5a with the display overridden to 1320x2868 @3x, painted out Android's
+// status bar and gesture pill, then drew an iOS status bar, a Dynamic
+// Island and a home indicator over the cleared bands, inside a
+// hand-drawn phone body.
+//
+// Overriding the display size gets the *geometry* right. It cannot
+// change the *renderer*. Those captures were still drawn by Android:
+//
+//   * Emoji came from Noto Color Emoji. LingoQuest's UI is full of them
+//     — the medal, star, flame, trophy and controller on Home alone —
+//     and Google's designs look nothing like Apple's. To a reviewer who
+//     sees Apple Color Emoji every day this is unmistakable, and it is
+//     almost certainly what gave the set away.
+//   * Text was rasterised by Android, and the flag emoji, Material ink
+//     and scroll affordances are all Android's.
+//
+// So the frame is gone and, more importantly, the source is gone. This
+// template now composites *genuine iOS captures* and refuses to run
+// without them (see SRC below). It draws no device body, no status bar
+// and no home indicator, because a real capture already has a real one.
+// Nothing here invents a pixel of chrome.
+import { writeFileSync, mkdirSync, existsSync, readFileSync, statSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 
 const EDGE = 'C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe';
 const OUT = 'C:/Duolingo/marketing/LingoQuest_AppStore_Screenshots_iPhone';
 const BUILD = 'C:/Duolingo/marketing/build';
+
+// Genuine iOS Simulator captures, produced by capture_ios.sh. Kept
+// separate from raw_ios/ (the old Android-rendered set) so the two can
+// never be confused again.
+const SRC_DIR = 'C:/Duolingo/marketing/raw_ios_device';
+
 mkdirSync(OUT, { recursive: true });
 
+// The 6.9" slot. iPhone 16 Pro Max and 17 Pro Max are both 1320x2868.
 const W = 1320;
 const H = 2868;
 
@@ -26,151 +49,123 @@ const DEEP = {
   bg: 'linear-gradient(168deg,#31A522 0%,#2A8B1E 55%,#1F6B16 100%)',
   head: '#FFFFFF', sub: 'rgba(255,255,255,.84)',
   mark: 'rgba(255,255,255,.10)', hi: 'rgba(255,255,255,.22)',
+  shadow: 'rgba(4,20,2,.42)',
 };
 const LIGHT = {
   bg: 'linear-gradient(168deg,#F4FBF1 0%,#DFF3D7 58%,#C3E7B6 100%)',
   head: '#0F3409', sub: 'rgba(15,52,9,.70)',
   mark: 'rgba(31,107,22,.09)', hi: 'rgba(63,191,43,.32)',
+  shadow: 'rgba(16,46,10,.26)',
 };
 const AMBER = {
   bg: 'linear-gradient(168deg,#FFC94F 0%,#FFB020 55%,#F09405 100%)',
   head: '#3A2603', sub: 'rgba(58,38,3,.74)',
   mark: 'rgba(255,255,255,.24)', hi: 'rgba(255,255,255,.46)',
+  shadow: 'rgba(90,56,2,.30)',
 };
 
-const GAMES = [
-  ['🫧', 'Word Bubble'], ['⚡', 'Word Rush'], ['🧩', 'Word Match'],
-  ['🧠', 'Memory Match'], ['🔤', 'Sentence Builder'], ['💬', 'Phrase Builder'],
-  ['🎧', 'Listen &amp; Catch'], ['🎯', 'Meaning Shooter'],
-  ['🗣️', 'Conversation'], ['🌊', 'Word Survival'],
-];
-
+// One capture per shot. The old set stacked two tilted phones on some
+// slides; a single upright screen reads better at gallery thumbnail
+// size, and every extra composited device is another thing a reviewer
+// can call inaccurate.
 const SHOTS = [
   {
-    file: '01_AppStore_LingoQuest.png', theme: DEEP, kind: 'duo',
+    file: '01_AppStore_LingoQuest.png', theme: DEEP, shot: 'home.png',
     head: 'Learn a language<br>by <em>playing</em>',
     sub: 'Short lessons. Ten real games. One streak worth keeping.',
-    front: 'home.png', back: 'memory_matched.png',
   },
   {
-    file: '02_AppStore_LingoQuest.png', theme: DEEP, kind: 'duo',
+    file: '02_AppStore_LingoQuest.png', theme: DEEP, shot: 'wb_fall.png',
     head: 'Turn words<br>into <em>games</em>',
-    sub: 'Catch the right meaning before the bubble gets away.',
-    front: 'wb_fall.png', back: 'wb_burst3.png',
+    sub: 'Catch the right translation before it reaches the bottom.',
   },
   {
-    file: '03_AppStore_LingoQuest.png', theme: LIGHT, kind: 'grid',
+    file: '03_AppStore_LingoQuest.png', theme: LIGHT, shot: 'funhub.png',
     head: '10 games,<br>one <em>vocabulary</em>',
-    sub: 'Every game practises the words your lessons just taught you.',
+    sub: 'Every game draws on the words you are actually learning.',
   },
   {
-    file: '04_AppStore_LingoQuest.png', theme: AMBER, kind: 'phone',
+    file: '04_AppStore_LingoQuest.png', theme: AMBER, shot: 'languages.png',
     head: '10 languages,<br>separate progress',
-    sub: 'Switch any time. Each keeps its own lessons, XP and streak.',
-    front: 'languages.png', tilt: -3.5,
+    sub: 'Switch whenever you like. Each one keeps its own streak.',
   },
   {
-    file: '05_AppStore_LingoQuest.png', theme: DEEP, kind: 'duo',
+    file: '05_AppStore_LingoQuest.png', theme: DEEP, shot: 'memory_pairs.png',
     head: 'Flip. Match.<br><em>Remember.</em>',
     sub: 'Memory Match pairs every word with its meaning, against the clock.',
-    front: 'memory_pairs.png', back: 'memory_matched.png',
   },
   {
-    file: '06_AppStore_LingoQuest.png', theme: LIGHT, kind: 'phone',
+    file: '06_AppStore_LingoQuest.png', theme: LIGHT, shot: 'wb_burst3.png',
     head: 'Right answer?<br>Watch it <em>pop</em>',
-    sub: 'Correct bubbles burst into confetti and the next word drops in.',
-    front: 'wb_burst3.png', tilt: 3,
+    sub: 'Instant feedback on every tap, so nothing stays wrong for long.',
   },
   {
-    file: '07_AppStore_LingoQuest.png', theme: DEEP, kind: 'phone',
+    file: '07_AppStore_LingoQuest.png', theme: DEEP, shot: 'sv3.png',
     head: 'Answer fast.<br>Stay afloat.',
-    sub: 'Beat the rising water by picking the right meaning in time.',
-    front: 'sv3.png', tilt: -3,
+    sub: 'Word Survival raises the water every time you hesitate.',
   },
   {
-    file: '08_AppStore_LingoQuest.png', theme: LIGHT, kind: 'phone',
+    file: '08_AppStore_LingoQuest.png', theme: LIGHT, shot: 'lesson_mcq.png',
     head: 'Short lessons<br>that <em>stick</em>',
-    sub: 'Read it, hear it, match it — five minutes at a time.',
-    front: 'lesson_mcq.png', tilt: 3.5,
+    sub: 'A few minutes a day, built around spaced repetition.',
   },
   {
-    file: '09_AppStore_LingoQuest.png', theme: AMBER, kind: 'phone',
+    file: '09_AppStore_LingoQuest.png', theme: AMBER, shot: 'lesson_correction.png',
     head: 'Every mistake<br>becomes practice',
-    sub: 'Get it wrong and LingoQuest shows you why, then brings it back.',
-    front: 'lesson_correction.png', tilt: -3,
+    sub: 'Missed words come back until you have them for good.',
   },
   {
-    file: '10_AppStore_LingoQuest.png', theme: DEEP, kind: 'duo',
+    file: '10_AppStore_LingoQuest.png', theme: DEEP, shot: 'statistics.png',
     head: 'Keep the<br><em>streak</em> alive',
-    sub: 'XP, day streaks, badges and every word you have mastered.',
-    front: 'statistics.png', back: 'achievements.png',
+    sub: 'XP, achievements and a daily goal that fits your week.',
   },
 ];
 
-const BUBBLES = [
-  [-150, 110, 430], [1040, 300, 320], [-90, 1520, 250], [1130, 1160, 390],
-  [190, -130, 210], [810, 2480, 330], [-170, 2210, 270], [1190, 2640, 230],
-];
-const marks = (c) => BUBBLES.map(([x, y, d]) =>
-  `<i style="left:${x}px;top:${y}px;width:${d}px;height:${d}px;background:${c}"></i>`
-).join('');
+// --- guard rails -----------------------------------------------------
+//
+// Two ways to ship a rejection, both silent, both closed here.
 
-const src = (f) => 'file:///C:/Duolingo/marketing/ios_clean/' + f;
-
-// The iOS furniture. Drawn, not captured — the cleared bands underneath
-// are the app's own background colour.
-const IOS_CHROME = `
-  <div class="ios-status">
-    <span class="t">9:41</span>
-    <span class="ic">
-      <svg viewBox="0 0 20 13" width="20" height="13" aria-hidden="true">
-        <rect x="0"  y="9"   width="3" height="4"  rx="1" fill="currentColor"/>
-        <rect x="4.5" y="6.5" width="3" height="6.5" rx="1" fill="currentColor"/>
-        <rect x="9"  y="3.5" width="3" height="9.5" rx="1" fill="currentColor"/>
-        <rect x="13.5" y="0" width="3" height="13" rx="1" fill="currentColor"/>
-      </svg>
-      <svg viewBox="0 0 18 13" width="18" height="13" aria-hidden="true">
-        <path d="M9 12.2 6.3 9.3a3.9 3.9 0 0 1 5.4 0Z" fill="currentColor"/>
-        <path d="M9 7.1a6.6 6.6 0 0 0-4.7 2L2.6 7.3a9 9 0 0 1 12.8 0l-1.7 1.8A6.6 6.6 0 0 0 9 7.1Z" fill="currentColor" opacity=".9"/>
-        <path d="M9 2.4A11 11 0 0 0 1.4 5.5L0 4a13 13 0 0 1 18 0l-1.4 1.5A11 11 0 0 0 9 2.4Z" fill="currentColor" opacity=".8"/>
-      </svg>
-      <svg viewBox="0 0 27 13" width="27" height="13" aria-hidden="true">
-        <rect x=".6" y=".6" width="22" height="11.8" rx="3.4"
-              fill="none" stroke="currentColor" stroke-opacity=".4" stroke-width="1.2"/>
-        <rect x="2.2" y="2.2" width="18.8" height="8.6" rx="2.2" fill="currentColor"/>
-        <path d="M24.4 4.6v3.8a2.1 2.1 0 0 0 0-3.8Z" fill="currentColor" fill-opacity=".45"/>
-      </svg>
-    </span>
-  </div>
-  <div class="island"></div>
-  <div class="home-ind"></div>`;
-
-const phone = (file, cls, style) => `
-  <div class="phone ${cls}" style="${style}">
-    <div class="screen">
-      <img src="${src(file)}" alt="">
-      ${IOS_CHROME}
-    </div>
-  </div>`;
-
-const stage = (s) => {
-  if (s.kind === 'grid') {
-    // The app's real cards, rendered by
-    // test/widget/marketing_fun_grid.dart. This used to be ten
-    // hand-made tiles imitating the UI, which is a thing that has to
-    // be redrawn every time the UI moves and quietly goes stale when
-    // it is not.
-    return `<div class="grid"><img src="file:///C:/Duolingo/marketing/raw_ios/fun_grid_all.png" alt=""></div>
-    <img class="mascot" src="file:///C:/Duolingo/assets/images/lingoquest_parrot_celebrate.png" alt="">`;
-  }
-  if (s.kind === 'duo') {
-    return `<div class="stage">
-      ${phone(s.back, 'back', 'transform:rotate(6.5deg) translate(150px,120px) scale(.82);')}
-      ${phone(s.front, 'front', 'transform:rotate(-3.5deg) translate(-46px,0);')}
-    </div>`;
-  }
-  return `<div class="stage">${phone(s.front, 'front', `transform:rotate(${s.tilt || 0}deg);`)}</div>`;
+const pngSize = (p) => {
+  const b = readFileSync(p);
+  return { w: b.readUInt32BE(16), h: b.readUInt32BE(20) };
 };
+
+const missing = SHOTS.filter((s) => !existsSync(`${SRC_DIR}/${s.shot}`));
+if (missing.length) {
+  console.error(
+    `\nNo iOS captures in ${SRC_DIR}\n\n` +
+    missing.map((s) => '  missing: ' + s.shot).join('\n') +
+    '\n\nRun marketing/build/capture_ios.sh on macOS (or the\n' +
+    'ios-screenshots GitHub Actions workflow) to produce them.\n\n' +
+    'Do not point this at marketing/raw_ios/ — those are Pixel 5a\n' +
+    'captures, and submitting them is what got the listing rejected.\n',
+  );
+  process.exit(1);
+}
+
+// A capture that is not exactly 1320x2868 is not from the 6.9"
+// simulator, whatever it is. Resizing one to fit would reintroduce
+// precisely the problem this rewrite exists to remove.
+const wrongSize = SHOTS
+  .map((s) => ({ shot: s.shot, ...pngSize(`${SRC_DIR}/${s.shot}`) }))
+  .filter((s) => s.w !== W || s.h !== H);
+if (wrongSize.length) {
+  console.error(
+    `\nCaptures must be exactly ${W}x${H} (iPhone 16/17 Pro Max):\n\n` +
+    wrongSize.map((s) => `  ${s.shot}: ${s.w}x${s.h}`).join('\n') +
+    '\n\nBoot the simulator named in capture_ios.sh and recapture.\n',
+  );
+  process.exit(1);
+}
+
+// --- template --------------------------------------------------------
+
+const marks = (c) => [
+  [-180, 120, 560], [980, 300, 420], [-120, 1870, 680], [1010, 2290, 520],
+  [420, -220, 380],
+].map(([x, y, d]) =>
+  `<i style="left:${x}px;top:${y}px;width:${d}px;height:${d}px;background:${c}"></i>`,
+).join('');
 
 const page = (s) => `<!doctype html>
 <html><head><meta charset="utf-8">
@@ -196,58 +191,70 @@ const page = (s) => `<!doctype html>
      color:${s.theme.sub};text-align:center;margin-top:32px;max-width:1030px;
      position:relative;z-index:3;padding:0 40px;}
 
-  .stage{position:relative;z-index:2;margin-top:62px;width:100%;flex:1;}
-  /* iPhone bodies are squarer-cornered than the Android frame and have a
-     thinner, more even bezel. */
-  .phone{position:absolute;top:0;left:50%;margin-left:-406px;
-     width:812px;padding:11px;border-radius:76px;background:#0D1A0A;
-     box-shadow:0 42px 92px rgba(6,26,4,.34),0 10px 26px rgba(6,26,4,.20);}
-  .screen{position:relative;width:790px;height:1717px;border-radius:66px;
-     overflow:hidden;background:#F6FAF6;}
-  .screen img{display:block;width:100%;}
-
-  /* iOS status bar, sitting in the band the Android one was lifted out
-     of. Dark glyphs because every LingoQuest screen is light. */
-  .ios-status{position:absolute;top:0;left:0;right:0;height:78px;
-     display:flex;align-items:center;justify-content:space-between;
-     padding:0 46px 0 52px;color:#0C1409;
-     font-family:'Inter',system-ui,sans-serif;}
-  .ios-status .t{font-size:31px;font-weight:600;letter-spacing:.2px;
-     padding-top:12px;}
-  .ios-status .ic{display:flex;align-items:center;gap:9px;padding-top:12px;}
-  .ios-status svg{display:block;}
-  .island{position:absolute;top:19px;left:50%;transform:translateX(-50%);
-     width:224px;height:62px;border-radius:34px;background:#0A0A0A;}
-  .home-ind{position:absolute;bottom:15px;left:50%;transform:translateX(-50%);
-     width:268px;height:9px;border-radius:6px;background:rgba(12,20,9,.34);}
-
-  .grid{position:relative;z-index:2;margin-top:64px;width:1090px;flex:none;
-     border-radius:44px;overflow:hidden;
-     box-shadow:0 24px 54px rgba(16,40,10,.18);}
-  .grid img{display:block;width:1090px;height:auto;}
-  .tile{background:rgba(255,255,255,.92);border:2px solid rgba(31,107,22,.13);
-     border-radius:34px;padding:44px 30px;display:flex;align-items:center;gap:24px;
-     box-shadow:0 12px 28px rgba(16,40,10,.08);}
-  .tile .e{font-size:66px;line-height:1;flex:none;}
-  .tile .n{font-family:'Baloo 2',sans-serif;font-weight:700;font-size:42px;
-     color:#153D0D;letter-spacing:-.5px;line-height:1.08;}
-  .mascot{position:relative;z-index:2;width:420px;margin-top:56px;}
+  /* The capture itself, upright and unframed, bleeding off the bottom
+     edge. The corner radius matches the display's own, so the screen
+     ends the way the hardware does without a body drawn around it.
+     Nothing overlaps the capture: what you see is the whole frame the
+     simulator handed us, status bar and home indicator included. */
+  .shot{position:relative;z-index:2;margin-top:74px;
+     width:${Math.round(W * 0.745)}px;border-radius:62px;overflow:hidden;
+     box-shadow:0 38px 86px ${s.theme.shadow}, 0 9px 24px ${s.theme.shadow};}
+  .shot img{display:block;width:100%;height:auto;}
 </style></head>
 <body>
   <div class="marks">${marks(s.theme.mark)}</div>
   <h1>${s.head}</h1>
   <p class="sub">${s.sub}</p>
-  ${stage(s)}
+  <div class="shot"><img src="file:///${SRC_DIR}/${s.shot}" alt=""></div>
 </body></html>`;
 
+/// Sleeps without spinning the CPU or spawning a process.
+const sleepSync = (ms) =>
+  Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, ms);
+
+/// Blocks until [p] exists and has stopped growing, or [ms] elapses.
+///
+/// Size has to settle as well as exist: a half-written PNG is already
+/// on disk, and reading its header mid-flush gives a bogus dimension
+/// check.
+const waitForFile = (p, ms = 20000) => {
+  const until = Date.now() + ms;
+  let last = -1;
+  while (Date.now() < until) {
+    if (existsSync(p)) {
+      const size = statSync(p).size;
+      if (size > 0 && size === last) return true;
+      last = size;
+    }
+    sleepSync(150);
+  }
+  return false;
+};
+
+let failed = 0;
 for (const s of SHOTS) {
   const htmlPath = `${BUILD}/ios_${s.file.replace('.png', '.html')}`;
   writeFileSync(htmlPath, page(s), 'utf8');
   const outPath = `${OUT}/${s.file}`.split('/').join('\\');
   execFileSync(EDGE, [
     '--headless=new', '--disable-gpu', '--force-device-scale-factor=1',
-    '--hide-scrollbars', `--screenshot=${outPath}`,
+    '--hide-scrollbars', '--virtual-time-budget=4000',
+    `--screenshot=${outPath}`,
     `--window-size=${W},${H}`, 'file:///' + htmlPath,
   ], { stdio: 'pipe' });
-  console.log(existsSync(`${OUT}/${s.file}`) ? 'ok   ' + s.file : 'FAIL ' + s.file);
+
+  // Edge returns before the PNG has landed, so checking immediately
+  // reports every shot as failed while the files appear a moment later.
+  // Wait for it rather than trusting the exit code, which is 0 either
+  // way.
+  if (!waitForFile(`${OUT}/${s.file}`)) {
+    console.log('FAIL ' + s.file);
+    failed++;
+    continue;
+  }
+  const { w, h } = pngSize(`${OUT}/${s.file}`);
+  const ok = w === W && h === H;
+  if (!ok) failed++;
+  console.log(`${ok ? 'ok  ' : 'SIZE'} ${s.file}  ${w}x${h}`);
 }
+process.exit(failed ? 1 : 0);

@@ -60,6 +60,9 @@ app.*.map.json
 marketing/raw/
 marketing/raw_ios/
 marketing/ios_clean/
+# Genuine iOS Simulator captures from capture_ios.sh — regenerated, not
+# versioned, same as every other capture directory above.
+marketing/raw_ios_device/
 marketing/video/
 marketing/*.zip
 
@@ -71,7 +74,25 @@ marketing/build/*
 !marketing/build/*.mjs
 !marketing/build/*.json
 !marketing/build/*.txt
+!marketing/build/*.sh
 
 # Node lives here only to run ffmpeg-static and sharp for those scripts.
 marketing/node_modules/
 tool/node_modules/
+
+# Android signing material. Committing a keystore hands anyone with repo
+# access the ability to publish updates to the Play listing under this
+# identity, and Play will not accept a replacement key without a support
+# escalation — so this one stays out, and so does anything shaped like
+# it.
+android/Lernova_keystore
+*.jks
+*.keystore
+android/key.properties
+
+# Firebase config. google-services.json and GoogleService-Info.plist are
+# not secrets in the credential sense — they ship inside the binary —
+# but they tie the repo to one Firebase project, so they are kept with
+# the release material rather than in source control.
+android/app/google-services.json
+ios/GoogleService-Info.plist
